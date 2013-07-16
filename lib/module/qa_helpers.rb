@@ -103,7 +103,7 @@ module OLE_QA::Framework::Helpers
         yield self
       end
     end
-    @elements << name
+    @elements << name unless force
   end
   alias_method(:element, :set_element)
 
@@ -132,7 +132,7 @@ module OLE_QA::Framework::Helpers
         yield *arg
       end
     end
-    @functions << name
+    @functions << name unless force
   end
   alias_method(:function,:set_function)
 

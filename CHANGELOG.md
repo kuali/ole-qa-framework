@@ -1,9 +1,12 @@
-### v2.1.1 - 2013/07/12
+### v2.1.1 - 2013/07/16
 
-* Patch Bib Editor
-    * Update control field IDs for compatibility with M1-r12784
-* Patch Editor base Class
+* Fix Bib Editor
+    * update control field IDs for compatibility with M1-r12784
+* Fix Editor base Class
     * move message to Bib Editor, span ID is not universal across editor types
+    * update element definitions
+* Helper Modules
+    * don't add element or function to array when force=true
 
 ### v2.1.0 - 2013/07/10
 
