@@ -41,12 +41,25 @@ describe 'The Editor base class' do
   end
 
   it 'should have editor elements' do
-    elements = @editor.methods
+    elements = @editor.elements
     elements.include?(:title).should be_true
     elements.include?(:submit_button).should be_true
     elements.include?(:cancel_button).should be_true
     elements.include?(:close_button).should be_true
     elements.include?(:return_to_search_button).should be_true
+    elements.include?(:delete_bib_button).should be_true
+    elements.include?(:add_instance_button).should be_true
+    elements.include?(:delete_instance_button).should be_true
+    elements.include?(:add_item_button).should be_true
+    elements.include?(:delete_item_button).should be_true
+  end
+
+  it 'should have editor functions' do
+    functions = @editor.functions
+    functions.include?(:save_record).should be_true
+    functions.include?(:holdings_link).should be_true
+    functions.include?(:holdings_icon).should be_true
+    functions.include?(:item_link).should be_true
   end
 
   it 'should wait for a title to be present' do

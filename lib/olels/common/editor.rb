@@ -50,13 +50,12 @@ module OLE_QA::Framework::OLELS
       element(:close_button)                        {b.button(:id => "closeEditor")}
       element(:return_to_search_button)             {b.button(:id => "returnToSearch_button")}
       # Navigation Area Elements
-      # TODO Check on necessity of plurality for add instance button once it is functioning again.  (see OLE-4294)
       element(:delete_bib_button)                   {b.div(:id => 'bibLevelActionSection').div(:index => 2).input(:title => "Delete Bib")}
       element(:add_instance_button)                 {b.div(:id => 'bibLevelActionSection').div(:index => 2).input(:title => "Add Instance")}
+      # @note Vakata Context Menu items are only present on the screen after the containing menu header has been right-clicked.
       element(:delete_instance_button)              {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => "Delete")}
-      # FIXME - Redefine these elements.
-      # element(:add_item_button)                     {b.imgs(:title => "Add Item")}
-      # element(:delete_item_button)                  {b.imgs(:title => "Delete Item")}
+      element(:add_item_button)                     {b.div(:id => 'vakata-contextmenu').ul.li(:index => 2).a(:rel => 'Create')}
+      element(:delete_item_button)                  {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => 'Delete')}
     end
 
     # Designate elements always expected to be present once the editor has finished loading.
