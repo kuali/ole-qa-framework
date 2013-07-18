@@ -56,14 +56,6 @@ describe 'The Bib Editor' do
     elements.include?(:control_007_set_button).should be_true
     elements.include?(:control_007_reset_button).should be_true
     elements.include?(:control_008_field).should be_true
-    elements.include?(:delete_bib_button).should be_true
-    elements.include?(:holdings_link).should be_true
-    elements.include?(:holdings_icon).should be_true
-    elements.include?(:item_links).should be_true
-    elements.include?(:add_instance_buttons).should be_true
-    elements.include?(:delete_instance_buttons).should be_true
-    elements.include?(:add_item_buttons).should be_true
-    elements.include?(:delete_item_buttons).should be_true
   end
 
   it 'should start with one data line added' do
