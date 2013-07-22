@@ -32,12 +32,20 @@ module OLE_QA::Framework::OLELS
       element(:upload_button)           {browser.button(:id => "uploadButton")}
       element(:cancel_button)           {browser.button(:id => "cancelButton")}
       element(:load_reports_button)     {browser.button(:id => "loadReportsButton")}
+      element(:message)                 {browser.div(:id => 'MessageFieldSection').span}
     end
 
     # Wait for title to appear.
     def wait_for_elements
       @wait_on << :title
       super
+    end
+
+    # Add commonly-used functions for staff upload screen.
+    def set_functions
+      # Clicks the upload button and waits for a message to appear.
+      # - Returns the text of the upload message.
+      function(:upload)                 {upload_button.click ; wait_for_page_to_load ; message.when_present.text.strip }
     end
   end
 end
