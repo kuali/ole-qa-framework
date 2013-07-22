@@ -1,3 +1,15 @@
+### v2.2.0 - 2013/07/22
+
+* Staff Upload
+    * staff upload page added to OLELS
+    * accessible through OLEFS main menu page, but coded on OLELS
+
+### v2.1.2 - 2013/07/18
+
+* Compatibility Update
+    * No new or updated definitions added.
+
+
 ### v2.1.1 - 2013/07/12
 
 * Fix Bib Editor
