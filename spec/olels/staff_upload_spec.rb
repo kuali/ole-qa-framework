@@ -43,6 +43,11 @@ describe 'An OLELS Staff Upload page' do
     elements.should include(:load_reports_button)
   end
 
+  it 'should have staff upload functions' do
+    functions = @page.functions
+    functions.should include(:upload)
+  end
+
   it 'should open the staff upload screen via URL' do
     @page.open
     @page.title.text.strip.should == 'Staff Upload'
