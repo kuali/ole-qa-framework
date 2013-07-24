@@ -15,6 +15,6 @@
 module OLE_QA
   module Framework
     # The most recent version of OLE with which this framework is compatible.
-    OLE_VERSION = '0.8.0 - 1.0.0-M2-r13146 :: 2013-07-18'
+    OLE_VERSION = '1.0.0 - M2-r13245 :: 2013-07-24 (Unification)'
   end
 end
