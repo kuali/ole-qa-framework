@@ -16,8 +16,8 @@ module OLE_QA::Framework::OLELS
   # The Return page in the OLE Library System.
   class Return < OLE_QA::Framework::Page
     def initialize(ole_session)
-      url = ole_session.ls_url + 'portal.do?channelTitle=Loan&channelUrl='
-      url += ole_session.ls_url + 'ole-kr-krad/loancontroller?viewId=ReturnItemView&methodToCall=start'
+      url = ole_session.url + 'portal.do?channelTitle=Loan&channelUrl='
+      url += ole_session.url + 'ole-kr-krad/loancontroller?viewId=ReturnItemView&methodToCall=start'
       super(ole_session, url)
     end
 

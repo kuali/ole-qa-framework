@@ -16,7 +16,7 @@ module OLE_QA::Framework::OLEFS
   # An OLE Financial System Receiving Document
   class Receiving_Document < PURAP_Document
     def initialize(ole_session)
-      new_receiving_doc_url = ole_session.fs_url + 'portal.do?channelTitle=Receiving&channelUrl=selectOleLineItemReceiving.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_RCVL'
+      new_receiving_doc_url = ole_session.url + 'portal.do?channelTitle=Receiving&channelUrl=selectOleLineItemReceiving.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_RCVL'
       super(ole_session, new_receiving_doc_url)
     end
 

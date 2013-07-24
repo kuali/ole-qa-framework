@@ -16,8 +16,8 @@ module OLE_QA::Framework::OLEFS
   # An OLE Financial System Load Summary Lookup page.
   class Load_Summary_Lookup < Lookup
     def initialize(ole_session)
-      url = ole_session.fs_url + 'portal.do?channelTitle=Load%20Reports&channelUrl=batchlookup.do?methodToCall=start&businessObjectClassName=org.kuali.ole.select.businessobject.OleLoadSumRecords&docFormKey=88888888&returnLocation='
-      url += ole_session.fs_url + 'portal.do&hideReturnLink=true'
+      url = ole_session.url + 'portal.do?channelTitle=Load%20Reports&channelUrl=batchlookup.do?methodToCall=start&businessObjectClassName=org.kuali.ole.select.businessobject.OleLoadSumRecords&docFormKey=88888888&returnLocation='
+      url += ole_session.url + 'portal.do&hideReturnLink=true'
       super(ole_session, url)
     end
 

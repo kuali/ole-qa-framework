@@ -16,9 +16,9 @@ module OLE_QA::Framework::OLELS
   # The Patron lookup page in the OLE Library System.
   class Patron_Lookup < Lookup
     def initialize(ole_session)
-      url = ole_session.ls_url + 'portal.do?channelTitle=Patron&channelUrl='
-      url += ole_session.ls_url + 'ole-kr-krad/lookup?methodToCall=start&dataObjectClassName=org.kuali.ole.patron.bo.OlePatronDocument&returnLocation='
-      url += ole_session.ls_url + 'portal.do&hideReturnLink=true&showMaintenanceLinks=true'
+      url = ole_session.url + 'portal.do?channelTitle=Patron&channelUrl='
+      url += ole_session.url + 'ole-kr-krad/lookup?methodToCall=start&dataObjectClassName=org.kuali.ole.patron.bo.OlePatronDocument&returnLocation='
+      url += ole_session.url + 'portal.do&hideReturnLink=true&showMaintenanceLinks=true'
       super(ole_session, url)
     end
 

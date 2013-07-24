@@ -16,7 +16,7 @@ module OLE_QA::Framework::OLEFS
   # An OLE Financial System Payment Request Document.
   class Payment_Request < PURAP_Document
     def initialize(ole_session)
-      new_preq_url = ole_session.fs_url + 'portal.do?channelTitle=Payment Request&channelUrl=selectOlePaymentRequest.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_PREQ'
+      new_preq_url = ole_session.url + 'portal.do?channelTitle=Payment Request&channelUrl=selectOlePaymentRequest.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_PREQ'
       super(ole_session, new_preq_url)
     end
 

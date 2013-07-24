@@ -17,10 +17,10 @@ module OLE_QA::Framework::OLEFS
   # - Many screen elements are identical to those of a Requisition
   # - Line Item handling is identical to that of a Requisition
   class Purchase_Order < PURAP_Document
-    # Initialize with a URL of OLE_QA::Framework::Session.base_url
+    # Initialize with a URL of OLE_QA::Framework::Session.url
     # @note OLEFS Purchase Orders do not have a direct link to open new documents.
     def initialize(ole_session)
-      super(ole_session, ole_session.base_url)
+      super(ole_session, ole_session.url)
     end
 
     # Create a new line item object on the purchase order.

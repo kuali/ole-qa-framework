@@ -16,7 +16,7 @@ module OLE_QA::Framework::OLEFS
   # A Payment Request Creation screen in the OLE Financial System
   class PREQ_Creation < E_Doc
     def initialize(ole_session)
-      url = ole_session.fs_url + 'portal.do?channelTitle=Payment Request&channelUrl=selectOlePaymentRequest.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_PREQ'
+      url = ole_session.url + 'portal.do?channelTitle=Payment Request&channelUrl=selectOlePaymentRequest.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_PREQ'
       super(ole_session, url)
     end
 

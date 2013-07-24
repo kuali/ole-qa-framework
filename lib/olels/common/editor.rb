@@ -33,8 +33,8 @@ module OLE_QA::Framework::OLELS
     # correctly.
     #
     def initialize(ole_session)
-      editor_url =  ole_session.ls_url + 'portal.do?channelTitle=Editor&channelUrl='
-      editor_url += ole_session.ls_url + 'ole-kr-krad/editorcontroller?viewId=EditorView&methodToCall=load&docCategory=work&docType=bibliographic&docFormat=marc&editable=true'
+      editor_url =  ole_session.url + 'portal.do?channelTitle=Editor&channelUrl='
+      editor_url += ole_session.url + 'ole-kr-krad/editorcontroller?viewId=EditorView&methodToCall=load&docCategory=work&docType=bibliographic&docFormat=marc&editable=true'
       super(ole_session, editor_url)
       set_lines if defined?(self.set_lines)
     end

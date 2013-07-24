@@ -17,7 +17,7 @@ module OLE_QA::Framework::OLEFS
   class Main_Menu < OLE_QA::Framework::Page
     # Set URL and initialize.
     def initialize(ole_session)
-      super(ole_session, ole_session.base_url)
+      super(ole_session, ole_session.url)
     end
   end
 end

@@ -18,9 +18,9 @@ module OLE_QA::Framework::OLEFS
     # Set URL and initialize.
     def initialize(ole_session)
       # Set @url instance variable from OLE Base URL Variable
-      url = ole_session.base_url + \
+      url = ole_session.url + \
         'portal.do?channelTitle=Vendor&channelUrl=kr/lookup.do?methodToCall=start&businessObjectClassName=org.kuali.ole.vnd.businessobject.VendorDetail&docFormKey=88888888&returnLocation=' \
-        + ole_session.base_url + \
+        + ole_session.url + \
         'portal.do&hideReturnLink=true'
       super(ole_session, url)
     end

@@ -1,7 +1,6 @@
 # Default options for non-development use.
 ---
-:base_url: http://tst.ole.kuali.org/
-:ls_url: http://tst.rice2.ole.kuali.org/
+:url: http://tst.ole.kuali.org/
 :headless?: true
 :implicit_wait: 0
 :explicit_wait: 15

@@ -79,12 +79,12 @@ module OLE_QA
     class Session
 
       # OLE Installation Base URL
-      # - Also serves as OLE Financial System Main Menu URL
-      attr_reader :base_url
-      alias :fs_url :base_url
-
-      # OLE Library System Base URL
-      attr_reader :ls_url
+      #   (e.g. http://ole.your-site.edu)
+      attr_reader :url
+      # @deprecated Included for backwards compatibility.  Unnecessary after 1.0.0 unification (milestone m2-r13245).
+      alias :fs_url   :url
+      alias :base_url :url
+      alias :ls_url   :url
 
       # Wait period (in seconds) used by OLE QAF Web Element functions
       attr_accessor :explicit_wait
@@ -93,10 +93,8 @@ module OLE_QA
       attr_reader :options
 
       # Options hash keys:
-      #   :base_url => "http://tst.ole.kuali.org/"
+      #   :url => "http://tst.ole.kuali.org/"
       #     (URL for OLE Installation)
-      #   :ls_url => "http://tst.rice2.ole.kuali.org"
-      #     (URL for OLE Library System Rice Instance)
       #   :headless => true/false
       #     (Use Headless gem to handle XVFB session)
       #   :implicit_wait => NN
@@ -124,8 +122,7 @@ module OLE_QA
         end
 
         # Globalize options to accessors
-        @base_url = @options[:base_url]
-        @ls_url = @options[:ls_url]
+        @url = @options[:url]
         @explicit_wait = @options[:explicit_wait]
         @doc_wait = @options[:doc_wait]
 

@@ -17,7 +17,7 @@ module OLE_QA::Framework::OLEFS
   class Requisition < PURAP_Document
     # Set URL and initialize.
     def initialize(ole_session)
-      new_requisition_url = ole_session.fs_url + 'portal.do?channelTitle=Requisition&channelUrl=purapOleRequisition.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_REQS'
+      new_requisition_url = ole_session.url + 'portal.do?channelTitle=Requisition&channelUrl=purapOleRequisition.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_REQS'
       super(ole_session, new_requisition_url)
     end
 

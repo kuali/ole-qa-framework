@@ -17,7 +17,7 @@ module OLE_QA::Framework::OLELS
   class Main_Menu < OLE_QA::Framework::Page
     # Set page URL to OLE Library System URL
     def initialize(ole_session)
-      url = ole_session.ls_url
+      url = ole_session.url
       super(ole_session, url)
     end
 
