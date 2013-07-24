@@ -38,7 +38,8 @@ describe 'An OLEFS Load Summary Lookup page' do
   end
 
   it 'should have load summary functions' do
-
+    functions = @page.functions
+    functions.should include(:doc_link_by_text)
   end
 
   it 'should open the load summary lookup screen via URL' do

@@ -34,7 +34,9 @@ module OLE_QA::Framework::OLEFS
 
     # Define commonly used functions for Load Summary Lookup screen.
     def set_functions
-
+      super
+      # Return the link to a document by any text in the row.
+      function(:doc_link_by_text)               {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent.td(:index => 0).a}
     end
   end
 end

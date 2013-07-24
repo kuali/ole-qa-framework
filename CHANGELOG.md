@@ -1,3 +1,19 @@
+### v2.3.0 - 2013/07/??
+
+* Pages Added
+    * OLEFS
+        * Load Summary Lookup (for Staff Upload load reports)
+* Functions Added
+    * OLEFS
+        * Lookup
+            * row_by_td_text, row_by_text
+                * Return a search results row by the text of a td element in that row.
+        * Load Summary Lookup
+            * doc_link_by_text
+                * Return the link to a load report document by the text found in any td
+                element in that row.
+
+
 ### v2.2.0 - 2013/07/22
 
 * Staff Upload

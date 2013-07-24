@@ -26,5 +26,12 @@ module OLE_QA::Framework::OLEFS
       element(:clear_button)                    {b.input(:title => "clear")}
       element(:cancel_button)                   {b.input(:title => "cancel")}
     end
+
+    # Set commonly-used lookup page functions.
+    def set_functions
+      # Return a search results row by searching on the text in a given table cell.
+      function(:row_by_td_text)                 {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent}
+      function(:row_by_text)                    {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent}
+    end
   end
 end

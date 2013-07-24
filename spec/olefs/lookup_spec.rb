@@ -41,4 +41,10 @@ describe 'An OLEFS Lookup page' do
     methods.include?(:clear_button).should be_true
     methods.include?(:cancel_button).should be_true
   end
+
+  it 'should have lookup page functions' do
+    functions = @lookup.functions
+    functions.should include(:row_by_td_text)
+    functions.should include(:row_by_text)
+  end
 end
