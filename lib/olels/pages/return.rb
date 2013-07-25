@@ -51,6 +51,7 @@ module OLE_QA::Framework::OLELS
 
     # Set commonly used functions on return page.
     def set_functions
+      super
       function(:item_barcode_link)                        {|which = 1|  b.div(:id => "returnBarcode_line#{which-1}").a}
       function(:item_title)                               {|which = 1|  b.span(:id => "returnTitle_line#{which-1}_control")}
       function(:item_author)                              {|which = 1|  b.span(:id => "returnAuthor_line#{which-1}_control")}

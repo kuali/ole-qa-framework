@@ -68,5 +68,27 @@ module OLE_QA::Framework
     def wait_for_page_to_load
       @wait_on.each { |element| wait_for_element(element) }
     end
+
+    # Set screen elements common to most or all pages across the OLE interface.
+    def set_elements
+      # These elements exist outside of any frame, so @browser is used to force
+      #   Watir-Webdriver to give access to a bare browser even on a page with a frame.
+      #   See {OLE_QA::Framework::Helpers#browser} for frame handling.
+      element(:login_field)           {@browser.text_field(:name => 'backdoorId')}
+      element(:login_button)          {@browser.input(:class => 'go', :value => 'Login')}
+      element(:logout_button)         {@browser.input(:class => 'go', :value => 'Logout')}
+      element(:login_confirmation)    {@browser.div(:id => 'login-info').strong(:text => /Impersonating User\:/)}
+    end
+
+    # Set functions common to most or all pages across the OLE interface.
+    def set_functions
+      # Login as a given user.
+      # @param username [String] The username to use.
+      # @return [Boolean] Whether the login process succeeded.
+      function(:login)                {|as_who = 'ole-khuntley'| raise OLE_QA::Framework::Error,"Login field not present on this page: #{self.class.name}" unless login_field.present? ; login_field.set(as_who) ; login_button.click ; login_confirmation.text.match(/#{as_who}/)}
+      # Logout from previous login.
+      # @return [Boolean] Whether the logout process succeeded.
+      function(:logout)               { logout_button.click ; login_confirmation.present? ? false : true}
+    end
   end
 end

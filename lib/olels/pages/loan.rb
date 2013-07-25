@@ -73,6 +73,7 @@ module OLE_QA::Framework::OLELS
 
     # Set commonly-used functions for loan screen.
     def set_functions
+      super
       # Current Item Functions - Pass a (1-based) numerical position to refer to a specific item line.
       # (Defaults to 1.)
       function(:item_selector)                            {|which = 1|  b.checkbox(:id => "checkId_line#{which-1}_control")}

@@ -29,6 +29,7 @@ module OLE_QA::Framework::OLEFS
 
     # Set commonly-used lookup page functions.
     def set_functions
+      super
       # Return a search results row by searching on the text in a given table cell.
       function(:row_by_td_text)                 {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent}
       function(:row_by_text)                    {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent}

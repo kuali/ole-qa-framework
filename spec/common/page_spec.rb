@@ -41,4 +41,17 @@ describe "A Page" do
     @page.browser.class.should == Watir::Frame
   end
 
+  it 'should be able to login as another user' do
+    @page.open
+    @page.login('ole-abeal').should be_true
+  end
+
+  it 'should be able to logout' do
+    @page.logout.should be_true
+  end
+
+  it 'should raise an error if the login field is not present' do
+    @ole.open('www.google.com')
+    lambda {@page.login}.should raise_error(error=OLE_QA::Framework::Error)
+  end
 end

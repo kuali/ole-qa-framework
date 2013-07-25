@@ -43,6 +43,7 @@ module OLE_QA::Framework::OLELS
 
     # Add commonly-used functions for staff upload screen.
     def set_functions
+      super
       # Clicks the upload button and waits for a message to appear.
       # - Returns the text of the upload message.
       function(:upload)                 {upload_button.click ; wait_for_page_to_load ; message.when_present.text.strip }
