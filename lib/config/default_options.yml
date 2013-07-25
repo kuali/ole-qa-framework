@@ -1,7 +1,7 @@
-# Default options for non-development use.
+# Default options for using development environment.
 ---
-:url: http://tst.ole.kuali.org/
+:url: http://dev.ole.kuali.org/
 :headless?: true
 :implicit_wait: 0
 :explicit_wait: 15
-:doc_wait: 45
+:doc_wait: 60
