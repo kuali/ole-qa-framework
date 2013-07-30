@@ -85,7 +85,7 @@ module OLE_QA::Framework
       # Login as a given user.
       # @param username [String] The username to use.
       # @return [Boolean] Whether the login process succeeded.
-      function(:login)                {|as_who = 'ole-khuntley'| raise OLE_QA::Framework::Error,"Login field not present on this page: #{self.class.name}" unless login_field.present? ; login_field.set(as_who) ; login_button.click ; login_confirmation.text.match(/#{as_who}/)}
+      function(:login)                {|as_who = 'ole-khuntley'| raise OLE_QA::Framework::Error,"Login field not present on this page: #{self.class.name}" unless login_field.present? ; login_field.set(as_who) ; login_button.click ; if login_confirmation.present? then login_confirmation.text.match(/#{as_who}/) ? true : false else false end}
       # Logout from previous login.
       # @return [Boolean] Whether the logout process succeeded.
       function(:logout)               { logout_button.click ; login_confirmation.present? ? false : true}

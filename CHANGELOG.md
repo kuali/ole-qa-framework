@@ -3,6 +3,7 @@
 * Small Fixes
     * Update .open method to default to @url
     * Update documentation
+    * Update .login function on page - return false if no response
 
 ### v2.4.0 - 2013/07/25
 
