@@ -153,7 +153,7 @@ module OLE_QA
       end
 
       # Open a page via URL.  (Defaults to @base_url.)
-      def open(url = @base_url)
+      def open(url = @url)
         @browser.goto(url)
       end
 
