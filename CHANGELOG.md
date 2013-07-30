@@ -1,4 +1,19 @@
-### v2.3.0 - 2013/07/??
+### v2.4.1 - 2013/07/30
+
+* Small Fixes
+    * Update .open method to default to @url
+    * Update documentation
+
+### v2.4.0 - 2013/07/25
+
+* Unify URLs for Unified OLE Interface
+    * .url method is main URL on Framework Session
+    * Aliased for backwards compatibility:
+        * .base_url -> .url
+        * .ls_url   -> .url
+        * .fs_url   -> .url
+
+### v2.3.0 - 2013/07/24
 
 * Pages Added
     * OLEFS
