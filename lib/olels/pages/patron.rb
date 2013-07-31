@@ -14,6 +14,9 @@
 
 module OLE_QA::Framework::OLELS
   # A single patron record in the OLE Library System.
+  # @note Use of this page may require a special login.  The default user,
+  #   ole-khuntley, does not have sufficient permissions to create a new
+  #   patron record (as of 1.0.0-M2-r13397, 07/31/2013).
   class Patron < E_Doc
     # The page object will open a new patron record by default.
     def initialize(ole_session)
@@ -24,12 +27,12 @@ module OLE_QA::Framework::OLELS
 
     # Define screen elements for patron record screen.
     def set_elements
-
+      super
     end
 
     # Define commonly used functions for patron record screen.
     def set_functions
-
+      super
     end
 
     # Wait for certain screen elements to be present before page is considered loaded.
