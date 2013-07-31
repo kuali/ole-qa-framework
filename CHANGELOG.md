@@ -1,3 +1,7 @@
+### v2.5.0 - 2013/07/??
+
+* Add Patron Record Screen
+
 ### v2.4.1 - 2013/07/30
 
 * Small Fixes
