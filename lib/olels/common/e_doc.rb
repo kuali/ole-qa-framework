@@ -17,6 +17,7 @@ module OLE_QA::Framework::OLELS
   class E_Doc < OLE_QA::Framework::Page
     # Set elements common to all OLELS E-Document pages.
     def set_elements
+      super
       element(:title)                                 {b.h1(:class => 'uif-headerText').span(:class => 'uif-headerText-span')}
       element(:description_field)                     {b.text_field(:xpath => "//tr/th[descendant::label[contains(text(),'Description:')]]/following-sibling::td[1]/descendant::input[1]")}
       element(:explanation_field)                     {b.text_field(:xpath => "//tr/th[descendant::label[contains(text(),'Explanation:')]]/following-sibling::td[1]/descendant::textarea[1]")}
