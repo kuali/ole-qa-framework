@@ -15,7 +15,7 @@
 require 'rspec'
 require 'spec_helper'
 
-describe 'My behaviour' do
+describe 'A patron record page' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
@@ -33,7 +33,7 @@ describe 'My behaviour' do
 
   it 'should have patron elements' do
     elements = @page.elements
-    elements.should include(:patron_id)
+    elements.should include(:patron_id_link)
     elements.should include(:barcode_field)
     elements.should include(:borrower_type_selector)
     elements.should include(:source_selector)
