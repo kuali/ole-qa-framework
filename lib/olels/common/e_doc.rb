@@ -17,7 +17,14 @@ module OLE_QA::Framework::OLELS
   class E_Doc < OLE_QA::Framework::Page
     # Set elements common to all OLELS E-Document pages.
     def set_elements
+      element(:title)                                 {b.h1(:class => 'uif-headerText').span(:class => 'uif-headerText-span')}
       element(:description_field)                     {b.text_field(:xpath => "//tr/th[descendant::label[contains(text(),'Description:')]]/following-sibling::td[1]/descendant::input[1]")}
+      element(:explanation_field)                     {b.text_field(:xpath => "//tr/th[descendant::label[contains(text(),'Explanation:')]]/following-sibling::td[1]/descendant::textarea[1]")}
+      element(:org_doc_number_field)                  {b.text_field(:xpath => "//tr/th[descendant::label[contains(text(),'Organization Document Number:')]]/following-sibling::td[1]/descendant::input[1]")}
+      element(:document_id)                           {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Document Number:')]]/following-sibling::td[1]/div/span")}
+      element(:initiator_id)                          {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Initiator Network Id:')]]/following-sibling::td[1]/div/span")}
+      element(:document_status)                       {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Document Status:')]]/following-sibling::td[1]/div/span")}
+      element(:creation_timestamp)                    {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Creation Timestamp:')]]/following-sibling::td[1]/div/span")}
     end
   end
 end

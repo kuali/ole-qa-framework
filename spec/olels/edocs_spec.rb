@@ -37,6 +37,14 @@ describe 'An OLELS E-Document' do
   end
 
   it 'should have e-document elements' do
-    # None yet.
+    elements = @edoc.elements
+    elements.should include(:title)
+    elements.should include(:description_field)
+    elements.should include(:explanation_field)
+    elements.should include(:org_doc_number_field)
+    elements.should include(:document_id)
+    elements.should include(:document_status)
+    elements.should include(:initiator_id)
+    elements.should include(:creation_timestamp)
   end
 end
