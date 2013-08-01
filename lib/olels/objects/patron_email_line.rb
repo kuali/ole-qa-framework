@@ -12,3 +12,28 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+module OLE_QA::Framework::OLELS
+  # A line of email address information on a patron record.
+  class Patron_Email_Line < Line_Object
+    # Set screen elements on patron record email info line.
+    def set_elements
+      element(:email_type_selector)                       {(@line_id == 0) ?
+                                                            id_str = 'emailTypeCode_add_control' :
+                                                            id_str = "emailTypeCode_line#{@line_id - 1}_control"
+                                                            b.select_list(:id => id_str)}
+      element(:email_address_field)                       {(@line_id == 0) ?
+                                                            id_str = 'emailAddress_add_control' :
+                                                            id_str = "emailAddress_line#{@line_id - 1}_control"
+                                                            b.text_field(:id => id_str)}
+      element(:preferred_checkbox)                        {(@line_id == 0) ?
+                                                            id_str = 'email_defaultValue_add_control' :
+                                                            id_str = "email_defaultValue_line#{@line_id - 1}_control"
+                                                            b.checkbox(:id => id_str)}
+      element(:active_checkbox)                           {(@line_id == 0) ?
+                                                            id_str = 'email_active_add_control' :
+                                                            id_str = "email"}
+      element(:add_button)                                {b.button(:id => 'OlePatronDocument-Email_add')}
+      element(:delete_button)                             {b.button(:id => "OlePatronDocument-Email_del_line#{@line_id - 1}")}
+    end
+  end
+end
