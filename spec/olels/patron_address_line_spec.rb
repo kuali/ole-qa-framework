@@ -15,11 +15,41 @@
 require 'rspec'
 require 'spec_helper'
 
-describe 'My behaviour' do
+describe 'A patron address line' do
 
-  it 'should do something' do
+  before :all do
+    @ole = OLE_QA::Framework::Session.new
+    @line_1 = OLE_QA::Framework::OLELS::Patron_Address_Line.new(@ole, 1)
+    @line_2 = OLE_QA::Framework::OLELS::Patron_Address_Line.new(@ole, 2)
+  end
 
-    #To change this template use File | Settings | File Templates.
-    true.should == false
+  after :all do
+    @ole.quit
+  end
+
+  it 'should create a new instance' do
+    @line_1.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Address_Line)
+    @line_1.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+  end
+
+  it 'should have address line elements' do
+    elements = @line_1.elements
+    elements.should include(:details_link)
+    elements.should include(:address_type_selector)
+    elements.should include(:address_source_selector)
+    elements.should include(:valid_from_date_field)
+    elements.should include(:valid_to_date_field)
+    elements.should include(:verified_checkbox)
+    elements.should include(:preferred_checkbox)
+    elements.should include(:active_checkbox)
+    elements.should include(:line_1_field)
+    elements.should include(:line_2_field)
+    elements.should include(:line_3_field)
+    elements.should include(:city_field)
+    elements.should include(:state_selector)
+    elements.should include(:postal_code_field)
+    elements.should include(:country_selector)
+    elements.should include(:add_button)
+    elements.should include(:delete_button)
   end
 end
