@@ -40,5 +40,35 @@ module OLE_QA::Framework::OLELS
       @wait_on << :document_number
       @wait_on << :patron_id
     end
+
+    def create_address_line(which = 1)
+      create_line("address_line_#{which}","Patron_Address_Line", which)
+    end
+    alias_method(:add_address_line, :create_address_line)
+
+    def create_phone_line(which = 1)
+      create_line("phone_line_#{which}","Patron_Phone_Line", which)
+    end
+    alias_method(:add_phone_line, :create_phone_line)
+
+    def create_email_line(which = 1)
+      create_line("email_line_#{which}","Patron_Email_Line", which)
+    end
+    alias_method(:add_email_line, :create_email_line)
+
+    def remove_address_line(which = 1)
+      remove_line("address_line_#{which}")
+    end
+    alias_method(:delete_address_line, :remove_address_line)
+
+    def remove_phone_line(which = 1)
+      remove_line("phone_line_#{which}")
+    end
+    alias_method(:delete_phone_line, :remove_phone_line)
+
+    def remove_email_line(which = 1)
+      remove_line("email_line_#{which}")
+    end
+    alias_method(:delete_email_line, :remove_email_line)
   end
 end
