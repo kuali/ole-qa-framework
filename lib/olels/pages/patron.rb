@@ -39,7 +39,16 @@ module OLE_QA::Framework::OLELS
       element(:source_selector)                               {b.select_list(:id => 'sourceType_control')}
       element(:patron_image_field)                            {b.input(:id => 'attachment_Files_control').to_subtype}
       element(:upload_image_button)                           {b.button(:id => 'uploadButton_patron')}
-
+      element(:statistical_category_selector)                 {b.select_list(:id => 'statisticalCategory_control')}
+      element(:activation_date_field)                         {b.text_field(:id => 'activationDate_control')}
+      element(:expiration_date_field)                         {b.text_field(:id => 'expirationDate_control')}
+      element(:active_checkbox)                               {b.checkbox(:id => 'activeIndicator_control')}
+      element(:name_type)                                     {b.span(:id => /nameType.*control/)}
+      element(:title_selector)                                {b.select_list(:id => /namePrefix.*control/)}
+      element(:first_name_field)                              {b.text_field(:id => /firstName.*control/)}
+      element(:middle_name_field)                             {b.text_field(:id => /middleName.*control/)}
+      element(:last_name_field)                               {b.text_field(:id => /lastName.*control/)}
+      element(:suffix_selector)                               {b.select_list(:id => /nameSuffix.*control/)}
     end
 
     # Define commonly used functions for patron record screen.
