@@ -19,7 +19,7 @@ module OLE_QA::Framework::OLELS
     def set_elements
       element(:phone_type_selector)               {(@line_id == 0) ?
                                                     id_str = 'phoneTypeCode_add_control' :
-                                                    id_str = "phoneTypeCode_line#{@line_id - 1}"
+                                                    id_str = "phoneTypeCode_line#{@line_id - 1}_control"
                                                     b.select_list(:id => id_str)}
       element(:phone_number_field)                {(@line_id == 0) ?
                                                     id_str = 'phoneNumber_add_control' :
