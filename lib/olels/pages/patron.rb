@@ -23,21 +23,46 @@ module OLE_QA::Framework::OLELS
       url = ole_session.url + 'ole-kr-krad/patronMaintenance?viewTypeName=MAINTENANCE&returnLocation='
       url += ole_session.url + 'portal.do&methodToCall=start&dataObjectClassName=org.kuali.ole.deliver.bo.OlePatronDocument'
       super(ole_session, url)
+
+      # Set up initial contact info lines, one of each.
+      add_address_line(1)
+      add_phone_line(1)
+      add_email_line(1)
     end
 
     # Define screen elements for patron record screen.
     def set_elements
       super
+      element(:patron_id_link)                                {b.a(:xpath => "//th[span/label[contains(text(),'Patron Id:')]]/following-sibling::td[1]/div/span/a")}
+      element(:barcode_field)                                 {b.text_field(:id => 'barcode_control')}
+      element(:borrower_type_selector)                        {b.select_list(:id => 'borrowerType_control')}
+      element(:source_selector)                               {b.select_list(:id => 'sourceType_control')}
+      element(:patron_image_field)                            {b.input(:id => 'attachment_Files_control').to_subtype}
+      element(:upload_image_button)                           {b.button(:id => 'uploadButton_patron')}
+
     end
 
     # Define commonly used functions for patron record screen.
     def set_functions
       super
+      # If the .patron_image_field has already been set once, IDs of related elements change.
+      # Use this method to update element IDs on the page object.  It will return true if the IDs have been updated, false if the default IDs are still being used.
+      function(:redefine_patron_image_elements)               do
+                                                                if b.input(:id => 'attachment_File_edit_control').present?
+                                                                  set_element(:patron_image_field, true)  {b.input(:id => 'attachment_File_edit_control').to_subtype}
+                                                                  set_element(:upload_image_button,true)  {b.button(:id => 'uploadButton_edit')}
+                                                                  true
+                                                                else
+                                                                  set_element(:patron_image_field, true)  {b.input(:id => 'attachment_Files_control').to_subtype}
+                                                                  set_element(:upload_image_button, true) {b.button(:id => 'uploadButton_patron')}
+                                                                  false
+                                                                end
+                                                              end
     end
 
     # Wait for certain screen elements to be present before page is considered loaded.
     def wait_for_elements
-      @wait_on << :document_number
+      @wait_on << :document_id
       @wait_on << :patron_id
     end
 

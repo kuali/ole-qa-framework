@@ -37,7 +37,7 @@ describe 'A patron record page' do
     elements.should include(:barcode_field)
     elements.should include(:borrower_type_selector)
     elements.should include(:source_selector)
-    elements.should include(:browse_image_button)
+    elements.should include(:patron_image_field)
     elements.should include(:upload_image_button)
     elements.should include(:statistical_category_selector)
     elements.should include(:activation_date_field)
@@ -69,6 +69,8 @@ describe 'A patron record page' do
   end
 
   it 'should have patron functions' do
+    functions = @page.functions
+    functions.should include(:redefine_patron_image_elements)
   end
 
   it 'should have contact info lines' do
