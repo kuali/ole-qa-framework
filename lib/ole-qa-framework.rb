@@ -49,7 +49,6 @@ module OLE_QA
     # If pages or elements need to be inherited by subclasses, put them in a (foo)/common/ directory.
     # Subobject directories (foo)/subobjects/ should be loaded before object directories (foo)/objects/ for inheritance.
     load_libs("/common/")
-    # load_libs("/olefs/")
     load_libs("/olefs/common/")
     load_libs("/olefs/subobjects/")
     load_libs("/olefs/objects/")
