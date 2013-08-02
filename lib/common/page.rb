@@ -78,6 +78,7 @@ module OLE_QA::Framework
       element(:login_button)          {@browser.input(:class => 'go', :value => 'Login')}
       element(:logout_button)         {@browser.input(:class => 'go', :value => 'Logout')}
       element(:login_confirmation)    {@browser.div(:id => 'login-info').strong(:text => /Impersonating User\:/)}
+      element(:loading_message)       {@browser.body.div.h1.img(:alt => 'Loading...')}
     end
 
     # Set functions common to most or all pages across the OLE interface.
