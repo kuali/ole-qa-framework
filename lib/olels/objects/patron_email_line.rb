@@ -31,7 +31,8 @@ module OLE_QA::Framework::OLELS
                                                             b.checkbox(:id => id_str)}
       element(:active_checkbox)                           {(@line_id == 0) ?
                                                             id_str = 'email_active_add_control' :
-                                                            id_str = "email"}
+                                                            id_str = "email_active_line#{@line_id - 1}_control"
+                                                            b.checkbox(:id => id_str)}
       element(:add_button)                                {b.button(:id => 'OlePatronDocument-Email_add')}
       element(:delete_button)                             {b.button(:id => "OlePatronDocument-Email_del_line#{@line_id - 1}")}
     end
