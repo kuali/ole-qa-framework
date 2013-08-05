@@ -44,5 +44,11 @@ module OLE_QA::Framework::OLELS
       remove_instance_variable("@#{instance_name}".to_sym)
       unmake_attr(instance_name.to_sym)
     end
+
+    def wait_for_elements
+      super
+      @wait_on << :title
+      @wait_on << :document_id
+    end
   end
 end
