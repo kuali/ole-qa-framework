@@ -33,7 +33,7 @@ module OLE_QA::Framework::OLELS
     # Define screen elements for patron record screen.
     def set_elements
       super
-      element(:patron_id_link)                                {b.a(:xpath => "//th[span/label[contains(text(),'Patron Id:')]]/following-sibling::td[1]/div/span/a")}
+      element(:patron_id)                                     {b.a(:xpath => "//th[span/label[contains(text(),'Patron Id:')]]/following-sibling::td[1]/div/span/a")}
       element(:barcode_field)                                 {b.text_field(:id => 'barcode_control')}
       element(:borrower_type_selector)                        {b.select_list(:id => 'borrowerType_control')}
       element(:source_selector)                               {b.select_list(:id => 'sourceType_control')}
@@ -49,6 +49,26 @@ module OLE_QA::Framework::OLELS
       element(:middle_name_field)                             {b.text_field(:id => /middleName.*control/)}
       element(:last_name_field)                               {b.text_field(:id => /lastName.*control/)}
       element(:suffix_selector)                               {b.select_list(:id => /nameSuffix.*control/)}
+      element(:affiliation_toggle)                            {b.a(:id => 'OlePatronDocument-Affiliation_toggle')}
+      element(:library_policies_toggle)                       {b.a(:id => 'OlePatronDocument-LibraryPoliciesSection_toggle')}
+      element(:loaned_records_toggle)                         {b.a(:id => 'OlePatronDocument-PatronLoanedRecords_toggle')}
+      element(:requested_records_toggle)                      {b.a(:id => 'OlePatronDocument-PatronRequestedRecords_toggle')}
+      element(:temp_circ_history_toggle)                      {b.a(:id => 'OlePatronDocument-TemporaryCirculationHistoryRecords_toggle')}
+      element(:note_toggle)                                   {b.a(:id => 'OlePatronDocument-NotesSection_toggle')}
+      element(:proxy_patron_toggle)                           {b.a(:id => 'OlePatronDocument-ProxySection_toggle')}
+      element(:proxy_for_toggle)                              {b.a(:id => 'OlePatronDocument-ProxyForSection_toggle')}
+      element(:local_id_toggle)                               {b.a(:id => 'OlePatronDocument-PatronLocalIdSection_toggle')}
+      element(:lost_barcode_toggle)                           {b.a(:id => 'OlePatronDocument-InvalidOrLostBarcodeSection_toggle')}
+      # TODO Check on OLE-4523 for the establishment of the element ID in the ad_hoc_toggle link.
+      element(:ad_hoc_toggle)                                 {b.a(:id => 'OlePatronDocument-AdHocRecipientsSection_toggle')}
+      # TODO Check on OLE-4526 for the establishment of the element ID in the route_log_toggle link.
+      element(:route_log_toggle)                              {b.a(:id => 'OlePatronDocument-RouteLogSection_toggle')}
+      element(:contacts_toggle)                               {b.a(:id => 'OlePatronDocument-ContactsSection_toggle')}
+      element(:overview_toggle)                               {b.a(:id => 'OlePatronDocument-OverviewSection_toggle')}
+      element(:name_toggle)                                   {b.a(:id => 'OlePatronDocument-Name_toggle')}
+      element(:address_toggle)                                {b.a(:id => 'OlePatronDocument-Address_toggle')}
+      element(:phone_toggle)                                  {b.a(:id => 'OlePatronDocument-Phone_toggle')}
+      element(:email_toggle)                                  {b.a(:id => 'OlePatronDocument-Email_toggle')}
     end
 
     # Define commonly used functions for patron record screen.
@@ -67,12 +87,6 @@ module OLE_QA::Framework::OLELS
                                                                   false
                                                                 end
                                                               end
-    end
-
-    # Wait for certain screen elements to be present before page is considered loaded.
-    def wait_for_elements
-      @wait_on << :document_id
-      @wait_on << :patron_id
     end
 
     def create_address_line(which = 1)

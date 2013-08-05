@@ -33,7 +33,7 @@ describe 'A patron record page' do
 
   it 'should have patron elements' do
     elements = @page.elements
-    elements.should include(:patron_id_link)
+    elements.should include(:patron_id)
     elements.should include(:barcode_field)
     elements.should include(:borrower_type_selector)
     elements.should include(:source_selector)
@@ -58,6 +58,7 @@ describe 'A patron record page' do
     elements.should include(:proxy_patron_toggle)
     elements.should include(:proxy_for_toggle)
     elements.should include(:local_id_toggle)
+    elements.should include(:lost_barcode_toggle)
     elements.should include(:ad_hoc_toggle)
     elements.should include(:route_log_toggle)
     elements.should include(:contacts_toggle)
@@ -116,7 +117,9 @@ describe 'A patron record page' do
   end
 
   it 'should open the page via URL' do
+    @ole.open
+    @page.login('admin').should be_true
     @page.open
-    @page.title.text.strip.should == 'Patron'
+    @page.title.when_present.text.strip.should == 'Patron'
   end
 end
