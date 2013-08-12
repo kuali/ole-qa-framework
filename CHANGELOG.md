@@ -1,3 +1,8 @@
+### v2.5.1 - 2013/08/??
+
+* Small Fixes
+    * Update spec/common/page_spec.rb
+
 ### v2.5.0 - 2013/08/05
 
 * Add Patron Record Screen
