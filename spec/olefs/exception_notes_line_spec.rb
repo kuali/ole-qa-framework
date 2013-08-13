@@ -24,6 +24,10 @@ describe 'An OLEFS Exception Notes Line object' do
     @new_exception_notes_line = OLE_QA::Framework::OLEFS::New_Exception_Notes_Line.new(@ole, 1, 0)
   end
 
+	after :all do
+		@ole.quit
+	end
+
   it 'should create a new instance' do
     @exception_notes_line.class.should == OLE_QA::Framework::OLEFS::Exception_Notes_Line
     @exception_notes_line.class.superclass.should == OLE_QA::Framework::Subline_Object

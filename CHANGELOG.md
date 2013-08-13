@@ -2,6 +2,8 @@
 
 * Small Fixes
     * Update spec/common/page_spec.rb
+    * Update specs to ensure @ole.quit
+      is run after each full spec
 
 ### v2.5.0 - 2013/08/05
 

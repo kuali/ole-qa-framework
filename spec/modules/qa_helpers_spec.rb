@@ -38,6 +38,10 @@ describe 'The Helpers module' do
     @test_object = TestObject.new(@ole)
   end
 
+	after :all do
+	  @ole.quit
+	end
+
   it 'should do create an accessor attribute' do
     @test_object.foo.should == "foo"
     @test_object.foo = "foo bar baz"

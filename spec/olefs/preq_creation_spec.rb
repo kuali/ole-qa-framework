@@ -22,6 +22,10 @@ describe 'An OLEFS Payment Request Creation page' do
     @preq_screen = OLE_QA::Framework::OLEFS::PREQ_Creation.new(@ole)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @preq_screen.class.should == OLE_QA::Framework::OLEFS::PREQ_Creation
     @preq_screen.class.superclass.should == OLE_QA::Framework::OLEFS::E_Doc

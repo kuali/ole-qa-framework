@@ -24,6 +24,10 @@ describe 'An OLEFS Invoice Notes Line object' do
     @new_invoice_notes = OLE_QA::Framework::OLEFS::New_Invoice_Notes_Line.new(@ole, 1, 0)
   end
 
+	after :all do
+		@ole.quit
+	end
+
   it 'should create a new instance' do
     @invoice_notes.class.should == OLE_QA::Framework::OLEFS::Invoice_Notes_Line
     @invoice_notes.class.superclass.should == OLE_QA::Framework::Subline_Object

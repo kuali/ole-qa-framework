@@ -23,6 +23,10 @@ describe 'An OLELS Item Editor page' do
     @item_editor = OLE_QA::Framework::OLELS::Item_Editor.new(@ole)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @item_editor.class.should == OLE_QA::Framework::OLELS::Item_Editor
     @item_editor.class.superclass.should == OLE_QA::Framework::OLELS::Editor

@@ -25,6 +25,10 @@ describe 'An OLEFS line item' do
     @new_line_item = OLE_QA::Framework::OLEFS::New_Line_Item.new(@ole, @line_number)
   end
 
+	after :all do
+		@ole.quit
+	end
+
   it 'should should create a new instance' do
     @line_item.class.should == OLE_QA::Framework::OLEFS::Line_Item
     @new_line_item.class.should == OLE_QA::Framework::OLEFS::New_Line_Item

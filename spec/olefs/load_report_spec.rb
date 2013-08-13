@@ -22,6 +22,10 @@ describe 'My behaviour' do
     @page = OLE_QA::Framework::OLEFS::Load_Report.new(@ole)
   end
 
+	after :all do
+		@ole.quit
+	end
+
   it 'should create a new instance' do
     @page.should be_an_instance_of(OLE_QA::Framework::OLEFS::Load_Report)
     @page.class.superclass.should == OLE_QA::Framework::OLEFS::E_Doc

@@ -22,6 +22,10 @@ describe 'An OLEFS Load Summary Lookup page' do
     @page = OLE_QA::Framework::OLEFS::Load_Summary_Lookup.new(@ole)
   end
 
+	after :all do
+	  @ole.quit
+  end
+
   it 'should create a new instance' do
     @page.should be_an_instance_of(OLE_QA::Framework::OLEFS::Load_Summary_Lookup)
     @page.class.superclass.should == OLE_QA::Framework::OLEFS::Lookup
