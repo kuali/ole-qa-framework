@@ -22,6 +22,10 @@ describe 'An OLELS Describe Workbench page' do
     @workbench = OLE_QA::Framework::OLELS::Describe_Workbench.new(@ole)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @workbench.class.should == OLE_QA::Framework::OLELS::Describe_Workbench
     @workbench.class.superclass.should == OLE_QA::Framework::OLELS::Lookup

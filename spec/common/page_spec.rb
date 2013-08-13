@@ -23,6 +23,10 @@ describe "A Page" do
     @page = OLE_QA::Framework::Page.new(@ole, @ole.base_url)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it "should open via url" do
     @page.open
     @ole.browser.title.should == "Kuali Portal Index"
@@ -34,11 +38,6 @@ describe "A Page" do
 
   it 'should have a URL attribute' do
     @page.url.should == @ole.base_url
-  end
-
-  it 'should set a frame element on the browser if one is present' do
-    @page.browser.link(:text => "Requisition").click
-    @page.browser.class.should == Watir::Frame
   end
 
   it 'should be able to login as another user' do
@@ -54,4 +53,10 @@ describe "A Page" do
     @ole.open('www.google.com')
     lambda {@page.login}.should raise_error(error=OLE_QA::Framework::Error)
   end
+
+  it 'should set a frame element on the browser if one is present' do
+    OLE_QA::Framework::OLEFS::Requisition.new(@ole).open
+    @page.browser.class.should == Watir::Frame
+  end
+
 end

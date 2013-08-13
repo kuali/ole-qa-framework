@@ -22,6 +22,10 @@ describe 'A patron email line' do
     @line_2 = OLE_QA::Framework::OLELS::Patron_Email_Line.new(@ole,2)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @line_1.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
     @line_2.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
