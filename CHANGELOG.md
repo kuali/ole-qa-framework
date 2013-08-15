@@ -1,4 +1,4 @@
-### v2.5.2 - 2013/08/??
+### v2.5.2 - 2013/08/15
 
 * Editor Fixes
     * move all message elements to Editor base class (OLE_QA::Framework::OLELS::Editor)/.
