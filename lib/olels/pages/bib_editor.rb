@@ -20,12 +20,9 @@ module OLE_QA::Framework::OLELS
     #   {OLE_QA::Framework::OLELS::Data_Line}
     def set_elements
       super
-      element(:message)                             {b.li(:class => 'uif-infoMessageItem')}
-      element(:messages)                            {b.lis(:class => 'uif-infoMessageItem')}
-      element(:message_header)                      {b.h3(:class => 'uif-pageValidationHeader')}
-      element(:leader_field)                        {b.text_field(:id => "LeaderTextInputField_control")}
       element(:bib_record_status_selector)          {b.select_list(:id => "StatusFieldSection_control")}
       element(:set_button)                          {b.button(:id => "set_button")}
+      element(:leader_field)                        {b.text_field(:id => "LeaderTextInputField_control")}
       # Control Field Buttons
       element(:control_003_link)                    {b.a(:id => "003FieldLink")}
       element(:control_005_link)                    {b.a(:id => "005FieldLink")}
@@ -52,7 +49,7 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-      function(:message_count)                       { if message_header.present? then message_header.text.match(/\d(?=\smessage)/).to_s else "0" end}
+
     end
 
     # Add the first Marc Data Line to a new Bib Editor record.

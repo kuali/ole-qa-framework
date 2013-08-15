@@ -43,6 +43,9 @@ describe 'The Editor base class' do
   it 'should have editor elements' do
     elements = @editor.elements
     elements.include?(:title).should be_true
+    elements.should include(:message)
+    elements.should include(:messages)
+    elements.should include(:message_header)
     elements.include?(:submit_button).should be_true
     elements.include?(:cancel_button).should be_true
     elements.include?(:close_button).should be_true
@@ -60,6 +63,7 @@ describe 'The Editor base class' do
     functions.include?(:holdings_link).should be_true
     functions.include?(:holdings_icon).should be_true
     functions.include?(:item_link).should be_true
+    functions.should include(:message_count)
   end
 
   it 'should wait for a title to be present' do

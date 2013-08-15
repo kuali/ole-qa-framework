@@ -34,9 +34,6 @@ describe 'An OLELS Item Editor page' do
 
   it 'should have item editor elements' do
     elements = @item_editor.methods
-    # Messages Elements
-    elements.include?(:message).should be_true
-    elements.include?(:messages).should be_true
     # Holdings Location/Call Number Information
     elements.include?(:holdings_location_field).should be_true
     elements.include?(:holdings_prefix_field).should be_true

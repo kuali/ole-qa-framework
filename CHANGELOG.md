@@ -1,11 +1,11 @@
 ### v2.5.2 - 2013/08/??
 
 * Editor Fixes
-    * Bib Editor
-        * fix message definition
-        * add messages definition (multiple elements returned)
-        * add message_header definition
-        * add message_count function (returns "0" if message_header not present)
+    * move all message elements to Editor base class (OLE_QA::Framework::OLELS::Editor)/.
+    * fix message definition
+    * add messages definition (multiple elements returned)
+    * add message_header definition
+    * add message_count function (returns "0" if message_header not present)
 
 ### v2.5.1 - 2013/08/13
 

@@ -45,6 +45,9 @@ module OLE_QA::Framework::OLELS
     def set_elements
       super
       element(:title)                               {b.h2(:class => "uif-headerText").span}
+      element(:message)                             {b.li(:class => 'uif-infoMessageItem')}
+      element(:messages)                            {b.lis(:class => 'uif-infoMessageItem')}
+      element(:message_header)                      {b.h3(:class => 'uif-pageValidationHeader')}
       element(:submit_button)                       {b.button(:id => "submitEditor")}
       element(:cancel_button)                       {b.button(:id => "cancelEditor")}
       element(:close_button)                        {b.button(:id => "closeEditor")}
@@ -75,6 +78,9 @@ module OLE_QA::Framework::OLELS
       # This function takes two arguments - the first is the holdings element to which it belongs, and the second is its position.
       #   e.g., item_link(1,1) will return the first item under the first holdings link, item_link(2,2) will return the second item under the second holdings link.
       function(:item_link)                          {|which_holdings = 1, which_item = 1| b.a(:xpath => "//div[@id='holdingsItemTree_tree']/ul[@class='jstree-no-icons']/li[#{which_holdings}]/ul/li[#{which_item}]/a")}
+      # Return the number of messages found in the .message_header text.
+      #   - If .message_header is not present, a "0" will be returned.
+      function(:message_count)                       { if message_header.present? then message_header.text.match(/\d(?=\smessage)/).to_s else "0" end}
     end
 
     # Create a Line Object on an Editor page.

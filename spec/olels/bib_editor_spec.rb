@@ -34,9 +34,6 @@ describe 'The Bib Editor' do
 
   it 'should have bib editor elements' do
     elements = @bib_editor.elements
-    elements.include?(:message).should be_true
-    elements.include?(:messages).should be_true
-    elements.include?(:message_header).should be_true
     elements.include?(:leader_field).should be_true
     elements.include?(:bib_record_status_selector).should be_true
     elements.include?(:set_button).should be_true
@@ -62,7 +59,6 @@ describe 'The Bib Editor' do
 
   it 'should have bib editor functions' do
     functions = @bib_editor.functions
-    functions.should include(:message_count)
   end
 
   it 'should start with one data line added' do

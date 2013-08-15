@@ -18,9 +18,6 @@ module OLE_QA::Framework::OLELS
     # Set Item Editor screen elements.
     def set_elements
       super
-      # Override message in Editor base class, add multi-message element.
-      element(:message)                                   {b.span(:id => "workItemMessage_span")}
-      element(:messages)                                  {b.span(:id => "workItemMessage_span").font}
       # Holdings Location/Call Number Information
       element(:holdings_location_field)                   {b.span(:id => "OleHoldingLocationLevelName_control")}
       element(:holdings_prefix_field)                     {b.span(:id => "OleHoldingCallNumberPrefix_control")}
