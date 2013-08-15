@@ -50,47 +50,47 @@ describe 'An OLEFS line item' do
   end
 
   it 'should have line item elements' do
-    methods_array = @line_item.methods
-    methods_array.include?(:copies_field).should be_true
-    methods_array.include?(:parts_field).should be_true
-    methods_array.include?(:list_price_field).should be_true
-    methods_array.include?(:discount_field).should be_true
-    methods_array.include?(:item_price_source_selector).should be_true
-    methods_array.include?(:request_source_selector).should be_true
-    methods_array.include?(:item_type_selector).should be_true
-    methods_array.include?(:format_selector).should be_true
-    methods_array.include?(:category_selector).should be_true
-    methods_array.include?(:discount_type_selector).should be_true
-    methods_array.include?(:delete_button).should be_true
-    methods_array.include?(:route_to_requestor_checkbox).should be_true
-    methods_array.include?(:public_view_checkbox).should be_true
-    methods_array.include?(:accounting_lines_toggle).should be_true
-    methods_array.include?(:description_field).should be_true
-    methods_array.include?(:item_type_field).should be_true
-    methods_array.include?(:extended_cost_field).should be_true
-    methods_array.include?(:receipt_status_field).should be_true
-    methods_array.include?(:closed_description_field).should be_true
-    methods_array.include?(:closed_item_type_field).should be_true
-    methods_array.include?(:closed_extended_cost_field).should be_true
-    methods_array.include?(:closed_list_price_field).should be_true
-    methods_array.include?(:closed_copies_field).should be_true
-    methods_array.include?(:closed_parts_field).should be_true
-    methods_array.include?(:closed_receipt_status_field).should be_true
-    methods_array.include?(:closed_copies_received_field).should be_true
-    methods_array.include?(:closed_parts_received_field).should be_true
-    methods_array.include?(:closed_item_price_source_field).should be_true
-    methods_array.include?(:closed_request_source_field).should be_true
-    methods_array.include?(:closed_format_field).should be_true
-    methods_array.include?(:closed_category_field).should be_true
-    methods_array.include?(:closed_vendor_item_id_field).should be_true
-    methods_array.include?(:closed_requestor_field).should be_true
-    methods_array.include?(:closed_route_to_requestor_field).should be_true
-    methods_array.include?(:closed_unit_cost_field).should be_true
-    methods_array.include?(:closed_discount_field).should be_true
-    methods_array.include?(:closed_discount_type_field).should be_true
+    elements = @line_item.elements
+    elements.should include(:copies_field)
+    elements.should include(:parts_field)
+    elements.should include(:list_price_field)
+    elements.should include(:discount_field)
+    elements.should include(:item_price_source_selector)
+    elements.should include(:request_source_selector)
+    elements.should include(:item_type_selector)
+    elements.should include(:format_selector)
+    elements.should include(:category_selector)
+    elements.should include(:discount_type_selector)
+    elements.should include(:delete_button)
+    elements.should include(:route_to_requestor_checkbox)
+    elements.should include(:public_view_checkbox)
+    elements.should include(:accounting_lines_toggle)
+    elements.should include(:description_field)
+    elements.should include(:item_type_field)
+    elements.should include(:extended_cost_field)
+    elements.should include(:receipt_status_field)
+    elements.should include(:closed_description_field)
+    elements.should include(:closed_item_type_field)
+    elements.should include(:closed_extended_cost_field)
+    elements.should include(:closed_list_price_field)
+    elements.should include(:closed_copies_field)
+    elements.should include(:closed_parts_field)
+    elements.should include(:closed_receipt_status_field)
+    elements.should include(:closed_copies_received_field)
+    elements.should include(:closed_parts_received_field)
+    elements.should include(:closed_item_price_source_field)
+    elements.should include(:closed_request_source_field)
+    elements.should include(:closed_format_field)
+    elements.should include(:closed_category_field)
+    elements.should include(:closed_vendor_item_id_field)
+    elements.should include(:closed_requestor_field)
+    elements.should include(:closed_route_to_requestor_field)
+    elements.should include(:closed_unit_cost_field)
+    elements.should include(:closed_discount_field)
+    elements.should include(:closed_discount_type_field)
     #TODO add the methods below when OLE-4329 is fixed.
-    # methods_array.include?(:notes_toggle).should be_true
-    # methods_array.include(:copies_toggle).should be_true
+    # elements.should include(:notes_toggle)
+    # methods_array.include(:copies_toggle)
   end
 
   it 'should have subline objects' do
@@ -102,20 +102,23 @@ describe 'An OLEFS line item' do
 
   it 'should have new line item elements' do
     elements = @new_line_item.methods
-    elements.include?(:new_bib_button).should be_true
-    elements.include?(:item_type_selector).should be_true
-    elements.include?(:copies_field).should be_true
-    elements.include?(:parts_field).should be_true
-    elements.include?(:list_price_field).should be_true
-    elements.include?(:public_view_checkbox).should be_true
-    elements.include?(:item_price_source_selector).should be_true
-    elements.include?(:request_source_selector).should be_true
-    elements.include?(:format_selector).should be_true
-    elements.include?(:category_selector).should be_true
-    elements.include?(:route_to_requestor_checkbox).should be_true
-    elements.include?(:discount_field).should be_true
-    elements.include?(:discount_type_selector).should be_true
-    elements.include?(:add_button).should be_true
+    elements.should include(:new_bib)
+    elements.should include(:existing_bib)
+    elements.should include(:bib_search_button)
+    elements.should include(:new_bib_button)
+    elements.should include(:item_type_selector)
+    elements.should include(:copies_field)
+    elements.should include(:parts_field)
+    elements.should include(:list_price_field)
+    elements.should include(:public_view_checkbox)
+    elements.should include(:item_price_source_selector)
+    elements.should include(:request_source_selector)
+    elements.should include(:format_selector)
+    elements.should include(:category_selector)
+    elements.should include(:route_to_requestor_checkbox)
+    elements.should include(:discount_field)
+    elements.should include(:discount_type_selector)
+    elements.should include(:add_button)
   end
 
   it 'should create an accounting line' do

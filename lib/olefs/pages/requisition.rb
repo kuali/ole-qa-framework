@@ -43,6 +43,8 @@ module OLE_QA::Framework::OLEFS
       element(:delivery_phone_number_field)                       {b.text_field(:id => "document.deliveryToPhoneNumber")}
       # Vendor Tab
       element(:vendor_name_field)                                 {b.text_field(:id => "document.vendorName")}
+      element(:vendor_alias_field)                                {b.text_field(:id => 'document.vendorAliasName')}
+      element(:select_vendor_button)                              {b.input(:alt => 'select vendor')}
       element(:vendor_search_icon)                                {b.input(:xpath => "//input[@id='document.vendorName']/following-sibling::input[1]")}
       # Titles Tab
       element(:grand_total_field)                                 {b.b(:xpath => "//div[@id='tab-Titles-div']/descendant::th[div[contains(text(),'Grand Total')]]/following-sibling::td/div/b")}

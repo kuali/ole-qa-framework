@@ -57,6 +57,8 @@ describe 'A purap_requisition document' do
     elements.include?(:delivery_phone_number_field).should be_true
     elements.include?(:vendor_tab_toggle).should be_true
     elements.include?(:vendor_name_field).should be_true
+    elements.should include(:vendor_alias_field)
+    elements.should include(:select_vendor_button)
     elements.include?(:closed_vendor_name_field).should be_true
     elements.include?(:vendor_search_icon).should be_true
     elements.include?(:grand_total_field).should be_true

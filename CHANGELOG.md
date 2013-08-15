@@ -1,3 +1,9 @@
+### v2.5.3 - 2013/08/??
+
+* Requisition Interface Updated
+    * added vendor alias search elements
+
+
 ### v2.5.2 - 2013/08/15
 
 * Editor Fixes
