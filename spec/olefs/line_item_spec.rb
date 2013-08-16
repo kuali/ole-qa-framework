@@ -102,8 +102,8 @@ describe 'An OLEFS line item' do
 
   it 'should have new line item elements' do
     elements = @new_line_item.methods
-    elements.should include(:new_bib)
-    elements.should include(:existing_bib)
+    elements.should include(:new_bib_option)
+    elements.should include(:existing_bib_option)
     elements.should include(:bib_search_button)
     elements.should include(:new_bib_button)
     elements.should include(:item_type_selector)
