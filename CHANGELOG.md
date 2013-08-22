@@ -2,7 +2,11 @@
 
 * Requisition Interface Updated
     * added vendor alias search elements
-
+    * added new line item definitions for:
+        * new bib option
+        * new bib button
+        * existing bib option
+        * existing bib button
 
 ### v2.5.2 - 2013/08/15
 

@@ -27,7 +27,7 @@ module OLE_QA::Framework::OLEFS
       super
       element(:new_bib_option)                      {b.radio(:name => 'AttachBib', :index => 0)}
       element(:existing_bib_option)                 {b.radio(:name => 'AttachBib', :index => 1)}
-      element(:bib_search_button)                   {b.input(:id => 'bibSelectExistingItemButton')}
+      element(:existing_bib_button)                 {b.input(:id => 'bibSelectExistingItemButton')}
       element(:new_bib_button)                      {b.input(:id => "bibCreateCurrentItemButton")}
       element(:item_type_selector)                  {b.select_list(:id => "newPurchasingItemLine.itemTypeDescription")}
       element(:copies_field)                        {b.text_field(:id => "newPurchasingItemLine.oleItemQuantity")}
