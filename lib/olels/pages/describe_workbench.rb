@@ -36,13 +36,13 @@ module OLE_QA::Framework::OLELS
       element(:export_to_xml_button)            {b.button(:id => 'export_button1')}
       element(:close_button)                    {b.button(:id => 'cancel_button')}
       # Search Fields
-      element(:search_field_1)                  {b.text_area(:id => "searchText_id_line0_control")}
+      element(:search_field_1)                  {b.text_field(:id => "searchText_id_line0_control")}
       element(:search_which_selector_1)         {b.select_list(:id => "operator_id_line0_control")}
       element(:search_field_selector_1)         {b.select_list(:id => "docField_id_line0_control")}
       element(:search_scope_1_and)              {b.radio(:id => 'searchScope_id_line0_control_0')}
       element(:search_scope_1_or)               {b.radio(:id => 'searchScope_id_line0_control_1')}
       element(:search_scope_1_not)              {b.radio(:id => 'searchScope_id_line0_control_2')}
-      element(:search_field_2)                  {b.text_area(:id => 'searchText_id_line1_control')}
+      element(:search_field_2)                  {b.text_field(:id => 'searchText_id_line1_control')}
       element(:search_which_selector_2)         {b.select_list(:id => 'operator_id_line1_control')}
       element(:search_field_selector_2)         {b.select_list(:id => 'docField_id_line1_control')}
       element(:search_scope_2_and)              {b.radio(:id => 'searchScope_id_line1_control_0')}
