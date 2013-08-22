@@ -1,4 +1,10 @@
-### v2.5.3 - 2013/08/??
+### v2.6.0
+
+* Finished Describe Workbench Screen
+    * used for describe workbench tests
+    * used for requisition existing bib record search tests
+
+### v2.5.3 - 2013/08/22
 
 * Requisition Interface Updated
     * added vendor alias search elements

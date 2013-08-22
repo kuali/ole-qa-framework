@@ -44,5 +44,39 @@ describe 'An OLELS Describe Workbench page' do
     elements.include?(:search_field_1).should be_true
     elements.include?(:search_which_selector_1).should be_true
     elements.include?(:search_field_selector_1).should be_true
+    elements.should include(:search_scope_1_and)
+    elements.should include(:search_scope_1_or)
+    elements.should include(:search_scope_1_not)
+    elements.should include(:search_field_2)
+    elements.should include(:search_which_selector_2)
+    elements.should include(:search_field_selector_2)
+    elements.should include(:search_scope_2_and)
+    elements.should include(:search_scope_2_or)
+    elements.should include(:search_scope_2_not)
+    elements.should include(:doc_type_bib)
+    elements.should include(:doc_type_holdings)
+    elements.should include(:doc_type_item)
+    elements.should include(:doc_type_e_holdings)
+    elements.should include(:export_to_xml_button)
+    elements.should include(:link_to_order_button)
+    elements.should include(:close_button)
+    elements.should include(:previous_link)
+    elements.should include(:next_link)
+  end
+
+  it 'should have describe workbench functions' do
+    functions = @workbench.functions
+    functions.should include(:select_by_title)
+    functions.should include(:select_by_author)
+    functions.should include(:select_by_id)
+    functions.should include(:select_by_date)
+    functions.should include(:view_by_title)
+    functions.should include(:edit_by_title)
+    functions.should include(:overlay_by_title)
+    functions.should include(:create_instance_by_title)
+    functions.should include(:select_by_text)
+    functions.should include(:view_by_text)
+    functions.should include(:overlay_by_text)
+    functions.should include(:create_instance_by_text)
   end
 end
