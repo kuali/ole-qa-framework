@@ -1,3 +1,8 @@
+### v2.6.2 - 2013/08/23
+
+* Fixed Requisition Line Item Definitions:
+    * Location Selector
+
 ### v2.6.1 - 2013/08/23
 
 * Updated Bib Editor definitions

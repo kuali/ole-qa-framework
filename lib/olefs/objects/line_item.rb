@@ -41,6 +41,7 @@ module OLE_QA::Framework::OLEFS
       element(:format_selector)                   {b.select_list(:id => "document.item[#{@line_id}].formatTypeId")}
       element(:category_selector)                 {b.select_list(:id => "document.item[#{@line_id}].categoryId")}
       element(:discount_type_selector)            {b.select_list(:id => "document.item[#{@line_id}].itemDiscountType")}
+      element(:location_selector)                 {b.select_list(:id => "document.item[#{@line_id}].itemLocation")}
       # Buttons, Checkboxes, Etc.
       element(:delete_button)                     {b.input(:title => "Delete Item #{@line_number}")}
       element(:route_to_requestor_checkbox)       {b.checkbox(:id => "document.item[#{@line_id}].itemRouteToRequestor")}

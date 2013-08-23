@@ -88,6 +88,7 @@ describe 'An OLEFS line item' do
     elements.should include(:closed_unit_cost_field)
     elements.should include(:closed_discount_field)
     elements.should include(:closed_discount_type_field)
+    elements.should include(:location_selector)
     #TODO add the methods below when OLE-4329 is fixed.
     # elements.should include(:notes_toggle)
     # methods_array.include(:copies_toggle)
@@ -104,8 +105,8 @@ describe 'An OLEFS line item' do
     elements = @new_line_item.methods
     elements.should include(:new_bib_option)
     elements.should include(:existing_bib_option)
-    elements.should include(:bib_search_button)
     elements.should include(:new_bib_button)
+    elements.should include(:existing_bib_button)
     elements.should include(:item_type_selector)
     elements.should include(:copies_field)
     elements.should include(:parts_field)
@@ -119,6 +120,7 @@ describe 'An OLEFS line item' do
     elements.should include(:discount_field)
     elements.should include(:discount_type_selector)
     elements.should include(:add_button)
+    elements.should include(:location_selector)
   end
 
   it 'should create an accounting line' do

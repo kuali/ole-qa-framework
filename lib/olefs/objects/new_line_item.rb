@@ -42,6 +42,7 @@ module OLE_QA::Framework::OLEFS
       element(:discount_field)                      {b.text_field(:id => "newPurchasingItemLine.itemDiscount")}
       element(:discount_type_selector)              {b.select_list(:id => "newPurchasingItemLine.itemDiscountType")}
       element(:add_button)                          {b.input(:name => "methodToCall.addItem")}
+      element(:location_selector)                   {b.select_list(:id => 'newPurchasingItemLine.itemLocation')}
     end
   end
 end
