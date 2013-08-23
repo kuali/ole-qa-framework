@@ -60,12 +60,36 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-      # Return the checkbox for the given element.
+      # Return the checkbox for the results line containing the given text.
       # Usage:
       #   workbench.select_by_text("Foo").set(true|false)
       # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
       # - Returns nil if element not found.
       function(:select_by_text)                 {|str| element = b.checkbox(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td[1]/div/input[@type='checkbox']") ; if element.present? then element else nil end}
+      # Return the 'view' link for the results line containing the given text.
+      # Usage:
+      #   workbench.view_by_text.click
+      # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
+      # - Returns nil if element not found.
+      function(:view_by_text)                   {|str| element = b.a(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td/div/fieldset/div/div/a[contains(text(),'View')]") ; if element.present? then element else nil end}
+      # Return the 'view' link for the results line containing the given text.
+      # Usage:
+      #   workbench.view_by_text.click
+      # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
+      # - Returns nil if element not found.
+      function(:edit_by_text)                   {|str| element = b.a(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td/div/fieldset/div/div/a[contains(text(),'Edit')]") ; if element.present? then element else nil end}
+      # Return the 'overlay' link for the results line containing the given text.
+      # Usage:
+      #   workbench.overlay_by_text.click
+      # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
+      # - Returns nil if element not found.
+      function(:overlay_by_text)                {|str| element = b.a(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td/div/fieldset/div/div/a[contains(text(),'OverLay')]") ; if element.present? then element else nil end}
+      # Return the 'create instance' link for the results line containing the given text.
+      # Usage:
+      #   workbench.create_instance_by_text.click
+      # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
+      # - Returns nil if element not found.
+      function(:create_instance_by_text)        {|str| element = b.a(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td/div/fieldset/div/div/a[contains(text(),'Create Instance')]") ; if element.present? then element else nil end}
     end
   end
 end
