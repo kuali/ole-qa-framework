@@ -1,7 +1,11 @@
-### v2.6.1
+### v2.6.1 - 2013/08/23
 
 * Updated Bib Editor definitions
-  * Control Field 008 definition reset to original format
+    * Control Field 008 definition reset to original format
+    * Control Field 006 definitions updated
+    * Control Field 006 line object added
+    * Control Field 007 definitions updated
+    * Control Field 007 line object added
 
 ### v2.6.0 - 2013/08/23
 
