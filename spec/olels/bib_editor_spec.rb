@@ -46,11 +46,9 @@ describe 'The Bib Editor' do
     elements.include?(:control_001_field).should be_true
     elements.include?(:control_003_field).should be_true
     elements.include?(:control_005_field).should be_true
-    elements.include?(:control_006_field).should be_true
     elements.include?(:control_006_format_selector).should be_true
     elements.include?(:control_006_set_button).should be_true
     elements.include?(:control_006_reset_button).should be_true
-    elements.include?(:control_007_field).should be_true
     elements.include?(:control_007_catmtrl_selector).should be_true
     elements.include?(:control_007_set_button).should be_true
     elements.include?(:control_007_reset_button).should be_true
@@ -82,5 +80,40 @@ describe 'The Bib Editor' do
 
   it 'should not delete a data line which does not exist' do
     lambda {@bib_editor.delete_data_line(2)}.should raise_error
+  end
+
+  it 'should start with one 006 line' do
+    @bib_editor.control_006_line_1.should be_a(OLE_QA::Framework::OLELS::Control_006_Line)
+  end
+
+  it 'should start with one 007 line' do
+    @bib_editor.control_007_line.should be_a(OLE_QA::Framework::OLELS::Control_007_Line)
+  end
+
+  it 'should add an 006 line' do
+    @bib_editor.add_006_line(2)
+    @bib_editor.methods.include?(:control_006_line_2).should be_true
+    @bib_editor.control_006_line_2.should be_a(OLE_QA::Framework::OLELS::Control_006_Line)
+  end
+
+  it 'should add an 007 line' do
+    @bib_editor.add_007_line(2)
+    @bib_editor.methods.include(:control_007_line_2).should be_true
+    @bib_editor.control_007_line.should be_a(OLE_QA::Framework::OLELS::Control_007_Line)
+  end
+
+  it 'should delete an 006 line' do
+    @bib_editor.remove_006_line(2)
+    @bib_editor.methods.should not_include(:control_006_line_2)
+  end
+
+  it 'should delete an 007 line' do
+    @bib_editor.remove_007_line(2)
+    @bib_editor.methods.should not_include(:control_007_line_2)
+  end
+
+  it 'should not remove control lines which do not exist' do
+    lambda {@bib_editor.remove_006_line(2)}.should raise_error
+    lambda {@bib_editor.remove_007_line(2)}.should raise_error
   end
 end
