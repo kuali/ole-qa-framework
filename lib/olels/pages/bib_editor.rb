@@ -36,11 +36,9 @@ module OLE_QA::Framework::OLELS
       element(:control_001_field)                   {b.text_field(:id => "Control_Field_001_control")}
       element(:control_003_field)                   {b.text_field(:id => "Control_Field_003_control")}
       element(:control_005_field)                   {b.text_field(:id => "Control_Field_005_control")}
-      element(:control_006_field)                   {b.text_field(:id => "006Field_control")}
       element(:control_006_format_selector)         {b.select_list(:id => "006Field_0_control")}
       element(:control_006_set_button)              {b.button(:id => "ControlField_Set_button")}
       element(:control_006_clear_button)            {b.button(:id => "ControlField_Reset_button")}
-      element(:control_007_field)                   {b.text_field(:id => "007Field_control")}
       element(:control_007_catmtrl_selector)        {b.select_list(:id => "007Field_0_control")}
       element(:control_007_set_button)              {b.button(:id => "ControlField007_Set_button")}
       element(:control_007_clear_button)            {b.button(:id => "ControlField007_Clear_button  ")}
@@ -56,9 +54,23 @@ module OLE_QA::Framework::OLELS
     # @note There will always be at least one Marc Data Line on a newly-opened record,
     #   whether newly-created or previously extant.
     def set_lines
+      create_006_line(1)
+      create_007_line(1)
       create_data_line(1)
     end
+    
+    # Add a control field 006 line to the editor page model.
+    def create_006_line(which = 1)
+      create_line("control_006_line_#{which}", "Control_006_Line", which)
+    end                         
+    alias_method(:add_006_line, :create_006_line)
 
+    # Add a control field 007 line to the editor page model.
+    def create_007_line(which = 1)
+      create_line("control_007_line_#{which}", "Control_007_Line", which)
+    end
+    alias_method(:add_007_line, :create_007_line)
+    
     # Add a Marc data line to the editor page model.
     def create_data_line(which = 1)
       create_line("data_line_#{which}","Data_Line", which)
@@ -70,5 +82,19 @@ module OLE_QA::Framework::OLELS
       remove_line("data_line_#{which}")
     end
     alias_method(:delete_data_line,:remove_data_line)
+
+    # Remove a control 006 line from the editor page model.
+    def remove_006_line(which = 1)
+      remove_line("control_006_line_#{which}")
+    end
+    alias_method(:delete_006_line,:remove_006_line)
+
+    # Remove a control 007 line from the editor page model.
+    def remove_007_line(which = 1)
+      remove_line("control_007_line_#{which}")
+    end
+    alias_method(:delete_007_line,:remove_007_line)
+
+
   end
 end
