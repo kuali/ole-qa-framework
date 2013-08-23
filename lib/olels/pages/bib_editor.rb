@@ -39,11 +39,11 @@ module OLE_QA::Framework::OLELS
       element(:control_006_field)                   {b.text_field(:id => "006Field_control")}
       element(:control_006_format_selector)         {b.select_list(:id => "006Field_0_control")}
       element(:control_006_set_button)              {b.button(:id => "ControlField_Set_button")}
-      element(:control_006_reset_button)            {b.button(:id => "ControlField_Reset_button")}
+      element(:control_006_clear_button)            {b.button(:id => "ControlField_Reset_button")}
       element(:control_007_field)                   {b.text_field(:id => "007Field_control")}
       element(:control_007_catmtrl_selector)        {b.select_list(:id => "007Field_0_control")}
       element(:control_007_set_button)              {b.button(:id => "ControlField007_Set_button")}
-      element(:control_007_reset_button)            {b.button(:id => "ControlField007_Reset_button")}
+      element(:control_007_clear_button)            {b.button(:id => "ControlField007_Clear_button  ")}
       element(:control_008_field)                   {b.text_field(:id => 'Control_Field_008_control')}
     end
 
