@@ -1,4 +1,4 @@
-### v2.6.0
+### v2.6.0 - 2013/08/23
 
 * Finished Describe Workbench Screen
     * used for describe workbench tests
