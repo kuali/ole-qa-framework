@@ -1,3 +1,8 @@
+### v2.6.1
+
+* Updated Bib Editor definitions
+  * Control Field 008 definition reset to original format
+
 ### v2.6.0 - 2013/08/23
 
 * Finished Describe Workbench Screen
