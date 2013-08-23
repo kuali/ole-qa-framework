@@ -57,5 +57,15 @@ module OLE_QA::Framework::OLELS
       super
       @wait_on << :search_button
     end
+
+    def set_functions
+      super
+      # Return the checkbox for the given element.
+      # Usage:
+      #   workbench.select_by_text("Foo").set(true|false)
+      # - Searches both link text (for Local ID element) and regular text in span (for all other fields).
+      # - Returns nil if element not found.
+      function(:select_by_text)                 {|str| element = b.checkbox(:xpath => "//table/tbody/tr[td[div/*[contains(text(),\"#{str}\")]]]/td[1]/div/input[@type='checkbox']") ; if element.present? then element else nil end}
+    end
   end
 end
