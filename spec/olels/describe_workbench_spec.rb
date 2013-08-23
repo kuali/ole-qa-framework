@@ -66,16 +66,9 @@ describe 'An OLELS Describe Workbench page' do
 
   it 'should have describe workbench functions' do
     functions = @workbench.functions
-    functions.should include(:select_by_title)
-    functions.should include(:select_by_author)
-    functions.should include(:select_by_id)
-    functions.should include(:select_by_date)
-    functions.should include(:view_by_title)
-    functions.should include(:edit_by_title)
-    functions.should include(:overlay_by_title)
-    functions.should include(:create_instance_by_title)
     functions.should include(:select_by_text)
     functions.should include(:view_by_text)
+    functions.should include(:edit_by_text)
     functions.should include(:overlay_by_text)
     functions.should include(:create_instance_by_text)
   end
