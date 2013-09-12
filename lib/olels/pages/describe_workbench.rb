@@ -28,10 +28,10 @@ module OLE_QA::Framework::OLELS
       # Search Control Elements
       element(:search_button)                   {b.button(:id => "search_button")}
       element(:clear_button)                    {b.button(:id => "clear_button")}
-      element(:doc_type_bib)                    {b.radio(:id => 'SearchPanel-docTypeSection_control_0')}
-      element(:doc_type_holdings)               {b.radio(:id => 'SearchPanel-docTypeSection_control_1')}
-      element(:doc_type_item)                   {b.radio(:id => 'SearchPanel-docTypeSection_control_2')}
-      element(:doc_type_e_holdings)             {b.radio(:id => 'SearchPanel-docTypeSection_control_3')}
+      element(:doc_type_bib)                    {b.radio(:id => 'SearchPanel-docType-Section_control_0')}
+      element(:doc_type_holdings)               {b.radio(:id => 'SearchPanel-docType-Section_control_1')}
+      element(:doc_type_item)                   {b.radio(:id => 'SearchPanel-docType-Section_control_2')}
+      element(:doc_type_e_holdings)             {b.radio(:id => 'SearchPanel-docType-Section_control_3')}
       element(:link_to_order_button)            {b.button(:id => 'submit_button')}
       element(:export_to_xml_button)            {b.button(:id => 'export_button1')}
       element(:close_button)                    {b.button(:id => 'cancel_button')}

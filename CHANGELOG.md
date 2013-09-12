@@ -1,3 +1,11 @@
+### v2.6.4 - 2013/09/12
+
+* Fixed Describe Workbench Definitions
+    * Doc Type Radio Buttons
+      * Bib
+      * Holdings
+      * Item
+
 ### v2.6.2 - 2013/08/23
 
 * Fixed Requisition Line Item Definitions:
