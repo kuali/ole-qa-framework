@@ -60,6 +60,9 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
+      # Check whether the given text exists within the search results table.
+      # - Returns true or false based on whether the given string was found.
+      function(:result_present?)                {|str| b.td(:xpath => "//table/tbody/tr/td[div/*[contains(text(),\"#{str}\")]]").present?}
       # Return the checkbox for the results line containing the given text.
       # Usage:
       #   workbench.select_by_text("Foo").set(true|false)

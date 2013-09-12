@@ -1,10 +1,17 @@
 ### v2.6.4 - 2013/09/12
 
+* Added Describe Workbench Function
+    * result_present?(str)
+        * searches for a given string in the search results table
+          and reports whether or not that string was found
+
+### v2.6.3 - 2013/09/12
+
 * Fixed Describe Workbench Definitions
     * Doc Type Radio Buttons
-      * Bib
-      * Holdings
-      * Item
+        * Bib
+        * Holdings
+        * Item
 
 ### v2.6.2 - 2013/08/23
 
