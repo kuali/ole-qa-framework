@@ -1,5 +1,5 @@
 #  Copyright 2005-2013 The Kuali Foundation
-#
+  #
 #  Licensed under the Educational Community License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at:
@@ -43,11 +43,28 @@ module OLE_QA::Framework::OLELS
       element(:control_007_set_button)              {b.button(:id => "ControlField007_Set_button")}
       element(:control_007_clear_button)            {b.button(:id => "ControlField007_Clear_button  ")}
       element(:control_008_field)                   {b.text_field(:id => 'Control_Field_008_control')}
+      # Read-Only Fields (for when the Bib Editor is opened in 'View' mode)
+      element(:readonly_edit_button)                {b.button(:text => /Edit/)}
+      element(:readonly_created_by)                 {b.span(:id => 'createdBy_control')}
+      element(:readonly_created_date)               {b.span(:id => 'createdDate_control')}
+      element(:readonly_leader_field)               {b.span(:id => 'LeaderTextInputField_control')}
+      element(:readonly_control_001_field)          {b.span(:id => 'Control_Field_001ReadOnly_control')}
+      element(:readonly_control_003_field)          {b.span(:id => 'Control_Field_003ReadOnly_control')}
+      element(:readonly_control_005_field)          {b.span(:id => 'Control_Field_005ReadOnly_control')}
+      element(:readonly_control_008_field)          {b.span(:id => 'Control_Field_008ReadOnly_control')}
     end
 
     def set_functions
       super
-
+      # Functions for iterative fields on the read-only version of the Marc Bib Editor.
+      # - Invoke with numerical value (1-based) of repeatable line.
+      #   e.g. bib_editor.readonly_data_field(1).text to get the text of the first Marc data line in the record.
+      function(:readonly_control_006_field)         {|which = 1| which -= 1 ; b.span(:id => "Control_Field_006ReadOnly_line#{which}_control")}
+      function(:readonly_control_007_field)         {|which = 1| which -= 1 ; b.span(:id => "Control_Field_007ReadOnly_line#{which}_control")}
+      function(:readonly_tag_field)                 {|which = 1| which -= 1 ; b.span(:id => "dataField_tag_id_readOnly_line#{which}_control")}
+      function(:readonly_ind1_field)                {|which = 1| which -= 1 ; b.span(:id => "dataField_ind1_id_readOnly_line#{which}_control")}
+      function(:readonly_ind2_field)                {|which = 1| which -= 1 ; b.span(:id => "dataField_ind2_id_readOnly_line#{which}_control")}
+      function(:readonly_data_field)                {|which = 1| which -= 1 ; b.span(:id => "dataField_value_id_readOnly_line#{which}_control")}
     end
 
     # Add the first Marc Data Line to a new Bib Editor record.

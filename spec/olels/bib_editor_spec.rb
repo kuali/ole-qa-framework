@@ -53,10 +53,26 @@ describe 'The Bib Editor' do
     elements.include?(:control_007_set_button).should be_true
     elements.include?(:control_007_clear_button).should be_true
     elements.include?(:control_008_field).should be_true
+    # Read-Only Elements (non-iterative fields, no input required)
+    elements.should include(:readonly_edit_button)
+    elements.should include(:readonly_created_by)
+    elements.should include(:readonly_created_date)
+    elements.should include(:readonly_leader_field)
+    elements.should include(:readonly_control_001_field)
+    elements.should include(:readonly_control_003_field)
+    elements.should include(:readonly_control_005_field)
+    elements.should include(:readonly_control_008_field)
   end
 
   it 'should have bib editor functions' do
     functions = @bib_editor.functions
+    # Read-Only Elements (iterative fields, input required to specify which)
+    functions.should include(:readonly_control_006_field)
+    functions.should include(:readonly_control_007_field)
+    functions.should include(:readonly_tag_field)
+    functions.should include(:readonly_ind1_field)
+    functions.should include(:readonly_ind2_field)
+    functions.should include(:readonly_data_field)
   end
 
   it 'should start with one data line added' do
