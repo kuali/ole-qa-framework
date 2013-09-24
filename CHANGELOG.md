@@ -1,3 +1,11 @@
+### v2.6.5 
+
+* Added Marc Editor View-Only Pages
+    * Bib Editor
+    * Instance Editor
+    * Item Editor
+
+
 ### v2.6.4 - 2013/09/12
 
 * Added Describe Workbench Function
