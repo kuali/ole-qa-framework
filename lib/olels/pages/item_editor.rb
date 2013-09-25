@@ -59,6 +59,16 @@ module OLE_QA::Framework::OLELS
       element(:staff_only_checkbox)                       {b.checkbox(:id => "oleItemStaffOnly_control")}
       # Extended Information
       element(:high_density_storage_field)                {b.text_field(:id => "oleItemHighDensityStorage_control")}
+      # Read-Only Elements (non-iterative elements not requiring input)
+      element(:readonly_edit_button)                      {b.button(:text => /Edit/)}
+      element(:readonly_item_id)                          {b.span(:id => 'oleItemIdentifier_ID_control')}
+      element(:readonly_barcode)                          {b.span(:id => 'oleItemAccessInformationBarcode_control')}
+      element(:readonly_enumeration)                      {b.span(:id => 'oleItemEnumeration_control')}
+      element(:readonly_chronology)                       {b.span(:id => 'oleItemChronology_control')}
+      element(:readonly_copy_number)                      {b.span(:id => 'oleItemCopyNumber_control')}
+      element(:readonly_item_status)                      {b.span(:id => 'oleItemStatusReadOnly_control')}
+      element(:readonly_item_type)                        {b.span(:id => 'oleItemItemType_control')}
+      element(:readonly_fast_add)                         {b.span(:id => 'oleItemFastAdd_control')}
     end
 
     # Set commonly-used functions on the Item Editor page.

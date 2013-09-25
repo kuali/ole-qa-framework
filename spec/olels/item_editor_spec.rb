@@ -75,6 +75,17 @@ describe 'An OLELS Item Editor page' do
     elements.include?(:staff_only_checkbox).should be_true
     # Extended Information
     elements.include?(:high_density_storage_field).should be_true
+    # Read-Only Elements (non-iterative elements requiring no input)
+    elements.should include(:readonly_edit_button)
+    elements.should include(:readonly_item_id)
+    elements.should include(:readonly_barcode)
+    elements.should include(:readonly_enumeration)
+    elements.should include(:readonly_chronology)
+    elements.should include(:readonly_copy_number)
+    elements.should include(:readonly_item_status)
+    elements.should include(:readonly_item_type)
+    elements.should include(:readonly_fast_add)
+
   end
 
   it 'should start with an item note' do
