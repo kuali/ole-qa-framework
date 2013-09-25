@@ -1,4 +1,4 @@
-### v2.6.5 
+### v2.6.5 - 2013/09/25
 
 * Added Marc Editor View-Only Pages
     * Bib Editor
