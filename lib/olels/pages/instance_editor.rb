@@ -31,12 +31,20 @@ module OLE_QA::Framework::OLELS
       element(:receipt_status_selector)               {b.select_list(:id => "OleReceiptStatusField_control")}
       element(:holding_notes_toggle)                  {b.a(:id => "OleHoldingNotes_toggle")}
       element(:holdings_notes_toggle)                 {b.a(:id => "OleHoldingNotes_toggle")}
+      # Read-Only Elements (non-iterative fields not requiring input)
+      element(:readonly_edit_button)                  {b.button(:text => /Edit/)}
+      element(:readonly_location)                     {b.span(:id => 'OleHoldingLocation_control')}
+      element(:readonly_prefix)                       {b.span(:id => 'OleHoldingCallNumberPrefix_control')}
+      element(:readonly_call_number)                  {b.span(:id => 'OleHoldingCallNumber_control')}
+      element(:readonly_call_number_type)             {b.span(:id => 'OleHoldingShelvingScheme_control')}
+      element(:readonly_shelving_order)               {b.span(:id => 'OleHoldingShelvingOrder_control')}
+      element(:readonly_created_by)                   {b.span(:id => 'createdByHolding_control')}
+      element(:readonly_created_date)                 {b.span(:id => 'createdDateHolding_control')}
     end
 
     # Wait for location field to appear when opening page.
     def wait_for_elements
       super
-      @wait_on << :location_field
     end
 
     def set_lines

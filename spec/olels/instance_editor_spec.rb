@@ -47,6 +47,21 @@ describe 'An OLELS Instance Editor page' do
     elements.include?(:receipt_status_selector).should be_true
     elements.include?(:holding_notes_toggle).should be_true
     elements.include?(:holdings_notes_toggle).should be_true
+    # Read-Only Elements (non-iterative fields, no input required)
+    elements.should include(:readonly_edit_button)
+    elements.should include(:readonly_location)
+    elements.should include(:readonly_prefix)
+    elements.should include(:readonly_call_number)
+    elements.should include(:readonly_call_number_type)
+    elements.should include(:readonly_shelving_order)
+    elements.should include(:readonly_created_by)
+    elements.should include(:readonly_created_date)
+  end
+
+  it 'should have instance editor functions' do
+    # functions = @instance_editor.functions
+    # Read-Only Elements (iterative fields, input required to specify which)
+    # TODO Model line items as readonly functions only when it becomes necessary for testing.
   end
 
   it 'should start with line objects' do
