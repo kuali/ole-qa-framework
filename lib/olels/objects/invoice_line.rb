@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # A single Purchase Order line on an OLE Financial System Invoice E-Document.
-  class Invoice_Line < OLE_QA::Framework::OLEFS::Line_Object
+  class Invoice_Line < Line_Object
     # Create accessor methods for new subline objects.
     def set_sublines
 

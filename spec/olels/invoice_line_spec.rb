@@ -17,9 +17,29 @@ require 'spec_helper'
 
 describe 'An OLE Invoice Line' do
 
-  it 'should do something' do
+  before :all do
+    @ole = OLE_QA::Framework:Session.new
+    @invoice_line = OLE_QA::Framework::OLELS::Invoice_Line.new(@ole,1)
+  end
 
-    #To change this template use File | Settings | File Templates.
-    true.should == false
+  after :all do
+    @ole.quit
+  end
+
+  it 'should create a new instance' do
+    @invoice_line.class.should == OLE_QA::Framework::OLELS::Invoice_Line
+    @invoice_line.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+  end
+
+  it 'should have invoice line elements' do
+    elements = @invoice_line.elements
+  end
+
+  it 'should have invoice line functions' do
+    functions = @invoice_line.functions
+  end
+
+  it 'should have invoice line sublines' do
+
   end
 end
