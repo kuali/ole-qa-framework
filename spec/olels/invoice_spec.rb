@@ -76,18 +76,8 @@ describe 'An OLE Invoice' do
     functions = @invoice.functions
   end
 
-  it 'should add an invoice line' do
-    @invoice.add_line(1)
-    @invoice.methods.should include(:line_1)
-    @invoice.line_1.should be_an_instance_of(OLE_QA::Framework::OLELS::Invoice_Line)
-  end
-
-  it 'should remove an invoice line' do
-    @invoice.remove_line(1)
-    @invoice.methods.should_not include(:line_1)
-  end
-
-  it 'should not remove an invoice line which does not exist' do
-    lambda { @invoice.remove_line(1) }.should raise_error
+  it 'should have a purchase order line' do
+    @invoice.methods.include?(:po_line).should be_true
+    @invoice.po_line.class.should == OLE_QA::Framework::OLELS::PO_Line
   end
 end

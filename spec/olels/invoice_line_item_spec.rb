@@ -12,19 +12,19 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-module OLE_QA::Framework::OLELS
-  # A single Purchase Order line on an OLE Financial System Invoice E-Document.
-  class Invoice_Line < Line_Object
-    # Create accessor methods for new subline objects.
-    def set_sublines
+require 'rspec'
+require 'spec_helper'
 
-    end
+describe 'A PO Line Item on an OLE Invoice' do
 
-    # Set invoice line elements.
-    def set_elements
-      super
+  before :all do
+    @ole = OLE_QA::Framework::Session.new
+    # Fill in with struct once development begins in earnest.
+    @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole,1)
+  end
 
-    end
-
+  it 'should create a new instance' do
+    @line_item.class.should == OLE_QA::Framework::OLELS::Invoice_Line_Item
+    @line_item.class.superclass.should == OLE_QA::Framework::Common_Object
   end
 end
