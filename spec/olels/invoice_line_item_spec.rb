@@ -19,12 +19,58 @@ describe 'A PO Line Item on an OLE Invoice' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    # Fill in with struct once development begins in earnest.
-    @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole,1)
+    @po_line = OLE_QA::Framework::OLELS::PO_Line.new(@ole, 1)
+    @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole, @po_line, 1)
   end
 
   it 'should create a new instance' do
     @line_item.class.should == OLE_QA::Framework::OLELS::Invoice_Line_Item
     @line_item.class.superclass.should == OLE_QA::Framework::Common_Object
+  end
+
+  it 'should have access to the line_number and line_id methods on the PO Line' do
+    @line_item.po_line.line_number.should == 1
+    @line_item.po_line.line_id.should     == 0
+  end
+
+  it 'should have line item elements' do
+    elements = @line_item.elements
+    elements.include?(:number).should be_true
+    elements.include?(:open_quantity).should be_true
+    elements.include?(:title).should be_true
+    elements.include?(:copies_ordered).should be_true
+    elements.include?(:parts_ordered).should be_true
+    elements.include?(:copies_invoiced_field).should be_true
+    elements.include?(:parts_invoiced_field).should be_true
+    elements.include?(:invoiced_price_field).should be_true
+    elements.include?(:discount_field).should be_true
+    elements.include?(:discount_type_selector).should be_true
+    elements.include?(:unit_cost).should be_true
+    elements.include?(:extended_cost).should be_true
+    elements.include?(:invoice_checkbox).should be_true
+    elements.include?(:add_account_button).should be_true
+    elements.include?(:new_chart_selector).should be_true
+    elements.include?(:new_account_number_field).should be_true
+    elements.include?(:new_subaccount_number_field).should be_true
+    elements.include?(:new_object_code_field).should be_true
+    elements.include?(:new_subobject_code_field).should be_true
+    elements.include?(:new_project_field).should be_true
+    elements.include?(:new_org_ref_id_field).should be_true
+    elements.include?(:new_dollar_field).should be_true
+    elements.include?(:new_percentage_field).should be_true
+  end
+
+  it 'should have line item functions' do
+    functions = @line_item.functions
+    functions.include?(:chart_selector).should be_true
+    functions.include?(:account_number_field).should be_true
+    functions.include?(:subaccount_number_field).should be_true
+    functions.include?(:object_code_field).should be_true
+    functions.include?(:subobject_code_field).should be_true
+    functions.include?(:project_field).should be_true
+    functions.include?(:org_ref_id_field).should be_true
+    functions.include?(:dollar_field).should be_true
+    functions.include?(:percentage_field).should be_true
+    functions.include?(:delete_account_button).should be_true
   end
 end

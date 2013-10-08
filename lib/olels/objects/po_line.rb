@@ -32,7 +32,7 @@ module OLE_QA::Framework::OLELS
     def initialize(ole_session, line_number = 1)
       @line_number = line_number
       super(ole_session)
-      @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole, 1)
+      @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole, self, 1)
     end
 
     # A reader method for the line_id function.
