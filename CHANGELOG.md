@@ -1,4 +1,4 @@
-### v2.6.6
+### v2.7.0
 
 * OLEFS - New Items
     * Invoice Document
