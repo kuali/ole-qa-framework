@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLEFS
   # A single Line Item from a Purchase Order, as represented on an OLE Invoice E-Document.
-  class Invoice_Line_Item < OLE_QA::Framework::Common_Object
+  class Invoice_Line_Item < OLE_QA::Framework::OLEFS::Invoice_Line_Object
 
     # Allow the line number to be dynamically set, as needed for addressing various PO lines on an Invoice.
     attr_accessor :line_number
@@ -23,13 +23,8 @@ module OLE_QA::Framework::OLEFS
     attr_reader :po_line
 
     def initialize(ole_session, po_line, line_number = 1)
-      @line_number = line_number
       @po_line     = po_line
-      super(ole_session)
-    end
-
-    def line_id
-      @line_number - 1
+      super(ole_session, line_number)
     end
 
     def set_elements

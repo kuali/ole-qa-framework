@@ -20,24 +20,15 @@ module OLE_QA::Framework::OLEFS
   #   of extra recursion to address the multiple sub-objects of an Invoice E-Document.
   # - The future structure of Invoice documents is presently uncertain, so this is a temporary measure.
   #   If necessary, the framework may be restructured to follow this model.
-  class Invoice_Line < OLE_QA::Framework::Common_Object
-
-    # Allow the line number to be dynamically set, as needed for addressing various PO lines on an Invoice.
-    attr_accessor :line_number
+  class Invoice_Line < OLE_QA::Framework::OLEFS::Invoice_Line_Object
 
     # A flexible PO line item object with dynamic ID element definitions on an Invoice document.
     attr_reader :line_item
 
     # Set OLE instance & line number, instantiate line item for PO line on Invoice document.
     def initialize(ole_session, line_number = 1)
-      @line_number = line_number
-      super(ole_session)
+      super(ole_session, line_number)
       @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, self, 1)
-    end
-
-    # A reader method for the line_id function.
-    def line_id
-      @line_number - 1
     end
 
     # Set invoice line elements.
