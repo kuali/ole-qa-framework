@@ -1,3 +1,9 @@
+### v2.7.0
+
+* OLEFS - New Items
+    * Invoice Document
+    * Invoice Line
+
 ### v2.6.5 - 2013/09/25
 
 * Added Marc Editor View-Only Pages

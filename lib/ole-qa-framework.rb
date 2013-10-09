@@ -50,13 +50,14 @@ module OLE_QA
     # Subobject directories (foo)/subobjects/ should be loaded before object directories (foo)/objects/ for inheritance.
     load_libs("/common/")
     load_libs("/olefs/common/")
-    load_libs("/olefs/subobjects/")
-    load_libs("/olefs/objects/")
-    load_libs("/olefs/pages/")
     load_libs("/olels/common/")
+    load_libs("/olefs/subobjects/")
     load_libs("/olels/subobjects/")
+    load_libs("/olefs/objects/")
     load_libs("/olels/objects/")
+    load_libs("/olefs/pages/")
     load_libs("/olels/pages/")
+
     # load_libs("/docstore/")
 
     # Initialize wait variables to 0 for now.  They will be set programatically in {OLE_QA::Framework::Session}.

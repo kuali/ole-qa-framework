@@ -15,7 +15,7 @@
 require 'rspec'
 require 'spec_helper'
 
-describe 'My behaviour' do
+describe 'An OLELS Return Screen' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
