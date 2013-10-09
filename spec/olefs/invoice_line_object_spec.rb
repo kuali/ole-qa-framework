@@ -22,6 +22,10 @@ describe 'The OLEFS Invoice Line Object base class' do
     @line_object = OLE_QA::Framework::OLEFS::Invoice_Line_Object.new(@ole, 1)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @line_object.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Object
     @line_object.class.superclass.should == OLE_QA::Framework::Common_Object

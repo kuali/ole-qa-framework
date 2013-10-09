@@ -23,6 +23,10 @@ describe 'A PO Line Item on an OLE Invoice' do
     @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, @po_line, 1)
   end
 
+  after :all do
+    @ole.quit
+  end
+
   it 'should create a new instance' do
     @line_item.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Item
     @line_item.class.superclass.should == OLE_QA::Framework::OLEFS::Invoice_Line_Object
