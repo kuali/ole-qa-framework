@@ -60,6 +60,7 @@ module OLE_QA::Framework::OLEFS
       element(:prorate_qty_checkbox)                  {b.checkbox(:id => 'myAccount_prorateByQuantity_control')}
       element(:prorate_manual_checkbox)               {b.checkbox(:id => 'myAccount_prorateByManual_control')}
       element(:no_prorate_checkbox)                   {b.checkbox(:id => 'myAccount_noProrate_control')}
+      element(:prior_total_field)                     {b.text_field(:id => 'invoiceTotal_control')}
       element(:grand_total)                           {b.span(:id => 'myAccount_grandTotal_control')}
       element(:submit_button)                         {b.button(:text => /submit/)}
       element(:save_button)                           {b.button(:id => 'usave')}

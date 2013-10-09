@@ -63,6 +63,7 @@ describe 'An OLE Invoice' do
     elements.include?(:prorate_qty_checkbox).should be_true
     elements.include?(:prorate_manual_checkbox).should be_true
     elements.include?(:no_prorate_checkbox).should be_true
+    elements.include?(:prior_total_field).should be_true
     elements.include?(:grand_total).should be_true
     elements.include?(:submit_button).should be_true
     elements.include?(:save_button).should be_true
