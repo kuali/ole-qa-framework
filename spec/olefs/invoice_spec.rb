@@ -81,4 +81,9 @@ describe 'An OLE Invoice' do
     @invoice.methods.include?(:po_line).should be_true
     @invoice.po_line.class.should == OLE_QA::Framework::OLEFS::Invoice_Line
   end
+
+  it 'should have a current items line' do
+    @invoice.methods.include?(:current_items_line).should be_true
+    @invoice.current_items_line.class.should == OLE_QA::Framework::OLEFS::Invoice_Current_Item
+  end
 end

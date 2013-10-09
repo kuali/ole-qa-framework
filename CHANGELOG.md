@@ -1,4 +1,9 @@
-### v2.7.0
+### v2.7.1 - 2013/10/09
+
+* OLEFS - Invoice Document
+    * Add Current Items Line
+
+### v2.7.0 - 2013/10/09
 
 * OLEFS - New Items
     * Invoice Document

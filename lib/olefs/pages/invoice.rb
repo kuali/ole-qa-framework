@@ -19,12 +19,16 @@ module OLE_QA::Framework::OLEFS
     # A flexible object representing a Purchase Order line on an Invoice document.
     attr_reader :po_line
 
+    # A flexible object representing a Purchase Order line item in the Current Items tab of an Invoice document.
+    attr_reader :current_items_line
+
     # Initialize with URL for a new invoice.
     def initialize(ole_session)
       url = ole_session.url + '/portal.do?channelTitle=Create&channelUrl='
       url += ole_session.url + '/ole-kr-krad/OLEInvoice?viewId=OLEInvoiceDocumentView&methodToCall=docHandler&command=initiate&documentClass=org.kuali.ole.krad.transaction.documents.OLEInvoiceDocument'
       super(ole_session, url)
       @po_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
+      @current_items_line = OLE_QA::Framework::OLEFS::Invoice_Current_Item.new(@ole, 1)
     end
 
     # Define basic invoice document screen elements.
