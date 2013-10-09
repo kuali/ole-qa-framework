@@ -12,7 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-module OLE_QA::Framework::OLELS
+module OLE_QA::Framework::OLEFS
   # A single Line Item from a Purchase Order, as represented on an OLE Invoice E-Document.
   class Invoice_Line_Item < OLE_QA::Framework::Common_Object
 

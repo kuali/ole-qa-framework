@@ -15,11 +15,11 @@
 require 'rspec'
 require 'spec_helper'
 
-describe 'An OLE Invoice Line' do
+describe 'An OLE Invoice PO Line' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @invoice_line = OLE_QA::Framework::OLELS::PO_Line.new(@ole,1)
+    @invoice_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole,1)
   end
 
   after :all do
@@ -27,7 +27,7 @@ describe 'An OLE Invoice Line' do
   end
 
   it 'should create a new instance' do
-    @invoice_line.class.should == OLE_QA::Framework::OLELS::PO_Line
+    @invoice_line.class.should == OLE_QA::Framework::OLEFS::Invoice_Line
     @invoice_line.class.superclass.should == OLE_QA::Framework::Common_Object
   end
 
@@ -59,6 +59,6 @@ describe 'An OLE Invoice Line' do
 
   it 'should have an instance of the invoice line item class' do
     @invoice_line.methods.include?(:line_item).should be_true
-    @invoice_line.line_item.class.should == OLE_QA::Framework::OLELS::Invoice_Line_Item
+    @invoice_line.line_item.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Item
   end
 end

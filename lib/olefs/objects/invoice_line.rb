@@ -12,7 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-module OLE_QA::Framework::OLELS
+module OLE_QA::Framework::OLEFS
   # A single Purchase Order line on an OLE Financial System Invoice E-Document.
   # - This class represents a slight departure from the normal method for creating line objects.
   #   Instead of setting a line number only once, the line object can be redefined to point at
@@ -20,7 +20,7 @@ module OLE_QA::Framework::OLELS
   #   of extra recursion to address the multiple sub-objects of an Invoice E-Document.
   # - The future structure of Invoice documents is presently uncertain, so this is a temporary measure.
   #   If necessary, the framework may be restructured to follow this model.
-  class PO_Line < OLE_QA::Framework::Common_Object
+  class Invoice_Line < OLE_QA::Framework::Common_Object
 
     # Allow the line number to be dynamically set, as needed for addressing various PO lines on an Invoice.
     attr_accessor :line_number
@@ -32,7 +32,7 @@ module OLE_QA::Framework::OLELS
     def initialize(ole_session, line_number = 1)
       @line_number = line_number
       super(ole_session)
-      @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole, self, 1)
+      @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, self, 1)
     end
 
     # A reader method for the line_id function.

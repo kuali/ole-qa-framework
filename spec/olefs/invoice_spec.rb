@@ -19,7 +19,7 @@ describe 'An OLE Invoice' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @invoice = OLE_QA::Framework::OLELS::Invoice.new(@ole)
+    @invoice = OLE_QA::Framework::OLEFS::Invoice.new(@ole)
   end
 
   after :all do
@@ -27,7 +27,7 @@ describe 'An OLE Invoice' do
   end
 
   it 'should create a new instance' do
-    @invoice.class.should == OLE_QA::Framework::OLELS::Invoice
+    @invoice.class.should == OLE_QA::Framework::OLEFS::Invoice
     @invoice.class.superclass.should == OLE_QA::Framework::OLELS::E_Doc
   end
 
@@ -78,6 +78,6 @@ describe 'An OLE Invoice' do
 
   it 'should have a purchase order line' do
     @invoice.methods.include?(:po_line).should be_true
-    @invoice.po_line.class.should == OLE_QA::Framework::OLELS::PO_Line
+    @invoice.po_line.class.should == OLE_QA::Framework::OLEFS::Invoice_Line
   end
 end

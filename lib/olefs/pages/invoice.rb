@@ -12,9 +12,9 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-module OLE_QA::Framework::OLELS
+module OLE_QA::Framework::OLEFS
   # An OLE Library System invoice document.
-  class Invoice < E_Doc
+  class Invoice < OLE_QA::Framework::OLELS::E_Doc
 
     # A flexible object representing a Purchase Order line on an Invoice document.
     attr_reader :po_line
@@ -24,7 +24,7 @@ module OLE_QA::Framework::OLELS
       url = ole_session.url + '/portal.do?channelTitle=Create&channelUrl='
       url += ole_session.url + '/ole-kr-krad/OLEInvoice?viewId=OLEInvoiceDocumentView&methodToCall=docHandler&command=initiate&documentClass=org.kuali.ole.krad.transaction.documents.OLEInvoiceDocument'
       super(ole_session, url)
-      @po_line = OLE_QA::Framework::OLELS::PO_Line.new(@ole, 1)
+      @po_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
     end
 
     # Define basic invoice document screen elements.

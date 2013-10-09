@@ -19,12 +19,12 @@ describe 'A PO Line Item on an OLE Invoice' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @po_line = OLE_QA::Framework::OLELS::PO_Line.new(@ole, 1)
-    @line_item = OLE_QA::Framework::OLELS::Invoice_Line_Item.new(@ole, @po_line, 1)
+    @po_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
+    @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, @po_line, 1)
   end
 
   it 'should create a new instance' do
-    @line_item.class.should == OLE_QA::Framework::OLELS::Invoice_Line_Item
+    @line_item.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Item
     @line_item.class.superclass.should == OLE_QA::Framework::Common_Object
   end
 
