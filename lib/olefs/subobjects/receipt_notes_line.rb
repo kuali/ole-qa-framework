@@ -18,8 +18,8 @@ module OLE_QA::Framework::OLEFS
     # Set receipt notes elements.
     def set_elements
       super
-      element(:note_type_selector)                    {b.select_list(:id => "document.item[#{@line_id}].receiptNoteList[#{@subline_id}].noteTypeId")}
-      element(:note_field)                            {b.text_field(:id => "document.item[#{@line_id}].receiptNoteList[#{@subline_id}].notes")}
+      element(:note_type_selector)                    {b.select_list(:id => "document.item[#{line_id}].receiptNoteList[#{@subline_id}].noteTypeId")}
+      element(:note_field)                            {b.text_field(:id => "document.item[#{line_id}].receiptNoteList[#{@subline_id}].notes")}
     end
   end
 end

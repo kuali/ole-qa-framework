@@ -33,7 +33,7 @@ module OLE_QA::Framework
     # @param subline_number [Fixnum] The subline number this subline object will use for element definitions.
     def initialize(ole_session, line_number = 1, subline_number = 1)
       @line_number, @subline_number = line_number, subline_number
-      @line_id = line_number -1
+      line_id = line_number -1
       @subline_id = subline_number -1
       super(ole_session)
     end

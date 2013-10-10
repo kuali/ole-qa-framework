@@ -17,10 +17,10 @@ module OLE_QA::Framework::OLELS
   class Ownership_Extent_Line < OLE_QA::Framework::OLELS::Line_Object
 
     def set_elements
-      element(:type_selector)                     {b.select_list(:id => "extentTextualHoldingsType_line#{@line_id}_control")}
-      element(:statement_field)                   {b.text_field(:id => "extentTextualHoldings_line#{@line_id}_control")}
-      element(:add_button)                        {b.button(:id => "extentOfOwnership_addTagButton_line#{@line_id}")}
-      element(:remove_button)                     {b.button(:id => "extentOfOwnership_removeTagButton_line#{@line_id}")}
+      element(:type_selector)                     {b.select_list(:id => "extentTextualHoldingsType_line#{line_id}_control")}
+      element(:statement_field)                   {b.text_field(:id => "extentTextualHoldings_line#{line_id}_control")}
+      element(:add_button)                        {b.button(:id => "extentOfOwnership_addTagButton_line#{line_id}")}
+      element(:remove_button)                     {b.button(:id => "extentOfOwnership_removeTagButton_line#{line_id}")}
     end
 
     def set_sublines

@@ -18,9 +18,9 @@ module OLE_QA::Framework::OLEFS
     # Set exception notes line elements.
     def set_elements
       super
-      element(:exception_type_selector)             {b.select_list(:id => "document.item[#{@line_id}].exceptionNoteList[#{@subline_id}].exceptionTypeId")}
-      element(:note_field)                          {b.text_field(:id => "document.item[#{@line_id}].exceptionNoteList[#{@subline_id}].exceptionNotes")}
-      element(:note_type_selector)                  {b.select_list(:id => "document.item[#{@line_id}].exceptionNoteList[#{@subline_id}].exceptionTypeId")}
+      element(:exception_type_selector)             {b.select_list(:id => "document.item[#{line_id}].exceptionNoteList[#{@subline_id}].exceptionTypeId")}
+      element(:note_field)                          {b.text_field(:id => "document.item[#{line_id}].exceptionNoteList[#{@subline_id}].exceptionNotes")}
+      element(:note_type_selector)                  {b.select_list(:id => "document.item[#{line_id}].exceptionNoteList[#{@subline_id}].exceptionTypeId")}
     end
   end
 end

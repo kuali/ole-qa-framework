@@ -19,27 +19,27 @@ module OLE_QA::Framework::OLEFS
     def set_elements
       super
       # Fields
-      element(:account_number_field)          {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].accountNumber")}
-      element(:sub_account_number_field)      {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].subAccountNumber")}
-      element(:object_field)                  {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].financialObjectCode")}
-      element(:sub_object_field)              {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].financialSubObjectCode")}
-      element(:project_field)                 {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].projectCode")}
-      element(:org_ref_id_field)              {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].organizationReferenceId")}
-      element(:dollar_field)                  {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].amount")}
-      element(:percent_field)                 {b.text_field(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].accountLinePercent")}
+      element(:account_number_field)          {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].accountNumber")}
+      element(:sub_account_number_field)      {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].subAccountNumber")}
+      element(:object_field)                  {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].financialObjectCode")}
+      element(:sub_object_field)              {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].financialSubObjectCode")}
+      element(:project_field)                 {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].projectCode")}
+      element(:org_ref_id_field)              {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].organizationReferenceId")}
+      element(:dollar_field)                  {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].amount")}
+      element(:percent_field)                 {b.text_field(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].accountLinePercent")}
       # Selectors
-      element(:chart_selector)                {b.select_list(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].chartOfAccountsCode")}
+      element(:chart_selector)                {b.select_list(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].chartOfAccountsCode")}
       # Inputs, Radio Buttons, & Checkboxes
-      element(:delete_button)                 {b.input(:name => "methodToCall.deleteSourceLine.line#{@line_id}.#{@subline_id}.anchoraccountingSourceAnchor")}
-      element(:balance_inquiry_button)        {b.input(:name => "methodToCall.performBalance(InquiryForSourceLine.line#{@line_id}:#{@subline_id}.anchoraccountingSourceExistingLineLineAnchor#{@subline_id}")}
+      element(:delete_button)                 {b.input(:name => "methodToCall.deleteSourceLine.line#{line_id}.#{@subline_id}.anchoraccountingSourceAnchor")}
+      element(:balance_inquiry_button)        {b.input(:name => "methodToCall.performBalance(InquiryForSourceLine.line#{line_id}:#{@subline_id}.anchoraccountingSourceExistingLineLineAnchor#{@subline_id}")}
       # Readonly Fields
       # Use the fields below when the target accounting line was added on an earlier PURAP document
       # (e.g., for accounting lines on a purchase order which were added on the requisition).
-      element(:closed_chart_field)            {b.div(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].chart.finChartOfAccountDescription.div").parent.a}
-      element(:closed_account_number_field)   {b.div(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].account.accountName.div").parent.a}
-      element(:closed_object_field)           {b.div(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].objectCode.financialObjectCodeName.div").parent.a}
-      element(:closed_dollar_field)           {b.div(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].amount.div")}
-      element(:closed_percent_field)          {b.div(:id => "document.item[#{@line_id}].sourceAccountingLine[#{@subline_id}].sourceAccountingLinePercent.div")}
+      element(:closed_chart_field)            {b.div(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].chart.finChartOfAccountDescription.div").parent.a}
+      element(:closed_account_number_field)   {b.div(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].account.accountName.div").parent.a}
+      element(:closed_object_field)           {b.div(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].objectCode.financialObjectCodeName.div").parent.a}
+      element(:closed_dollar_field)           {b.div(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].amount.div")}
+      element(:closed_percent_field)          {b.div(:id => "document.item[#{line_id}].sourceAccountingLine[#{@subline_id}].sourceAccountingLinePercent.div")}
     end
   end
 

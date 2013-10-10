@@ -20,12 +20,12 @@ module OLE_QA::Framework::OLELS
 
     # Set Marc data line elements.
     def set_elements
-      element(:tag_field)               {b.text_field(:id => "dataField_tag_id_line#{@line_id}_control")}
-      element(:ind1_field)              {b.text_field(:id => "dataField_ind1_id_line#{@line_id}_control")}
-      element(:ind2_field)              {b.text_field(:id => "dataField_ind2_id_line#{@line_id}_control")}
-      element(:data_field)              {b.text_field(:id => "dataField_value_id_line#{@line_id}_control")}
-      element(:add_button)              {b.button(:id => "dataField_addTagButton_id_line#{@line_id}")}
-      element(:remove_button)           {b.button(:id => "dataField_removeTagButton_id_line#{@line_id}")}
+      element(:tag_field)               {b.text_field(:id => "dataField_tag_id_line#{line_id}_control")}
+      element(:ind1_field)              {b.text_field(:id => "dataField_ind1_id_line#{line_id}_control")}
+      element(:ind2_field)              {b.text_field(:id => "dataField_ind2_id_line#{line_id}_control")}
+      element(:data_field)              {b.text_field(:id => "dataField_value_id_line#{line_id}_control")}
+      element(:add_button)              {b.button(:id => "dataField_addTagButton_id_line#{line_id}")}
+      element(:remove_button)           {b.button(:id => "dataField_removeTagButton_id_line#{line_id}")}
     end
   end
 end

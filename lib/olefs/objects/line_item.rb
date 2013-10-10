@@ -26,26 +26,26 @@ module OLE_QA::Framework::OLEFS
     def set_elements
       super
       # Fields
-      element(:copies_field)                      {b.text_field(:id => "document.item[#{@line_id}].oleItemQuantity")}
-      element(:parts_field)                       {b.text_field(:id => "document.item[#{@line_id}].itemNoOfParts")}
-      element(:list_price_field)                  {b.text_field(:id => "document.item[#{@line_id}].itemListPrice")}
-      element(:discount_field)                    {b.text_field(:id => "document.item[#{@line_id}].itemDiscount")}
+      element(:copies_field)                      {b.text_field(:id => "document.item[#{line_id}].oleItemQuantity")}
+      element(:parts_field)                       {b.text_field(:id => "document.item[#{line_id}].itemNoOfParts")}
+      element(:list_price_field)                  {b.text_field(:id => "document.item[#{line_id}].itemListPrice")}
+      element(:discount_field)                    {b.text_field(:id => "document.item[#{line_id}].itemDiscount")}
       element(:description_field)                 {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[1]/td[2]")}
       element(:item_type_field)                   {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[1]/td[3]")}
       element(:extended_cost_field)               {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[2]/td[3]")}
       element(:receipt_status_field)              {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[3]/td[1]")}
       # Selectors
-      element(:item_price_source_selector)        {b.select_list(:id => "document.item[#{@line_id}].itemPriceSourceId")}
-      element(:request_source_selector)           {b.select_list(:id => "document.item[#{@line_id}].requestSourceId")}
-      element(:item_type_selector)                {b.select_list(:id => "document.item[#{@line_id}].itemTypeDescription")}
-      element(:format_selector)                   {b.select_list(:id => "document.item[#{@line_id}].formatTypeId")}
-      element(:category_selector)                 {b.select_list(:id => "document.item[#{@line_id}].categoryId")}
-      element(:discount_type_selector)            {b.select_list(:id => "document.item[#{@line_id}].itemDiscountType")}
-      element(:location_selector)                 {b.select_list(:id => "document.item[#{@line_id}].itemLocation")}
+      element(:item_price_source_selector)        {b.select_list(:id => "document.item[#{line_id}].itemPriceSourceId")}
+      element(:request_source_selector)           {b.select_list(:id => "document.item[#{line_id}].requestSourceId")}
+      element(:item_type_selector)                {b.select_list(:id => "document.item[#{line_id}].itemTypeDescription")}
+      element(:format_selector)                   {b.select_list(:id => "document.item[#{line_id}].formatTypeId")}
+      element(:category_selector)                 {b.select_list(:id => "document.item[#{line_id}].categoryId")}
+      element(:discount_type_selector)            {b.select_list(:id => "document.item[#{line_id}].itemDiscountType")}
+      element(:location_selector)                 {b.select_list(:id => "document.item[#{line_id}].itemLocation")}
       # Buttons, Checkboxes, Etc.
       element(:delete_button)                     {b.input(:title => "Delete Item #{@line_number}")}
-      element(:route_to_requestor_checkbox)       {b.checkbox(:id => "document.item[#{@line_id}].itemRouteToRequestor")}
-      element(:public_view_checkbox)              {b.checkbox(:id => "document.item[#{@line_id}].itemPublicViewIndicator")}
+      element(:route_to_requestor_checkbox)       {b.checkbox(:id => "document.item[#{line_id}].itemRouteToRequestor")}
+      element(:public_view_checkbox)              {b.checkbox(:id => "document.item[#{line_id}].itemPublicViewIndicator")}
       # Readonly Elements
       # Use these for closed, uneditable fields as with a pre-existing line item on a purchase order.
       element(:closed_description_field)          {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[1]/td[2]")}
@@ -67,8 +67,8 @@ module OLE_QA::Framework::OLEFS
       element(:closed_unit_cost_field)            {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[1]")}
       element(:closed_discount_field)             {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[2]")}
       element(:closed_discount_type_field)        {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[4]")}
-      # Subtab Toggle Buttons                   # Matches all of type, then selects by index = @line_id (i.e. if @line_num is 1, index is 0)
-      element(:accounting_lines_toggle)         {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => @line_id)}
+      # Subtab Toggle Buttons                   # Matches all of type, then selects by index = line_id (i.e. if @line_num is 1, index is 0)
+      element(:accounting_lines_toggle)         {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
       #element(:notes_toggle)                   #TBD - The notes and copies lines are treated as the same line for ID purposes.
       #element(:copies_toggle)                  # There is no reliable way of knowing which index either should have without being state-aware.
     end

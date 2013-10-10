@@ -21,17 +21,17 @@ module OLE_QA::Framework::OLEFS
     end
 
     # Set elements on a New Copies Line object.
-    # @note {OLE_QA::Framework::Line_Object} @line_number and @line_id will be used to
+    # @note {OLE_QA::Framework::Line_Object} @line_number and line_id will be used to
     #   perform substitutions in identifiers.
-    # @note {OLE_QA::Framework::Subline_Object} @line_number and @line_id will not be
+    # @note {OLE_QA::Framework::Subline_Object} @line_number and line_id will not be
     #   need in finding element IDs, as there will only ever be one new
     #   subline object on each line object.
     def set_elements
       super
-      element(:copies_field)                      {b.text_field(:id => "document.item[#{@line_id}].itemCopies")}
-      element(:location_copies_selector)          {b.select_list(:id => "document.item[#{@line_id}].locationCopies")}
-      element(:starting_copy_field)               {b.text_field(:id => "document.item[#{@line_id}].startingCopyNumber")}
-      element(:add_button)                        {b.input(:name => "methodToCall.addCopy.line#{@line_id}")}
+      element(:copies_field)                      {b.text_field(:id => "document.item[#{line_id}].itemCopies")}
+      element(:location_copies_selector)          {b.select_list(:id => "document.item[#{line_id}].locationCopies")}
+      element(:starting_copy_field)               {b.text_field(:id => "document.item[#{line_id}].startingCopyNumber")}
+      element(:add_button)                        {b.input(:name => "methodToCall.addCopy.line#{line_id}")}
     end
   end
 end

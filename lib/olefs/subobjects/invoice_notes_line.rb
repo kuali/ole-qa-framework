@@ -18,8 +18,8 @@ module OLE_QA::Framework::OLEFS
     # Set invoice notes line elements.
     def set_elements
       super
-      element(:note_field)                {b.text_area(:id => "document.item[#{@line_id}].notes[#{@subline_id}].note")}
-      element(:delete_button)             {b.input(:xpath => "//input[@name='methodToCall.deleteNote.line#{@line_id}:#{@subline_id}']")}
+      element(:note_field)                {b.text_area(:id => "document.item[#{line_id}].notes[#{@subline_id}].note")}
+      element(:delete_button)             {b.input(:xpath => "//input[@name='methodToCall.deleteNote.line#{line_id}:#{@subline_id}']")}
     end
   end
 end

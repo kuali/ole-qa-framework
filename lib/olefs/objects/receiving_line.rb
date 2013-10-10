@@ -32,14 +32,14 @@ module OLE_QA::Framework::OLEFS
       element(:prior_parts_received_field)                {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[7]")}
       element(:quantity_to_be_received_field)             {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[8]")}
       element(:parts_to_be_received_field)                {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[9]")}
-      element(:item_received_quantity_field)              {b.text_field(:id => "document.item[#{@line_id}].oleItemReceivedTotalQuantity")}
-      element(:item_received_parts_field)                 {b.text_field(:id => "document.item[#{@line_id}].oleItemReceivedTotalParts")}
-      element(:item_returned_quantity_field)              {b.text_field(:id => "document.item[#{@line_id}].oleItemReturnedTotalQuantity")}
-      element(:item_returned_parts_field)                 {b.text_field(:id => "document.item[#{@line_id}].oleItemReturnedTotalParts")}
-      element(:item_damaged_quantity_field)               {b.text_field(:id => "document.item[#{@line_id}].oleItemDamagedTotalQuantity")}
-      element(:item_damaged_parts_field)                  {b.text_field(:id => "document.item[#{@line_id}].oleItemDamagedTotalParts")}
-      element(:available_to_public_checkbox)              {b.checkbox(:id => "document.item[#{@line_id}].availableToPublic")}
-      element(:public_view_checkbox)                      {b.checkbox(:id => "document.item[#{@line_id}].availableToPublic")}
+      element(:item_received_quantity_field)              {b.text_field(:id => "document.item[#{line_id}].oleItemReceivedTotalQuantity")}
+      element(:item_received_parts_field)                 {b.text_field(:id => "document.item[#{line_id}].oleItemReceivedTotalParts")}
+      element(:item_returned_quantity_field)              {b.text_field(:id => "document.item[#{line_id}].oleItemReturnedTotalQuantity")}
+      element(:item_returned_parts_field)                 {b.text_field(:id => "document.item[#{line_id}].oleItemReturnedTotalParts")}
+      element(:item_damaged_quantity_field)               {b.text_field(:id => "document.item[#{line_id}].oleItemDamagedTotalQuantity")}
+      element(:item_damaged_parts_field)                  {b.text_field(:id => "document.item[#{line_id}].oleItemDamagedTotalParts")}
+      element(:available_to_public_checkbox)              {b.checkbox(:id => "document.item[#{line_id}].availableToPublic")}
+      element(:public_view_checkbox)                      {b.checkbox(:id => "document.item[#{line_id}].availableToPublic")}
       element(:exception_notes_toggle)                    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[2]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:receipt_notes_toggle)                      {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[3]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:special_processing_instructions_toggle)    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[1]/th/div/input")}

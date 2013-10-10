@@ -21,9 +21,9 @@ module OLE_QA::Framework::OLEFS
     end
 
     # Set elements on a New Invoice Notes Line object.
-    # @note {OLE_QA::Framework::Line_Object} @line_number and @line_id will be used to
+    # @note {OLE_QA::Framework::Line_Object} @line_number and line_id will be used to
     #   perform substitutions in identifiers.
-    # @note {OLE_QA::Framework::Subline_Object} @line_number and @line_id will not be
+    # @note {OLE_QA::Framework::Subline_Object} @line_number and line_id will not be
     #   need in finding element IDs, as there will only ever be one new
     #   subline object on each line object.
     def set_elements

@@ -17,10 +17,10 @@ module OLE_QA::Framework::OLELS
   class Ownership_Note < OLE_QA::Framework::Subline_Object
     # Set ownership note screen elements.
     def set_elements
-      element(:note_type_selector)                  {b.select_list(:id => "extentSubHoldingNoteTypeField_line#{@line_id}_line#{@subline_id}_control")}
-      element(:note_field)                          {b.text_field(:id => "extentSubHoldingNoteDescField_line#{@line_id}_line#{@subline_id}_control")}
-      element(:add_button)                          {b.button(:id => "oleEowHoldingNotes_addTagButton_line#{@line_id}_line#{@subline_id}")}
-      element(:remove_button)                       {b.button(:id => "oleEowHoldingNotes_removeTagButton_line#{@line_id}_line#{@subline_id}")}
+      element(:note_type_selector)                  {b.select_list(:id => "extentSubHoldingNoteTypeField_line#{line_id}_line#{@subline_id}_control")}
+      element(:note_field)                          {b.text_field(:id => "extentSubHoldingNoteDescField_line#{line_id}_line#{@subline_id}_control")}
+      element(:add_button)                          {b.button(:id => "oleEowHoldingNotes_addTagButton_line#{line_id}_line#{@subline_id}")}
+      element(:remove_button)                       {b.button(:id => "oleEowHoldingNotes_removeTagButton_line#{line_id}_line#{@subline_id}")}
     end
   end
 end

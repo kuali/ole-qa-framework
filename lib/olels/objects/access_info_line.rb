@@ -17,9 +17,9 @@ module OLE_QA::Framework::OLELS
   class Access_Info_Line < OLE_QA::Framework::OLELS::Line_Object
     # Set screen elements for access info line.
     def set_elements
-      element(:access_info_field)                     {b.text_field(:id => "OleAccessInformationField_line#{@line_id}_control")}
-      element(:add_button)                            {b.button(:id => "oleAccessInformation_addTagButton_line#{@line_id}")}
-      element(:remove_button)                         {b.button(:id => "oleAccessInformation_removeTagButton_line#{@line_id}")}
+      element(:access_info_field)                     {b.text_field(:id => "OleAccessInformationField_line#{line_id}_control")}
+      element(:add_button)                            {b.button(:id => "oleAccessInformation_addTagButton_line#{line_id}")}
+      element(:remove_button)                         {b.button(:id => "oleAccessInformation_removeTagButton_line#{line_id}")}
     end
   end
 end

@@ -17,24 +17,24 @@ module OLE_QA::Framework::OLELS
   class Patron_Email_Line < Line_Object
     # Set screen elements on patron record email info line.
     def set_elements
-      element(:email_type_selector)                       {(@line_id == 0) ?
+      element(:email_type_selector)                       {(line_id == 0) ?
                                                             id_str = 'emailTypeCode_add_control' :
-                                                            id_str = "emailTypeCode_line#{@line_id - 1}_control"
+                                                            id_str = "emailTypeCode_line#{line_id - 1}_control"
                                                             b.select_list(:id => id_str)}
-      element(:email_address_field)                       {(@line_id == 0) ?
+      element(:email_address_field)                       {(line_id == 0) ?
                                                             id_str = 'emailAddress_add_control' :
-                                                            id_str = "emailAddress_line#{@line_id - 1}_control"
+                                                            id_str = "emailAddress_line#{line_id - 1}_control"
                                                             b.text_field(:id => id_str)}
-      element(:preferred_checkbox)                        {(@line_id == 0) ?
+      element(:preferred_checkbox)                        {(line_id == 0) ?
                                                             id_str = 'email_defaultValue_add_control' :
-                                                            id_str = "email_defaultValue_line#{@line_id - 1}_control"
+                                                            id_str = "email_defaultValue_line#{line_id - 1}_control"
                                                             b.checkbox(:id => id_str)}
-      element(:active_checkbox)                           {(@line_id == 0) ?
+      element(:active_checkbox)                           {(line_id == 0) ?
                                                             id_str = 'email_active_add_control' :
-                                                            id_str = "email_active_line#{@line_id - 1}_control"
+                                                            id_str = "email_active_line#{line_id - 1}_control"
                                                             b.checkbox(:id => id_str)}
       element(:add_button)                                {b.button(:id => 'OlePatronDocument-Email_add')}
-      element(:delete_button)                             {b.button(:id => "OlePatronDocument-Email_del_line#{@line_id - 1}")}
+      element(:delete_button)                             {b.button(:id => "OlePatronDocument-Email_del_line#{line_id - 1}")}
     end
   end
 end

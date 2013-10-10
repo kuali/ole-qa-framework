@@ -21,23 +21,23 @@ module OLE_QA::Framework::OLEFS
     end
 
     # Set elements on a New Accounting Line object.
-    # @note {OLE_QA::Framework::Line_Object} @line_number and @line_id will be used to
+    # @note {OLE_QA::Framework::Line_Object} @line_number and line_id will be used to
     #   perform substitutions in identifiers.
-    # @note {OLE_QA::Framework::Subline_Object} @line_number and @line_id will not be
+    # @note {OLE_QA::Framework::Subline_Object} @line_number and line_id will not be
     #   need in finding element IDs, as there will only ever be one new
     #   subline object on each line object.
     def set_elements
       super
-      element(:chart_selector)                    {b.select_list(:id => "document.item[#{@line_id}].newSourceLine.chartOfAccountsCode")}
-      element(:account_number_field)              {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.accountNumber")}
-      element(:sub_account_number_field)          {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.subAccountNumber")}
-      element(:object_field)                      {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.financialObjectCode")}
-      element(:sub_object_field)                  {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.financialSubObjectCode")}
-      element(:project_field)                     {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.projectCode")}
-      element(:org_ref_id_field)                  {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.organizationReferenceId")}
-      element(:dollar_field)                      {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.amount")}
-      element(:percent_field)                     {b.text_field(:id => "document.item[#{@line_id}].newSourceLine.accountLinePercent")}
-      element(:add_button)                        {b.input(:name => "methodToCall.insertSourceLine.line#{@line_id}.anchoraccountingSourceAnchor")}
+      element(:chart_selector)                    {b.select_list(:id => "document.item[#{line_id}].newSourceLine.chartOfAccountsCode")}
+      element(:account_number_field)              {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountNumber")}
+      element(:sub_account_number_field)          {b.text_field(:id => "document.item[#{line_id}].newSourceLine.subAccountNumber")}
+      element(:object_field)                      {b.text_field(:id => "document.item[#{line_id}].newSourceLine.financialObjectCode")}
+      element(:sub_object_field)                  {b.text_field(:id => "document.item[#{line_id}].newSourceLine.financialSubObjectCode")}
+      element(:project_field)                     {b.text_field(:id => "document.item[#{line_id}].newSourceLine.projectCode")}
+      element(:org_ref_id_field)                  {b.text_field(:id => "document.item[#{line_id}].newSourceLine.organizationReferenceId")}
+      element(:dollar_field)                      {b.text_field(:id => "document.item[#{line_id}].newSourceLine.amount")}
+      element(:percent_field)                     {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountLinePercent")}
+      element(:add_button)                        {b.input(:name => "methodToCall.insertSourceLine.line#{line_id}.anchoraccountingSourceAnchor")}
     end
   end
 end

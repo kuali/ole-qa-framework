@@ -34,13 +34,13 @@ module OLE_QA::Framework::OLEFS
       element(:extended_cost_field)                           {b.td(:xpath => "//div[@id='tab-ProcessItems-div']/descendant::table/tbody/tr[th[contains(text(),'Item Line #')]]/following-sibling::tr[td/b[contains(text(),'#{@line_number}')]]/td[13]")}
       element(:assigned_to_trade_in_field)                    {b.td(:xpath => "//div[@id='tab-ProcessItems-div']/descendant::table/tbody/tr[th[contains(text(),'Item Line #')]]/following-sibling::tr[td/b[contains(text(),'#{@line_number}')]]/td[14]")}
       element(:description_field)                             {b.td(:xpath => "//div[@id='tab-ProcessItems-div']/descendant::table/tbody/tr[th[contains(text(),'Item Line #')]]/following-sibling::tr[td/b[contains(text(),'#{@line_number}')]]/td[15]")}
-      element(:number_of_copies_ordered_field)                {b.text_field(:id => "document.item[#{@line_id}].oleItemQuantity")}
-      element(:number_of_parts_ordered_field)                 {b.text_field(:id => "document.item[#{@line_id}].itemNoOfParts")}
-      element(:list_price_field)                              {b.text_field(:id => "document.item[#{@line_id}].itemListPrice")}
-      element(:discount_field)                                {b.text_field(:id => "document.item[#{@line_id}].itemDiscount")}
-      element(:discount_type_selector)                        {b.select_list(:id => "document.item[#{@line_id}].itemDiscountType")}
-      element(:edit_bib_button)                               {b.input(:id => "bibEditAddedItemButton_#{@line_id}")}
-      element(:delete_button)                                 {b.input(:xpath => "//input[@name='methodToCall.deleteItem.line#{@line_id}']")}
+      element(:number_of_copies_ordered_field)                {b.text_field(:id => "document.item[#{line_id}].oleItemQuantity")}
+      element(:number_of_parts_ordered_field)                 {b.text_field(:id => "document.item[#{line_id}].itemNoOfParts")}
+      element(:list_price_field)                              {b.text_field(:id => "document.item[#{line_id}].itemListPrice")}
+      element(:discount_field)                                {b.text_field(:id => "document.item[#{line_id}].itemDiscount")}
+      element(:discount_type_selector)                        {b.select_list(:id => "document.item[#{line_id}].itemDiscountType")}
+      element(:edit_bib_button)                               {b.input(:id => "bibEditAddedItemButton_#{line_id}")}
+      element(:delete_button)                                 {b.input(:xpath => "//input[@name='methodToCall.deleteItem.line#{line_id}']")}
       element(:invoice_notes_toggle)                          {b.input(:xpath => "//div[@id='tab-ProcessItems-div']/descendant::table/tbody/tr[th[contains(text(),'Item Line #')]]/following-sibling::tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[2]/descendant::input[starts-with(@id,'tab-Notes')]")}
       element(:accounting_lines_toggle)                       {b.input(:xpath => "//div[@id='tab-ProcessItems-div']/descendant::table/tbody/tr[th[contains(text(),'Item Line #')]]/following-sibling::tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[3]/descendant::input[starts-with(@id,'tab-AccountingLines')]")}
     end

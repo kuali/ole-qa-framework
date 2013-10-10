@@ -19,11 +19,11 @@ module OLE_QA::Framework::OLELS
 
     # Set Marc data line elements.
     def set_elements
-      element(:field)                       {b.text_field(:id => "Control_Field_006_line#{@line_id}_control")}
-      element(:add_button)                  {b.button(:id => "Control_Field_006_addTagButton_id_line#{@line_id}")}
-      element(:edit_button)                 {b.button(:id => "Control_Field_006_EditTagButton_id_line#{@line_id}")}
-      element(:remove_button)               {b.button(:id => "Control_Field_006_removeTagButton_id_line#{@line_id}")}
-      element(:clear_button)                {b.button(:id => "Control_Field_006_clearTagButton_id_line#{@line_id}")}
+      element(:field)                       {b.text_field(:id => "Control_Field_006_line#{line_id}_control")}
+      element(:add_button)                  {b.button(:id => "Control_Field_006_addTagButton_id_line#{line_id}")}
+      element(:edit_button)                 {b.button(:id => "Control_Field_006_EditTagButton_id_line#{line_id}")}
+      element(:remove_button)               {b.button(:id => "Control_Field_006_removeTagButton_id_line#{line_id}")}
+      element(:clear_button)                {b.button(:id => "Control_Field_006_clearTagButton_id_line#{line_id}")}
     end
   end
 end

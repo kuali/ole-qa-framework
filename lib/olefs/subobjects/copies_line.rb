@@ -18,8 +18,8 @@ module OLE_QA::Framework::OLEFS
     # Set copies line elements.
     def set_elements
       super
-      element(:location_copies_selector)        {b.select_list(:id => "document.item[#{@line_id}].copies[#{@subline_id}].location_copies")}
-      element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{@line_id}:#{@subline_id}")}
+      element(:location_copies_selector)        {b.select_list(:id => "document.item[#{line_id}].copies[#{@subline_id}].location_copies")}
+      element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{line_id}:#{@subline_id}")}
       # Readonly Elements
       # Use these for closed, uneditable fields as on a purchase order.
       element(:closed_copies_field)             {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[1]/div")}

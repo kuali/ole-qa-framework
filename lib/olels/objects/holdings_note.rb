@@ -17,10 +17,10 @@ module OLE_QA::Framework::OLELS
   class Holdings_Note < OLE_QA::Framework::OLELS::Line_Object
     # Set holdings note screen elements.
     def set_elements
-      element(:note_type_selector)                {b.select_list(:id => "OleHoldingNoteTypeField_line#{@line_id}_control")}
-      element(:note_field)                        {b.text_field(:id => "OleHoldingNoteDescField_line#{@line_id}_control")}
-      element(:add_button)                        {b.button(:id => "OleHoldingNotes_addTagButton_line#{@line_id}")}
-      element(:remove_button)                     {b.button(:id => "OleHoldingNotes_removeTagButton_line#{@line_id}")}
+      element(:note_type_selector)                {b.select_list(:id => "OleHoldingNoteTypeField_line#{line_id}_control")}
+      element(:note_field)                        {b.text_field(:id => "OleHoldingNoteDescField_line#{line_id}_control")}
+      element(:add_button)                        {b.button(:id => "OleHoldingNotes_addTagButton_line#{line_id}")}
+      element(:remove_button)                     {b.button(:id => "OleHoldingNotes_removeTagButton_line#{line_id}")}
     end
   end
 end

@@ -17,10 +17,10 @@ module OLE_QA::Framework::OLELS
   class Item_Note < OLE_QA::Framework::OLELS::Line_Object
     # Set screen elements for an OLELS Item Note.
     def set_elements
-      element(:note_type_selector)                    {b.select_list(:id => "OleItemNoteTypeField_line#{@line_id}_control")}
-      element(:note_field)                            {b.text_field(:id => "OleItemNoteDescField_line#{@line_id}_control")}
-      element(:add_button)                            {b.button(:id => "OleItemNote_addTagButton_line#{@line_id}")}
-      element(:remove_button)                         {b.button(:id => "OleItemNote_removeTagButton_line#{@line_id}")}
+      element(:note_type_selector)                    {b.select_list(:id => "OleItemNoteTypeField_line#{line_id}_control")}
+      element(:note_field)                            {b.text_field(:id => "OleItemNoteDescField_line#{line_id}_control")}
+      element(:add_button)                            {b.button(:id => "OleItemNote_addTagButton_line#{line_id}")}
+      element(:remove_button)                         {b.button(:id => "OleItemNote_removeTagButton_line#{line_id}")}
     end
   end
 end

@@ -39,7 +39,7 @@ module OLE_QA::Framework::OLELS
       super(browser)
 
       @line_number = line_number
-      @line_identifier = line_number - 1
+      line_identifier = line_number - 1
       @subline_number = subline_number
       @subline_identifier = subline_number - 1
       @note_type = note_type
@@ -64,14 +64,14 @@ module OLE_QA::Framework::OLELS
     end
 
     # Replace element identifiers in a series of element hashes.
-    # - Replace LINEID with @line_identifier
+    # - Replace LINEID with line_identifier
     # - Replace LINENUM with @line_number
     # - Replace SUBLINEID with @subline_identifier
     # - Replace SUBLINENUM with @subline_number
     def parse_elements(element_hash)
       replace_identifiers(element_hash, /SUBLINEID/, @subline_identifier.to_s)
       replace_identifiers(element_hash, /SUBLINENUM/, @subline_number.to_s)
-      replace_identifiers(element_hash, /LINEID/, @line_identifier.to_s)
+      replace_identifiers(element_hash, /LINEID/, line_identifier.to_s)
       replace_identifiers(element_hash, /LINENUM/, @line_number.to_s)
     end
 
