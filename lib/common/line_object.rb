@@ -20,25 +20,20 @@ module OLE_QA::Framework
   class Line_Object < Data_Object
 
     # The line number that this object will have on the screen.
-    # - Used for line identifier replacement.
-    attr_reader :line_number
-    attr_reader :line_id
+    # - This is the 1-based line number used for replacement of human-readable identifiers.
+    attr_accessor :line_number
 
     # @param ole_session [Object] The OLE_QA::Framework::Session session to pass to the Data Object.
     # @param line_number [Fixnum] The number this line object will use for element definitions.
     def initialize(ole_session, line_number = 1)
       @line_number = line_number
-      @line_id = line_number - 1
       super(ole_session)
     end
 
-    # Set element definitions, if any.
-    # @note Use @line_number or @line_id in an element definition to specify either the textual,
-    #   human-readable (1-based) line number of the line object, or the coded, application-readable
-    #   (0-based) line identifier number of the line object.
-    def set_elements
+    # A reader method for the line_id function.
+    # - This is the 0-based line number used for replacement of programmatic identifiers such as element IDs.
+    def line_id
+      @line_number - 1
     end
-
-
   end
 end
