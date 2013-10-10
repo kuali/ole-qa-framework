@@ -19,8 +19,8 @@ describe 'A PO Line Item on an OLE Invoice' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @po_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
-    @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, @po_line, 1)
+    @parent_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
+    @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, @parent_line, 1)
   end
 
   after :all do
@@ -29,12 +29,12 @@ describe 'A PO Line Item on an OLE Invoice' do
 
   it 'should create a new instance' do
     @line_item.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Item
-    @line_item.class.superclass.should == OLE_QA::Framework::OLEFS::Invoice_Line_Object
+    @line_item.class.superclass.should == OLE_QA::Framework::Subline_Object
   end
 
   it 'should have access to the line_number and line_id methods on the PO Line' do
-    @line_item.po_line.line_number.should == 1
-    @line_item.po_line.line_id.should     == 0
+    @line_item.parent_line.line_number.should == 1
+    @line_item.parent_line.line_id.should     == 0
   end
 
   it 'should have line item elements' do
