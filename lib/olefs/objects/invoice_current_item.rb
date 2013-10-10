@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLEFS
   # A Current Items line on an OLE Financial System Invoice e-document.
-  class Invoice_Current_Item < OLE_QA::Framework::OLEFS::Invoice_Line_Object
+  class Invoice_Current_Item < OLE_QA::Framework::Line_Object
 
     def set_elements
       super

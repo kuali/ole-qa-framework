@@ -28,7 +28,7 @@ describe 'An OLEFS Invoice Current Item line' do
 
   it 'should create a new instance' do
     @line_object.class.should == OLE_QA::Framework::OLEFS::Invoice_Current_Item
-    @line_object.class.superclass.should == OLE_QA::Framework::OLEFS::Invoice_Line_Object
+    @line_object.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have current item elements' do
