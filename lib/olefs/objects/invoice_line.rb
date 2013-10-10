@@ -20,7 +20,7 @@ module OLE_QA::Framework::OLEFS
   #   of extra recursion to address the multiple sub-objects of an Invoice E-Document.
   # - The future structure of Invoice documents is presently uncertain, so this is a temporary measure.
   #   If necessary, the framework may be restructured to follow this model.
-  class Invoice_Line < OLE_QA::Framework::OLEFS::Invoice_Line_Object
+  class Invoice_Line < OLE_QA::Framework::Line_Object
 
     # A flexible PO line item object with dynamic ID element definitions on an Invoice document.
     attr_reader :line_item

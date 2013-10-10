@@ -28,7 +28,7 @@ describe 'An OLE Invoice PO Line' do
 
   it 'should create a new instance' do
     @invoice_line.class.should == OLE_QA::Framework::OLEFS::Invoice_Line
-    @invoice_line.class.superclass.should == OLE_QA::Framework::OLEFS::Invoice_Line_Object
+    @invoice_line.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have invoice line elements' do
