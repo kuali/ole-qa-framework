@@ -43,7 +43,16 @@ describe 'A Line Object' do
     @line_object.line_number.should == 1
   end
 
-  it 'should have a line id' do
+  it 'should have a line ID' do
     @line_object.line_id.should == 0
+  end
+
+  it 'should allow the line number to be set dynamically' do
+    @line_object.line_number = 2
+    @line_object.line_number.should == 2
+  end
+
+  it 'should redefine the line ID to one less than the line number' do
+    @line_object.line_id.should == 1
   end
 end
