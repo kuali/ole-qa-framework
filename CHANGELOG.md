@@ -1,3 +1,9 @@
+### v2.7.2 - 2013/10/10
+
+* OLEFS - Invoice Document
+    * Add .messages element (multiple element array)
+    * Add .message function (defaults to 1, selectable by 1-based index)
+
 ### v2.7.1 - 2013/10/09
 
 * OLEFS - Invoice Document

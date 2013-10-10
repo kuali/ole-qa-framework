@@ -72,6 +72,7 @@ module OLE_QA::Framework::OLEFS
       element(:close_button)                          {b.button(:id => 'uclose')}
       element(:cancel_button)                         {b.a(:id => 'ucancel')}
       element(:calculate_button)                      {b.button(:text => /calculate/)}
+      element(:messages)                              {b.ul(:id => 'pageValidationList').lis}
     end
 
     # Wait on these elements before the page is considered to have fully loaded.
@@ -82,7 +83,7 @@ module OLE_QA::Framework::OLEFS
 
     def set_functions
       super
-
+      function(:message)                              {|which = 1| b.ul(:id => 'pageValidationList').li(:index => which - 1)}
     end
   end
 end

@@ -71,10 +71,12 @@ describe 'An OLE Invoice' do
     elements.include?(:close_button).should be_true
     elements.include?(:cancel_button).should be_true
     elements.include?(:calculate_button).should be_true
+    elements.include?(:messages).should be_true
   end
 
   it 'should have invoice functions' do
     functions = @invoice.functions
+    functions.include?(:message).should be_true
   end
 
   it 'should have a purchase order line' do
