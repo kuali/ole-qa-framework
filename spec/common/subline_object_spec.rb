@@ -19,9 +19,8 @@ describe 'A Subline Object' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @line_num = 1
-    @subline_num = 1
-    @subline = OLE_QA::Framework::Subline_Object.new(@ole, @line_num, @subline_num)
+    @line = OLE_QA::Framework::Line_Object.new(@ole, 1)
+    @subline = OLE_QA::Framework::Subline_Object.new(@ole, @line, 1)
   end
 
   after :all do
@@ -30,25 +29,16 @@ describe 'A Subline Object' do
 
   it 'should create a new instance' do
     @subline.class.should == OLE_QA::Framework::Subline_Object
+    @subline.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
-  it 'should be a subclass of data object' do
-    @subline.class.superclass.should == OLE_QA::Framework::Data_Object
+  it 'should have its parent line object in the parent line reader attribute' do
+    @subline.parent_line.should == @line
   end
 
-  it 'should have a line number' do
-    @subline.line_number.should == 1
-  end
-
-  it 'should have a line id' do
-    @subline.line_id.should == 0
-  end
-
-  it 'should have a subline number' do
-    @subline.subline_number.should == 1
-  end
-
-  it 'should have a subline id' do
-    @subline.subline_id.should == 0
+  it 'should have access to parent line methods' do
+    @subline.parent_line.line_number = 2
+    @line.line_number.should == 2
+    @line.line_id.should == 1
   end
 end

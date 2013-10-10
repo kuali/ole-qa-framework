@@ -14,34 +14,18 @@
 
 module OLE_QA::Framework
   # A Data Object in OLE that represents a line nested under another line.
-  # A subline can usually be added or deleted, and has element identifiers
-  # which vary dependent upon the line below which they are nested.
-  class Subline_Object < Data_Object
+  # - A subline object can be recursed under another subline object, use of the "@parent_line"
+  #   instance variable should allow for continued recursion ad nauseam.
+  class Subline_Object < Line_Object
 
-    # The line number that this object will have on the screen.
-    # - Used for line identifier replacement.
-    attr_reader :line_number
-    attr_reader :line_id
-
-    # The line number that this subline object will have on the screen.
-    # - Used for subline identifier replacement.
-    attr_reader :subline_number
-    attr_reader :subline_id
+    # The line under which this subline object was created.
+    attr_reader :parent_line
 
     # @param ole_session [Object] The OLE_QA::Framework::Session session to pass to the Data Object.
     # @param line_number [Fixnum] The line number this subline object will use for element definitions.
-    # @param subline_number [Fixnum] The subline number this subline object will use for element definitions.
-    def initialize(ole_session, line_number = 1, subline_number = 1)
-      @line_number, @subline_number = line_number, subline_number
-      line_id = line_number -1
-      @subline_id = subline_number -1
-      super(ole_session)
-    end
-
-    # Set elements on the subline object.
-    # @note Use line_number, line_id, subline_number, and subline_id to replace dynamic identifier numbers.
-    #   (See {OLE_QA::Framework::Line_Object#set_elements} for more on line number substitution.)
-    def set_elements
+    def initialize(ole_session, parent_line, line_number = 1)
+      @parent_line = parent_line
+      super(ole_session, line_number)
     end
   end
 end
