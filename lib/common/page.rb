@@ -42,7 +42,7 @@ module OLE_QA::Framework
     #   an array of the symbols used to call those methods.
     def open(url = @url)
       @browser.goto(url)
-      @wait_on.each { |element| wait_for_element(element) } if defined?(wait_for_elements)
+      wait_for_page_to_load
     end
 
     # Define this method on a subclass.  Add element symbols to the @wait_on array.
@@ -67,6 +67,7 @@ module OLE_QA::Framework
     # to wait for all required elements on that page to load.
     def wait_for_page_to_load
       @wait_on.each { |element| wait_for_element(element) }
+      loading_message.wait_while_present if loading_message.present?
     end
 
     # Set screen elements common to most or all pages across the OLE interface.
@@ -78,7 +79,7 @@ module OLE_QA::Framework
       element(:login_button)          {@browser.input(:class => 'go', :value => 'Login')}
       element(:logout_button)         {@browser.input(:class => 'go', :value => 'Logout')}
       element(:login_confirmation)    {@browser.div(:id => 'login-info').strong(:text => /Impersonating User\:/)}
-      element(:loading_message)       {@browser.body.div.h1.img(:alt => 'Loading...')}
+      element(:loading_message)       {@browser.img(:alt => 'Loading...')}
     end
 
     # Set functions common to most or all pages across the OLE interface.

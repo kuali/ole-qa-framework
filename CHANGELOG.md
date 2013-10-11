@@ -1,3 +1,9 @@
+### v2.7.3 - 2013/10/11
+
+* Page (base class)
+    * .wait_for_page_to_load
+        * Added wait for loading_message element to disappear if present
+
 ### v2.7.2 - 2013/10/10
 
 * OLEFS - Invoice Document
