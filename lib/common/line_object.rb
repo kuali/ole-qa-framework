@@ -28,6 +28,7 @@ module OLE_QA::Framework
     def initialize(ole_session, line_number = 1)
       @line_number = line_number
       super(ole_session)
+      set_sublines if defined?(self.set_sublines)
     end
 
     # A reader method for the line_id function.
