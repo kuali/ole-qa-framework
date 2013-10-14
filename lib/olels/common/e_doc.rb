@@ -28,23 +28,6 @@ module OLE_QA::Framework::OLELS
       element(:creation_timestamp)                    {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Creation Timestamp:')]]/following-sibling::td[1]/div/span")}
     end
 
-    # FIXME - Make this a single flexible method during namespace revision.
-    # Create a line object on a page.
-    def create_line(instance_name, class_name, which=0)
-      raise StandardError, "Line object already exists.  (#{instance_name})" if self.instance_variables.include?("@#{instance_name}".to_sym)
-      new_line_name = instance_name
-      make_accessor(:"#{instance_name}")
-      klas = OLE_QA::Framework::OLELS.const_get(:"#{class_name}")
-      instance_variable_set(:"@#{new_line_name}", klas.new(@ole, which))
-    end
-
-    # Remove a line object from a page.
-    def remove_line(instance_name)
-      raise StandardError, "Line object does not exist.  (#{instance_name})" unless self.instance_variables.include?("@#{instance_name}".to_sym)
-      remove_instance_variable("@#{instance_name}".to_sym)
-      unmake_attr(instance_name.to_sym)
-    end
-
     def wait_for_elements
       super
       @wait_on << :title
