@@ -9,6 +9,8 @@
         * A sublines array has been implemented on all line objects.
 * OLELS
     * Fix element definitions on Return Screen page.
+* Spec
+    * Remove old workflow spec, no longer accurate or necessary.
 
 ### v2.7.3 - 2013/10/11
 
