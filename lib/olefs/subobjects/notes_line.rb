@@ -18,12 +18,12 @@ module OLE_QA::Framework::OLEFS
     # Set notes line elements.
     def set_elements
       super
-      element(:note_type_selector)            {b.select_list(:id => "document.item[#{line_id}].notes[#{@subline_id}].noteTypeId")}
-      element(:note_field)                    {b.text_field(:id => "document.item[#{line_id}].notes[#{@subline_id}].note")}
-      element(:delete_button)                 {b.input(:name => "methodToCall.deleteNote.line#{line_id}:#{@subline_id}")}
+      element(:note_type_selector)            {b.select_list(:id => "document.item[#{@parent_line.line_id}].notes[#{line_id}].noteTypeId")}
+      element(:note_field)                    {b.text_field(:id => "document.item[#{@parent_line.line_id}].notes[#{line_id}].note")}
+      element(:delete_button)                 {b.input(:name => "methodToCall.deleteNote.line#{@parent_line.line_id}:#{line_id}")}
       # Use the elements below for a closed, inaccessible notes field on a PURAP document like a Purchase Order.
-      element(:closed_note_type_field)        {b.td(:xpath => "//tr[starts-with(@id,'tab-Notes')]/th/table[@class = 'datatable']/tbody[1]/tr[td[@class = 'subhead'][contains(text(),'Note #{@subline_num}')]]/following-sibling::tr[1]/td[1]")}
-      element(:closed_note_field)             {b.td(:xpath => "//tr[starts-with(@id,'tab-Notes')]/th/table[@class = 'datatable']/tbody[1]/tr[td[@class = 'subhead'][contains(text(),'Note #{@subline_num}')]]/following-sibling::tr[1]/td[2]")}
+      element(:closed_note_type_field)        {b.td(:xpath => "//tr[starts-with(@id,'tab-Notes')]/th/table[@class = 'datatable']/tbody[1]/tr[td[@class = 'subhead'][contains(text(),'Note #{@line_number}')]]/following-sibling::tr[1]/td[1]")}
+      element(:closed_note_field)             {b.td(:xpath => "//tr[starts-with(@id,'tab-Notes')]/th/table[@class = 'datatable']/tbody[1]/tr[td[@class = 'subhead'][contains(text(),'Note #{@line_number}')]]/following-sibling::tr[1]/td[2]")}
     end
   end
 end

@@ -104,6 +104,13 @@ describe 'An OLEFS line item' do
     elements.include?(:add_account_button).should be_true
   end
 
+  it 'should have new notes line elements' do
+    elements = @line_item.elements
+    elements.include?(:note_type_selector).should be_true
+    elements.include?(:note_field).should be_true
+    elements.include?(:add_note_button).should be_true
+  end
+
   it 'should have subline objects' do
     sublines = @line_item.sublines
     sublines.include?(:accounting_line).should be_true

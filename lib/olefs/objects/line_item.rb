@@ -83,6 +83,10 @@ module OLE_QA::Framework::OLEFS
       element(:dollar_field)                      {b.text_field(:id => "document.item[#{line_id}].newSourceLine.amount")}
       element(:percent_field)                     {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountLinePercent")}
       element(:add_account_button)                {b.input(:name => "methodToCall.insertSourceLine.line#{line_id}.anchoraccountingSourceAnchor")}
+      # New Notes Line Elements
+      element(:note_type_selector)                {b.select_list(:id => "document.item[#{line_id}].noteTypeId")}
+      element(:note_field)                        {b.text_field(:id => "document.item[#{line_id}].note")}
+      element(:add_note_button)                   {b.input(:name => "methodToCall.addNote.line#{line_id}")}
     end
   end
 end
