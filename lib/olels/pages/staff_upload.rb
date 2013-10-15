@@ -24,6 +24,7 @@ module OLE_QA::Framework::OLELS
 
     # Set elements for Staff upload screen.
     def set_elements
+      super
       element(:title)                   {browser.h1(:class => 'uif-headerText').span}
       element(:marc_field)              {browser.input(:id => "StaffUploadView-marcFileUpload_control").to_subtype}
       element(:edi_field)               {browser.input(:id => "StaffUploadView-ediFileUpload_control").to_subtype}
