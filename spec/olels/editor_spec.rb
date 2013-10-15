@@ -65,8 +65,4 @@ describe 'The Editor base class' do
     functions.include?(:item_link).should be_true
     functions.should include(:message_count)
   end
-
-  it 'should wait for a title to be present' do
-    @editor.wait_for_page_to_load.should == [:title]
-  end
 end
