@@ -23,6 +23,7 @@ module OLE_QA::Framework::OLELS
 
     # Set elements for return page.
     def set_elements
+      super
       # General Elements
       element(:loan_button)                               {b.button(:id => 'LoanScreenLinkView-buttons')}
       element(:end_session_button)                        {b.button(:id => 'endSessionButton')}
