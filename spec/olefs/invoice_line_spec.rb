@@ -58,7 +58,7 @@ describe 'An OLE Invoice PO Line' do
   end
 
   it 'should have an instance of the invoice line item class' do
-    @invoice_line.methods.include?(:line_item).should be_true
+    @invoice_line.sublines.include?(:line_item).should be_true
     @invoice_line.line_item.class.should == OLE_QA::Framework::OLEFS::Invoice_Line_Item
   end
 end

@@ -28,7 +28,6 @@ module OLE_QA::Framework::OLEFS
     # Set OLE instance & line number, instantiate line item for PO line on Invoice document.
     def initialize(ole_session, line_number = 1)
       super(ole_session, line_number)
-      @line_item = OLE_QA::Framework::OLEFS::Invoice_Line_Item.new(@ole, self, 1)
     end
 
     # Set invoice line elements.
@@ -50,6 +49,10 @@ module OLE_QA::Framework::OLEFS
     # Set invoice line functions (for elements with IDs that require numerical inputs).
     def set_functions
       super
+    end
+
+    def set_sublines
+      subline(:line_item, OLE_QA::Framework::OLEFS::Invoice_Line_Item)
     end
   end
 end
