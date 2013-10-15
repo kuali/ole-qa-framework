@@ -27,8 +27,6 @@ module OLE_QA::Framework::OLEFS
       url = ole_session.url + '/portal.do?channelTitle=Create&channelUrl='
       url += ole_session.url + '/ole-kr-krad/OLEInvoice?viewId=OLEInvoiceDocumentView&methodToCall=docHandler&command=initiate&documentClass=org.kuali.ole.krad.transaction.documents.OLEInvoiceDocument'
       super(ole_session, url)
-      @po_line = OLE_QA::Framework::OLEFS::Invoice_Line.new(@ole, 1)
-      @current_items_line = OLE_QA::Framework::OLEFS::Invoice_Current_Item.new(@ole, 1)
     end
 
     # Define basic invoice document screen elements.
@@ -84,6 +82,11 @@ module OLE_QA::Framework::OLEFS
     def set_functions
       super
       function(:message)                              {|which = 1| b.ul(:id => 'pageValidationList').li(:index => which - 1)}
+    end
+
+    def set_lines
+      set_line(:po_line, OLE_QA::Framework::OLEFS::Invoice_Line)
+      set_line(:current_items_line, OLE_QA::Framework::OLEFS::Invoice_Current_Item)
     end
   end
 end
