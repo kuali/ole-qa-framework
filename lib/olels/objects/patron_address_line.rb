@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # An address line on an individual patron record.
-  class Patron_Address_Line < Line_Object
+  class Patron_Address_Line < OLE_QA::Framework::Line_Object
     # Define screen elements for patron record address line.
     def set_elements
       # Format id string based on line_id .

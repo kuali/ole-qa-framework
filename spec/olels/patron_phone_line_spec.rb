@@ -15,7 +15,7 @@
 require 'rspec'
 require 'spec_helper'
 
-describe 'My behaviour' do
+describe 'An OLELS Patron Phone line object' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
@@ -30,7 +30,7 @@ describe 'My behaviour' do
   it 'should create a new instance' do
     @line_1.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Phone_Line)
     @line_2.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Phone_Line)
-    @line_1.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @line_1.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have patron phone line elements' do

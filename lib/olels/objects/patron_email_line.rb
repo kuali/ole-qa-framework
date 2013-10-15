@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # A line of email address information on a patron record.
-  class Patron_Email_Line < Line_Object
+  class Patron_Email_Line < OLE_QA::Framework::Line_Object
     # Set screen elements on patron record email info line.
     def set_elements
       element(:email_type_selector)                       {(line_id == 0) ?

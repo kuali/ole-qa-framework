@@ -29,7 +29,7 @@ describe 'A patron email line' do
   it 'should create a new instance' do
     @line_1.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
     @line_2.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
-    @line_1.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @line_1.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have email line elements' do

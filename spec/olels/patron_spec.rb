@@ -74,46 +74,14 @@ describe 'A patron record page' do
     functions.should include(:redefine_patron_image_elements)
   end
 
-  it 'should have contact info lines' do
-    all_methods = @page.methods
-    all_methods.should include(:address_line_1)
-    all_methods.should include(:phone_line_1)
-    all_methods.should include(:email_line_1)
-    all_methods.should include(:add_address_line)
-    all_methods.should include(:add_phone_line)
-    all_methods.should include(:add_email_line)
-    all_methods.should include(:remove_address_line)
-    all_methods.should include(:remove_phone_line)
-    all_methods.should include(:remove_email_line)
-  end
-
-  it 'should add contact info lines' do
-    @page.add_address_line(2)
-    @page.add_phone_line(2)
-    @page.add_email_line(2)
-    methods = @page.methods
-    methods.should include(:address_line_2)
-    methods.should include(:phone_line_2)
-    methods.should include(:email_line_2)
-    @page.address_line_2.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Address_Line)
-    @page.phone_line_2.should   be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Phone_Line)
-    @page.email_line_2.should   be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
-  end
-
-  it 'should remove contact info lines' do
-    @page.remove_address_line(2)
-    @page.remove_phone_line(2)
-    @page.remove_email_line(2)
-    methods = @page.methods
-    methods.should_not include(:address_line_2)
-    methods.should_not include(:phone_line_2)
-    methods.should_not include(:email_line_2)
-  end
-
-  it 'should not remove contact info lines which do not exist' do
-    lambda {@page.remove_address_line(2)}.should  raise_error
-    lambda {@page.remove_phone_line(2)}.should    raise_error
-    lambda {@page.remove_email_line(2)}.should    raise_error
+  it 'should have patron contact info lines' do
+    lines = @page.lines
+    lines.include?(:address_line).should be_true
+    lines.include?(:phone_line).should be_true
+    lines.include?(:email_line).should be_true
+    @page.address_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Address_Line)
+    @page.phone_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Phone_Line)
+    @page.email_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Patron_Email_Line)
   end
 
   it 'should open the page via URL' do

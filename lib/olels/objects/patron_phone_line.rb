@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # A phone number info line on a single patron record.
-  class Patron_Phone_Line < Line_Object
+  class Patron_Phone_Line < OLE_QA::Framework::Line_Object
     # Set screen elements for patron phone number info line.
     def set_elements
       element(:phone_type_selector)               {(line_id == 0) ?
