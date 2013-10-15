@@ -32,7 +32,7 @@ describe 'An OLEFS Purap Document page' do
   end
 
   it 'should have PURAP document elements' do
-    elements = @purap_document.methods
+    elements = @purap_document.elements
     elements.include?(:view_related_tab_toggle).should be_true
     elements.include?(:view_related_po_link).should be_true
     elements.include?(:view_related_requisition_link).should be_true
@@ -54,5 +54,27 @@ describe 'An OLEFS Purap Document page' do
     elements.include?(:route_log_tab_toggle).should be_true
     elements.include?(:vendor_tab_toggle).should be_true
     elements.include?(:closed_vendor_name_field).should be_true
+  end
+
+  it 'should have new line item elements' do
+    elements = @purap_document.elements
+    elements.should include(:new_bib_option)
+    elements.should include(:existing_bib_option)
+    elements.should include(:new_bib_button)
+    elements.should include(:existing_bib_button)
+    elements.should include(:item_type_selector)
+    elements.should include(:copies_field)
+    elements.should include(:parts_field)
+    elements.should include(:list_price_field)
+    elements.should include(:public_view_checkbox)
+    elements.should include(:item_price_source_selector)
+    elements.should include(:request_source_selector)
+    elements.should include(:format_selector)
+    elements.should include(:category_selector)
+    elements.should include(:route_to_requestor_checkbox)
+    elements.should include(:discount_field)
+    elements.should include(:discount_type_selector)
+    elements.should include(:add_button)
+    elements.should include(:location_selector)
   end
 end

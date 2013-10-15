@@ -126,27 +126,4 @@ describe 'An OLEFS line item' do
     sublines.include?(:notes_line).should be_true
     sublines.include?(:copies_line).should be_true
   end
-
-  it 'should have new line item elements' do
-  # TODO Move these element definitions to OLEFS PURAP Document.
-  #  elements = @new_line_item.methods
-  #  elements.should include(:new_bib_option)
-  #  elements.should include(:existing_bib_option)
-  #  elements.should include(:new_bib_button)
-  #  elements.should include(:existing_bib_button)
-  #  elements.should include(:item_type_selector)
-  #  elements.should include(:copies_field)
-  #  elements.should include(:parts_field)
-  #  elements.should include(:list_price_field)
-  #  elements.should include(:public_view_checkbox)
-  #  elements.should include(:item_price_source_selector)
-  #  elements.should include(:request_source_selector)
-  #  elements.should include(:format_selector)
-  #  elements.should include(:category_selector)
-  #  elements.should include(:route_to_requestor_checkbox)
-  #  elements.should include(:discount_field)
-  #  elements.should include(:discount_type_selector)
-  #  elements.should include(:add_button)
-  #  elements.should include(:location_selector)
-  end
 end

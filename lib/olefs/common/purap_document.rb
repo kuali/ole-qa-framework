@@ -15,10 +15,6 @@
 module OLE_QA::Framework::OLEFS
   # An OLE Financial System PURchasing/Accounts Payable Document
   class PURAP_Document < E_Doc
-    def initialize(ole_session, url)
-      super(ole_session, url)
-      set_lines if defined?(self.set_lines)
-    end
 
     # Set PURAP Document Elements.
     def set_elements
@@ -47,9 +43,26 @@ module OLE_QA::Framework::OLEFS
       element(:vendor_tab_toggle)                                 {b.input(:id => "tab-Vendor-imageToggle")}
       element(:closed_vendor_name_field)                          {b.td(:xpath => "//tr/th[div[contains(text(),'Suggested Vendor:')]]/following-sibling::td[1]")}
       # Route Log Tab
-      element(:route_log_tab_toggle)              {b.input(:id => "tab-RouteLog-imageToggle")}
-      # element(:actions_taken)                     {b.bs(:xpath => "//div[@id='tab-ActionsTaken-div']/div[1]/table/tbody/tr/td[1]/b")}
-      # element(:actions_taken_by)                  {b.as(:xpath => "//div[@id='tab-ActionsTaken-div']/div[1]/table/tbody/tr/td[2]/a")}
+      element(:route_log_tab_toggle)                              {b.input(:id => "tab-RouteLog-imageToggle")}
+      # New Purchasing Line Item Elements
+      element(:new_bib_option)                                    {b.radio(:name => 'AttachBib', :index => 0)}
+      element(:existing_bib_option)                               {b.radio(:name => 'AttachBib', :index => 1)}
+      element(:existing_bib_button)                               {b.input(:id => 'bibSelectExistingItemButton')}
+      element(:new_bib_button)                                    {b.input(:id => "bibCreateCurrentItemButton")}
+      element(:item_type_selector)                                {b.select_list(:id => "newPurchasingItemLine.itemTypeDescription")}
+      element(:copies_field)                                      {b.text_field(:id => "newPurchasingItemLine.oleItemQuantity")}
+      element(:parts_field)                                       {b.text_field(:id => "newPurchasingItemLine.itemNoOfParts")}
+      element(:list_price_field)                                  {b.text_field(:id => "newPurchasingItemLine.itemListPrice")}
+      element(:public_view_checkbox)                              {b.checkbox(:id => "newPurchasingItemLine.itemPublicViewIndicator")}
+      element(:item_price_source_selector)                        {b.select_list(:id => "newPurchasingItemLine.itemPriceSourceId")}
+      element(:request_source_selector)                           {b.select_list(:id => "newPurchasingItemLine.requestSourceTypeId")}
+      element(:format_selector)                                   {b.select_list(:id => "newPurchasingItemLine.formatTypeId")}
+      element(:category_selector)                                 {b.select_list(:id => "newPurchasingItemLine.categoryId")}
+      element(:route_to_requestor_checkbox)                       {b.checkbox(:id => "newPurchasingItemLine.itemRouteToRequestorIndicator")}
+      element(:discount_field)                                    {b.text_field(:id => "newPurchasingItemLine.itemDiscount")}
+      element(:discount_type_selector)                            {b.select_list(:id => "newPurchasingItemLine.itemDiscountType")}
+      element(:add_button)                                        {b.input(:name => "methodToCall.addItem")}
+      element(:location_selector)                                 {b.select_list(:id => 'newPurchasingItemLine.itemLocation')}
     end
   end
 end
