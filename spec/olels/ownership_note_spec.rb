@@ -19,7 +19,8 @@ describe 'An OLELS Ownership Note object' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @ownership_note = OLE_QA::Framework::OLELS::Ownership_Note.new(@ole)
+    @line = OLE_QA::Framework::OLELS::Ownership_Extent_Line.new(@ole)
+    @ownership_note = OLE_QA::Framework::OLELS::Ownership_Note.new(@ole, @line, 1)
   end
 
   after :all do

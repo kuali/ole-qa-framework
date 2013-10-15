@@ -28,7 +28,7 @@ describe 'An OLELS Access Info Line object' do
 
   it 'should create a new instance' do
     @access_info.class.should == OLE_QA::Framework::OLELS::Access_Info_Line
-    @access_info.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @access_info.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have access info elements' do

@@ -59,38 +59,15 @@ describe 'An OLELS Instance Editor page' do
   end
 
   it 'should have instance editor functions' do
-    # functions = @instance_editor.functions
-    # Read-Only Elements (iterative fields, input required to specify which)
-    # TODO Model line items as readonly functions only when it becomes necessary for testing.
   end
 
-  it 'should start with line objects' do
-    @instance_editor.methods.include?(:ownership_extent_line_1).should be_true
-    @instance_editor.methods.include?(:access_info_line_1).should be_true
-    @instance_editor.methods.include?(:holdings_note_1).should be_true
-    @instance_editor.ownership_extent_line_1.class.should == OLE_QA::Framework::OLELS::Ownership_Extent_Line
-    @instance_editor.access_info_line_1.class.should == OLE_QA::Framework::OLELS::Access_Info_Line
-    @instance_editor.holdings_note_1.class.should == OLE_QA::Framework::OLELS::Holdings_Note
-  end
-
-  it 'should add line objects' do
-    @instance_editor.add_ownership_extent_line(2)
-    @instance_editor.methods.include?(:ownership_extent_line_2).should be_true
-    @instance_editor.ownership_extent_line_2.class.should == OLE_QA::Framework::OLELS::Ownership_Extent_Line
-    @instance_editor.add_access_info_line(2)
-    @instance_editor.methods.include?(:access_info_line_2).should be_true
-    @instance_editor.access_info_line_2.class.should == OLE_QA::Framework::OLELS::Access_Info_Line
-    @instance_editor.add_holdings_note(2)
-    @instance_editor.methods.include?(:holdings_note_2).should be_true
-    @instance_editor.holdings_note_2.class.should == OLE_QA::Framework::OLELS::Holdings_Note
-  end
-
-  it 'should remove line objects' do
-    @instance_editor.remove_ownership_extent_line(2)
-    @instance_editor.methods.include?(:ownership_extent_line_2).should be_false
-    @instance_editor.remove_access_info_line(2)
-    @instance_editor.methods.include?(:access_info_line_2).should be_false
-    @instance_editor.remove_holdings_note(2)
-    @instance_editor.methods.include?(:holdings_note_2).should be_false
+  it 'should have instance editor lines' do
+    lines = @instance_editor.lines
+    lines.include?(:ownership_extent_line).should be_true
+    lines.include?(:access_info_line).should be_true
+    lines.include?(:holdings_note_line).should be_true
+    @instance_editor.ownership_extent_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Ownership_Extent_Line)
+    @instance_editor.access_info_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Access_Info_Line)
+    @instance_editor.holdings_note_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Holdings_Note)
   end
 end

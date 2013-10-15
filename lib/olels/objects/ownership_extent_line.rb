@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # An Extent of Ownership Line on the OLE Library System Instance Editor.
-  class Ownership_Extent_Line < OLE_QA::Framework::OLELS::Line_Object
+  class Ownership_Extent_Line < OLE_QA::Framework::Line_Object
 
     def set_elements
       element(:type_selector)                     {b.select_list(:id => "extentTextualHoldingsType_line#{line_id}_control")}
@@ -24,17 +24,7 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_sublines
-      create_ownership_note(1)
+      set_subline(:ownership_note, OLE_QA::Framework::OLELS::Ownership_Note)
     end
-
-    def create_ownership_note(which = 1)
-      create_subline("ownership_note_#{which}","Ownership_Note", which)
-    end
-    alias_method(:add_ownership_note,:create_ownership_note)
-
-    def remove_ownership_note(which = 1)
-      remove_subline("ownership_note_#{which}")
-    end
-    alias_method(:delete_ownership_note,:remove_ownership_note)
   end
 end

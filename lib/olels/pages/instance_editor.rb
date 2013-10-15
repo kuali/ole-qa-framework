@@ -48,39 +48,9 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_lines
-      create_ownership_extent_line(1)
-      create_access_info_line(1)
-      create_holdings_note(1)
+      set_line(:ownership_extent_line, OLE_QA::Framework::OLELS::Ownership_Extent_Line)
+      set_line(:access_info_line, OLE_QA::Framework::OLELS::Access_Info_Line)
+      set_line(:holdings_note_line, OLE_QA::Framework::OLELS::Holdings_Note)
     end
-
-    def create_ownership_extent_line(which = 1)
-      create_line("ownership_extent_line_#{which}","Ownership_Extent_Line",which)
-    end
-    alias_method(:add_ownership_extent_line,:create_ownership_extent_line)
-
-    def create_access_info_line(which = 1)
-      create_line("access_info_line_#{which}","Access_Info_Line",which)
-    end
-    alias_method(:add_access_info_line,:create_access_info_line)
-
-    def create_holdings_note(which = 1)
-      create_line("holdings_note_#{which}","Holdings_Note",which)
-    end
-    alias_method(:add_holdings_note,:create_holdings_note)
-
-    def remove_ownership_extent_line(which = 1)
-      remove_line("ownership_extent_line_#{which}")
-    end
-    alias_method(:delete_ownership_extent_line,:remove_ownership_extent_line)
-
-    def remove_access_info_line(which = 1)
-      remove_line("access_info_line_#{which}")
-    end
-    alias_method(:delete_access_info_line,:remove_access_info_line)
-
-    def remove_holdings_note(which = 1)
-      remove_line("holdings_note_#{which}")
-    end
-    alias_method(:delete_holdings_note,:remove_holdings_note)
   end
 end

@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # A Holdings Note on the OLE Library System Instance Editor
-  class Holdings_Note < OLE_QA::Framework::OLELS::Line_Object
+  class Holdings_Note < OLE_QA::Framework::Line_Object
     # Set holdings note screen elements.
     def set_elements
       element(:note_type_selector)                {b.select_list(:id => "OleHoldingNoteTypeField_line#{line_id}_control")}

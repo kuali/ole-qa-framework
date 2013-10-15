@@ -28,7 +28,7 @@ describe 'An OLELS Holdings Note object' do
 
   it 'should create a new instance' do
     @holdings_note.class.should == OLE_QA::Framework::OLELS::Holdings_Note
-    @holdings_note.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @holdings_note.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have holdings note elements' do

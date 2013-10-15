@@ -20,7 +20,7 @@ describe 'An OLELS Ownership Extent Line object' do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @browser = @ole.browser
-    @ownership_line = OLE_QA::Framework::OLELS::Ownership_Extent_Line.new(@browser, 1)
+    @ownership_line = OLE_QA::Framework::OLELS::Ownership_Extent_Line.new(@ole, 1)
   end
 
   after :all do
@@ -29,7 +29,7 @@ describe 'An OLELS Ownership Extent Line object' do
 
   it 'should create a new instance' do
     @ownership_line.class.should == OLE_QA::Framework::OLELS::Ownership_Extent_Line
-    @ownership_line.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @ownership_line.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have ownership extent line elements' do
@@ -40,19 +40,9 @@ describe 'An OLELS Ownership Extent Line object' do
     elements.include?(:remove_button).should be_true
   end
 
-  it 'should start with one ownership note' do
-    @ownership_line.methods.include?(:ownership_note_1).should be_true
-    @ownership_line.ownership_note_1.class.should == OLE_QA::Framework::OLELS::Ownership_Note
-  end
-
-  it 'should add an ownership note' do
-    @ownership_line.add_ownership_note(2)
-    @ownership_line.methods.include?(:ownership_note_2).should be_true
-    @ownership_line.ownership_note_2.class.should == OLE_QA::Framework::OLELS::Ownership_Note
-  end
-
-  it 'should delete an ownership note' do
-    @ownership_line.delete_ownership_note(2)
-    @ownership_line.methods.include?(:ownership_note_2).should be_false
+  it 'should have an ownership note subline object' do
+    sublines = @ownership_line.sublines
+    sublines.include?(:ownership_note).should be_true
+    @ownership_line.ownership_note.should be_an_instance_of(OLE_QA::Framework::OLELS::Ownership_Note)
   end
 end
