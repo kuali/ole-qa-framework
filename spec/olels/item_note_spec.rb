@@ -28,11 +28,11 @@ describe 'My behaviour' do
 
   it 'should create a new instance' do
     @item_note.class.should == OLE_QA::Framework::OLELS::Item_Note
-    @item_note.class.superclass.should == OLE_QA::Framework::OLELS::Line_Object
+    @item_note.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have item note elements' do
-    elements = @item_note.methods
+    elements = @item_note.elements
     elements.include?(:note_type_selector).should be_true
     elements.include?(:note_field).should be_true
     elements.include?(:add_button).should be_true

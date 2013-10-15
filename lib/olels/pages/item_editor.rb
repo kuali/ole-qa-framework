@@ -80,19 +80,7 @@ module OLE_QA::Framework::OLELS
 
     # Create an item note line object.
     def set_lines
-      create_item_note(1)
+      set_line(:item_note, OLE_QA::Framework::OLELS::Item_Note)
     end
-
-    # Add an item note line object.
-    def create_item_note(which = 1)
-      create_line("item_note_#{which}","Item_Note",which)
-    end
-    alias_method(:add_item_note,:create_item_note)
-
-    # Remove an item note line object.
-    def remove_item_note(which = 1)
-      remove_line("item_note_#{which}")
-    end
-    alias_method(:delete_item_note,:remove_item_note)
   end
 end

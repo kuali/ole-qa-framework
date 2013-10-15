@@ -88,19 +88,9 @@ describe 'An OLELS Item Editor page' do
 
   end
 
-  it 'should start with an item note' do
-    @item_editor.methods.include?(:item_note_1).should be_true
-    @item_editor.item_note_1.class.should == OLE_QA::Framework::OLELS::Item_Note
-  end
-
-  it 'should add an item note' do
-    @item_editor.add_item_note(2)
-    @item_editor.methods.include?(:item_note_2).should be_true
-    @item_editor.item_note_2.class.should == OLE_QA::Framework::OLELS::Item_Note
-  end
-
-  it 'should remove an item note' do
-    @item_editor.remove_item_note(2)
-    @item_editor.methods.include?(:item_note_2).should be_false
+  it 'should have an item note' do
+    lines = @item_editor.lines
+    lines.include?(:item_note).should be_true
+    @item_editor.item_note.should be_an_instance_of(OLE_QA::Framework::OLELS::Item_Note)
   end
 end

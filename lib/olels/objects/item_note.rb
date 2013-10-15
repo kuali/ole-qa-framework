@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
   # An Item Note in the OLE Library System Item Editor
-  class Item_Note < OLE_QA::Framework::OLELS::Line_Object
+  class Item_Note < OLE_QA::Framework::Line_Object
     # Set screen elements for an OLELS Item Note.
     def set_elements
       element(:note_type_selector)                    {b.select_list(:id => "OleItemNoteTypeField_line#{line_id}_control")}
