@@ -89,6 +89,20 @@ describe 'An OLEFS line item' do
     # methods_array.include(:copies_toggle)
     # TODO add new_accounting_line, new_notes_line, new_copies_line definitions.
   end
+  
+  it 'should have new accounting line elements' do
+    elements = @line_item.elements
+    elements.include?(:chart_selector).should be_true
+    elements.include?(:account_number_field).should be_true
+    elements.include?(:sub_account_number_field).should be_true
+    elements.include?(:object_field).should be_true
+    elements.include?(:sub_object_field).should be_true
+    elements.include?(:project_field).should be_true
+    elements.include?(:org_ref_id_field).should be_true
+    elements.include?(:dollar_field).should be_true
+    elements.include?(:percent_field).should be_true
+    elements.include?(:add_account_button).should be_true
+  end
 
   it 'should have subline objects' do
     sublines = @line_item.sublines

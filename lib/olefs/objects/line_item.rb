@@ -68,10 +68,21 @@ module OLE_QA::Framework::OLEFS
       element(:closed_discount_field)             {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[2]")}
       element(:closed_discount_type_field)        {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[4]")}
       # Subtab Toggle Buttons                   # Matches all of type, then selects by index = line_id (i.e. if @line_num is 1, index is 0)
-      element(:accounting_lines_toggle)         {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
+      element(:accounting_lines_toggle)           {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
       #element(:notes_toggle)                   #TBD - The notes and copies lines are treated as the same line for ID purposes.
       #element(:copies_toggle)                  # There is no reliable way of knowing which index either should have without being state-aware.
       # FIXME Move new_(X)_line elements to line item as their definitions are static in this context.
+      # New Accounting Line Elements
+      element(:account_number_field)              {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountNumber")}
+      element(:chart_selector)                    {b.select_list(:id => "document.item[#{line_id}].newSourceLine.chartOfAccountsCode")}
+      element(:sub_account_number_field)          {b.text_field(:id => "document.item[#{line_id}].newSourceLine.subAccountNumber")}
+      element(:object_field)                      {b.text_field(:id => "document.item[#{line_id}].newSourceLine.financialObjectCode")}
+      element(:sub_object_field)                  {b.text_field(:id => "document.item[#{line_id}].newSourceLine.financialSubObjectCode")}
+      element(:project_field)                     {b.text_field(:id => "document.item[#{line_id}].newSourceLine.projectCode")}
+      element(:org_ref_id_field)                  {b.text_field(:id => "document.item[#{line_id}].newSourceLine.organizationReferenceId")}
+      element(:dollar_field)                      {b.text_field(:id => "document.item[#{line_id}].newSourceLine.amount")}
+      element(:percent_field)                     {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountLinePercent")}
+      element(:add_account_button)                {b.input(:name => "methodToCall.insertSourceLine.line#{line_id}.anchoraccountingSourceAnchor")}
     end
   end
 end

@@ -20,7 +20,6 @@ describe 'An accounting line' do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @accounting_line = OLE_QA::Framework::OLEFS::Accounting_Line.new(@ole, 1, 1)
-    @new_accounting_line = OLE_QA::Framework::OLEFS::New_Accounting_Line.new(@ole, 1, 0)
   end
 
   after :all do
@@ -29,49 +28,22 @@ describe 'An accounting line' do
 
   it 'should create a new instance' do
     @accounting_line.class.should == OLE_QA::Framework::OLEFS::Accounting_Line
-    @new_accounting_line.class.should == OLE_QA::Framework::OLEFS::New_Accounting_Line
   end
 
   it 'should be a subclass of subline object' do
     @accounting_line.class.superclass.should == OLE_QA::Framework::Subline_Object
-    @new_accounting_line.class.superclass.should == OLE_QA::Framework::Subline_Object
   end
 
   it 'should have a browser accessor' do
     @accounting_line.browser.class.should == @ole.browser.class
-    @new_accounting_line.browser.class.should == @ole.browser.class
   end
 
   it 'should have line number attributes' do
     @accounting_line.line_number.should == 1
-    @accounting_line.subline_number.should == 1
-    @new_accounting_line.line_number.should == 1
-    @new_accounting_line.subline_number.should == 0
   end
 
   it 'should have accounting line elements' do
-    methods_array = @accounting_line.methods
-    methods_array.include?(:account_number_field).should be_true
-    methods_array.include?(:sub_account_number_field).should be_true
-    methods_array.include?(:object_field).should be_true
-    methods_array.include?(:sub_object_field).should be_true
-    methods_array.include?(:project_field).should be_true
-    methods_array.include?(:org_ref_id_field).should be_true
-    methods_array.include?(:dollar_field).should be_true
-    methods_array.include?(:percent_field).should be_true
-    methods_array.include?(:chart_selector).should be_true
-    methods_array.include?(:delete_button).should be_true
-    methods_array.include?(:balance_inquiry_button).should be_true
-    methods_array.include?(:closed_chart_field).should be_true
-    methods_array.include?(:closed_account_number_field).should be_true
-    methods_array.include?(:closed_object_field).should be_true
-    methods_array.include?(:closed_dollar_field).should be_true
-    methods_array.include?(:closed_percent_field).should be_true
-  end
-
-  it 'should have new accounting line elements' do
-    methods = @new_accounting_line.methods
-    methods.include?(:chart_selector).should be_true
+    methods = @accounting_line.methods
     methods.include?(:account_number_field).should be_true
     methods.include?(:sub_account_number_field).should be_true
     methods.include?(:object_field).should be_true
@@ -80,6 +52,13 @@ describe 'An accounting line' do
     methods.include?(:org_ref_id_field).should be_true
     methods.include?(:dollar_field).should be_true
     methods.include?(:percent_field).should be_true
-    methods.include?(:add_button).should be_true
+    methods.include?(:chart_selector).should be_true
+    methods.include?(:delete_button).should be_true
+    methods.include?(:balance_inquiry_button).should be_true
+    methods.include?(:closed_chart_field).should be_true
+    methods.include?(:closed_account_number_field).should be_true
+    methods.include?(:closed_object_field).should be_true
+    methods.include?(:closed_dollar_field).should be_true
+    methods.include?(:closed_percent_field).should be_true
   end
 end
