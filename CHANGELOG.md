@@ -1,3 +1,13 @@
+### v3.0.0
+
+* Flexible Line Objects
+    * Line Objects & Subline Objects are defined once on a parent object
+    * The line number instance variable is now settable.
+    * The line ID instance variable has been replaced with a reader lookup method.
+    * Array reader attributes are used to track lines & sublines on instantiated objects.
+        * A lines array has been implemented on all page objects.
+        * A sublines array has been implemented on all line objects.
+
 ### v2.7.3 - 2013/10/11
 
 * Page (base class)
