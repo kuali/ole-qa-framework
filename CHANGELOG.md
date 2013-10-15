@@ -1,4 +1,4 @@
-### v3.0.0
+### v3.0.0 - 2013/10/15
 
 * Flexible Line Objects
     * Line Objects & Subline Objects are defined once on a parent object
@@ -7,6 +7,8 @@
     * Array reader attributes are used to track lines & sublines on instantiated objects.
         * A lines array has been implemented on all page objects.
         * A sublines array has been implemented on all line objects.
+* OLELS
+    * Fix element definitions on Return Screen page.
 
 ### v2.7.3 - 2013/10/11
 
