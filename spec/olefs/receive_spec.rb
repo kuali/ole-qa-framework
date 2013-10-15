@@ -37,7 +37,7 @@ describe 'An OLEFS Receiving Document page' do
   end
 
   it 'should have receiving document elements' do
-    elements = @rcv.methods
+    elements = @rcv.elements
     elements.include?(:date_received_field).should be_true
     elements.include?(:packing_slip_number_field).should be_true
     elements.include?(:bill_of_lading_number_field).should be_true
@@ -45,22 +45,7 @@ describe 'An OLEFS Receiving Document page' do
     elements.include?(:carrier_selector).should be_true
   end
 
-  it 'should have a new receiving line' do
-    @rcv.new_receiving_line.class.should == OLE_QA::Framework::OLEFS::New_Receiving_Line
-  end
-
-  it 'should create a receiving line' do
-    @rcv.create_receiving_line(1)
-    @rcv.methods.include?(:receiving_line_1).should be_true
-    @rcv.receiving_line_1.class.should == OLE_QA::Framework::OLEFS::Receiving_Line
-  end
-
-  it 'should delete a receiving line' do
-    @rcv.remove_receiving_line(1)
-    @rcv.methods.include?(:receiving_line_1).should be_false
-  end
-
-  it 'should not delete a receiving line which does not exist' do
-    lambda {@rcv.remove_receiving_line(1)}.should raise_error
+  it 'should have a receiving line' do
+    @rcv.lines.include?(:receiving_line).should be_true
   end
 end

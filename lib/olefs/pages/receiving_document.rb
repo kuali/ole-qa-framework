@@ -22,7 +22,7 @@ module OLE_QA::Framework::OLEFS
 
     # Create a new receiving line object on the receiving document.
     def set_lines
-      create_line("new_receiving_line","New_Receiving_Line")
+      set_line(:receiving_line,OLE_QA::Framework::OLEFS::Receiving_Line)
     end
 
     # Set Receiving Doc screen elements.
@@ -35,15 +35,5 @@ module OLE_QA::Framework::OLEFS
       element(:reference_number_field)                            {b.text_field(:id => "document.shipmentReferenceNumber")}
       element(:carrier_selector)                                  {b.select_list(:id => "document.carrierCode")}
     end
-
-    def create_receiving_line(which = 1)
-      create_line("receiving_line_#{which}","Receiving_Line",which)
-    end
-    alias_method(:add_receiving_line,:create_receiving_line)
-
-    def remove_receiving_line(which = 1)
-      remove_line("receiving_line_#{which}")
-    end
-    alias_method(:delete_receiving_line,:remove_receiving_line)
   end
 end

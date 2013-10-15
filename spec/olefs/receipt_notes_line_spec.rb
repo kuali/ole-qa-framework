@@ -20,8 +20,8 @@ describe 'An OLEFS Receipt Notes Line object' do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @browser = @ole.browser
-    @receipt_notes_line = OLE_QA::Framework::OLEFS::Receipt_Notes_Line.new(@ole, 1, 1)
-    @new_receipt_notes_line = OLE_QA::Framework::OLEFS::New_Receipt_Notes_Line.new(@ole, 1, 0)
+    @rcv_line = OLE_QA::Framework::OLEFS::Receiving_Line.new(@ole)
+    @receipt_notes_line = OLE_QA::Framework::OLEFS::Receipt_Notes_Line.new(@ole, @rcv_line, 1)
   end
 
   after :all do
@@ -31,24 +31,15 @@ describe 'An OLEFS Receipt Notes Line object' do
   it 'should create a new instance' do
     @receipt_notes_line.class.should == OLE_QA::Framework::OLEFS::Receipt_Notes_Line
     @receipt_notes_line.class.superclass.should == OLE_QA::Framework::Subline_Object
-    @new_receipt_notes_line.class.should == OLE_QA::Framework::OLEFS::New_Receipt_Notes_Line
-    @new_receipt_notes_line.class.superclass.should == OLE_QA::Framework::Subline_Object
   end
 
   it 'should have a browser accessor' do
     @receipt_notes_line.browser.class.should == @ole.browser.class
-    @new_receipt_notes_line.browser.class.should == @ole.browser.class
   end
 
   it 'should have receipt notes elements' do
-    methods = @receipt_notes_line.methods
-    methods.include?(:note_type_selector).should be_true
-    methods.include?(:note_field).should be_true
-  end
-
-  it 'should have new receipt notes elements' do
-    methods = @new_receipt_notes_line.methods
-    methods.include?(:note_type_selector).should be_true
-    methods.include?(:note_field).should be_true
+    elements = @receipt_notes_line.elements
+    elements.include?(:note_type_selector).should be_true
+    elements.include?(:note_field).should be_true
   end
 end

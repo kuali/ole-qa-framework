@@ -20,7 +20,8 @@ describe 'An OLEFS Processing Line object' do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @browser = @ole.browser
-    @processing_line = OLE_QA::Framework::OLEFS::Processing_Line.new(@ole, 1, 1)
+    @rcv_line = OLE_QA::Framework::OLEFS::Receiving_Line.new(@ole, 1)
+    @processing_line = OLE_QA::Framework::OLEFS::Processing_Line.new(@ole, @rcv_line, 1)
   end
 
   after :all do
@@ -37,8 +38,8 @@ describe 'An OLEFS Processing Line object' do
   end
 
   it 'should have processing line elements' do
-    methods = @processing_line.methods
-    methods.include?(:note_field).should be_true
-    methods.include?(:acknowledge_checkbox).should be_true
+    elements = @processing_line.elements
+    elements.include?(:note_field).should be_true
+    elements.include?(:acknowledge_checkbox).should be_true
   end
 end

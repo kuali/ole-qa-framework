@@ -17,8 +17,8 @@ module OLE_QA::Framework::OLEFS
   class Processing_Line < OLE_QA::Framework::Subline_Object
     def set_elements
       super
-      element(:note_field)                {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr[td[1]/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[2]/td[1]/table/tbody/tr[td[contains(text(),'Note #{@subline_number}')]]/following-sibling::tr[1]/td[1]")}
-      element(:acknowledge_checkbox)      {b.checkbox(:xpath => "//table[@summary='Items Section']/tbody/tr[td[1]/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[2]/td[1]/table/tbody/tr[td[contains(text(),'Note #{@subline_number}')]]/following-sibling::tr[1]/td[2]")}
+      element(:note_field)                {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr[td[1]/b[contains(text(),'#{@parent_line.line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[2]/td[1]/table/tbody/tr[td[contains(text(),'Note #{@line_number}')]]/following-sibling::tr[1]/td[1]")}
+      element(:acknowledge_checkbox)      {b.checkbox(:xpath => "//table[@summary='Items Section']/tbody/tr[td[1]/b[contains(text(),'#{@parent_line.line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[2]/td[1]/table/tbody/tr[td[contains(text(),'Note #{@line_number}')]]/following-sibling::tr[1]/td[2]")}
     end
   end
 end

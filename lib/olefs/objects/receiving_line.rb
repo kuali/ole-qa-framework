@@ -14,12 +14,13 @@
 
 module OLE_QA::Framework::OLEFS
   # A single line on an OLE Financial System Receiving Document
-  class Receiving_Line < OLE_QA::Framework::OLEFS::Line_Object
+  class Receiving_Line < OLE_QA::Framework::Line_Object
     # Create accessor methods for new subline objects.
     def set_sublines
-      create_subline("new_exception_notes_line","New_Exception_Notes_Line")
-      create_subline("new_receipt_notes_line","New_Receipt_Notes_Line")
-      create_subline("new_copies_line","New_Copies_Line")
+      set_subline(:exception_notes_line, OLE_QA::Framework::OLEFS::Exception_Notes_Line)
+      set_subline(:receipt_notes_line, OLE_QA::Framework::OLEFS::Receipt_Notes_Line)
+      set_subline(:copies_line, OLE_QA::Framework::OLEFS::Copies_Line)
+      set_subline(:processing_line, OLE_QA::Framework::OLEFS::Processing_Line)
     end
 
     # Set receiving line elements.
@@ -43,46 +44,15 @@ module OLE_QA::Framework::OLEFS
       element(:exception_notes_toggle)                    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[2]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:receipt_notes_toggle)                      {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[3]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:special_processing_instructions_toggle)    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[1]/th/div/input")}
+      # FIXME add copies line toggle
+      # New Receipt Note Elements
+      element(:receipt_note_type_selector)                {b.select_list(:id => "document.item[#{line_id}].noteTypeId")}
+      element(:receipt_note_field)                        {b.text_field(:id => "document.item[#{line_id}].receiptNotes")}
+      element(:add_receipt_note_button)                   {b.input(:name => "methodToCall.addReceiptNote.line#{line_id}")}
+      # New Exception Note Elements
+      element(:exception_type_selector)                   {b.select_list(:id => "document.item[#{line_id}].exceptionTypeId")}
+      element(:exception_note_field)                      {b.text_field(:id => "document.item[#{line_id}].exceptionNotes")}
+      element(:add_exception_note_button)                 {b.input(:name => "methodToCall.addExceptionNOte.line#{line_id}")}
     end
-
-    def create_exception_notes_line(which = 1)
-      create_subline("exception_notes_line_#{which}","Exception_Notes_Line", which)
-    end
-    alias_method(:add_exception_notes_line,:create_exception_notes_line)
-
-    def create_receipt_notes_line(which = 1)
-      create_subline("receipt_notes_line_#{which}","Receipt_Notes_Line", which)
-    end
-    alias_method(:add_receipt_notes_line,:create_receipt_notes_line)
-
-    def create_copies_line(which = 1)
-      create_subline("copies_line_#{which}","Copies_Line", which)
-    end
-    alias_method(:add_copies_line,:create_copies_line)
-
-    def create_processing_line(which = 1)
-      create_subline("processing_line_#{which}","Processing_Line", which)
-    end
-    alias_method(:add_processing_line,:create_processing_line)
-
-    def remove_exception_notes_line(which = 1)
-      remove_subline("exception_notes_line_#{which}")
-    end
-    alias_method(:delete_exception_notes_line,:remove_exception_notes_line)
-
-    def remove_receipt_notes_line(which = 1)
-      remove_subline("receipt_notes_line_#{which}")
-    end
-    alias_method(:delete_receipt_notes_line,:remove_receipt_notes_line)
-
-    def remove_copies_line(which = 1)
-      remove_subline("copies_line_#{which}")
-    end
-    alias_method(:delete_copies_line,:remove_copies_line)
-
-    def remove_processing_line(which = 1)
-      remove_subline("processing_line_#{which}")
-    end
-    alias_method(:delete_processing_line,:remove_processing_line)
   end
 end

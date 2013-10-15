@@ -20,8 +20,8 @@ describe 'An OLEFS Exception Notes Line object' do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @browser = @ole.browser
-    @exception_notes_line = OLE_QA::Framework::OLEFS::Exception_Notes_Line.new(@ole, 1, 1)
-    @new_exception_notes_line = OLE_QA::Framework::OLEFS::New_Exception_Notes_Line.new(@ole, 1, 0)
+    @rcv_line = OLE_QA::Framework::OLEFS::Receiving_Line.new(@ole, 1)
+    @exception_notes_line = OLE_QA::Framework::OLEFS::Exception_Notes_Line.new(@ole, @rcv_line, 1)
   end
 
 	after :all do
@@ -31,24 +31,14 @@ describe 'An OLEFS Exception Notes Line object' do
   it 'should create a new instance' do
     @exception_notes_line.class.should == OLE_QA::Framework::OLEFS::Exception_Notes_Line
     @exception_notes_line.class.superclass.should == OLE_QA::Framework::Subline_Object
-    @new_exception_notes_line.class.should == OLE_QA::Framework::OLEFS::New_Exception_Notes_Line
-    @new_exception_notes_line.class.superclass.should == OLE_QA::Framework::Subline_Object
   end
 
   it 'should have a browser accessor' do
     @exception_notes_line.browser.class.should == @ole.browser.class
-    @new_exception_notes_line.browser.class.should == @ole.browser.class
   end
 
   it 'should have exception notes elements' do
-    methods = @exception_notes_line.methods
-    methods.include?(:exception_type_selector).should be_true
-    methods.include?(:note_field).should be_true
-    methods.include?(:note_type_selector).should be_true
-  end
-
-  it 'should have new exception notes elements' do
-    elements = @new_exception_notes_line.methods
+    elements = @exception_notes_line.elements
     elements.include?(:exception_type_selector).should be_true
     elements.include?(:note_field).should be_true
     elements.include?(:note_type_selector).should be_true
