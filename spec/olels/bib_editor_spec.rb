@@ -75,61 +75,13 @@ describe 'The Bib Editor' do
     functions.should include(:readonly_data_field)
   end
 
-  it 'should start with one data line added' do
-    @bib_editor.data_line_1.class.should == OLE_QA::Framework::OLELS::Data_Line
-  end
-
-  it 'should add a data line' do
-    @bib_editor.add_data_line(2)
-    @bib_editor.methods.include?(:data_line_2).should be_true
-    @bib_editor.data_line_2.class.should == OLE_QA::Framework::OLELS::Data_Line
-  end
-
-  it 'should delete a data line' do
-    @bib_editor.delete_data_line(2)
-    @bib_editor.methods.include?(:data_line_2).should be_false
-  end
-
-  it 'should not add a data line which already exists' do
-    lambda {@bib_editor.add_data_line(1)}.should raise_error
-  end
-
-  it 'should not delete a data line which does not exist' do
-    lambda {@bib_editor.delete_data_line(2)}.should raise_error
-  end
-
-  it 'should start with one 006 line' do
-    @bib_editor.control_006_line_1.should be_a(OLE_QA::Framework::OLELS::Control_006_Line)
-  end
-
-  it 'should start with one 007 line' do
-    @bib_editor.control_007_line_1.should be_a(OLE_QA::Framework::OLELS::Control_007_Line)
-  end
-
-  it 'should add an 006 line' do
-    @bib_editor.add_006_line(2)
-    @bib_editor.methods.include?(:control_006_line_2).should be_true
-    @bib_editor.control_006_line_2.should be_a(OLE_QA::Framework::OLELS::Control_006_Line)
-  end
-
-  it 'should add an 007 line' do
-    @bib_editor.add_007_line(2)
-    @bib_editor.methods.include?(:control_007_line_2).should be_true
-    @bib_editor.control_007_line_2.should be_a(OLE_QA::Framework::OLELS::Control_007_Line)
-  end
-
-  it 'should delete an 006 line' do
-    @bib_editor.remove_006_line(2)
-    @bib_editor.methods.should_not include(:control_006_line_2)
-  end
-
-  it 'should delete an 007 line' do
-    @bib_editor.remove_007_line(2)
-    @bib_editor.methods.should_not include(:control_007_line_2)
-  end
-
-  it 'should not remove control lines which do not exist' do
-    lambda {@bib_editor.remove_006_line(2)}.should raise_error
-    lambda {@bib_editor.remove_007_line(2)}.should raise_error
+  it 'should have bib editor lines' do
+    lines = @bib_editor.lines
+    lines.include?(:control_006_line).should be_true
+    lines.include?(:control_007_line).should be_true
+    lines.include?(:data_line).should be_true
+    @bib_editor.control_006_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Control_006_Line)
+    @bib_editor.control_007_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Control_007_Line)
+    @bib_editor.data_line.should be_an_instance_of(OLE_QA::Framework::OLELS::Data_Line)
   end
 end

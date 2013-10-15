@@ -15,7 +15,7 @@
 module OLE_QA::Framework::OLELS
 
   # Represents a Marc control field 006 line in the OLELS Bib Editor.
-  class Control_006_Line < OLE_QA::Framework::OLELS::Line_Object
+  class Control_006_Line < OLE_QA::Framework::Line_Object
 
     # Set Marc data line elements.
     def set_elements

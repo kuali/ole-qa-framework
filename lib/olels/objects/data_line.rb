@@ -16,7 +16,7 @@ module OLE_QA::Framework::OLELS
 
   # Represents a Marc data line in the OLE Library System Bib Editor.
   #   e.g. '245','','','|aTitle of Work'
-  class Data_Line < OLE_QA::Framework::OLELS::Line_Object
+  class Data_Line < OLE_QA::Framework::Line_Object
 
     # Set Marc data line elements.
     def set_elements

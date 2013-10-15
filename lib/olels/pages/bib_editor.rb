@@ -67,51 +67,10 @@ module OLE_QA::Framework::OLELS
       function(:readonly_data_field)                {|which = 1| which -= 1 ; b.span(:id => "dataField_value_id_readOnly_line#{which}_control")}
     end
 
-    # Add the first Marc Data Line to a new Bib Editor record.
-    # @note There will always be at least one Marc Data Line on a newly-opened record,
-    #   whether newly-created or previously extant.
     def set_lines
-      create_006_line(1)
-      create_007_line(1)
-      create_data_line(1)
+      set_line(:control_006_line, OLE_QA::Framework::OLELS::Control_006_Line)
+      set_line(:control_007_line, OLE_QA::Framework::OLELS::Control_007_Line)
+      set_line(:data_line, OLE_QA::Framework::OLELS::Data_Line)
     end
-    
-    # Add a control field 006 line to the editor page model.
-    def create_006_line(which = 1)
-      create_line("control_006_line_#{which}", "Control_006_Line", which)
-    end                         
-    alias_method(:add_006_line, :create_006_line)
-
-    # Add a control field 007 line to the editor page model.
-    def create_007_line(which = 1)
-      create_line("control_007_line_#{which}", "Control_007_Line", which)
-    end
-    alias_method(:add_007_line, :create_007_line)
-    
-    # Add a Marc data line to the editor page model.
-    def create_data_line(which = 1)
-      create_line("data_line_#{which}","Data_Line", which)
-    end
-    alias_method(:add_data_line, :create_data_line)
-
-    # Remove a Marc data line from the editor page model.
-    def remove_data_line(which = 1)
-      remove_line("data_line_#{which}")
-    end
-    alias_method(:delete_data_line,:remove_data_line)
-
-    # Remove a control 006 line from the editor page model.
-    def remove_006_line(which = 1)
-      remove_line("control_006_line_#{which}")
-    end
-    alias_method(:delete_006_line,:remove_006_line)
-
-    # Remove a control 007 line from the editor page model.
-    def remove_007_line(which = 1)
-      remove_line("control_007_line_#{which}")
-    end
-    alias_method(:delete_007_line,:remove_007_line)
-
-
   end
 end

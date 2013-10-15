@@ -33,7 +33,7 @@ describe 'A Bib Editor Line' do
   end
 
   it 'should have Marc data line elements' do
-    elements = @data_line.methods
+    elements = @data_line.elements
     elements.include?(:tag_field).should be_true
     elements.include?(:ind1_field).should be_true
     elements.include?(:ind2_field).should be_true
