@@ -14,12 +14,12 @@
 
 module OLE_QA::Framework::OLEFS
   # A single Line Item in an OLE Financial System PURAP E-Document.
-  class Line_Item < OLE_QA::Framework::OLEFS::Line_Object
-    # Create accessor methods for new subline objects.
+  class Line_Item < OLE_QA::Framework::Line_Object
+    # Create accessor methods for subline objects.
     def set_sublines
-      create_subline("new_accounting_line","New_Accounting_Line")
-      create_subline("new_notes_line","New_Notes_Line")
-      create_subline("new_copies_line","New_Copies_Line")
+      set_subline(:accounting_line, OLE_QA::Framework::OLEFS::Accounting_Line)
+      set_subline(:notes_line, OLE_QA::Framework::OLEFS::Notes_Line)
+      set_subline(:copies_line, OLE_QA::Framework::OLEFS::Copies_Line)
     end
 
     # Set line item elements.
@@ -71,36 +71,7 @@ module OLE_QA::Framework::OLEFS
       element(:accounting_lines_toggle)         {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
       #element(:notes_toggle)                   #TBD - The notes and copies lines are treated as the same line for ID purposes.
       #element(:copies_toggle)                  # There is no reliable way of knowing which index either should have without being state-aware.
+      # FIXME Move new_(X)_line elements to line item as their definitions are static in this context.
     end
-
-    def create_accounting_line(which = 1)
-      create_subline("accounting_line_#{which}","Accounting_Line", which)
-    end
-    alias_method(:add_accounting_line,:create_accounting_line)
-
-    def create_notes_line(which = 1)
-      create_subline("notes_line_#{which}","Notes_Line", which)
-    end
-    alias_method(:add_notes_line,:create_notes_line)
-
-    def create_copies_line(which = 1)
-      create_subline("copies_line_#{which}","Copies_Line", which)
-    end
-    alias_method(:add_copies_line,:create_copies_line)
-
-    def remove_accounting_line(which = 1)
-      remove_subline("accounting_line_#{which}")
-    end
-    alias_method(:delete_accounting_line,:remove_accounting_line)
-
-    def remove_notes_line(which = 1)
-      remove_subline("notes_line_#{which}")
-    end
-    alias_method(:delete_notes_line,:remove_notes_line)
-
-    def remove_copies_line(which = 1)
-      remove_subline("copies_line_#{which}")
-    end
-    alias_method(:delete_copies_line,:remove_copies_line)
   end
 end

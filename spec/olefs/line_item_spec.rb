@@ -22,7 +22,6 @@ describe 'An OLEFS line item' do
     @ole = OLE_QA::Framework::Session.new
     @line_number = 1
     @line_item = OLE_QA::Framework::OLEFS::Line_Item.new(@ole, @line_number)
-    @new_line_item = OLE_QA::Framework::OLEFS::New_Line_Item.new(@ole, @line_number)
   end
 
 	after :all do
@@ -31,22 +30,18 @@ describe 'An OLEFS line item' do
 
   it 'should should create a new instance' do
     @line_item.class.should == OLE_QA::Framework::OLEFS::Line_Item
-    @new_line_item.class.should == OLE_QA::Framework::OLEFS::New_Line_Item
   end
 
   it 'should be a subclass of Line Object' do
-    @line_item.class.superclass.should == OLE_QA::Framework::OLEFS::Line_Object
-    @new_line_item.class.superclass.should == OLE_QA::Framework::OLEFS::Line_Object
+    @line_item.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have a browser accessor' do
     @line_item.browser.class.should == @ole.browser.class
-    @new_line_item.browser.class.should == @ole.browser.class
   end
 
   it 'should have line number attributes' do
     @line_item.line_number.should == 1
-    @new_line_item.line_number.should == 0
   end
 
   it 'should have line item elements' do
@@ -92,73 +87,36 @@ describe 'An OLEFS line item' do
     #TODO add the methods below when OLE-4329 is fixed.
     # elements.should include(:notes_toggle)
     # methods_array.include(:copies_toggle)
+    # TODO add new_accounting_line, new_notes_line, new_copies_line definitions.
   end
 
   it 'should have subline objects' do
-    methods = @line_item.methods
-    methods.include?(:new_accounting_line).should be_true
-    methods.include?(:new_notes_line).should be_true
-    methods.include?(:new_copies_line).should be_true
+    sublines = @line_item.sublines
+    sublines.include?(:accounting_line).should be_true
+    sublines.include?(:notes_line).should be_true
+    sublines.include?(:copies_line).should be_true
   end
 
   it 'should have new line item elements' do
-    elements = @new_line_item.methods
-    elements.should include(:new_bib_option)
-    elements.should include(:existing_bib_option)
-    elements.should include(:new_bib_button)
-    elements.should include(:existing_bib_button)
-    elements.should include(:item_type_selector)
-    elements.should include(:copies_field)
-    elements.should include(:parts_field)
-    elements.should include(:list_price_field)
-    elements.should include(:public_view_checkbox)
-    elements.should include(:item_price_source_selector)
-    elements.should include(:request_source_selector)
-    elements.should include(:format_selector)
-    elements.should include(:category_selector)
-    elements.should include(:route_to_requestor_checkbox)
-    elements.should include(:discount_field)
-    elements.should include(:discount_type_selector)
-    elements.should include(:add_button)
-    elements.should include(:location_selector)
-  end
-
-  it 'should create an accounting line' do
-    @line_item.create_accounting_line(1)
-    @line_item.methods.include?(:accounting_line_1).should be_true
-    @line_item.accounting_line_1.class.should == OLE_QA::Framework::OLEFS::Accounting_Line
-  end
-
-  it 'should create a notes line' do
-    @line_item.create_notes_line(1)
-    @line_item.methods.include?(:notes_line_1).should be_true
-    @line_item.notes_line_1.class.should == OLE_QA::Framework::OLEFS::Notes_Line
-  end
-
-  it 'should create a copies line' do
-    @line_item.create_copies_line(1)
-    @line_item.methods.include?(:copies_line_1).should be_true
-    @line_item.copies_line_1.class.should == OLE_QA::Framework::OLEFS::Copies_Line
-  end
-
-  it 'should remove an accounting line' do
-    @line_item.remove_accounting_line(1)
-    @line_item.methods.include?(:accounting_line_1).should be_false
-  end
-
-  it 'should remove a notes line' do
-    @line_item.remove_notes_line(1)
-    @line_item.methods.include?(:notes_line_1).should be_false
-  end
-
-  it 'should remove a copies line' do
-    @line_item.remove_copies_line(1)
-    @line_item.methods.include?(:copies_line_1).should be_false
-  end
-
-  it 'should raise an error when asked to remove a subline which does not exist' do
-    lambda {@line_item.remove_accounting_line(1)}.should raise_error
-    lambda {@line_item.remove_notes_line(1)}.should raise_error
-    lambda {@line_item.remove_copies_line(1)}.should raise_error
+  # TODO Move these element definitions to OLEFS PURAP Document.
+  #  elements = @new_line_item.methods
+  #  elements.should include(:new_bib_option)
+  #  elements.should include(:existing_bib_option)
+  #  elements.should include(:new_bib_button)
+  #  elements.should include(:existing_bib_button)
+  #  elements.should include(:item_type_selector)
+  #  elements.should include(:copies_field)
+  #  elements.should include(:parts_field)
+  #  elements.should include(:list_price_field)
+  #  elements.should include(:public_view_checkbox)
+  #  elements.should include(:item_price_source_selector)
+  #  elements.should include(:request_source_selector)
+  #  elements.should include(:format_selector)
+  #  elements.should include(:category_selector)
+  #  elements.should include(:route_to_requestor_checkbox)
+  #  elements.should include(:discount_field)
+  #  elements.should include(:discount_type_selector)
+  #  elements.should include(:add_button)
+  #  elements.should include(:location_selector)
   end
 end
