@@ -32,7 +32,7 @@ describe 'An OLEFS Purchase Order' do
   end
 
   it 'should have purchase order elements' do
-    elements = @purchase_order.methods
+    elements = @purchase_order.elements
     elements.include?(:additional_info_tab_toggle).should be_true
     elements.include?(:additional_info_phone_number_field).should be_true
     elements.include?(:delivery_tab_toggle).should be_true
@@ -56,22 +56,8 @@ describe 'An OLEFS Purchase Order' do
     elements.include?(:send_ad_hoc_button).should be_true
   end
 
-  it 'should have a new line item' do
-    @purchase_order.new_line_item.class.should == OLE_QA::Framework::OLEFS::New_Line_Item
-  end
-
-  it 'should create a line item' do
-    @purchase_order.create_line_item(1)
-    @purchase_order.methods.include?(:line_item_1).should be_true
-    @purchase_order.line_item_1.class.should == OLE_QA::Framework::OLEFS::Line_Item
-  end
-
-  it 'should delete a line item' do
-    @purchase_order.remove_line_item(1)
-    @purchase_order.methods.include?(:line_item_1).should be_false
-  end
-
-  it 'should not delete a line item which does not exist' do
-    lambda {@purchase_order.remove_line_item(1)}.should raise_error
+  it 'should have a line item' do
+    @purchase_order.lines.include?(:line_item).should be_true
+    @purchase_order.line_item.should be_an_instance_of(OLE_QA::Framework::OLEFS::Line_Item)
   end
 end

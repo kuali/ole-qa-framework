@@ -23,7 +23,7 @@ module OLE_QA::Framework::OLEFS
 
     # Create a new line item object on the requisition.
     def set_lines
-      create_line("new_line_item", "New_Line_Item")
+      set_line(:line_item, OLE_QA::Framework::OLEFS::Line_Item)
     end
 
     # Set Requisition screen elements.
@@ -49,15 +49,5 @@ module OLE_QA::Framework::OLEFS
       # Titles Tab
       element(:grand_total_field)                                 {b.b(:xpath => "//div[@id='tab-Titles-div']/descendant::th[div[contains(text(),'Grand Total')]]/following-sibling::td/div/b")}
     end
-
-    def create_line_item(which = 1)
-      create_line("line_item_#{which}","Line_Item", which)
-    end
-    alias_method(:add_line_item,:create_line_item)
-
-    def remove_line_item(which = 1)
-      remove_line("line_item_#{which}")
-    end
-    alias_method(:delete_line_item,:remove_line_item)
   end
 end

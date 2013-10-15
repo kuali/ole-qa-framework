@@ -17,7 +17,7 @@ require 'rspec'
 require 'spec_helper'
 
 
-describe 'A purap_requisition document' do
+describe 'A PURAP requisition document' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
@@ -42,7 +42,7 @@ describe 'A purap_requisition document' do
   end
 
   it 'should have requisition elements' do
-    elements = @req.methods
+    elements = @req.elements
     elements.include?(:license_request_checkbox).should be_true
     elements.include?(:receiving_required_checkbox).should be_true
     elements.include?(:payment_request_approval_required_checkbox).should be_true
@@ -64,22 +64,8 @@ describe 'A purap_requisition document' do
     elements.include?(:grand_total_field).should be_true
   end
 
-  it 'should have a new line item' do
-    @req.new_line_item.class.should == OLE_QA::Framework::OLEFS::New_Line_Item
-  end
-
-  it 'should create a line item' do
-    @req.create_line_item(1)
-    @req.methods.include?(:line_item_1).should be_true
-    @req.line_item_1.class.should == OLE_QA::Framework::OLEFS::Line_Item
-  end
-
-  it 'should delete a line item' do
-    @req.remove_line_item(1)
-    @req.methods.include?(:line_item_1).should be_false
-  end
-
-  it 'should not delete a line item which does not exist' do
-    lambda {@req.remove_line_item(1)}.should raise_error
+  it 'should have a line item' do
+    @req.lines.include?(:line_item).should be_true
+    @req.line_item.should be_an_instance_of(OLE_QA::Framework::OLEFS::Line_Item)
   end
 end
