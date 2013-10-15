@@ -126,7 +126,7 @@ module OLE_QA::Framework::Helpers
     eigenclass = class << self;
       self
     end
-    raise StandardError, "Element is already defined.  (Use the 'force = true' option to suppress this error.)" if eigenclass.instance_methods.include?(name) && ! force
+    raise StandardError, "Function is already defined.  (Use the 'force = true' option to suppress this error.)" if eigenclass.instance_methods.include?(name) && ! force
     eigenclass.class_eval do
       define_method name.to_s do |*arg|
         yield *arg
