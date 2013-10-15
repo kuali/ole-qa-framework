@@ -69,6 +69,7 @@ module OLE_QA::Framework::OLEFS
       element(:closed_discount_type_field)        {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[4]")}
       # Subtab Toggle Buttons                   # Matches all of type, then selects by index = line_id (i.e. if @line_num is 1, index is 0)
       element(:accounting_lines_toggle)           {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
+      # FIXME Re-define and re-enable these toggles
       #element(:notes_toggle)                   #TBD - The notes and copies lines are treated as the same line for ID purposes.
       #element(:copies_toggle)                  # There is no reliable way of knowing which index either should have without being state-aware.
       # FIXME Move new_(X)_line elements to line item as their definitions are static in this context.
@@ -87,6 +88,13 @@ module OLE_QA::Framework::OLEFS
       element(:note_type_selector)                {b.select_list(:id => "document.item[#{line_id}].noteTypeId")}
       element(:note_field)                        {b.text_field(:id => "document.item[#{line_id}].note")}
       element(:add_note_button)                   {b.input(:name => "methodToCall.addNote.line#{line_id}")}
+      # New Copies Line Elements
+      # FIXME Update all definitions below
+      element(:num_copies_field)                  {b.text_field(:id => "document.item[#{line_id}].itemCopies")}
+      element(:num_parts_field)                   {b.text_field(:id => "")}
+      element(:location_copies_selector)          {b.select_list(:id => "document.item[#{line_id}].locationCopies")}
+      element(:starting_copy_field)               {b.text_field(:id => "document.item[#{line_id}].startingCopyNumber")}
+      element(:add_copy_button)                   {b.input(:name => "methodToCall.addCopy.line#{line_id}")}
     end
   end
 end

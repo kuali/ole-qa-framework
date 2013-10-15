@@ -19,8 +19,7 @@ describe 'A copies line' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @copies_line = OLE_QA::Framework::OLEFS::Copies_Line.new(@ole, 1, 1)
-    @new_copies_line = OLE_QA::Framework::OLEFS::New_Copies_Line.new(@ole, 1, 0)
+    @copies_line = OLE_QA::Framework::OLEFS::Copies_Line.new(@ole, 1)
   end
 
   after :all do
@@ -29,24 +28,18 @@ describe 'A copies line' do
 
   it 'should create a new instance' do
     @copies_line.class.should == OLE_QA::Framework::OLEFS::Copies_Line
-    @new_copies_line.class.should == OLE_QA::Framework::OLEFS::New_Copies_Line
   end
 
   it 'should be a subclass of subline object' do
     @copies_line.class.superclass.should == OLE_QA::Framework::Subline_Object
-    @new_copies_line.class.superclass.should == OLE_QA::Framework::Subline_Object
   end
 
   it 'should have a browser accessor' do
     @copies_line.browser.class.should == @ole.browser.class
-    @new_copies_line.browser.class.should == @ole.browser.class
   end
 
   it 'should have line number methods' do
     @copies_line.line_number.should == 1
-    @copies_line.subline_number.should == 1
-    @new_copies_line.line_number.should == 1
-    @new_copies_line.subline_number.should == 0
   end
 
   it 'should have copies line elements' do
@@ -58,13 +51,5 @@ describe 'A copies line' do
     methods.include?(:closed_parts_field).should be_true
     methods.include?(:closed_part_enumeration_field).should be_true
     methods.include?(:closed_starting_copy_field).should be_true
-  end
-
-  it 'should have new copies line elements' do
-    methods = @new_copies_line.methods
-    methods.include?(:copies_field).should be_true
-    methods.include?(:location_copies_selector).should be_true
-    methods.include?(:starting_copy_field).should be_true
-    methods.include?(:add_button).should be_true
   end
 end

@@ -18,15 +18,17 @@ module OLE_QA::Framework::OLEFS
     # Set copies line elements.
     def set_elements
       super
-      element(:location_copies_selector)        {b.select_list(:id => "document.item[#{line_id}].copies[#{@subline_id}].location_copies")}
-      element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{line_id}:#{@subline_id}")}
+      element(:location_copies_selector)        {b.select_list(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}].location_copies")}
+      element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{@parent_line.line_id}:#{line_id}")}
       # Readonly Elements
       # Use these for closed, uneditable fields as on a purchase order.
-      element(:closed_copies_field)             {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[1]/div")}
-      element(:closed_location_copies_field)    {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[2]/div")}
-      element(:closed_parts_field)              {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[3]/div")}
-      element(:closed_part_enumeration_field)   {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[4]/div")}
-      element(:closed_starting_copy_field)      {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{@subline_num}')]]/following-sibling::tr[1]/td[5]/div")}
+      # FIXME Add open fields to match the new copies line fields on OLEFS Line Item
+      # FIXME Redefine closed fields
+      element(:closed_copies_field)             {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[1]/div")}
+      element(:closed_location_copies_field)    {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[2]/div")}
+      element(:closed_parts_field)              {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[3]/div")}
+      element(:closed_part_enumeration_field)   {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[4]/div")}
+      element(:closed_starting_copy_field)      {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[5]/div")}
     end
   end
 end
