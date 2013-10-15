@@ -36,7 +36,6 @@ module OLE_QA::Framework::OLELS
       editor_url =  ole_session.url + 'portal.do?channelTitle=Editor&channelUrl='
       editor_url += ole_session.url + 'ole-kr-krad/editorcontroller?viewId=EditorView&methodToCall=load&docCategory=work&docType=bibliographic&docFormat=marc&editable=true'
       super(ole_session, editor_url)
-      set_lines if defined?(self.set_lines)
     end
 
     # Set elements common to all Editor screens.
