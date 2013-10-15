@@ -38,48 +38,6 @@ describe 'An OLEFS Payment Request page' do
   end
 
   it 'should have payment request elements' do
-    elements = @preq.methods
-    elements.include?(:invoice_number_field).should be_true
-    elements.include?(:pay_date_field).should be_true
-    elements.include?(:invoice_date_field).should be_true
-    elements.include?(:immediate_pay_checkbox).should be_true
-    elements.include?(:payment_attachment_checkbox).should be_true
-    elements.include?(:invoice_type_field).should be_true
-    elements.include?(:invoice_subtype_field).should be_true
-    elements.include?(:payment_method_selector).should be_true
-    elements.include?(:grand_total_field).should be_true
-    elements.include?(:additional_charges_toggle).should be_true
-    elements.include?(:freight_extended_cost_field).should be_true
-    elements.include?(:freight_description_field).should be_true
-    elements.include?(:shipping_handling_extended_cost_field).should be_true
-    elements.include?(:shipping_handling_description_field).should be_true
-    elements.include?(:minimum_order_extended_cost_field).should be_true
-    elements.include?(:minimum_order_description_field).should be_true
-    elements.include?(:misc_overhead_extended_cost_field).should be_true
-    elements.include?(:misc_overhead_description_field).should be_true
-    elements.include?(:prorate_by_quantity_checkbox).should be_true
-    elements.include?(:prorate_by_dollar_checkbox).should be_true
-    elements.include?(:prorate_manual_checkbox).should be_true
-    elements.include?(:close_po_checkbox).should be_true
-  end
-
-  it 'should have a new line item' do
-    @preq.methods.include?(:new_line_item).should be_true
-    @preq.new_line_item.class.should == OLE_QA::Framework::OLEFS::New_PREQ_Line_Item
-  end
-
-  it 'should create a line item' do
-    @preq.create_line_item(1)
-    @preq.methods.include?(:line_item_1).should be_true
-    @preq.line_item_1.class.should == OLE_QA::Framework::OLEFS::PREQ_Line_Item
-  end
-
-  it 'should remove a line item' do
-    @preq.remove_line_item(1)
-    @preq.methods.include?(:line_item_1).should be_false
-  end
-
-  it 'should raise an error when asked to remove a line item which does not exist' do
-    lambda {@preq.remove_line_item(1)}.should raise_error
+    elements = @preq.elements
   end
 end
