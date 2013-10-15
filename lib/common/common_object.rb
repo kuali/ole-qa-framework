@@ -26,7 +26,7 @@ module OLE_QA::Framework
     # The OLE_QA::Framework::Session instance passed to the Data Object.
     attr_accessor :ole
 
-    # Arrays containing the names(Symbol) of each element or function declared
+    # Arrays containing the name (Symbol) of each element or function declared
     #   on a data object.
     attr_reader :elements, :functions
 

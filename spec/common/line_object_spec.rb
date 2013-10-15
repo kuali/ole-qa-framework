@@ -20,19 +20,20 @@ describe 'A Line Object' do
 
   before :all do
     @ole = OLE_QA::Framework::Session.new
-    @line_object = OLE_QA::Framework::Line_Object.new(@ole, 1)
+    class TestLine < OLE_QA::Framework::Line_Object
+      def set_sublines
+        subline(:test_subline, OLE_QA::Framework::Subline_Object)
+      end
+    end
+    @line_object = TestLine.new(@ole, 1)
   end
 
   after :all do
     @ole.quit
   end
 
-  it 'should create a new instance' do
-    @line_object.class.should == OLE_QA::Framework::Line_Object
-  end
-
-  it 'should be a subclass of data object' do
-    @line_object.class.superclass.should == OLE_QA::Framework::Data_Object
+  it 'should create a new instance of line object' do
+    @line_object.class.superclass.should == OLE_QA::Framework::Line_Object
   end
 
   it 'should have a browser accessor' do
@@ -54,5 +55,28 @@ describe 'A Line Object' do
 
   it 'should redefine the line ID to one less than the line number' do
     @line_object.line_id.should == 1
+  end
+
+  it 'should start with a test subline defined automagically' do
+    @line_object.methods.include?(:test_subline).should be_true
+    @line_object.test_subline.should be_an_instance_of(OLE_QA::Framework::Subline_Object)
+  end
+
+  it 'should have that subline listed in the sublines reader attribute' do
+    @line_object.sublines.include?(:test_subline).should be_true
+  end
+
+  it 'should allow a subline to be set dynamically' do
+    @line_object.set_subline(:test_subline_2, OLE_QA::Framework::Subline_Object)
+    @line_object.methods.include?(:test_subline_2).should be_true
+    @line_object.test_subline_2.should be_an_instance_of(OLE_QA::Framework::Subline_Object)
+  end
+
+  it 'should add that subline object to the sublines reader attribute' do
+    @line_object.sublines.include?(:test_subline_2).should be_true
+  end
+
+  it 'should not define a subline object which already exists' do
+    lambda {@line_object.set_subline(:test_subline)}.should raise_error
   end
 end

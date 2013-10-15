@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLEFS
   # A new Line Item on an OLE Financial System PURAP E-Document.
-  class New_Line_Item < OLE_QA::Framework::OLEFS::Line_Object
+  class New_Line_Item < OLE_QA::Framework::Line_Object
     # Initialize as a subclass of {OLE_QA::Framework::OLEFS::Line_Object} with a line_number of 0.
     def initialize(ole_session, which)
       super(ole_session, 0)

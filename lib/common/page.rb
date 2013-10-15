@@ -23,6 +23,9 @@ module OLE_QA::Framework
     #   or OLELS, instead use the :new_url accessor set on the e-Doc object.
     attr_reader :url
 
+    # An array containing the name (Symbol) of each line object on the page object.
+    attr_reader :lines
+
     include OLE_QA::Framework::Page_Helpers
 
     # @param ole_session [Object] The OLE_QA::Framework::Session instance in which the page should load.
@@ -31,7 +34,9 @@ module OLE_QA::Framework
       super(ole_session)
       @url = url
       @wait_on = Array.new
+      @lines = Array.new
       wait_for_elements if defined?(self.wait_for_elements)
+      set_lines if defined?(self.set_lines)
     end
 
     # Open the page via URL.
