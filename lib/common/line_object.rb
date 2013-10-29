@@ -60,7 +60,7 @@ module OLE_QA::Framework
       raise StandardError, "Name must be a symbol.  Given:  #{name}  (#{name.class})" unless name.instance_of?(Symbol)
       raise StandardError, "Klas must be a class.  Given:  #{klas}  (#{klas.class})"  unless klas.instance_of?(Class)
       raise StandardError, "Subline object is already defined.  (Use the 'force = true' option to suppress this error.)" if @sublines.include?(name) && ! force
-      instance_variable_set("@#{name}", klas.new(@ole, 1))
+      instance_variable_set("@#{name}", klas.new(@ole, self, 1))
       make_reader(name) unless force
       @sublines << name unless force
     end

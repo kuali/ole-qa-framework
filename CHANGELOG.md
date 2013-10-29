@@ -1,3 +1,8 @@
+### v3.0.1 - 2013/10/29
+
+* Line Object Fix
+    * Fix set_subline method on lib/common/line_object.rb.
+
 ### v3.0.0 - 2013/10/15
 
 * Flexible Line Objects
