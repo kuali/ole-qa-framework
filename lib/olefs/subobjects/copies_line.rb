@@ -19,16 +19,12 @@ module OLE_QA::Framework::OLEFS
     def set_elements
       super
       element(:location_copies_selector)        {b.select_list(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}].location_copies")}
+      element(:copies)                          {b.div(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}].itemCopies")}
+      element(:parts)                           {b.div(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}].parts")}
+      element(:starting_copy_field)             {b.text_field(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}.startingCopyNumber")}
+      element(:caption_field)                   {b.text_field(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}.caption")}
+      element(:volume_number_field)             {b.text_field(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}.volumeNumber")}
       element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{@parent_line.line_id}:#{line_id}")}
-      # Readonly Elements
-      # Use these for closed, uneditable fields as on a purchase order.
-      # FIXME Add open fields to match the new copies line fields on OLEFS Line Item
-      # FIXME Redefine closed fields
-      element(:closed_copies_field)             {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[1]/div")}
-      element(:closed_location_copies_field)    {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[2]/div")}
-      element(:closed_parts_field)              {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[3]/div")}
-      element(:closed_part_enumeration_field)   {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[4]/div")}
-      element(:closed_starting_copy_field)      {b.div(:xpath => "//tr[td[@class='subhead'][contains(text(),'Copies #{line_number}')]]/following-sibling::tr[1]/td[5]/div")}
     end
   end
 end

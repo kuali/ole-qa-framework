@@ -87,7 +87,7 @@ module OLE_QA::Framework::OLEFS
       element(:note_field)                        {b.text_field(:id => "document.item[#{line_id}].note")}
       element(:add_note_button)                   {b.input(:name => "methodToCall.addNote.line#{line_id}")}
       # New Copies Line Elements
-      element(:num_copies_field)                  {b.text_field(:id => "document.item[#{line_id}].itemCopies")}
+      element(:copies_line_copies_field)          {b.text_field(:id => "document.item[#{line_id}].itemCopies")}
       element(:location_copies_selector)          {b.select_list(:id => "document.item[#{line_id}].locationCopies")}
       element(:starting_copy_field)               {b.text_field(:id => "document.item[#{line_id}].startingCopyNumber")}
       element(:caption_field)                     {b.text_field(:id => "document.item[#{line_id}].caption")}
