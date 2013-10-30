@@ -42,6 +42,7 @@ describe 'An OLEFS Receiving Line object' do
 
   it 'should have receiving line elements' do
     elements = @rcv_line.elements
+    elements.include?(:receive_button).should be_true
     elements.include?(:description_field).should be_true
     elements.include?(:quantity_ordered_field).should be_true
     elements.include?(:parts_ordered_field).should be_true

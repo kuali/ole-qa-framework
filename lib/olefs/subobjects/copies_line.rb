@@ -25,6 +25,7 @@ module OLE_QA::Framework::OLEFS
       element(:caption_field)                   {b.text_field(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}.caption")}
       element(:volume_number_field)             {b.text_field(:id => "document.item[#{@parent_line.line_id}].copies[#{line_id}.volumeNumber")}
       element(:delete_button)                   {b.input(:name => "methodToCall.deleteCopy.line#{@parent_line.line_id}:#{line_id}")}
+      element(:receive_button)                  {b.input(:name => "methodToCall.receiveCopy.line#{@parent_line.line_id}:#{line_id}")}
     end
   end
 end

@@ -51,5 +51,6 @@ describe 'A copies line' do
     elements.include?(:caption_field).should be_true
     elements.include?(:volume_number_field).should be_true
     elements.include?(:delete_button).should be_true
+    elements.include?(:receive_button).should be_true
   end
 end

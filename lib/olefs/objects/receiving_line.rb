@@ -26,6 +26,7 @@ module OLE_QA::Framework::OLEFS
     # Set receiving line elements.
     def set_elements
       super
+      element(:receive_button)                            {b.button(:id => '')}
       element(:description_field)                         {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[2]")}
       element(:quantity_ordered_field)                    {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[4]")}
       element(:parts_ordered_field)                       {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[5]")}
@@ -44,7 +45,7 @@ module OLE_QA::Framework::OLEFS
       element(:exception_notes_toggle)                    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[2]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:receipt_notes_toggle)                      {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[3]/td[1]/table/tbody/tr[1]/th/div/input")}
       element(:special_processing_instructions_toggle)    {b.input(:xpath => "//tr[td/b[contains(text(),'#{@line_number}')]]/following-sibling::tr[4]/td[1]/table/tbody/tr[1]/th/div/input")}
-      # FIXME add copies line toggle
+      element(:copies_line_toggle)
       # New Receipt Note Elements
       element(:receipt_note_type_selector)                {b.select_list(:id => "document.item[#{line_id}].noteTypeId")}
       element(:receipt_note_field)                        {b.text_field(:id => "document.item[#{line_id}].receiptNotes")}
