@@ -1,3 +1,9 @@
+### v3.1.0
+
+* OLE 1.0 Receiving
+    * Re-create receiving elements on PURAP line items
+    * Re-create receiving document & receiving lines
+
 ### v3.0.1 - 2013/10/29
 
 * Line Object Fix
