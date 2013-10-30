@@ -113,8 +113,8 @@ describe 'An OLEFS line item' do
 
   it 'should have new copies line elements' do
     elements = @line_item.elements
-    elements.include?(:num_copies_field).should be_true
-    elements.include?(:num_parts_field).should be_true
+    elements.include?(:copies_line_copies_field).should be_true
+    elements.include?(:parts_field).should be_true
     elements.include?(:location_copies_selector).should be_true
     elements.include?(:starting_copy_field).should be_true
     elements.include?(:add_copy_button).should be_true

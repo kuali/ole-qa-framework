@@ -43,13 +43,13 @@ describe 'A copies line' do
   end
 
   it 'should have copies line elements' do
-    methods = @copies_line.methods
-    methods.include?(:location_copies_selector).should be_true
-    methods.include?(:delete_button).should be_true
-    methods.include?(:closed_copies_field).should be_true
-    methods.include?(:closed_location_copies_field).should be_true
-    methods.include?(:closed_parts_field).should be_true
-    methods.include?(:closed_part_enumeration_field).should be_true
-    methods.include?(:closed_starting_copy_field).should be_true
+    elements = @copies_line.elements
+    elements.include?(:location_copies_selector).should be_true
+    elements.include?(:copies).should be_true
+    elements.include?(:parts).should be_true
+    elements.include?(:starting_copy_field).should be_true
+    elements.include?(:caption_field).should be_true
+    elements.include?(:volume_number_field).should be_true
+    elements.include?(:delete_button).should be_true
   end
 end
