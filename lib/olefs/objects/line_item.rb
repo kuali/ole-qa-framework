@@ -69,10 +69,8 @@ module OLE_QA::Framework::OLEFS
       element(:closed_discount_type_field)        {b.td(:xpath => "//tr[td[@class='tab-subhead'][contains(text(),'Item #{@line_number}')]]/following-sibling::tr[5]/td[4]")}
       # Subtab Toggle Buttons                   # Matches all of type, then selects by index = line_id (i.e. if @line_num is 1, index is 0)
       element(:accounting_lines_toggle)           {b.input(:id => /tab-AccountingLines[0-9]+-imageToggle/, :index => line_id)}
-      # FIXME Re-define and re-enable these toggles
-      #element(:notes_toggle)                   #TBD - The notes and copies lines are treated as the same line for ID purposes.
-      #element(:copies_toggle)                  # There is no reliable way of knowing which index either should have without being state-aware.
-      # FIXME Move new_(X)_line elements to line item as their definitions are static in this context.
+      element(:notes_toggle)                      {b.input(:id => /tab-Notes[0-9]+-imageToggle/, :index => line_id)}
+      element(:copies_toggle)                     {b.input(:id => /tab-Copies[0-9]+-imageToggle/, :index => line_id)}
       # New Accounting Line Elements
       element(:account_number_field)              {b.text_field(:id => "document.item[#{line_id}].newSourceLine.accountNumber")}
       element(:chart_selector)                    {b.select_list(:id => "document.item[#{line_id}].newSourceLine.chartOfAccountsCode")}
