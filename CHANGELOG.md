@@ -1,3 +1,7 @@
+### v3.2.0 -
+
+* Batch Import
+
 ### v3.1.0 - 2013/10/30
 
 * OLE 1.0 Receiving
