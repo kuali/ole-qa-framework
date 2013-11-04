@@ -1,9 +1,4 @@
-### v3.1.1 - 2013/11/05
-
-* Update Invoice Line
-  * Add button ID was changed
-
-### v3.1.0
+### v3.1.0 - 2013/10/30
 
 * OLE 1.0 Receiving
     * Re-create receiving elements on PURAP line items
