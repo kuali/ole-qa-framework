@@ -43,7 +43,7 @@ module OLE_QA::Framework::OLEFS
       element(:correction_receiving_toggle)       {b.a(:id => "po-relatedCorrectionReceiving-view_line#{line_id}_toggle")}
       element(:payment_requests_toggle)           {b.a(:id => "po-relatedPayment-view_line#{line_id}_toggle")}
       element(:credit_memos_toggle)               {b.a(:id => "po-relatedCreditMemo-view_line#{line_id}_toggle")}
-      element(:add_button)                        {b.button(:id => "addPOItems_button_line#{line_id}")}
+      element(:add_button)                        {b.button(:id => "addPOItems_button_test_line#{line_id}")}
     end
 
     # Set invoice line functions (for elements with IDs that require numerical inputs).
