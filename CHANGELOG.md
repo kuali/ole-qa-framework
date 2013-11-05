@@ -1,6 +1,7 @@
 ### v3.2.0
 
-* Batch Import
+* Batch Import Screens
+    * Batch Process Profile Search Screen
 
 ### v3.1.1 - 2013/11/05
 
