@@ -15,6 +15,13 @@
 module OLE_QA::Framework::OLELS
   # The Batch Process Profile Lookup Screen in the OLE Library System
   class Batch_Profile_Lookup < OLE_QA::Framework::OLELS::Lookup
+    def initialize(ole_session)
+      url = ole_session.url + 'portal.do?channelTitle=Batch Process Profile&channelUrl='
+      url += ole_session.url + 'ole-kr-krad/lookup?methodToCall=start&dataObjectClassName=org.kuali.ole.batch.bo.OLEBatchProcessProfileBo&returnLocation='
+      url += ole_session.url + 'portal.do&hideReturnLink=true&showMaintenanceLinks=true'
+      super(ole_session, url)
+    end
+
     def set_elements
       super
       element(:create_new)                            {b.link(:text => 'Create New')}
@@ -25,6 +32,12 @@ module OLE_QA::Framework::OLELS
       element(:search_button)                         {b.button(:id => 'searchReqBtn')}
       element(:clear_button)                          {b.button(:id => 'clearReqBtn')}
       element(:cancel_button)                         {b.button(:id => 'cancelReqBtn')}
+    end
+
+    def wait_for_elements
+      super
+      @wait_on << :profile_name_field
+      @wait_on << :search_button
     end
   end
 end
