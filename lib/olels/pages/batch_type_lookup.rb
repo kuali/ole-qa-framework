@@ -12,3 +12,41 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+module OLE_QA::Framework::OLELS
+  # The Batch Process Type Lookup Screen in the OLE Library System
+  class Batch_Type_Lookup < OLE_QA::Framework::OLELS::Lookup
+    def initialize(ole_session)
+      url = ole_session.url + 'portal.do?channelTitle=Batch Process Type&channelUrl='
+      url += ole_session.url + 'ole-kr-krad/lookup?methodToCall=start&dataObjectClassName=org.kuali.ole.batch.bo.OLEBatchProcessTypeBo&returnLocation='
+      url += ole_session.url + 'portal.do&hideReturnLink=true&showMaintenanceLinks=true'
+      super(ole_session, url)
+    end
+
+    def set_elements
+      super
+      element(:id_field)                  {b.text_field(:id => 'lookup-batchProcessTypeId_control')}
+      element(:name_field)                {b.text_field(:id => 'lookup-batchProcessTypeName_control')}
+      element(:type_code_field)           {b.text_field(:id => 'lookup-batchProcessTypeCode_control')}
+      element(:active_yes)                {b.radio(:id => 'lookup-active_control_0')}
+      element(:active_no)                 {b.radio(:id => 'lookup-active_control_1')}
+      element(:active_both)               {b.radio(:id => 'lookup-active_control_2')}
+      element(:search_button)             {b.button(:id => 'searchReqBtn')}
+      element(:clear_button)              {b.button(:id => 'clearReqBtn')}
+      element(:cancel_button)             {b.button(:id => 'cancelReqBtn')}
+    end
+
+    def wait_for_elements
+      super
+      @wait_on << :id_field
+      @wait_on << :search_button
+    end
+
+    def set_functions
+      super
+      # Check whether the given text exists in the search results.
+      function(:text_in_results)            {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
+      # Return the Batch Process Type ID link for a row containing the given text.
+      function(:id_by_text)                 {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/span/a")}
+    end
+  end
+end
