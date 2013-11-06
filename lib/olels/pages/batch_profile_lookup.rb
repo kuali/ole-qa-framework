@@ -39,5 +39,14 @@ module OLE_QA::Framework::OLELS
       @wait_on << :profile_name_field
       @wait_on << :search_button
     end
+
+    def set_functions
+      # Check whether the given text exists within the search results displayed.
+      function(:text_in_results)                      {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
+      # Return the 'Edit' link for a row containing the given text.
+      function(:edit_by_text)                         {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/fieldset/div/a[contains(text(),'edit')]")}
+      # Return the Batch Process Profile ID link for a row containing the given text.
+      function(:id_by_text)                           {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[2]/div/span/a")}
+    end
   end
 end
