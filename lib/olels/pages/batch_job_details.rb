@@ -22,6 +22,7 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_elements
+      super
       element(:title)                             {b.span(:class => 'uif-headerText-span')}
       element(:next_page)                         {b.a(:text => 'Next')}
       element(:previous_page)                     {b.a(:text => 'Previous')}
