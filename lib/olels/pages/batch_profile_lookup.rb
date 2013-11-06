@@ -41,6 +41,7 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_functions
+      super
       # Check whether the given text exists within the search results displayed.
       function(:text_in_results)                      {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
       # Return the 'Edit' link for a row containing the given text.
