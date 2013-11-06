@@ -13,16 +13,10 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-
-  class Batch_Export < OLE_QA::Framework::Page
-    def initialize(ole_session)
-      url = ole_session.url + ''
-      url += ole_session.url + ''
-      super(ole_session, url)
-    end
-
+  # A Batch Export Process Profile Page in the OLE Library System
+  class Batch_Export_Profile < OLE_QA::Framework::OLELS::Batch_Profile
     def set_elements
-
+      super
     end
 
     def wait_for_elements
@@ -30,7 +24,7 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_functions
-
+      super
     end
   end
 end

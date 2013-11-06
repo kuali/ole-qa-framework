@@ -4,6 +4,7 @@
     * Batch Process Profile Search Screen
     * Batch Job Details Screen
     * Batch Process Type Search Screen
+    * Batch Profile Base Class
 
 ### v3.1.1 - 2013/11/05
 
