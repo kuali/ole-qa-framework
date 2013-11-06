@@ -2,6 +2,8 @@
 
 * Batch Import Screens
     * Batch Process Profile Search Screen
+    * Batch Job Details Screen
+    * Batch Process Type Search Screen
 
 ### v3.1.1 - 2013/11/05
 
