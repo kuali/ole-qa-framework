@@ -17,6 +17,13 @@ module OLE_QA::Framework::OLELS
   class Batch_Export_Profile < OLE_QA::Framework::OLELS::Batch_Profile
     def set_elements
       super
+      element(:data_to_export_selector)                 {b.select_list(:id => 'mainSection-MaintenanceView-dataToExport_control')}
+      element(:export_scope_selector)                   {b.select_list(:id => 'mainSection-MaintenanceView-exportScope_control')}
+      element(:filter_criteria_toggle)                  {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-filterCriteriaSection_toggle')}
+      element(:data_mapping_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_toggle')}
+      element(:add_data_mapping_button)                 {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_add')}
+      element(:delete_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_toggle')}
+      element(:rename_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_toggle')}
     end
 
     def wait_for_elements
@@ -25,6 +32,13 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
+    end
+
+    def set_lines
+      set_line(:filter_line,OLE_QA::Framework::OLELS::Export_Filter_Line)
+      set_line(:data_mapping_line, OLE_QA::Framework::OLELS::Export_Data_Mapping_Line)
+      set_line(:delete_field_line, OLE_QA::Framework::OLELS::Export_Delete_Field_Line)
+      set_line(:rename_field_line, OLE_QA::Framework::OLELS::Export_Rename_Field_Line)
     end
   end
 end
