@@ -21,6 +21,26 @@ describe "A Page" do
   before :all do
     @ole = OLE_QA::Framework::Session.new
     @page = OLE_QA::Framework::Page.new(@ole, @ole.base_url)
+
+    class TestPage < OLE_QA::Framework::Page
+      def initialize(ole_session)
+        url = 'http://www.google.com'
+        super(ole_session, url)
+      end
+
+      def set_elements
+        super
+        element(:input)               {b.text_field(:id => 'gbqfq')}
+        element(:button)              {b.button(:id => 'gbqfba')}
+      end
+
+      def wait_for_elements
+        super
+        @wait_on << :input << :button
+      end
+    end
+
+    @google_page = TestPage.new(@ole)
   end
 
   after :all do
@@ -38,6 +58,16 @@ describe "A Page" do
 
   it 'should have a URL attribute' do
     @page.url.should == @ole.base_url
+  end
+
+  it 'should wait for necessary elements to be present' do
+    @google_page.open.should be_true
+    @google_page.wait_for_page_to_load.should be_true
+  end
+
+  it 'should set elements on a subclass' do
+    @google_page.elements.include?(:input).should be_true
+    @google_page.elements.include?(:button).should be_true
   end
 
   it 'should be able to login as another user' do
@@ -58,5 +88,4 @@ describe "A Page" do
     OLE_QA::Framework::OLEFS::Requisition.new(@ole).open
     @page.browser.class.should == Watir::Frame
   end
-
 end

@@ -73,6 +73,9 @@ module OLE_QA::Framework
     def wait_for_page_to_load
       @wait_on.each { |element| wait_for_element(element) }
       loading_message.wait_while_present if loading_message.present?
+      true
+    rescue Watir::Wait::TimeoutError
+      false
     end
 
     # Set screen elements common to most or all pages across the OLE interface.

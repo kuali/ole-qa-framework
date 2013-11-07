@@ -5,6 +5,9 @@
     * Batch Job Details Screen
     * Batch Process Type Search Screen
     * Batch Profile Base Class
+* Page Base Class
+    * Improved .wait_for_page_to_load rescues not-present exceptions and returns
+      true or false if page is loaded.
 
 ### v3.1.1 - 2013/11/05
 
