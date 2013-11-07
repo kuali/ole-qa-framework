@@ -36,9 +36,9 @@ module OLE_QA::Framework::OLELS
 
     def set_lines
       set_line(:filter_line,OLE_QA::Framework::OLELS::Export_Filter_Line)
-      set_line(:data_mapping_line, OLE_QA::Framework::OLELS::Export_Data_Mapping_Line)
-      set_line(:delete_field_line, OLE_QA::Framework::OLELS::Export_Delete_Field_Line)
-      set_line(:rename_field_line, OLE_QA::Framework::OLELS::Export_Rename_Field_Line)
+      set_line(:data_mapping_line, OLE_QA::Framework::OLELS::Batch_Data_Mapping_Line)
+      set_line(:delete_field_line, OLE_QA::Framework::OLELS::Batch_Delete_Field_Line)
+      set_line(:rename_field_line, OLE_QA::Framework::OLELS::Batch_Rename_Field_Line)
     end
   end
 end

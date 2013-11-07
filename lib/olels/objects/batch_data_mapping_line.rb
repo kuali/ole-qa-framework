@@ -13,8 +13,8 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-  # A Data Mapping Line in the OLE Library System Batch Process Export Profile
-  class Export_Data_Mapping_Line < OLE_QA::Framework::Line_Object
+  # A Data Mapping Line in the OLE Library System Batch Process Bib Profile
+  class Batch_Data_Mapping_Line < OLE_QA::Framework::Line_Object
 
   end
 end

@@ -13,8 +13,8 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-  # A Rename Field line on the OLE Library System Batch Process Export Profile
-  class Export_Rename_Field_Line < OLE_QA::Framework::Line_Object
+  # A Delete Field line on the OLE Library System Batch Process Bib Profile
+  class Batch_Delete_Field_Line < OLE_QA::Framework::Line_Object
 
   end
 end
