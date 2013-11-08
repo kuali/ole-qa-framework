@@ -21,7 +21,6 @@ module OLE_QA::Framework::OLELS
       element(:export_scope_selector)                   {b.select_list(:id => 'mainSection-MaintenanceView-exportScope_control')}
       element(:filter_criteria_toggle)                  {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-filterCriteriaSection_toggle')}
       element(:data_mapping_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_toggle')}
-      element(:add_data_mapping_button)                 {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_add')}
       element(:delete_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_toggle')}
       element(:rename_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_toggle')}
       # New Filter Line Elements
@@ -33,6 +32,7 @@ module OLE_QA::Framework::OLELS
       element(:add_filter_line_button)                  {b.button(:id => 'addFilterMapping_add')}
       # New Data Mapping Line Elements
       # See note on {OLE_QA::Framework::OLELS#set_elements} for an explanation of hard-coded line ID values.
+      element(:add_data_mapping_line_button)            {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_add')}
       element(:data_type_selector)                      {b.select_list(:id => 'batchExportDataTypeField_line0_add_control')}
       element(:source_field_selector)                   {b.select_list(:id => 'remaining-sourcefield_line0_add_control')}
       element(:source_field_name_readonly)              {b.text_field(:id => 'dataMappingOptions_sourceField1_line0_add_control')}
@@ -41,7 +41,8 @@ module OLE_QA::Framework::OLELS
       element(:destination_field_selector)              {b.select_list(:id => 'remaining-destinationField_line0_add_control')}
       element(:destination_field_field)                 {b.text_field(:id => 'dataMappingOptions_destinationField1_line0_add_control')}
       element(:destination_field_value_field)           {b.text_field(:id => 'dataMappingOptions_destinationFieldValue_line0_add_control')}
-      element(:priority_field)                          {b.text_field(:id => '#dataMappingOptions_priority_line0_add_control')}
+      element(:priority_field)                          {b.text_field(:id => 'dataMappingOptions_priority_line0_add_control')}
+      element(:add_data_mapping_rule_button)            {b.button(:id => 'addDataMapping_line0_add')}
     end
 
     def wait_for_elements
