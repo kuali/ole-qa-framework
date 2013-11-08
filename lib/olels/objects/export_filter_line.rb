@@ -13,8 +13,16 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-  # A Filter Criteria Line on the OLE Library System Batch Process Export Profile
+  # A Filter Criteria Line on the OLE Library System Batch Export Process Profile
   class Export_Filter_Line < OLE_QA::Framework::Line_Object
 
+    def set_elements
+      element(:name)                        {b.span(:id => "filterCriteria_filterFieldName_select_line#{line_id}_control")}
+      element(:name_readonly)               {b.span(:id => "filterCriteria_filterFieldName_text_line#{line_id}_control")}
+      element(:value)                       {b.span(:id => "filterCriteria_filterFieldValue_line#{line_id}_control")}
+      element(:range_from)                  {b.span(:id => "filterCriteria_filterRangeFrom_line#{line_id}_control")}
+      element(:range_to)                    {b.span(:id => "filterCriteria_filterRangeTo_line#{line_id}_control")}
+      element(:delete_button)               {b.button(:id => "filterCriteria-delete_line#{line_id}")}
+    end
   end
 end

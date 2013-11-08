@@ -24,6 +24,14 @@ module OLE_QA::Framework::OLELS
       element(:add_data_mapping_button)                 {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_add')}
       element(:delete_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_toggle')}
       element(:rename_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_toggle')}
+      # New Filter Line Elements
+      element(:filter_field_name_selector)              {b.select_list(:id => 'filterCriteria_filterFieldName_select_add_control')}
+      element(:filter_field_name_field)                 {b.text_field(:id => 'filterCriteria_filterFieldName_text_add_control')}
+      element(:filter_field_value_field)                {b.text_field(:id => 'filterCriteria_filterFieldValue_add_control')}
+      element(:filter_field_range_from)                 {b.text_field(:id => 'filterCriteria_filterRangeFrom_add_control')}
+      element(:filter_field_range_to)                   {b.text_field(:id => 'filterCriteria_filterRangeTo_add_control')}
+      element(:add_filter_line_button)                  {b.button(:id => 'addFilterMapping_add')}
+
     end
 
     def wait_for_elements
