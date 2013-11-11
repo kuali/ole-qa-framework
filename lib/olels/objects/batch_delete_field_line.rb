@@ -15,6 +15,10 @@
 module OLE_QA::Framework::OLELS
   # A Delete Field line on the OLE Library System Batch Process Bib Profile
   class Batch_Delete_Field_Line < OLE_QA::Framework::Line_Object
-
+    element(:name)                      {b.span(:id => "deleteField_tag_line#{line_id}_control")}
+    element(:ind_1)                     {b.span(:id => "deleteField_indicator1_line#{line_id}_control")}
+    element(:ind_2)                     {b.span(:id => "deleteField_indicator2_line#{line_id}_control")}
+    element(:subfield)                  {b.span(:id => "deleteField_subField_line#{line_id}_control")}
+    element(:delete_button)             {b.button(:id => "deleteField-delete_line#{line_id}")}
   end
 end

@@ -43,6 +43,13 @@ module OLE_QA::Framework::OLELS
       element(:destination_field_value_field)           {b.text_field(:id => 'dataMappingOptions_destinationFieldValue_line0_add_control')}
       element(:priority_field)                          {b.text_field(:id => 'dataMappingOptions_priority_line0_add_control')}
       element(:add_data_mapping_rule_button)            {b.button(:id => 'addDataMapping_line0_add')}
+      # Field Deletion Elements
+      element(:delete_name_field)                       {b.text_field(:id => 'deleteField_tag_add_control')}
+      element(:delete_ind_1_field)                      {b.text_field(:id => 'deleteField_indicator1_add_control')}
+      element(:delete_ind_2_field)                      {b.text_field(:id => 'deleteField_indicator2_add_control')}
+      element(:delete_subfield_field)                   {b.text_field(:id => 'deleteField_subField_add_control')}
+      element(:delete_subfield_contains_field)          {b.text_field(:id => 'deleteField_subFieldContains_add_control')}
+      element(:add_delete_line_button)                  {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_add')}
     end
 
     def wait_for_elements
