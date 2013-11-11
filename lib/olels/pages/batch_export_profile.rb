@@ -50,6 +50,18 @@ module OLE_QA::Framework::OLELS
       element(:delete_subfield_field)                   {b.text_field(:id => 'deleteField_subField_add_control')}
       element(:delete_subfield_contains_field)          {b.text_field(:id => 'deleteField_subFieldContains_add_control')}
       element(:add_delete_line_button)                  {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_add')}
+      # Field Renaming Elements
+      element(:rename_orig_tag_field)                   {b.text_field(:id => 'originalField_originalTag_add_control')}
+      element(:rename_orig_ind_1_field)                 {b.text_field(:id => 'originalField_originalIndicator1_add_control')}
+      element(:rename_orig_ind_2_field)                 {b.text_field(:id => 'originalField_originalIndicator2_add_control')}
+      element(:rename_orig_subfield_field)              {b.text_field(:id => 'originalField_originalSubField_add_control')}
+      element(:rename_orig_contains_field)              {b.text_field(:id => 'originalField_originalSubFieldContains_add_control')}
+      element(:rename_new_tag_field)                    {b.text_field(:id => 'renameField_renamedTag_add_control')}
+      element(:rename_new_ind_1_field)                  {b.text_field(:id => 'renameField_renamedIndicator1_add_control')}
+      element(:rename_new_ind_2_field)                  {b.text_field(:id => 'renameField_renamedIndicator2_add_control')}
+      element(:rename_new_subfield_field)               {b.text_field(:id => 'renameField_renamedSubField_add_control')}
+      element(:rename_new_contains_field)               {b.text_field(:id => 'renameField_renamedSubFieldContains_add_control')}
+      element(:add_rename_field_button)                 {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_add')}
     end
 
     def wait_for_elements

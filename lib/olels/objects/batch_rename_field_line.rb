@@ -15,6 +15,16 @@
 module OLE_QA::Framework::OLELS
   # A Rename Field line on the OLE Library System Batch Process Bib Profile
   class Batch_Rename_Field_Line < OLE_QA::Framework::Line_Object
-
+    element(:orig_tag)                    {b.span(:id => "originalField_originalTag_line#{line_id}_control")}
+    element(:orig_ind_1)                  {b.span(:id => "originalField_originalIndicator1_line#{line_id}_control")}
+    element(:orig_ind_2)                  {b.span(:id => "originalField_originalIndicator2_line#{line_id}_control")}
+    element(:orig_subfield)               {b.span(:id => "originalField_originalSubField_line#{line_id}_control")}
+    element(:orig_contains)               {b.span(:id => "originalField_originalSubFieldContains_line#{line_id}_control")}
+    element(:new_tag)                     {b.span(:id => "renameField_renamedTag_line#{line_id}")}
+    element(:new_ind_1)                   {b.span(:id => "renameField_renamedIndicator1_line#{line_id}_control")}
+    element(:new_ind_2)                   {b.span(:id => "renameField_renamedIndicator2_line#{line_id}")}
+    element(:new_subfield)                {b.span(:id => "renameField_renamedSubField_line#{line_id}_control")}
+    element(:new_contains)                {b.span(:id => "renameField_renamedSubFieldContains_line#{line_id}_control")}
+    element(:delete_button)               {b.button(:id => "renameField-delete_line#{line_id}")}
   end
 end
