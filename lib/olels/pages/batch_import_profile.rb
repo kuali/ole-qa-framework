@@ -28,7 +28,7 @@ module OLE_QA::Framework::OLELS
       element(:filter_field_range_to)                   {b.text_field(:id => 'filterCriteria_filterRangeTo_add_control')}
       element(:add_filter_line_button)                  {b.button(:id => 'addFilterMapping_add')}
       # New Data Mapping Line Elements
-      # See note on {OLE_QA::Framework::OLELS#set_elements} for an explanation of hard-coded line ID values.
+      # See note on {OLE_QA::Framework::OLELS::Batch_Data_Mapping_Line#set_elements} for an explanation of hard-coded line ID values.
       element(:add_data_mapping_line_button)            {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-dataMappingSection_add')}
       element(:data_type_selector)                      {b.select_list(:id => 'batchExportDataTypeField_line0_add_control')}
       element(:source_field_selector)                   {b.select_list(:id => 'remaining-sourcefield_line0_add_control')}
