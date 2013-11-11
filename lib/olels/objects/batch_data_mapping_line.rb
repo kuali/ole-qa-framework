@@ -26,7 +26,16 @@ module OLE_QA::Framework::OLELS
     #   hard-coded to 0.
     #
     def set_elements
-
+      element(:data_type)                             {b.span(:id => "batchExportDataTypeField_line0_line#{line_id}_control")}
+      element(:source)                                {b.span(:id => "holding-sourcefield_line0_line#{line_id}_control")}
+      element(:source_2)                              {b.span(:id => "dataMappingOptions_sourceField1_line0_line#{line_id}_control")}
+      element(:source_field_value)                    {b.span(:id => "dataMappingOptions_sourceFieldValue_line0_line#{line_id}_control")}
+      element(:destination_data_type)                 {b.span(:id => "batchExportDataType-destinationfield_line0_line#{line_id}_control")}
+      element(:destination_field)                     {b.span(:id => "bibmarc_destinationField_line0_line#{line_id}_control")}
+      element(:destination_field_2)                   {b.span(:id => "dataMappingOptions_destinationField1_line0_line#{line_id}_control")}
+      element(:destination_field_value)               {b.span(:id => "dataMappingOptions_destinationFieldValue_line0_line#{line_id}_control")}
+      element(:priority)                              {b.span(:id => "dataMappingOptions_priority_line0_line#{line_id}_control")}
+      element(:delete_button)                         {b.button(:id => "addLineDataMapping-delete_line0_line#{line_id}")}
     end
   end
 end
