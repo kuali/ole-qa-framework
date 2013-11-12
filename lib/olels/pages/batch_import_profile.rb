@@ -29,6 +29,9 @@ module OLE_QA::Framework::OLELS
       element(:protected_fields_toggle)                 {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-protectedFieldSection_toggle')}
       element(:delete_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-deleteFieldSection_toggle')}
       element(:rename_field_toggle)                     {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_toggle')}
+      # Bib Match Point Elements
+      element(:new_match_point_field)                   {b.text_field(:id => 'bibMatchPoint-oleBibMatchPoint_add_control')}
+      element(:add_match_point_button)                  {b.button(:id => 'addProfileConstant_add')}
       # Bib Overlay/Add Elements
       element(:match_and_none)                          {b.radio(:id => 'bibAddOverlaySectionMatch-bibOverlayOrAddOrNone_control_0')}
       element(:match_and_overlay)                       {b.radio(:id => 'bibAddOverlaySectionMatch-bibOverlayOrAddOrNone_control_1')}
@@ -50,6 +53,14 @@ module OLE_QA::Framework::OLELS
       # Changes to Imported Record
       element(:bib_delete_001)                          {b.radio(:id => 'changesToImport-dontChange001_control_0')}
       element(:bib_set_001_to_035)                      {b.radio(:id => 'changesToImport-dontChange001_control_1')}
+      # Constant and Default Values Elements
+      element(:new_data_type_selector)                  {b.select_list(:id => 'profileConstants_dataType_add_control')}
+      element(:new_field_name_selector)                 {b.select_list(:id => 'constant-datatype-remaining_add_control')}
+      element(:new_field_name_field)                    {b.text_field(:id => 'profileConstants_attributeName1_add_control')}
+      element(:new_field_value_field)                   {b.text_field(:id => 'profileConstants_attributeValue_add_control')}
+      element(:new_constant_option)                     {b.radio(:id => 'profileConstants_defaultValue_add_control_0')}
+      element(:new_default_option)                      {b.radio(:id => 'profileConstants_defaultValue_add_control_1')}
+      element(:add_default_button)                      {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-profileConstantsSection_add')}
       # New Filter Line Elements
       element(:filter_field_name_selector)              {b.select_list(:id => 'filterCriteria_filterFieldName_select_add_control')}
       element(:filter_field_name_field)                 {b.text_field(:id => 'filterCriteria_filterFieldName_text_add_control')}
@@ -70,6 +81,19 @@ module OLE_QA::Framework::OLELS
       element(:destination_field_value_field)           {b.text_field(:id => 'dataMappingOptions_destinationFieldValue_line0_add_control')}
       element(:priority_field)                          {b.text_field(:id => 'dataMappingOptions_priority_line0_add_control')}
       element(:add_data_mapping_rule_button)            {b.button(:id => 'addDataMapping_line0_add')}
+      # Globally Protected Fields Checkboxes
+      element(:gpf_ignore_650)                          {b.checkbox(:id => 'batchGloballyProtectedFields_ignoreValue_line4_control')}
+      element(:gpf_ignore_790)                          {b.checkbox(:id => 'batchGloballyProtectedFields_ignoreValue_line0_control')}
+      element(:gpf_ignore_791)                          {b.checkbox(:id => 'batchGloballyProtectedFields_ignoreValue_line1_control')}
+      element(:gpf_ignore_792)                          {b.checkbox(:id => 'batchGloballyProtectedFields_ignoreValue_line2_control')}
+      element(:gpf_ignore_793)                          {b.checkbox(:id => 'batchGloballyProtectedFields_ignoreValue_line3_control')}
+      # Profile Protected Fields - New Line Elements
+      element(:protected_tag_field)                     {b.text_field(:id => 'profileProtectedFields_tag_add_control')}
+      element(:protected_ind_1_field)                   {b.text_field(:id => 'profileProtectedFields_firstIndicator_add_control')}
+      element(:protected_ind_2_field)                   {b.text_field(:id => 'profileProtectedFields_secondIndicator_add_control')}
+      element(:protected_subfield_field)                {b.text_field(:id => 'profileProtectedFields_secondIndicator_add_control')}
+      element(:protected_subfield_match_field)          {b.text_field(:id => 'profileProtectedFields_subFieldContains_add_control')}
+      element(:add_button)                              {b.button(:id => 'OLEBatchProcessProfile-profileProtectedFields_add')}
       # Field Deletion Elements
       element(:delete_name_field)                       {b.text_field(:id => 'deleteField_tag_add_control')}
       element(:delete_ind_1_field)                      {b.text_field(:id => 'deleteField_indicator1_add_control')}

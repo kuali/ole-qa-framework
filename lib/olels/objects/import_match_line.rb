@@ -15,6 +15,9 @@
 module OLE_QA::Framework::OLELS
   # A Data Match Point Line on an OLE Library System Batch Import Profile
   class Import_Match_Line < OLE_QA::Framework::Line_Object
-
+    def set_elements
+      element(:match_point)                   {b.span(:id => "bibMatchPoint-oleBibMatchPoint_line#{line_id}_control")}
+      element(:delete_button)                 {b.button(:id => "bibMatchPoint-delete_line#{line_id}")}
+    end
   end
 end

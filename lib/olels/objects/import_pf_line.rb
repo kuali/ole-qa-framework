@@ -15,6 +15,13 @@
 module OLE_QA::Framework::OLELS
   # A Profile (Local) Protected Fields Line on an OLE Library System Batch Import Profile
   class Import_PF_Line < OLE_QA::Framework::Line_Object
-
+    def set_elements
+      element(:tag)                       {b.span(:id => "profileProtectedFields_tag_line#{line_id}_control")}
+      element(:ind_1)                     {b.span(:id => "profileProtectedFields_firstIndicator_line#{line_id}_control")}
+      element(:ind_2)                     {b.span(:id => "profileProtectedFields_secondIndicator_line#{line_id}_control")}
+      element(:subfield)                  {b.span(:id => "profileProtectedFields_subField_line#{line_id}_control")}
+      element(:subfield_match)            {b.span(:id => "profileProtectedFields_subFieldContains_line#{line_id}_control")}
+      element(:delete_button)             {b.button(:id => "ProfileProtectedField-delete_line#{line_id}")}
+    end
   end
 end
