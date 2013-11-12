@@ -1,10 +1,12 @@
-### v3.2.0
+### v3.2.0 - 2013/11/12
 
 * Batch Import Screens
     * Batch Process Profile Search Screen
     * Batch Job Details Screen
     * Batch Process Type Search Screen
     * Batch Profile Base Class
+    * Batch Import Profile Page
+    * Batch Export Profile Page
 * Page Base Class
     * Improved .wait_for_page_to_load rescues not-present exceptions and returns
       true or false if page is loaded.
