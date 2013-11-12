@@ -26,7 +26,7 @@ describe 'The Page Helpers module' do
       end
     end
 
-    @test_page = TestPage.new(@ole, @ole.url)
+    @test_page = TestPage.new(@ole)
   end
 
   after :all do
