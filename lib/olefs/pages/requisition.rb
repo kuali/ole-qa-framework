@@ -18,7 +18,8 @@ module OLE_QA::Framework::OLEFS
     # Set URL and initialize.
     def initialize(ole_session)
       new_requisition_url = ole_session.url + 'portal.do?channelTitle=Requisition&channelUrl=purapOleRequisition.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_REQS'
-      super(ole_session, new_requisition_url)
+      lookup_url          = "purapRequisition.do?methodToCall=docHandler&docId=_DOC_ID_&command=displayDocSearchView#topOfForm"
+      super(ole_session, new_requisition_url, lookup_url)
     end
 
     # Create a new line item object on the requisition.
