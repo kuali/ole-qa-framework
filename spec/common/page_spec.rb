@@ -24,8 +24,9 @@ describe "A Page" do
 
     class TestPage < OLE_QA::Framework::Page
       def initialize(ole_session)
-        url = 'http://www.google.com'
-        super(ole_session, url)
+        url        = 'http://www.google.com'
+        lookup_url = '_DOC_ID_'
+        super(ole_session, url, lookup_url)
       end
 
       def set_elements
@@ -58,6 +59,10 @@ describe "A Page" do
 
   it 'should have a URL attribute' do
     @page.url.should == @ole.base_url
+  end
+
+  it 'should have a lookup URL' do
+    @google_page.lookup_url('21').should == @ole.base_url + '21'
   end
 
   it 'should wait for necessary elements to be present' do

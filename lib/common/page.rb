@@ -30,9 +30,12 @@ module OLE_QA::Framework
 
     # @param ole_session [Object] The OLE_QA::Framework::Session instance in which the page should load.
     # @param url [String] The URL (if any) used to open the page.  (Set to "" if unused.)
-    def initialize(ole_session, url)
+    # @param lookup_url [String] The URL (if any) by which a document represented by the page can be opened.
+    #   - The string must contain the replacement token '_DOC_ID_' where a document ID is to be inserted.
+    def initialize(ole_session, url, lookup_url = nil)
       super(ole_session)
       @url = url
+      @lookup_url = lookup_url
       @wait_on = Array.new
       @lines = Array.new
       wait_for_elements if defined?(self.wait_for_elements)
@@ -48,6 +51,21 @@ module OLE_QA::Framework
     def open(url = @url)
       @browser.goto(url)
       wait_for_page_to_load
+    end
+
+    # Return the URL used to open a specific document by given document number.
+    def lookup_url(doc_id)
+      @lookup_url.nil? ? nil : (@ole.url + @lookup_url.gsub('_DOC_ID_', doc_id.to_s))
+    end
+
+    # Open the page by lookup URL and return true if successful, false if not.
+    def lookup(doc_id)
+      if !@lookup_url.nil?
+        @browser.goto(lookup_url(doc_id))
+        true
+      else
+        false
+      end
     end
 
     # Define this method on a subclass.  Add element symbols to the @wait_on array.
