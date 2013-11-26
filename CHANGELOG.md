@@ -5,6 +5,7 @@
     * Lookup URLs are provided for:
         * Requisition
         * Purchase Order
+        * Receiving Document
         * Load Report
         * Invoice
 
