@@ -26,7 +26,8 @@ module OLE_QA::Framework::OLEFS
     def initialize(ole_session)
       url = ole_session.url + '/portal.do?channelTitle=Create&channelUrl='
       url += ole_session.url + '/ole-kr-krad/OLEInvoice?viewId=OLEInvoiceDocumentView&methodToCall=docHandler&command=initiate&documentClass=org.kuali.ole.krad.transaction.documents.OLEInvoiceDocument'
-      super(ole_session, url)
+      lookup_url = "ole-kr-krad/OLEInvoice?viewId=OLEInvoiceDocumentView&methodToCall=docHandler&docId=_DOC_ID_&command=displayDocSearchView"
+      super(ole_session, url, lookup_url)
     end
 
     # Define basic invoice document screen elements.
