@@ -17,7 +17,8 @@ module OLE_QA::Framework::OLEFS
   class Receiving_Document < PURAP_Document
     def initialize(ole_session)
       new_receiving_doc_url = ole_session.url + 'portal.do?channelTitle=Receiving&channelUrl=selectOleLineItemReceiving.do?methodToCall=docHandler&command=initiate&docTypeName=OLE_RCVL'
-      super(ole_session, new_receiving_doc_url)
+      lookup_url            = "selectOleLineItemReceiving.do?methodToCall=docHandler&docId=_DOC_ID_&command=displayDocSearchView#topOfForm"
+      super(ole_session, new_receiving_doc_url, lookup_url)
     end
 
     # Create a new receiving line object on the receiving document.
