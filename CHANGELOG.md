@@ -7,6 +7,10 @@
             * Barcode
             * Call Number (LCC Format)
         * Random Alphanumeric Strings of Preset Length
+            * Alphabetic only
+            * Numeric only
+            * Alphanumeric
+            * Telephone Numbers
 
 ### v3.2.0 - 2013/11/12
 
