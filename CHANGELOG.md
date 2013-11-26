@@ -1,3 +1,13 @@
+### v3.3.0 - 2013/11/26
+
+* Data & Data Factories
+    * Data Factories implemented for:
+        * Accounting Strings (IU Sample Data used)
+        * Bib Data
+            * Barcode
+            * Call Number (LCC Format)
+        * Random Alphanumeric Strings of Preset Length
+
 ### v3.2.0 - 2013/11/12
 
 * Batch Import Screens
