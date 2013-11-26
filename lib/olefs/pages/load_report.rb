@@ -20,7 +20,8 @@ module OLE_QA::Framework::OLEFS
     def initialize(ole_session)
       url = ole_session.url + 'portal.do?channelTitle=Load%20Reports&channelUrl=batchlookup.do?methodToCall=start&businessObjectClassName=org.kuali.ole.select.businessobject.OleLoadSumRecords&docFormKey=88888888&returnLocation='
       url += ole_session.url + 'portal.do&hideReturnLink=true'
-      super(ole_session, url)
+      lookup_url = "acqBatchUpload.do?docId=_DOC_ID_&docTypeName=OLE_ACQBTHUPLOAD&methodToCall=docHandler&command=displayDocSearchView#topOfForm"
+      super(ole_session, url, lookup_url)
     end
 
     # Set load report screen elements.
