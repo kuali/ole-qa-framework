@@ -1,0 +1,26 @@
+# From OLE 0.6 Driver's Manual
+# https://wiki.kuali.org/download/attachments/313884198/OLE_Drivers_+Manual_+0.6_Final20120807.pdf#page=141
+# :Chart_Code:
+# - - Object_Number
+#   - Object_Name
+---
+:IU:
+- - '7110'
+  - Monographs
+- - '7120'
+  - Serial Acquisitions
+:BL:
+- - '7100'
+  - Library Books
+- - '7110'
+  - Monographs
+- - '7112'
+  - Monograph Firm
+- - '7115'
+  - Monograph Approval
+- - '7120'
+  - Serials
+- - '7122'
+  - Serials Firm
+- - '7125'
+  - Serials Approval

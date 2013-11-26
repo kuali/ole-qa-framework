@@ -1,0 +1,51 @@
+# From OLE 0.6 Driver's Manual
+# https://wiki.kuali.org/download/attachments/313884198/OLE_Drivers_+Manual_+0.6_Final20120807.pdf#page=141
+# :Chart_Code:
+# - - Account_Number
+#   - Account_Name
+---
+:BL:
+- - '1047410'
+  - Library Monographs
+- - '1047415'
+  - Library Serials
+- - '2947486'
+  - CHEMISTRY
+- - '2947482'
+  - EDUCATION
+- - '2947430'
+  - GEOLOGY
+- - '2947485'
+  - BIOLOGY
+- - '2947483'
+  - MEDICAL SCIENCES
+- - '2947498'
+  - COMM & CULTURE
+- - '2947499'
+  - CENTRAL EURASIAN
+- - '2947487'
+  - COMPARATIVE LIT
+- - '2947489'
+  - FRENCH & ITALIAN
+- - '2947488'
+  - FOLKLORE
+- - '2947491'
+  - HISTORY
+- - '2947492'
+  - HIST & PHIL OF SCI
+- - '2947493'
+  - LATIN AMERICAN
+- - '2947494'
+  - LINGUISTICS
+- - '2947495'
+  - RELIGIOUS STUDIES
+- - '2947496'
+  - SOCIOLOGY
+- - '2947490'
+  - SPEECH AND HEARING
+- - '2947497'
+  - SPANISH/PORTUGESE
+- - '2947484'
+  - COLLEGE OF ARTS AND SCIENCES
+- - '29474500'
+  - SCHOOL OF MEDICINE

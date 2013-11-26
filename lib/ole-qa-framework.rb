@@ -26,9 +26,18 @@ module OLE_QA
     @libdir = File.expand_path(File.dirname(__FILE__))
     $LOAD_PATH.unshift(@libdir) unless $LOAD_PATH.include?(@libdir)
 
+    # Add data directory to $LOAD_PATH
+    @datadir = File.expand_path(File.dirname(__FILE__) + "/../data/")
+    $LOAD_PATH.unshift(@datadir) unless $LOAD_PATH.include?(@datadir)
+
     # Return absolute path from which the file was run
     def self.load_dir
       @libdir
+    end
+
+    # Return absolute path for data directory
+    def self.data_dir
+      @datadir
     end
 
     # Load libraries from absolute path
@@ -43,6 +52,9 @@ module OLE_QA
 
     # Load all independent modules
     load_libs("/module/")
+
+    # Load data factories
+    load_libs("/data_factory/")
 
     # Load Page & Element Definitions.
     # Main directory is loaded first, then subdirectories in alphabetical order.
