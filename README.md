@@ -7,11 +7,5 @@ http://www.kuali.org/ole
 ### Open Library Environment Quality Assurance Testing Framework
 - - -
 This is a testing framework for the Kuali Open Library environment.  It
-will be used to define OLE pages and screen elements for OLE test scripts
-and the OLE Smoke Test Application.
-
-### Usage Examples
-- - -
-The examples directory contains some minimal example scripts to show
-how the testing framework can be used to fulfill common OLE
-use case scenarios.
+is be used to define OLE pages and screen elements for OLE regression
+testing scripts and the OLE Smoketest application.
