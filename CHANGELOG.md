@@ -1,3 +1,13 @@
+### v3.4.0 - 2013/11/26
+
+* OLEFS E-Doc URLs
+    * Lookup URLs have been built in to the main page class
+    * Lookup URLs are provided for:
+        * Requisition
+        * Purchase Order
+        * Load Report
+        * Invoice
+
 ### v3.3.0 - 2013/11/26
 
 * Data & Data Factories
