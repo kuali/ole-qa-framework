@@ -20,7 +20,8 @@ module OLE_QA::Framework::OLEFS
     # Initialize with a URL of OLE_QA::Framework::Session.url
     # @note OLEFS Purchase Orders do not have a direct link to open new documents.
     def initialize(ole_session)
-      super(ole_session, ole_session.url)
+      lookup_url = '"purapOlePurchaseOrder.do?methodToCall=docHandler&docId=_DOC_ID_&command=displayDocSearchView#topOfForm"'
+      super(ole_session, ole_session.url, lookup_url)
     end
 
     # Create a new line item object on the purchase order.
