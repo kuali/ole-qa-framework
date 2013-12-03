@@ -33,6 +33,7 @@ module OLE_QA::Framework::OLEFS
     # Define basic invoice document screen elements.
     def set_elements
       super
+      element(:document_overview_toggle)              {b.img(:id => 'Uif-Inv-DocumentOverviewSection_toggle_col')}
       element(:document_type_id)                      {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Invoice #:')]]/following-sibling::td[1]/div/span")}
       element(:document_type_status)                  {b.span(:xpath => "//table[@class='uif-gridLayout']/descendant::th[span/label[contains(text(),'Invoice Doc Status:')]]/following-sibling::td[1]/div/span")}
       element(:fiscal_year)                           {b.span(:id => 'invoice-documentYear_control')}

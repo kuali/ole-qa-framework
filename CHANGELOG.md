@@ -1,3 +1,9 @@
+### v3.4.1 - 2013/12/03
+
+* Invoice Document
+    * added Document Overview toggle
+        * this section is now expected to be closed on document load
+
 ### v3.4.0 - 2013/11/26
 
 * OLEFS E-Doc URLs
