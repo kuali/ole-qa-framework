@@ -1,3 +1,8 @@
+### v3.4.3 - 2013/12/04
+
+* OLEFS Vendor Lookup
+    * add return_result(which)
+
 ### v3.4.2 - 2013/12/04
 
 * OLEFS Building Lookup

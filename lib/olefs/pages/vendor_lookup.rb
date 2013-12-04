@@ -36,5 +36,11 @@ module OLE_QA::Framework::OLEFS
       element(:commodity_code_field)                  {b.text_field(:id => "vendorCommodities.purchasingCommodityCode")}
       element(:supplier_diversity_selector)           {b.select_list(:id => "vendorHeader.vendorSupplierDiversities.vendorSupplierDiversityCode")}
     end
+
+    def set_functions
+      super
+      # Get the 'return result' link for the given text in the search results.
+      function(:return_result)                        {|which| b.td(:index => 1).a(:text => which).parent.parent.td(:index => 0).a}
+    end
   end
 end
