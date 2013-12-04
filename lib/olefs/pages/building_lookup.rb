@@ -32,5 +32,11 @@ module OLE_QA::Framework::OLEFS
       element(:building_code_field)                           {b.text_field(:id => "buildingCode")}
       element(:building_name_field)                           {b.text_field(:id => "buildingName")}
     end
+
+    def set_functions
+      super
+      # The 'return selection' link for a given text value in the search results.
+      function(:return_result)                                {|which| b.td(:text => which).parent.td(:index => 0).a}
+    end
   end
 end

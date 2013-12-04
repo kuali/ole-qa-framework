@@ -1,3 +1,9 @@
+### v3.4.2 - 2013/12/04
+
+* OLEFS Building Lookup
+    * add return_result(which)
+
+
 ### v3.4.1 - 2013/12/03
 
 * Invoice Document
