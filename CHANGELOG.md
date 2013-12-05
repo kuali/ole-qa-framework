@@ -1,7 +1,10 @@
-### v3.4.3 - 2013/12/04
+### v3.4.3 - 2013/12/05
 
 * OLEFS Vendor Lookup
     * add return_result(which)
+* Account Factory
+    * remove 2947484 from source data, this account no longer exists
+    * remove 29474500 from source data, this account was a typo 
 
 ### v3.4.2 - 2013/12/04
 
