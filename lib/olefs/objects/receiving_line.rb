@@ -26,7 +26,7 @@ module OLE_QA::Framework::OLEFS
     # Set receiving line elements.
     def set_elements
       super
-      element(:receive_button)                            {b.button(:id => '')}
+      element(:receive_button)                            {b.input(:alt => 'Receive')}
       element(:description_field)                         {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[2]")}
       element(:quantity_ordered_field)                    {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[4]")}
       element(:parts_ordered_field)                       {b.td(:xpath => "//table[@summary='Items Section']/tbody/tr/td[1][b[contains(text(),'#{@line_number}')]]/following-sibling::td[5]")}
