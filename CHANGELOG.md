@@ -1,3 +1,9 @@
+### v3.4.5 - 2013/12/05
+
+* OLEFS Invoice
+    * Update document information field definitions for Rice Upgrade 2.3.2
+
+
 ### v3.4.4 - 2013/12/05
 
 * OLEFS Receiving Line
