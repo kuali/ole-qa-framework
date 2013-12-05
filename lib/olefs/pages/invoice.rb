@@ -68,9 +68,9 @@ module OLE_QA::Framework::OLEFS
       element(:prior_total_field)                     {b.text_field(:id => 'invoiceTotal_control')}
       element(:grand_total)                           {b.span(:id => 'myAccount_grandTotal_control')}
       element(:submit_button)                         {b.button(:text => /submit/)}
-      element(:save_button)                           {b.button(:id => 'usave')}
+      element(:save_button)                           {b.button(:text => /save/)}
       element(:approve_button)                        {b.button(:text => /blanket approve/)}
-      element(:close_button)                          {b.button(:id => 'uclose')}
+      element(:close_button)                          {b.button(:text => /close/)}
       element(:cancel_button)                         {b.a(:id => 'ucancel')}
       element(:calculate_button)                      {b.button(:text => /calculate/)}
       element(:messages)                              {b.ul(:id => 'pageValidationList').lis}

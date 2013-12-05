@@ -1,3 +1,8 @@
+### v3.4.6 - 2013/12/05
+
+* OLEFS Invoice
+    * Update control buttons after element IDs wiped out during Rice Upgrade
+
 ### v3.4.5 - 2013/12/05
 
 * OLEFS Invoice
