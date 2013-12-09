@@ -6,6 +6,7 @@
     * Added Pages:
         * Search
         * Search Results
+        * Marc Search Results
 
 ### v3.4.6 - 2013/12/05
 
