@@ -1,3 +1,11 @@
+### v3.5.0 - 2013/12/09
+
+* Docstore
+    * Added .docstore_url (.docstore) method to Session
+    * Added :docstore_url: to all config files
+    * Added Pages:
+        * Search
+
 ### v3.4.6 - 2013/12/05
 
 * OLEFS Invoice
