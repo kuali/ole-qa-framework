@@ -143,7 +143,7 @@ module OLE_QA
         end
 
         # Set trailing slash on URLs for consistency if not set.
-        add_slash = -> (which)          { which =~ /\/$/ ? which : which + '/' }
+        add_slash = ->(which) { which =~ /\/$/ ? which : which + '/' }
 
         # Globalize options to accessors
         @url            = add_slash.call(@options[:url])
