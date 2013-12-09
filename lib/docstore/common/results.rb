@@ -45,6 +45,10 @@ module OLE_QA::Framework::DocStore
       #   on this element, the text will be broken up by a <span></span> wherever the
       #   highlighting is applied.
       function(:title_bar)                                { |which| which -= 1 ; b.h3(:class => 'expand', :index => "#{which}").a(:title => 'Expand/Collapse')}
+      # Check if results are present and return true or false.
+      function(:any_results?)                             { no_results.present? ? false : true}
+      # Check if there is more than one page of results listed and return true or false.
+      function(:multiple_pages?)                          { page_field.present? }
     end
   end
 end
