@@ -13,7 +13,7 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::DocStore
-
+  # The search page for the OLE Document Store.
   class Search < OLE_QA::Framework::Page
     def initialize(ole_session)
       url = ole_session.docstore_url + 'discovery.do?searchType=newSearch'
