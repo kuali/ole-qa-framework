@@ -61,16 +61,18 @@ module OLE_QA
     # If pages or elements need to be inherited by subclasses, put them in a (foo)/common/ directory.
     # Subobject directories (foo)/subobjects/ should be loaded before object directories (foo)/objects/ for inheritance.
     load_libs("/common/")
+    load_libs("/docstore/common/")
     load_libs("/olefs/common/")
     load_libs("/olels/common/")
     load_libs("/olefs/subobjects/")
     load_libs("/olels/subobjects/")
     load_libs("/olefs/objects/")
     load_libs("/olels/objects/")
+    load_libs("/docstore/pages/")
     load_libs("/olefs/pages/")
     load_libs("/olels/pages/")
 
-    # load_libs("/docstore/")
+
 
     # Initialize wait variables to 0 for now.  They will be set programatically in {OLE_QA::Framework::Session}.
     @explicit_wait = 0
@@ -91,12 +93,16 @@ module OLE_QA
     class Session
 
       # OLE Installation Base URL
-      #   (e.g. http://ole.your-site.edu)
+      #   (e.g. http://ole.your-site.edu/)
       attr_reader :url
       # @deprecated Included for backwards compatibility.  Unnecessary after 1.0.0 unification (milestone m2-r13245).
       alias :fs_url   :url
       alias :base_url :url
       alias :ls_url   :url
+
+      # OLE Document Store Installation Base URL
+      #   (e.g. http://docstore.ole.your-site.edu/)
+      attr_reader :docstore_url
 
       # Wait period (in seconds) used by OLE QAF Web Element functions
       attr_accessor :explicit_wait
@@ -107,6 +113,8 @@ module OLE_QA
       # Options hash keys:
       #   :url => "http://tst.ole.kuali.org/"
       #     (URL for OLE Installation)
+      #   :docstore_url => 'http://tst.docstore.ole.kuali.org/'
+      #     (URL for OLE DocStore Installation)
       #   :headless => true/false
       #     (Use Headless gem to handle XVFB session)
       #   :implicit_wait => NN
@@ -133,10 +141,16 @@ module OLE_QA
           @headless.start
         end
 
+        # Set trailing slash on URLs for consistency if not set.
+        add_slash = -> (which)          { which =~ /\/$/ ? which : which + '/' }
+        @options[:url]                  = add_slash.call(@options[:url])
+        @options[:docstore_url]         = add_slash.call(@options[:docstore_url])
+
         # Globalize options to accessors
-        @url = @options[:url]
-        @explicit_wait = @options[:explicit_wait]
-        @doc_wait = @options[:doc_wait]
+        @url            = @options[:url]
+        @docstore_url   = @options[:docstore_url]
+        @explicit_wait  = @options[:explicit_wait]
+        @doc_wait       = @options[:doc_wait]
 
         # Pass explicit_wait to a module accessor for use with OLE_QA::Tools
         OLE_QA::Framework.instance_variable_set(:@explicit_wait,@options[:explicit_wait])

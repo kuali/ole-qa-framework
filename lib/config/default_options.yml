@@ -1,6 +1,7 @@
 # Default options for using development environment.
 ---
 :url: http://dev.ole.kuali.org/
+:docstore_url: http://dev.docstore.ole.kuali.org/
 :headless?: true
 :implicit_wait: 0
 :explicit_wait: 15

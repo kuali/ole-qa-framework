@@ -1,6 +1,7 @@
 # Default options for non-development use.
 ---
 :url: http://tst.ole.kuali.org/
+:docstore_url: http://tst.docstore.ole.kuali.org/
 :headless?: true
 :implicit_wait: 0
 :explicit_wait: 15
