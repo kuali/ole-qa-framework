@@ -103,6 +103,7 @@ module OLE_QA
       # OLE Document Store Installation Base URL
       #   (e.g. http://docstore.ole.your-site.edu/)
       attr_reader :docstore_url
+      alias :docstore :docstore_url
 
       # Wait period (in seconds) used by OLE QAF Web Element functions
       attr_accessor :explicit_wait
@@ -143,12 +144,10 @@ module OLE_QA
 
         # Set trailing slash on URLs for consistency if not set.
         add_slash = -> (which)          { which =~ /\/$/ ? which : which + '/' }
-        @options[:url]                  = add_slash.call(@options[:url])
-        @options[:docstore_url]         = add_slash.call(@options[:docstore_url])
 
         # Globalize options to accessors
-        @url            = @options[:url]
-        @docstore_url   = @options[:docstore_url]
+        @url            = add_slash.call(@options[:url])
+        @docstore_url   = add_slash.call(@options[:docstore_url])
         @explicit_wait  = @options[:explicit_wait]
         @doc_wait       = @options[:doc_wait]
 
