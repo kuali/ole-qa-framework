@@ -5,6 +5,7 @@
     * Added :docstore_url: to all config files
     * Added Pages:
         * Search
+        * Search Results
 
 ### v3.4.6 - 2013/12/05
 
