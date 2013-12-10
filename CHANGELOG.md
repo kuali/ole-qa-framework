@@ -1,3 +1,9 @@
+### v3.6.0 - 2013/12/10
+
+* Patron Data Factory
+    * Added patron source files
+    * Added data factory with ability to select usable live patron record
+
 ### v3.5.0 - 2013/12/09
 
 * Docstore
