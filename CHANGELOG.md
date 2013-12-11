@@ -1,3 +1,8 @@
+### v3.6.1 - 2013/12/11
+
+* Patron Data Factory
+    * Added .patron_new to create minimum required data for new patron record
+
 ### v3.6.0 - 2013/12/10
 
 * Patron Data Factory

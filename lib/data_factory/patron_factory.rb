@@ -27,6 +27,50 @@ module OLE_QA::Framework
       def select_patron
         @patron_matrix.sample
       end
+
+      def new_patron
+        patron                = Hash.new
+        states                = YAML.load(File.read('data/states.yml'))
+        patron[:first]        = name_builder(sampler(2..8))
+        patron[:last]         = name_builder(sampler(6..8))
+        patron[:barcode]      = num_str(sampler(6..12))
+        patron[:address]      = num_str(sampler(3..5)) + ' ' + name_builder(sampler(4..8)) + ' ' + name_builder(2)
+        patron[:city]         = name_builder(sampler(4..12))
+        patron[:state]        = states.sample.upcase
+        patron[:postal_code]  = num_str(5)
+        patron[:phone]        = num_str(3) + '-' + num_str(3) + '-' + num_str(4)
+        patron[:email]        = patron[:first] + patron[:last] + '@' + str(sampler(4..8)) + '.' + str(3)
+        patron
+      end
+      
+      def name_builder(max_len = 8)
+        out = Array.new
+        out << sampler
+        max_len.times do
+          out << sampler('a'..'z')
+        end
+        out.join
+      end
+      private :name_builder
+
+      def sampler(r = 'A'..'Z')
+        r.to_a.sample
+      end
+      private :sampler
+
+      def str(len=8)
+        ary = Array.new
+        len.times { ary << sampler('a'..'z') }
+        ary.join
+      end
+      private :str
+
+      def num_str(len = 8)
+        ary = Array.new
+        len.times { ary << sampler('0'..'9') }
+        ary.join
+      end
+      private :num_str
     end
   end
 end
