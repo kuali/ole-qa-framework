@@ -46,6 +46,7 @@ module OLE_QA::Framework
       def name_builder(max_len = 8)
         out = Array.new
         out << sampler
+        max_len -= 1
         max_len.times do
           out << sampler('a'..'z')
         end

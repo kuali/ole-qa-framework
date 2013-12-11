@@ -1,3 +1,8 @@
+### v3.6.2 - 2013/12/11
+
+* Patron Data Factory
+    * Fix address formatting
+
 ### v3.6.1 - 2013/12/11
 
 * Patron Data Factory
