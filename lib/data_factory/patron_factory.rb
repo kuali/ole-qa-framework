@@ -30,7 +30,7 @@ module OLE_QA::Framework
 
       def new_patron
         patron                = Hash.new
-        states                = YAML.load(File.read('data/states.yml'))
+        states                = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
         patron[:first]        = name_builder(sampler(2..8))
         patron[:last]         = name_builder(sampler(6..8))
         patron[:barcode]      = num_str(sampler(6..12))

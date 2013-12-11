@@ -1,3 +1,8 @@
+### v3.6.3 - 2013/12/11
+
+* Patron Data Factory
+    * Fix loading of data/states.yml
+
 ### v3.6.2 - 2013/12/11
 
 * Patron Data Factory
