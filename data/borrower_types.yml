@@ -1,0 +1,14 @@
+#
+# Patron Borrower Types harvested from OLE Test Environment at:
+#   http://tst.ole.kuali.org/
+#
+---
+- AffVisRecip
+- Alumni
+- Faculty
+- FacultyRetired
+- Graduate
+- Guest
+- Researcher
+- Staff
+- UnderGrad
