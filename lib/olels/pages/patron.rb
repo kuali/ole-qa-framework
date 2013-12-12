@@ -28,6 +28,10 @@ module OLE_QA::Framework::OLELS
     # Define screen elements for patron record screen.
     def set_elements
       super
+      element(:document_id, true)                             {b.div(:data_label => 'Document Number')}
+      element(:document_status, true)                         {b.div(:data_label => 'Document Status')}
+      element(:document_initiator)                            {b.div(:data_label => 'Initiator Network Id')}
+      element(:document_timestamp)                            {b.div(:data_label => 'Creation Timestamp')}
       element(:patron_id)                                     {b.a(:xpath => "//th[span/label[contains(text(),'Patron Id:')]]/following-sibling::td[1]/div/span/a")}
       element(:barcode_field)                                 {b.text_field(:id => 'barcode_control')}
       element(:borrower_type_selector)                        {b.select_list(:id => 'borrowerType_control')}

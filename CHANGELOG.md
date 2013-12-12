@@ -1,3 +1,10 @@
+### v3.6.4 - 2013/12/12
+
+* Patron
+    * Update document header definitions
+* Patron Lookup
+    * add .create_new element
+
 ### v3.6.3 - 2013/12/11
 
 * Patron Data Factory

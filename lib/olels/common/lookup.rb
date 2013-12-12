@@ -19,6 +19,7 @@ module OLE_QA::Framework::OLELS
     def set_elements
       super
       element(:title)                           {b.h1.span(:class => "uif-headerText-span")}
+      element(:create_new)                      {b.link(:text => /[Cc]reate [Nn]ew/)}
     end
 
     # Set elements to be loaded before the page is considered complete.
