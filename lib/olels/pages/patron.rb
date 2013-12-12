@@ -33,6 +33,7 @@ module OLE_QA::Framework::OLELS
       element(:document_initiator)                            {b.div(:data_label => 'Initiator Network Id')}
       element(:document_timestamp)                            {b.div(:data_label => 'Creation Timestamp')}
       element(:patron_id)                                     {b.a(:xpath => "//th[span/label[contains(text(),'Patron Id:')]]/following-sibling::td[1]/div/span/a")}
+      element(:message)                                       {b.li(:class => 'uif-infoMessageItem')}
       element(:barcode_field)                                 {b.text_field(:id => 'barcode_control')}
       element(:borrower_type_selector)                        {b.select_list(:id => 'borrowerType_control')}
       element(:source_selector)                               {b.select_list(:id => 'sourceType_control')}
@@ -68,6 +69,10 @@ module OLE_QA::Framework::OLELS
       element(:address_toggle)                                {b.a(:id => 'OlePatronDocument-Address_toggle')}
       element(:phone_toggle)                                  {b.a(:id => 'OlePatronDocument-Phone_toggle')}
       element(:email_toggle)                                  {b.a(:id => 'OlePatronDocument-Email_toggle')}
+      element(:submit_button)                                 {b.button(:id => 'oleSubmit')}
+      element(:save_button)                                   {b.button(:id => 'usave')}
+      element(:close_button)                                  {b.button(:id => 'oleClose')}
+      element(:update_barcode_button)                         {b.button(:id => 'lostBarcode_edit')}
     end
 
     # Define commonly used functions for patron record screen.

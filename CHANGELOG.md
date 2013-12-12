@@ -1,3 +1,12 @@
+### v3.6.6 - 2013/12/12
+
+* Patron
+    * Added message element
+    * Added submit button
+    * Added save button
+    * Added close button (currently back button on screen)
+    * Added update barcode button
+
 ### v3.6.5 - 2013/12/12
 
 * Patron Factory
