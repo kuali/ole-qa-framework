@@ -27,17 +27,26 @@ describe 'The Patron Factory' do
     patron.should include(:id, :first, :last, :barcode)
   end
 
+  it 'should have a borrower type array' do
+    OLE_QA::Framework::Patron_Factory.borrower_types.should be_an(Array)
+  end
+
+  it 'should have a states array' do
+    OLE_QA::Framework::Patron_Factory.states.should be_an(Array)
+  end
+
   it 'should return a new patron' do
     patron = OLE_QA::Framework::Patron_Factory.new_patron
     patron.should be_a(Hash)
-    patron[:first].should       =~ /[A-Z]{1}[a-z]+/
-    patron[:last].should        =~ /[A-Z]{1}[a-z]+/
-    patron[:barcode].should     =~ /[0-9]+/
-    patron[:address].should     =~ /[0-9]+\s[A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]{1}/
-    patron[:city].should        =~ /[A-Z]{1}[a-z]+/
-    patron[:state].should       =~ /[A-Z]+/ || /[A-Z]+\s[A-Z]+/
-    patron[:postal_code].should =~ /[0-9]{5}/
-    patron[:phone].should       =~ /[0-9]{3}\-[0-9]{3}\-[0-9]{4}/
-    patron[:email].should       =~ /[A-Z,a-z]+\@[a-z]+\.[a-z]{3}/
+    patron[:first].should         =~ /[A-Z]{1}[a-z]+/
+    patron[:last].should          =~ /[A-Z]{1}[a-z]+/
+    patron[:barcode].should       =~ /[0-9]+/
+    patron[:borrower_type].should =~ /[A-Z,a-z]+/
+    patron[:address].should       =~ /[0-9]+\s[A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]{1}/
+    patron[:city].should          =~ /[A-Z]{1}[a-z]+/
+    patron[:state].should         =~ /[A-Z]+/ || /[A-Z]+\s[A-Z]+/
+    patron[:postal_code].should   =~ /[0-9]{5}/
+    patron[:phone].should         =~ /[0-9]{3}\-[0-9]{3}\-[0-9]{4}/
+    patron[:email].should         =~ /[A-Z,a-z]+\@[a-z]+\.[a-z]{3}/
   end
 end

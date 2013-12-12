@@ -1,3 +1,10 @@
+### v3.6.5 - 2013/12/12
+
+* Patron Factory
+    * Add :borrower_type to new patron
+    * Add .borrower_types reader attribute
+    * Add .states reader attribute
+
 ### v3.6.4 - 2013/12/12
 
 * Patron

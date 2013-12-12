@@ -15,13 +15,20 @@
 module OLE_QA::Framework
   # Return usable patron records from source files in ole-qa-framework/data/patron.yml
   class Patron_Factory
-    patron_file = File.open("#{OLE_QA::Framework.data_dir}/patron.yml",'r')
-    @patron_matrix = YAML.load(patron_file)
-    patron_file.close
+
+    @patron_matrix    = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/patron.yml"))
+    @states           = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
+    @borrower_types   = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/borrower_types.yml"))
 
     class << self
       # An array containing a collection of valid OLE patron records.
       attr_reader :patron_matrix
+
+      # An array containing a collection of valid states to use for patron records.
+      attr_reader :states
+
+      # An array containing a collection of valid borrower types to use for patron records.
+      attr_reader :borrower_types
 
       # Return a random patron record.
       def select_patron
@@ -29,17 +36,17 @@ module OLE_QA::Framework
       end
 
       def new_patron
-        patron                = Hash.new
-        states                = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
-        patron[:first]        = name_builder(sampler(2..8))
-        patron[:last]         = name_builder(sampler(6..8))
-        patron[:barcode]      = num_str(sampler(6..12))
-        patron[:address]      = num_str(sampler(3..5)) + ' ' + name_builder(sampler(4..8)) + ' ' + name_builder(2)
-        patron[:city]         = name_builder(sampler(4..12))
-        patron[:state]        = states.sample.upcase
-        patron[:postal_code]  = num_str(5)
-        patron[:phone]        = num_str(3) + '-' + num_str(3) + '-' + num_str(4)
-        patron[:email]        = patron[:first] + patron[:last] + '@' + str(sampler(4..8)) + '.' + str(3)
+        patron                  = Hash.new
+        patron[:first]          = name_builder(sampler(2..8))
+        patron[:last]           = name_builder(sampler(6..8))
+        patron[:barcode]        = num_str(sampler(6..12))
+        patron[:borrower_type]  = @borrower_types.sample
+        patron[:address]        = num_str(sampler(3..5)) + ' ' + name_builder(sampler(4..8)) + ' ' + name_builder(2)
+        patron[:city]           = name_builder(sampler(4..12))
+        patron[:state]          = @states.sample.upcase
+        patron[:postal_code]    = num_str(5)
+        patron[:phone]          = num_str(3) + '-' + num_str(3) + '-' + num_str(4)
+        patron[:email]          = patron[:first] + patron[:last] + '@' + str(sampler(4..8)) + '.' + str(3)
         patron
       end
       
