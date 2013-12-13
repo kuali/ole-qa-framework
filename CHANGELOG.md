@@ -1,3 +1,11 @@
+### v3.6.7 - 2013/12/13
+
+* Patron Lookup
+    * Added .text_in_results? function.
+    * Added .edit_by_text function to return edit link.
+    * Added .copy_by_text function to return copy link.
+    * Added .delete_by_text function to return delete link.
+
 ### v3.6.6 - 2013/12/12
 
 * Patron

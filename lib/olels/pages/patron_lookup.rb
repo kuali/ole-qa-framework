@@ -40,5 +40,26 @@ module OLE_QA::Framework::OLELS
       element(:clear_button)                    {b.button(:text => "Clear Values")}
       element(:cancel_button)                   {b.button(:text => "Cancel")}
     end
+
+    def set_functions
+      super
+      # Return whether the given text exists in the search results.
+      function(:text_in_results?)                {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]").present? }
+      # Function used for edit_by_text, copy_by_text, and delete_by_text.
+      function(:edit_by_text)                    {|which| b.a(:xpath => link_by_text('edit',which)) }
+      # Return the copy link for a given text string in the search results.
+      function(:copy_by_text)                    {|which| b.a(:xpath => link_by_text('copy',which)) }
+      # Return the delete link for a given text string in the search results.
+      function(:delete_by_text)                  {|which| b.a(:xpath => link_by_text('delete',which)) }
+    end
+
+    # Return the XPath to find a link with the given text on a line containing a search result with the given text.
+    # @param [String] link    The text of the link to be returned.  ('edit','copy', or 'delete')
+    # @param [String] text    The text to locate in the search results.  (e.g., a patron's first name, barcode, ID, etc.)
+    def link_by_text(link,text)
+      "//tr/td[div/span[contains(text(),'#{text}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'#{link}')]" 
+    end
+    private :link_by_text
+
   end
 end
