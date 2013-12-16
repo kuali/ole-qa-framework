@@ -124,8 +124,8 @@ module OLE_QA
       #     (Set the wait period used by custom wait functions)
       #   :doc_wait => NN
       #     (Set the wait period for eDoc routing to complete)
-      #   :browser => selenium_webdriver
-      #     (Where browser is a Selenium WebDriver session)
+      #   :browser => watir_webdriver
+      #     (Where browser is a Watir WebDriver session)
       #
       # To configure the default options, edit
       #   lib/config/default_options.yml
