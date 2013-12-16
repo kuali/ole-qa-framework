@@ -18,7 +18,7 @@ module OLE_QA::Framework
     include OLE_QA::Framework::Factory_Helpers
 
     class << self
-
+      
       # Generate a usable OLE location code.
       def location_code
       end
