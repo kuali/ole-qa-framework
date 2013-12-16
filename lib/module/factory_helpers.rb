@@ -13,35 +13,37 @@
 #  limitations under the License.
 
 module OLE_QA::Framework
-  # Generate random alphabetic, numeric, or alphanumeric strings of a given length
-  class String_Factory
-    class << self
-
-      include OLE_QA::Framework::Factory_Helpers
-
-      def alpha(len = 9)
-        str(len).upcase
+  # This mix-in module contains helper methods for other data factory modules.
+  module Factory_Helpers
+    def name_builder(max_len = 8)
+      out = Array.new
+      out << sampler
+      max_len -= 1
+      max_len.times do
+        out << sampler('a'..'z')
       end
-
-      def numeric(len = 9)
-        num_str(len)
-      end
-
-      def alphanumeric(len = 9)
-        str_out = String.new
-        len.times do
-          str_out << (('A'..'Z').to_a + ('0'..'9').to_a).sample
-        end
-        str_out
-      end
-
-      def phone
-        str_out = '555-'
-        str_out << num_str(3)
-        str_out << '-'
-        str_out << num_str(4)
-        str_out
-      end
+      out.join
     end
+    private :name_builder
+
+    def sampler(r = 'A'..'Z')
+      r.to_a.sample
+    end
+    private :sampler
+
+    def str(len=8)
+      ary = Array.new
+      len.times { ary << sampler('a'..'z') }
+      ary.join
+    end
+    private :str
+
+    def num_str(len = 8)
+      ary = Array.new
+      len.times { ary << sampler('0'..'9') }
+      ary.join
+    end
+    private :num_str
+          
   end
 end

@@ -16,11 +16,16 @@ module OLE_QA::Framework
   # Return usable patron records from source files in ole-qa-framework/data/patron.yml
   class Patron_Factory
 
+
     @patron_matrix    = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/patron.yml"))
     @states           = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
     @borrower_types   = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/borrower_types.yml"))
 
     class << self
+
+      
+      include OLE_QA::Framework::Factory_Helpers
+
       # An array containing a collection of valid OLE patron records.
       attr_reader :patron_matrix
 
@@ -49,36 +54,7 @@ module OLE_QA::Framework
         patron[:email]          = patron[:first] + patron[:last] + '@' + str(sampler(4..8)) + '.' + str(3)
         patron
       end
-      
-      def name_builder(max_len = 8)
-        out = Array.new
-        out << sampler
-        max_len -= 1
-        max_len.times do
-          out << sampler('a'..'z')
-        end
-        out.join
-      end
-      private :name_builder
 
-      def sampler(r = 'A'..'Z')
-        r.to_a.sample
-      end
-      private :sampler
-
-      def str(len=8)
-        ary = Array.new
-        len.times { ary << sampler('a'..'z') }
-        ary.join
-      end
-      private :str
-
-      def num_str(len = 8)
-        ary = Array.new
-        len.times { ary << sampler('0'..'9') }
-        ary.join
-      end
-      private :num_str
     end
   end
 end
