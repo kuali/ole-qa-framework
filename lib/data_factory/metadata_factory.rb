@@ -15,13 +15,18 @@
 module OLE_QA::Framework
   # This class contains methods to generate assorted metadata.
   class Metadata_Factory
-    include OLE_QA::Framework::Factory_Helpers
-
     class << self
+      include OLE_QA::Framework::Factory_Helpers
       
       # Generate a usable OLE location code.
       def location_code
+        str_out = String.new
+        str_out << sampler('A'..'Z')
+        str_out << sampler('0'..'9')
+        str_out << str(sampler(2..4))
+        str_out.upcase
       end
+  
     end
   end
 end
