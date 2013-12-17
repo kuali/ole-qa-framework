@@ -26,6 +26,7 @@ module OLE_QA::Framework
         str_out << str(sampler(2..4))
         str_out.upcase
       end
+      alias_method(:new_location_code,:location_code)
   
     end
   end
