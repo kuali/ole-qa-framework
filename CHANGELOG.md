@@ -1,3 +1,10 @@
+### v3.7.1 - 2013/12/18
+
+* Location Lookup
+    * Added return_by_results function.
+* Location Factory
+    * Added .new_location method.
+
 ### v3.7.0 - 2013/12/18
 
 * Location Pages
