@@ -28,6 +28,8 @@ module OLE_QA::Framework::OLELS
       element(:initiator_id, true)                                        {b.span(:id => 'Uif-OleDocumentInitiatorNetworkId_control')}
       element(:document_status, true)                                     {b.span(:id => 'Uif-OleDocumentStatus_control')}
       element(:creation_timestamp, true)                                  {b.span(:id => 'Uif-OleDocumentCreateDate_control')}
+      element(:error_message)                                             {b.ul(:id => 'pageValidationList').li(:class => 'uif-errorMessageItem')}
+      element(:message)                                                   {b.ul(:id => 'pageValidationList').li(:class => 'uif-infoMessageItem')}
       element(:location_code_field)                                       {b.text_field(:id => 'create_locationCode_control')}
       element(:location_name_field)                                       {b.text_field(:id => 'create_locationName_control')}
       element(:location_level_field)                                      {b.text_field(:id => 'create_levelId_control')}
@@ -44,7 +46,10 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-
+      # Submit the document, and when the outcome message is present, check for success.
+      function(:submit)                                                   { submit_button.when_present.click
+          Watir::Wait.until { message.present? || error_message.present? }
+          message.present? && message.text.include?('successfully submitted') ? true : false }
     end
 
     def wait_for_elements
