@@ -1,3 +1,8 @@
+### v3.7.2 - 2013/12/18
+
+* Location Lookup
+    * Fix error in return_by_text function.
+
 ### v3.7.1 - 2013/12/18
 
 * Location Lookup
