@@ -42,6 +42,9 @@ module OLE_QA::Framework::OLELS
       function(:edit_by_text)                                           {|which| b.a(:xpath => "//td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'edit')]")}
       # Return the 'copy' link for a search results line containing the given text.
       function(:copy_by_text)                                           {|which| b.a(:xpath => "//td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'copy')]")}
+      # Return the 'return results' link for a search results line containing the given text.
+      # @note Used when the lookup screen is opened from another page, like the create/edit location page.
+      function(:return_by_text)                                         {|which| b.a(:xpath => "//td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'return results')]")}
     end
 
     def wait_for_elements
