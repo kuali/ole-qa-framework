@@ -1,3 +1,12 @@
+### v3.7.0 - 2013/12/18
+
+* Location Pages
+    * Location Lookup
+    * Location Level Lookup
+    * Location
+* Location Factory
+    * Location Code
+
 ### v3.6.7 - 2013/12/13
 
 * Patron Lookup
