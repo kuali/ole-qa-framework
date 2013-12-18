@@ -1,3 +1,9 @@
+### v3.7.3 - 2013/12/18
+
+* Location Lookup
+    * Added .id_by_text function
+    * Added .parent_id_by_text function
+
 ### v3.7.2 - 2013/12/18
 
 * Location Lookup

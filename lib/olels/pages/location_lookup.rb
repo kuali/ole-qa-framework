@@ -45,6 +45,9 @@ module OLE_QA::Framework::OLELS
       # Return the 'return results' link for a search results line containing the given text.
       # @note Used when the lookup screen is opened from another page, like the create/edit location page.
       function(:return_by_text)                                         {|which| b.a(:xpath => "//td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'return value')]")}
+      # Return the ID or Parent ID element from a search results line containing the given text.
+      function(:id_by_text)                                             {|which| b.span(:xpath => "//tr[td/div/span[contains(text(),'#{which}')]]/td[2]/div/span")}
+      function(:parent_id_by_text)                                      {|which| b.span(:xpath => "//tr[td/div/span[contains(text(),'#{which}')]]/td[5]/div/span")}
     end
 
     def wait_for_elements
