@@ -32,6 +32,7 @@ module OLE_QA::Framework::OLELS
       element(:search_button)                                           {b.button(:text => /[Ss]earch/)}
       element(:clear_button)                                            {b.button(:text => /[Cc]lear/)}
       element(:cancel_button)                                           {b.button(:text => /[Cc]ancel/)}
+      element(:create_new)                                              {b.link(:text => /[Cc]reate [Nn]ew/)}
     end
 
     def set_functions
