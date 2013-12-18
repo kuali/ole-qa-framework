@@ -27,7 +27,20 @@ module OLE_QA::Framework
         str_out.upcase
       end
       alias_method(:new_location_code,:location_code)
-  
+
+      # Create a new location as a hash.
+      # @param [String] level   Set the location's level.  (Optional, defaults to 1.)
+      # @param [String] parent  The parent location code.  (Optional, defaults to none.)
+      def new_location(level = 1, parent = '')
+        hash                    = Hash.new
+        hash[:code]             = location_code
+        hash[:name]             = name_builder(sampler(6..8))
+        hash[:description]      = name_builder(sampler(8..12))
+        hash[:level]            = level.to_s
+        hash[:parent]           = parent unless parent.empty?
+        hash
+      end
+
     end
   end
 end
