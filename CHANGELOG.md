@@ -1,3 +1,7 @@
+### v3.7.5 - 2014/01/03
+
+* OLELS - Fix error in Staff Upload URL
+
 ### v3.7.4 - 2014/01/03
 
 * Remove pessimistic version constraint

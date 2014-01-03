@@ -18,7 +18,7 @@ module OLE_QA::Framework::OLELS
 
     def initialize(ole_session)
       url = ole_session.url + 'portal.do?channelTitle=Staff%20Upload&channelUrl='
-      url += ole_session.url + 'ole-kr-krad/staffuploadcontroller?viewId=StaffUploadView&methodToCall=start&__login_user=admin&user=ole-khuntley'
+      url += ole_session.url + 'ole-kr-krad/staffuploadcontroller?viewId=StaffUploadView&methodToCall=start'
       super(ole_session, url)
     end
 
