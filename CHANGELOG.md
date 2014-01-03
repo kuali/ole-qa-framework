@@ -1,3 +1,8 @@
+### v3.7.4 - 2014/01/03
+
+* Remove pessimistic version constraint
+    * Ruby version now <= 1.9.3, not ~> 1.9.3
+
 ### v3.7.3 - 2013/12/18
 
 * Location Lookup
