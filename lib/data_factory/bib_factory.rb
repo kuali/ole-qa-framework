@@ -15,21 +15,51 @@
 module OLE_QA::Framework
   # Manufacture strings for bibliographic record testing
   class Bib_Factory
-    # Return a random string of between 12 and 18 numbers to be used as a barcode.
-    def self.barcode
-      (0..(11..17).to_a.sample).map{(0..9).to_a.sample}.join
-    end
+    class << self
 
-    # Return a random (non-validated) call number in the specified format.
-    def self.call_number(format = "LOC")
-      call_num = Array.new
-      # TODO - Use case...when once other formats are added.
-      # LOC Format Call Number
-      call_num << (0..(0..1).to_a.sample).map{('A'..'Z').to_a.sample}.join
-      call_num << (0..(1..3).to_a.sample).map{(1..9).to_a.sample}.join << " "
-      call_num << "." <<  ('A'..'Z').to_a.sample
-      call_num << (0..(1..2).to_a.sample).map{(1..9).to_a.sample}.join
-      call_num.join
+      include OLE_QA::Framework::Factory_Helpers
+
+      # Return a random string of between 12 and 18 numbers to be used as a barcode.
+      def barcode
+        (0..(11..17).to_a.sample).map{(0..9).to_a.sample}.join
+      end
+
+      # Return a random (non-validated) call number in the specified format.
+      def call_number(format = "LOC")
+        call_num = Array.new
+        # TODO - Use case...when once other formats are added.
+        # LOC Format Call Number
+        call_num << (0..(0..1).to_a.sample).map{('A'..'Z').to_a.sample}.join
+        call_num << (0..(1..3).to_a.sample).map{(1..9).to_a.sample}.join << " "
+        call_num << "." <<  ('A'..'Z').to_a.sample
+        call_num << (0..(1..2).to_a.sample).map{(1..9).to_a.sample}.join
+        call_num.join
+      end
+
+      # Return a random title with the specified length.
+      def title(len = 8..12)
+        if len.class == Range
+          name_builder(sampler(len))
+        else
+          name_builder(len.to_i)
+        end
+      end
+
+      # Return a random author with specified first and last name lengths.
+      def author(first_len = 4..6, last_len = 8..12)
+        str = String.new
+        if first_len.class == Range
+          str << name_builder(sampler(first_len))
+        else
+          str << name_builder(first_len.to_i)
+        end
+        str << ' '
+        if last_len.class == Range
+          str << name_builder(sampler(last_len))
+        else
+          str << name_builder(last_len.to_i)
+        end
+      end
     end
   end
 end

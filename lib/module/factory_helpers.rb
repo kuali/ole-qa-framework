@@ -15,11 +15,11 @@
 module OLE_QA::Framework
   # This mix-in module contains helper methods for other data factory modules.
   module Factory_Helpers
-    def name_builder(max_len = 8)
+    def name_builder(len = 8)
       out = Array.new
       out << sampler
-      max_len -= 1
-      max_len.times do
+      len -= 1
+      len.times do
         out << sampler('a'..'z')
       end
       out.join

@@ -1,3 +1,10 @@
+### v3.8.0 - 2014/01/09
+
+* Data Factories
+    * Bib Factory
+        * added title
+        * added author
+
 ### v3.7.5 - 2014/01/03
 
 * OLELS - Fix error in Staff Upload URL

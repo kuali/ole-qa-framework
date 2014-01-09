@@ -28,4 +28,21 @@ describe 'The Bib Record Factory' do
     cn.should be_a(String)
     cn.should =~ /[A-Z]{1,2}[0-9]{1,4}\ \.[A-Z][0-9]{1,3}/
   end
+
+  it 'should create a title' do
+    title = OLE_QA::Framework::Bib_Factory.title(8..12)
+    title.should                  be_a(String)
+    title.should                  =~ /[A-Z][a-z]{7,11}+/
+    specific_title = OLE_QA::Framework::Bib_Factory.title(6)
+    specific_title.should         be_a(String)
+    specific_title.length.should  eq(6)
+  end
+
+  it 'should create an author' do
+    author = OLE_QA::Framework::Bib_Factory.author(4..6,8..12)
+    author.should                 be_a(String)
+    author.should                 =~ /[A-Z][a-z]{3,5} [A-Z][a-z]{7,11}/
+    specific_author = OLE_QA::Framework::Bib_Factory.author(4,8)
+    specific_author.should        =~ /[A-Z][a-z]{3} [A-Z][a-z]{7}/
+  end
 end
