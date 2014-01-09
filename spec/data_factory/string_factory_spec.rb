@@ -40,4 +40,9 @@ describe 'The string factory' do
     str.length.should eq(12)
     str.should =~ /555\-[0-9]{3}\-[0-9]{4}/
   end
+
+  it 'should give a price' do
+    price = OLE_QA::Framework::String_Factory.price
+    price.should =~ /\d{1,3}\.0{2}/
+  end
 end

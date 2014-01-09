@@ -4,6 +4,8 @@
     * Bib Factory
         * added title
         * added author
+    * String Factory
+        * added price
 
 ### v3.7.5 - 2014/01/03
 

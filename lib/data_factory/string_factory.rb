@@ -42,6 +42,11 @@ module OLE_QA::Framework
         str_out << num_str(4)
         str_out
       end
+
+      def price
+        str = String.new
+        str << num_str(sampler(1..3)) << '.' << '00'
+      end
     end
   end
 end
