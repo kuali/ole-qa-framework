@@ -24,14 +24,14 @@ module OLE_QA::Framework::OLELS
 
     def set_elements
       super
-      element(:create_new)                            {b.link(:text => 'Create New')}
+      element(:create_new,true)                       {b.link(:text => 'Create New')}
       element(:profile_name_field)                    {b.text_field(:id => 'lookup-batchProcessProfileName_control')}
       element(:profile_description_field)             {b.text_field(:id => 'lookup-batchProcessProfileDesc_control')}
       element(:profile_type_selector)                 {b.select_list(:id => 'lookup-batchProcessProfileType_control')}
       element(:krms_profile_selector)                 {b.select_list(:id => 'lookup-krmsProfileName_control')}
-      element(:search_button)                         {b.button(:id => 'searchReqBtn')}
-      element(:clear_button)                          {b.button(:id => 'clearReqBtn')}
-      element(:cancel_button)                         {b.button(:id => 'cancelReqBtn')}
+      element(:search_button)                         {b.button(:text => /[Ss]earch/)}
+      element(:clear_button)                          {b.button(:text => /[Cc]lear/)}
+      element(:cancel_button)                         {b.button(:text => /[Cc]ancel/)}
     end
 
     def wait_for_elements

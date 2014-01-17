@@ -1,3 +1,8 @@
+### v3.8.1 - 2014/01/17
+
+* Batch Profile Lookup  
+    * Fixed element definitions
+
 ### v3.8.0 - 2014/01/09
 
 * Data Factories
