@@ -39,7 +39,6 @@ module OLE_QA::Framework::OLELS
       element(:batch_process_type_icon)               {batch_process_type_field.parent.input(:index => 1)}
       element(:submit_button)                         {b.button(:text => 'submit')}
       element(:save_button)                           {b.button(:id => 'usave')}
-      element(:close_button)                          {b.button(:id => 'uclose')}
       element(:cancel_button)                         {b.a(:id => 'ucancel')}
     end
 
