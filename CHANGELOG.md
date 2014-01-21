@@ -1,3 +1,9 @@
+### v3.8.2 - 2014/01/20
+
+* Batch Profile
+    * Update base class elements - headers, buttons, etc.
+
+
 ### v3.8.1 - 2014/01/17
 
 * Batch Profile Lookup  
