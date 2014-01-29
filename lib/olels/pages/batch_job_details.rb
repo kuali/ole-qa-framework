@@ -13,7 +13,8 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-
+  # The Batch Process Job Details page in OLE.
+  # @note This page refreshes about once a minute while open.
   class Batch_Job_Details < OLE_QA::Framework::Page
     def initialize(ole_session)
       url = ole_session.url + 'portal.do?channelTitle=Batch Process Job Details&channelUrl='
