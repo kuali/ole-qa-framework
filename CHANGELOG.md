@@ -1,3 +1,7 @@
+### v3.9.0 - 2014/01/29
+
+* Added Batch Job Report page in OLELS
+
 ### v3.8.3 - 2014/01/29
 
 * Batch Profile Lookup
