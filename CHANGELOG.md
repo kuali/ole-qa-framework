@@ -5,6 +5,8 @@
 * Batch Process
     * Added marc_file_field & edi_file_field elements.
     * Added message element
+* Load Summary Lookup
+    * Added text_in_results? function.
 
 ### v3.8.2 - 2014/01/20
 
