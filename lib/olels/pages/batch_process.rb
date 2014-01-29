@@ -34,6 +34,8 @@ module OLE_QA::Framework::OLELS
       element(:output_file_field)           {b.text_field(:id => 'outputFileField_control')}
       element(:run_button)                  {b.button(:id => 'runNowButton')}
       element(:schedule_button)             {b.button(:id => 'scheduleButton')}
+      element(:marc_file_field)             {b.input(:id => 'marcFileField_control').to_subtype}
+      element(:edi_file_field)              {b.input(:id => 'ediFileField_control').to_subtype}
     end
 
     def wait_for_elements

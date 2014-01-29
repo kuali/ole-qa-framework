@@ -14,6 +14,8 @@
 
 module OLE_QA::Framework::OLELS
   # The OLE Library System Staff Upload page, accessible from the OLE Financial System main menu.
+  # @note THIS PAGE IS NO LONGER ACTIVE AS OF OLE 1.5 M1 r16954.
+  #   Use Batch Process for EOCR uploads instead.
   class Staff_Upload < OLE_QA::Framework::Page
 
     def initialize(ole_session)

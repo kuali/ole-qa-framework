@@ -1,3 +1,10 @@
+### v3.8.3 - 2014/01/29
+
+* Batch Profile Lookup
+    * Updated return_by_text & edit_by_text elements.
+* Batch Process
+    * Added marc_file_field & edi_file_field elements.
+
 ### v3.8.2 - 2014/01/20
 
 * Batch Profile

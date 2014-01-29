@@ -45,12 +45,12 @@ module OLE_QA::Framework::OLELS
       # Check whether the given text exists within the search results displayed.
       function(:text_in_results)                      {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
       # Return the 'Edit' link for a row containing the given text.
-      function(:edit_by_text)                         {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/fieldset/div/a[contains(text(),'edit')]")}
+      function(:edit_by_text)                         {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/fieldset/div/div/a[contains(text(),'edit')]")}
       # Return the Batch Process Profile ID link for a row containing the given text.
       function(:id_by_text)                           {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[2]/div/span/a")}
       # Return the value of the Batch Process Profile containing the given text.
       # @note Replaces :edit_by_text when the lookup is embedded on a batch profile editing screen.
-      function(:return_by_text)                       {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/a[contains(text(),'return value')]")}
+      function(:return_by_text)                       {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/fieldset/div/div/a[contains(text(),'return value')]")}
     end
   end
 end
