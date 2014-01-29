@@ -36,6 +36,7 @@ module OLE_QA::Framework::OLELS
       element(:schedule_button)             {b.button(:id => 'scheduleButton')}
       element(:marc_file_field)             {b.input(:id => 'marcFileField_control').to_subtype}
       element(:edi_file_field)              {b.input(:id => 'ediFileField_control').to_subtype}
+      element(:message)                     {b.li(:class => 'uif-infoMessageItem')}
     end
 
     def wait_for_elements

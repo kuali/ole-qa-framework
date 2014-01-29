@@ -4,6 +4,7 @@
     * Updated return_by_text & edit_by_text elements.
 * Batch Process
     * Added marc_file_field & edi_file_field elements.
+    * Added message element
 
 ### v3.8.2 - 2014/01/20
 
