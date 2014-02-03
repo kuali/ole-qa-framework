@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "yard"
 
-  spec.add_dependency "watir-webdriver"
+  spec.add_dependency "watir-webdriver", ">= 0.6.5"
   spec.add_dependency "headless"
   spec.add_dependency "rspec"
 end
