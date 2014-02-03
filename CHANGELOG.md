@@ -1,3 +1,8 @@
+### v3.9.2 - 2014/02/03
+
+* Watir-Webdriver 0.6.5+ Compatibility
+    * Updated frame selection to work with new iframe handling of Webdriver 0.6.5 and up
+
 ### v3.9.1 - 2014/02/03
 
 * Update Batch Process Page
