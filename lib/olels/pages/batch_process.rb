@@ -43,7 +43,6 @@ module OLE_QA::Framework::OLELS
       super
       @wait_on << :title
       @wait_on << :name_field
-      @wait_on << :profile_name_field
       @wait_on << :run_button
     end
   end

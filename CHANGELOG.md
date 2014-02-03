@@ -1,3 +1,8 @@
+### v3.9.1 - 2014/02/03
+
+* Update Batch Process Page
+    * profile_name_field removed from wait_for_elements
+
 ### v3.9.0 - 2014/01/29
 
 * Added Batch Job Report page in OLELS
