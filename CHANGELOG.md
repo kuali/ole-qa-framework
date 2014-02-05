@@ -1,3 +1,9 @@
+### v3.9.3 - 2014/02/05
+
+* Batch Process Type Lookup
+    * Fixed .id_by_text function (was not compatible with lookup-as-frame view)
+    * Added .result_by_text function
+
 ### v3.9.2 - 2014/02/03
 
 * Watir-Webdriver 0.6.5+ Compatibility

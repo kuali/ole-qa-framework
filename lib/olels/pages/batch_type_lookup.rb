@@ -46,7 +46,9 @@ module OLE_QA::Framework::OLELS
       # Check whether the given text exists in the search results.
       function(:text_in_results)            {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
       # Return the Batch Process Type ID link for a row containing the given text.
-      function(:id_by_text)                 {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/span/a")}
+      function(:id_by_text)                 {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div[starts-with(@id,'result-batchProcessTypeId')]/span/a")}
+      # Return the 'return value' link for a row containing the given text.
+      function(:return_by_text)             {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/fieldset/div/div/a[contains(text(),'return value')]")}
     end
   end
 end
