@@ -30,9 +30,9 @@ module OLE_QA::Framework::OLELS
       element(:active_yes)                {b.radio(:id => 'lookup-active_control_0')}
       element(:active_no)                 {b.radio(:id => 'lookup-active_control_1')}
       element(:active_both)               {b.radio(:id => 'lookup-active_control_2')}
-      element(:search_button)             {b.button(:id => 'searchReqBtn')}
-      element(:clear_button)              {b.button(:id => 'clearReqBtn')}
-      element(:cancel_button)             {b.button(:id => 'cancelReqBtn')}
+      element(:search_button)             {b.button(:text => /[Ss]earch/)}
+      element(:clear_button)              {b.button(:text => /[Cc]lear/)}
+      element(:cancel_button)             {b.button(:id => /[Cc]lose/)}
     end
 
     def wait_for_elements

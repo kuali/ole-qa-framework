@@ -1,3 +1,8 @@
+### v3.9.4 - 2014/02/05
+
+* Batch Process Type Lookup
+    * Added regex matching for search/clear/cancel buttons
+
 ### v3.9.3 - 2014/02/05
 
 * Batch Process Type Lookup
