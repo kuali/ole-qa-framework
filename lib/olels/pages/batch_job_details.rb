@@ -42,6 +42,8 @@ module OLE_QA::Framework::OLELS
       # Return the 'Remove' button for a row containing the given text.
       # @note This could be dangerous with the wrong selection text.  Use this function carefully!
       function(:remove_by_text)                   {|text| b.button(:xpath=>"//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/fieldset/div/div/button[contains(text(),'Remove')]")}
+      # Return the Job Status span for a row containing the given text.
+      function(:job_status_by_text)              {|text| b.span(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/span[starts-with(@id,'statusField_line')]")}
       # Return the 'View Job Report' link for a row containing the given text.
       function(:job_report_by_text)               {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/fieldset/div/div/div/a[contains(text(),'View Job Report')]")}
     end

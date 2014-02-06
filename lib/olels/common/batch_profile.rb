@@ -40,6 +40,9 @@ module OLE_QA::Framework::OLELS
       element(:submit_button)                         {b.button(:text => 'submit')}
       element(:save_button)                           {b.button(:id => 'usave')}
       element(:cancel_button)                         {b.a(:id => 'ucancel')}
+      element(:approve_button)                        {b.button(:text => /([Bb]lanket )?[Aa]pprove/)}
+      element(:message)                               {b.li(:class => 'uif-infoMessageItem')}
+      element(:messages)                              {b.lis(:class => 'uif-infoMessageItem')}
     end
 
     def wait_for_elements

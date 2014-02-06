@@ -24,6 +24,7 @@ module OLE_QA::Framework::OLELS
     end
 
     def set_elements
+      super
       element(:title)                       {b.h2.span(:class => 'uif-headerText-span')}
       element(:job_id)                      {b.span(:id => 'jobIdField-popup_control')}
       element(:job_name)                    {b.span(:id => 'jobNameField-popup_control')}
@@ -43,6 +44,7 @@ module OLE_QA::Framework::OLELS
       element(:time_spent)                  {b.span(:id => 'timeSpentField-popup_control')}
       element(:status)                      {b.span(:id => 'statusField-popup_control')}
       element(:status_description)          {b.span(:id => 'statusDescField-popup_control')}
+      element(:view_export_file)            {b.div(:id => 'exportPath-popup').a(:class => 'uif-link')}
     end
 
     def wait_for_elements

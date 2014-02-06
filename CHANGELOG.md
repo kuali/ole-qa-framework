@@ -1,3 +1,15 @@
+### v3.9.5 - 2014/02/06
+
+* Batch Profile (base class for Batch Export Profile & Batch Import Profile)
+    * Added .approve_button
+    * Added .message
+    * Added .messages
+* Batch Job Details
+    * Added .job_status_by_text
+* Batch Job Report
+    * Fixed set_elements error
+    * Added .view_export_file_link
+
 ### v3.9.4 - 2014/02/05
 
 * Batch Process Type Lookup
