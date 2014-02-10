@@ -34,8 +34,10 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
+      # Return the span element containing the given text, if it exists in the search results.
+      function(:text_in_results)                                   {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]")}
       # Query whether the given text value exists in the search results.
-      function(:text_in_results?)                                   {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]")}
+      function(:text_in_results?)                                   {|which| text_in_results(which).present?}
       # Return the 'edit' link for a search results line containing a given value.
       function(:edit_by_text)                                       {|which| b.a(:xpath => "//tr[td/div/span[contains(text(),'#{which}')]]/td[1]/div/fieldset/div/div/a[contains(text(),'edit')]")}
       # Return the 'Level ID' link for a search results line containing a given value.
