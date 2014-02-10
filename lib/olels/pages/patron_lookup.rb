@@ -43,6 +43,8 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
+      # Return the span containing the given text, if it appears in the search results.
+      function(:text_in_results)                {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]")}
       # Return whether the given text exists in the search results.
       function(:text_in_results?)                {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]").present? }
       # Function used for edit_by_text, copy_by_text, and delete_by_text.
