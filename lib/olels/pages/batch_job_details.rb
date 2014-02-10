@@ -37,8 +37,10 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-      # Check whether the given text exists within the job details results displayed.
+      # If the given text appears in any of the result TDs, return that element.
       function(:text_in_results)                  {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
+      # Return true or false depending on whether or not the text is found in the search results.
+      function(:text_in_results?)                 {|text| text_in_results(text).present?}
       # Return the 'Remove' button for a row containing the given text.
       # @note This could be dangerous with the wrong selection text.  Use this function carefully!
       function(:remove_by_text)                   {|text| b.button(:xpath=>"//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div/fieldset/div/div/button[contains(text(),'Remove')]")}

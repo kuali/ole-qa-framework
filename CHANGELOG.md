@@ -1,3 +1,11 @@
+### v3.9.6 - 2014/02/10
+
+* Search Results Update
+    * For consistency, made all lookup pages with either .text_in_results or .text_in_results?
+    support both methods.  The first returns an element, the second returns true or false based
+    on the presence of the element.
+
+
 ### v3.9.5 - 2014/02/06
 
 * Batch Profile (base class for Batch Export Profile & Batch Import Profile)
