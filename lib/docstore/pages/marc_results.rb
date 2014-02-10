@@ -30,9 +30,12 @@ module OLE_QA::Framework::DocStore
       # Return an 'instance' link by a given (1-based) numerical value.
       function(:instance_link)                      { |which = 1| which -= 1 ; b.b(:text => /Instance/, :index => which).parent}
       # Return a field value (other than title) in the results.
-      # @note This just returns the object for the value.  Interrogate that object with .present? to confirm
-      #   its existence in the search results.
       function(:value_in_results)                   { |which| b.dd(:text => /#{which}/) }
+      # Check whether a given field value exists in the search results.
+      function(:value_in_results?)                  { |which| value_in_results(which).present?}
+      # Alias value_in_results and value_in_results? to text_in_results/?.
+      function(:text_in_results)                    { |which| value_in_results(which)}
+      function(:text_in_results?)                   { |which| value_in_results?(which)}
       # Return an instance link containing the given text.
       function(:instance_text)                      { |which| b.b(:text => /#{which}/).parent }
     end
