@@ -37,6 +37,8 @@ module OLE_QA::Framework::OLEFS
       super
       # Return the link to a document by any text in the row.
       function(:doc_link_by_text)               {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").parent.td(:index => 0).a}
+      # Return the TD element containing the given text, if it exists in the search results.
+      function(:text_in_results)                {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]")}
       # Check whether the given text exists in the search results.
       function(:text_in_results?)               {|which| b.td(:xpath => "//table[@id='row']/descendant::td[contains(text(),'#{which}')]").present?}
     end
