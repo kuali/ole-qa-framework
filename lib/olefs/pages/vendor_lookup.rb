@@ -39,6 +39,10 @@ module OLE_QA::Framework::OLEFS
 
     def set_functions
       super
+      # Return the TD element containing the given text, if it exists in the search results.
+      function(:text_in_results)                      {|which| b.td(:index => 1).a(:text => which)}
+      # Return true or false based on whether the given text exists in the search results.
+      function(:text_in_results?)                     {|which| text_in_results(which).present?}
       # Get the 'return result' link for the given text in the search results.
       function(:return_result)                        {|which| b.td(:index => 1).a(:text => which).parent.parent.td(:index => 0).a}
     end
