@@ -37,6 +37,10 @@ module OLE_QA::Framework::OLEFS
       super
       # The 'return selection' link for a given text value in the search results.
       function(:return_result)                                {|which| b.td(:text => which).parent.td(:index => 0).a}
+      # Return the TD containing the given text, if it exists in the search results.
+      function(:text_in_results)                              {|which| b.td(:text => which)}
+      # Return true or false depending on whether the given text exists in the search results.
+      function(:text_in_results?)                             {|which| text_in_results(which).present?}
     end
   end
 end
