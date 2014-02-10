@@ -42,8 +42,10 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-      # Check whether the given text exists within the search results displayed.
+      # If the given text exists in a TD element in the search results, return that element.
       function(:text_in_results)                      {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
+      # Return true or false based on whether the given text exists in the search results.
+      function(:text_in_results?)                     {|text| text_in_results(text).present?}
       # Return the 'Edit' link for a row containing the given text.
       function(:edit_by_text)                         {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td[1]/div/fieldset/div/div/a[contains(text(),'edit')]")}
       # Return the Batch Process Profile ID link for a row containing the given text.
