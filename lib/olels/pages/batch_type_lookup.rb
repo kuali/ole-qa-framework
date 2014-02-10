@@ -43,8 +43,10 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
-      # Check whether the given text exists in the search results.
+      # If the given text exists in a TD element in the search results, return that element.
       function(:text_in_results)            {|text| b.td(:xpath => "//table/tbody/tr/td[div/span[contains(text(),'#{text}')]]")}
+      # Return true or false based on whether the given text is found in the search results.
+      function(:text_in_results?)           {|text| text_in_results(text).present?}
       # Return the Batch Process Type ID link for a row containing the given text.
       function(:id_by_text)                 {|text| b.a(:xpath => "//table/tbody/tr[td/div/span[contains(text(),'#{text}')]]/td/div[starts-with(@id,'result-batchProcessTypeId')]/span/a")}
       # Return the 'return value' link for a row containing the given text.
