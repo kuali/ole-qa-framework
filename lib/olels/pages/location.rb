@@ -48,6 +48,7 @@ module OLE_QA::Framework::OLELS
       super
       # Submit the document, and when the outcome message is present, check for success.
       function(:submit)                                                   { submit_button.when_present.click
+          wait_for_page_to_load
           Watir::Wait.until { message.present? || error_message.present? }
           message.present? && message.text.include?('successfully submitted') ? true : false }
     end

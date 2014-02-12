@@ -1,3 +1,8 @@
+### v3.9.7 - 2014/02/12
+
+* Location Page
+    * Added .wait_for_page_to_load call to .submit function definition.
+
 ### v3.9.6 - 2014/02/10
 
 * Search Results Update
