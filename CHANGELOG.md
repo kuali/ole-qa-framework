@@ -1,3 +1,8 @@
+### v3.9.8 - 2014/02/17
+
+* Batch Process Page
+    * Added .input_file_field for bib import processes.
+
 ### v3.9.7 - 2014/02/12
 
 * Location Page

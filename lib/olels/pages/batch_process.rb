@@ -32,6 +32,7 @@ module OLE_QA::Framework::OLELS
       element(:email_field)                 {b.text_field(:id => 'emailField_control')}
       element(:output_format_selector)      {b.select_list(:id => 'outputField_control')}
       element(:output_file_field)           {b.text_field(:id => 'outputFileField_control')}
+      element(:input_file_field)            {b.input(:id => 'ingestInputFile_control').to_subtype}
       element(:run_button)                  {b.button(:id => 'runNowButton')}
       element(:schedule_button)             {b.button(:id => 'scheduleButton')}
       element(:marc_file_field)             {b.input(:id => 'marcFileField_control').to_subtype}
