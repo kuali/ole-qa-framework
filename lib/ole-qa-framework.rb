@@ -165,6 +165,8 @@ module OLE_QA
           @browser.driver.manage.timeouts.implicit_wait = @options[:implicit_wait]
         end
 
+        # Set cutomizable default timeout on Watir-Webdriver (v0.6.5+).
+        Watir.default_timeout = @explicit_wait
       end
 
       # Access Watir-Webdriver's browser session.

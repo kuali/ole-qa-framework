@@ -19,7 +19,7 @@ require "spec_helper"
 describe "The Watir Webdriver" do
 
   before :all do
-    @ole = OLE_QA::Framework::Session.new
+    @ole = OLE_QA::Framework::Session.new(:explicit_wait => 45)
   end
 
   after :all do
@@ -33,5 +33,9 @@ describe "The Watir Webdriver" do
   it "should be able to open Google" do
     @ole.browser.goto("http://www.google.com")
     @ole.browser.title.should == "Google"
+  end
+
+  it 'should have a customized default timeout' do
+    Watir.default_timeout.should eq(45)
   end
 end

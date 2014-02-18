@@ -1,3 +1,10 @@
+### v3.10.0 - 2014/02/18
+
+* Default Timeout Upgrade
+    * Watir-Webdriver in 0.6.5 introduced a customizable default timeout.
+    The Framework's default timeout setting (:explicit_wait => NN)
+    now takes advantage of this feature.
+
 ### v3.9.8 - 2014/02/17
 
 * Batch Process Page
