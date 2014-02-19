@@ -2,6 +2,7 @@
 
 * Request Pages added in OLELS
     * Request Lookup
+    * Request
 
 ### v3.10.0 - 2014/02/18
 

@@ -38,9 +38,9 @@ module OLE_QA::Framework::OLELS
     end
 
     def wait_for_elements
+      super
       @wait_on << :patron_barcode_field << :patron_first_name_field << :patron_last_name_field
       @wait_on << :item_barcode_field << :item_title_field
-      super
     end
 
     def set_functions
