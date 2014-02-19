@@ -51,10 +51,11 @@ module OLE_QA::Framework::OLELS
       element(:item_call_number_field)                {b.text_field(:id => /callNumber_control/)}
       element(:item_copy_number_field)                {b.text_field(:id => /copyNumber_control/)}
       element(:patron_queue_position_field)           {b.text_field(:id => /borrowerQueuePosition_control/)}
-      element(:pickup_location_selector)              {b.select_list(:id => /pickupLocation_control/)}
-      element(:pickup_location_icon)                  {b.fieldset(:id => /pickupLocation_fieldset/).input(:class => 'uif-actionImage', :index => 0)}
       element(:create_date_field)                     {b.text_field(:id => /createDate_control/)}
       element(:expiry_date_field)                     {b.text_field(:id => /expirationDate_control/)}
+      # (Not present on request types 'Copy Request' or 'In Transit Request')
+      element(:pickup_location_selector)              {b.select_list(:id => /pickupLocation_control/)}
+      element(:pickup_location_icon)                  {b.fieldset(:id => /pickupLocation_fieldset/).input(:class => 'uif-actionImage', :index => 0)}
     end
 
     def wait_for_elements
