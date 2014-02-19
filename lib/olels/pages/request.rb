@@ -42,6 +42,19 @@ module OLE_QA::Framework::OLELS
       element(:cancel_button)                         {b.a(:text => /[Cc]ancel/)}
       element(:error)                                 {b.li(:class => 'uif-errorMessageItem')}
       element(:message)                               {b.li(:class => 'uif-infoMessageItem')}
+      # The following fields only appear after a request type is selected.
+      # (Except request types 'Recall/Delivery Request 1' and 'Recall/Delivery Request 2')
+      element(:item_barcode_field)                    {b.text_field(:id => /itemId_control/)}
+      element(:item_title_field)                      {b.text_field(:id => /itemTitle_control/)}
+      element(:item_author_field)                     {b.text_field(:id => /author_control/)}
+      element(:item_location_field)                   {b.text_field(:id => /shelvingLocation_control/)}
+      element(:item_call_number_field)                {b.text_field(:id => /callNumber_control/)}
+      element(:item_copy_number_field)                {b.text_field(:id => /copyNumber_control/)}
+      element(:patron_queue_position_field)           {b.text_field(:id => /borrowerQueuePosition_control/)}
+      element(:pickup_location_selector)              {b.select_list(:id => /pickupLocation_control/)}
+      element(:pickup_location_icon)                  {b.fieldset(:id => /pickupLocation_fieldset/).input(:class => 'uif-actionImage', :index => 0)}
+      element(:create_date_field)                     {b.text_field(:id => /createDate_control/)}
+      element(:expiry_date_field)                     {b.text_field(:id => /expirationDate_control/)}
     end
 
     def wait_for_elements
