@@ -1,3 +1,8 @@
+### v3.11.0 - 2014/02/19
+
+* Request Pages added in OLELS
+    * Request Lookup
+
 ### v3.10.0 - 2014/02/18
 
 * Default Timeout Upgrade
