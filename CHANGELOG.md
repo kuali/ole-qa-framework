@@ -3,6 +3,8 @@
 * Request Pages added in OLELS
     * Request Lookup
     * Request
+* Patron Lookup
+    * Added .return_by_text() function
 
 ### v3.10.0 - 2014/02/18
 

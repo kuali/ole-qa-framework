@@ -53,6 +53,8 @@ module OLE_QA::Framework::OLELS
       function(:copy_by_text)                    {|which| b.a(:xpath => link_by_text('copy',which)) }
       # Return the delete link for a given text string in the search results.
       function(:delete_by_text)                  {|which| b.a(:xpath => link_by_text('delete',which)) }
+      # Return the 'return value' link for a line containing the given text in the search results.
+      function(:return_by_text)                  {|which| b.a(:xpath => "//tr[td/div/span[contains(text(),'#{which}')]]/td/div/fieldset/div/div/a[contains(text(),'return value')]")}
     end
 
     # Return the XPath to find a link with the given text on a line containing a search result with the given text.
