@@ -49,6 +49,12 @@ module OLE_QA::Framework::OLELS
       function(:text_in_results)                {|which| b.span(:xpath => "//td/div/span[contains(text(),'#{which}')]")}
       # Return whether the given text is found in the search results.
       function(:text_in_results?)               {|which| text_in_results(which).present?}
+      # Return the cancel request link for a line containing the given text in the search results.
+      function(:cancel_by_text)                 {|which| b.a(:xpath => "//tr/td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'cancel')]")}
+      # Return the edit request link for a line containing the given text in the search results.
+      function(:edit_by_text)                   {|which| b.a(:xpath => "//tr/td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/fieldset/div/div/a[contains(text(),'edit')]")}
+      # Return the text of the Queue Position entry for a line containing the given text.
+      function(:position_by_text)               {|which| b.span(:xpath => "//tr/td[div/span[contains(text(),'#{which}')]]/preceding-sibling::td/div/span[starts-with(@id,'result-borrowerQueuePosition_line')]").text}
     end
   end
 end
