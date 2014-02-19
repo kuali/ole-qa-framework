@@ -56,6 +56,17 @@ module OLE_QA::Framework::OLELS
       # (Not present on request types 'Copy Request' or 'In Transit Request')
       element(:pickup_location_selector)              {b.select_list(:id => /pickupLocation_control/)}
       element(:pickup_location_icon)                  {b.fieldset(:id => /pickupLocation_fieldset/).input(:class => 'uif-actionImage', :index => 0)}
+      # Request type-specific fields.
+      #   Recall
+      element(:recall_notice_date)                    {b.div(:id => 'recallRequest-recallNoticeSentDate')}
+      #   Hold
+      element(:hold_notice_date)                      {b.span(:id => 'onHoldRequest-onHoldNoticeSentDate_control')}
+      #   Copy
+      element(:copy_format_field)                     {b.text_field(:id => 'copyRequest-copyFormat_control')}
+      element(:copy_pages_field)                      {b.text_field(:id => 'copyRequest-contentDescription_control')}
+      #   In-Transit
+      element(:circulation_location_selector)         {b.select_list(:id => 'inTransitReques-circulationLocationId_control')}
+      element(:checkin_note_field)                    {b.text_field(:id => 'inTransitRequest-checkInNote_control')}
     end
 
     def wait_for_elements
