@@ -41,7 +41,7 @@ module OLE_QA::Framework::OLELS
                                                     id_str = 'phoneNumber_active_add_control' :
                                                     id_str = "phoneNumber_active_line#{line_id - 1}_control"
                                                     b.checkbox(:id => id_str)}
-      element(:add_button)                        {b.button(:id => 'OlePatronDocument-Phone_add')}
+      element(:add_button)                        {b.button(:id => 'OlePatronDocument-Phone-Add_add')}
       element(:delete_button)                     {b.button(:id => "OlePatronDocument-Phone_del_line#{line_id - 1}")}
     end
   end

@@ -1,3 +1,10 @@
+### v3.11.1 - 2014/02/19
+
+* Patron Fixes
+    * Address line  - updated add button ID
+    * Phone line    - updated add button ID
+    * Email line    - updated add button ID
+
 ### v3.11.0 - 2014/02/19
 
 * Request Pages added in OLELS
