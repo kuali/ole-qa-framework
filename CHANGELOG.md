@@ -1,3 +1,9 @@
+### v3.11.2 - 2014/02/28
+
+* Removed two accounts from data/accounts.yml
+    * 1047410
+    * 1047415
+
 ### v3.11.1 - 2014/02/19
 
 * Patron Fixes
