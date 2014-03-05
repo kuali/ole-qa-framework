@@ -1,3 +1,9 @@
+### v3.12.0 - 2014/03/05
+
+* Request Features
+    * Added .item_search_icon & .item_barcode_icon (same element) to Request page
+    * Added Item Lookup page (only accessible from Request page)
+
 ### v3.11.1 - 2014/02/19
 
 * Patron Fixes

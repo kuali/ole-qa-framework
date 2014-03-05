@@ -45,6 +45,8 @@ module OLE_QA::Framework::OLELS
       # The following fields only appear after a request type is selected.
       # (Except request types 'Recall/Delivery Request 1' and 'Recall/Delivery Request 2')
       element(:item_barcode_field)                    {b.text_field(:id => /itemId_control/)}
+      element(:item_search_icon)                      {b.fieldset(:id => 'OnholdRequest-itemId_fieldset').input(:class => 'uif-actionImage',:title => 'Search Field')}
+      element(:item_barcode_icon)                     {b.fieldset(:id => 'OnholdRequest-itemId_fieldset').input(:class => 'uif-actionImage',:title => 'Search Field')}
       element(:item_title_field)                      {b.text_field(:id => /itemTitle_control/)}
       element(:item_author_field)                     {b.text_field(:id => /author_control/)}
       element(:item_location_field)                   {b.text_field(:id => /shelvingLocation_control/)}
