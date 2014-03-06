@@ -1,3 +1,8 @@
+### v3.12.1 - 2014/03/06
+
+* Fix Item Lookup Elements
+    * Redefined Item Lookup elements
+
 ### v3.12.0 - 2014/03/05
 
 * Request Features

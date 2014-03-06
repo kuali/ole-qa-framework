@@ -26,12 +26,12 @@ module OLE_QA::Framework::OLELS
     def set_elements
       super
       element(:title)                         {b.span(:class => 'uif-headerText-span')}
-      element(:title_field)                   {b.text_field(:name => 'lookupCriteria[title]')}
-      element(:author_field)                  {b.text_field(:name => 'lookupCriteria[author]')}
-      element(:publisher_field)               {b.text_field(:name => 'lookupCriteria[publisher]')}
-      element(:barcode_field)                 {b.text_field(:name => 'lookupCriteria[itemBarCode]')}
-      element(:call_number_field)             {b.text_field(:name => 'lookupCriteria[callNumber]')}
-      element(:item_type_selector)            {b.select_list(:name => 'lookupCriteria[itemType]')}
+      element(:title_field)                   {b.div(:data_label => 'Title').text_field(:class => 'uif-textControl')}
+      element(:author_field)                  {b.div(:data_label => 'Author').text_field(:class => 'uif-textControl')}
+      element(:publisher_field)               {b.div(:data_label => 'Publisher').text_field(:class => 'uif-textControl')}
+      element(:barcode_field)                 {b.div(:data_label => 'Item Barcode').text_field(:class => 'uif-textControl')}
+      element(:call_number_field)             {b.div(:data_label => 'Call Number').text_field(:class => 'uif-textControl')}
+      element(:item_type_selector)            {b.div(:data_label => 'Item Type').select_list(:class => 'fixed-size-200-select')}
       element(:search_button)                 {b.button(:text => /[Ss]earch/)}
       element(:clear_button)                  {b.button(:text => /[Cc]lear [Vv]alues/)}
       element(:close_button)                  {b.button(:text => /[Cc]lose/)}
