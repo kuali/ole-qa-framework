@@ -1,3 +1,8 @@
+### v3.12.2 - 2014/03/10
+
+* Invoice Fix
+    * Removed .document_id from .wait_for_elements as it was causing unnecessary failures.
+
 ### v3.12.1 - 2014/03/06
 
 * Fix Item Lookup Elements

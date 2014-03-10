@@ -79,7 +79,8 @@ module OLE_QA::Framework::OLEFS
     # Wait on these elements before the page is considered to have fully loaded.
     def wait_for_elements
       super
-      # @wait_on << :element
+      # Remove document ID from wait_for_elements.
+      @wait_on.delete(:document_id)
     end
 
     def set_functions
