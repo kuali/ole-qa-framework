@@ -1,3 +1,9 @@
+### v3.12.3 - 2014/03/14
+
+* Request Page Fix
+    * Add .user_id and .user_id_field elements.
+
+
 ### v3.12.2 - 2014/03/10
 
 * Invoice Fix

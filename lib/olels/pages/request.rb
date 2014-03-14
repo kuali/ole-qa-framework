@@ -32,6 +32,8 @@ module OLE_QA::Framework::OLELS
       element(:creation_timestamp)                    {b.div(:data_label => 'Creation Timestamp').span(:class => 'uif-readOnlyContent')}
       element(:request_details_toggle)                {b.a(:id => 'OleRequestDocument-MaintenanceView-selectRequestBorrower_toggle')}
       element(:user_type_selector)                    {b.select_list(:id => 'selectRequestBorrower-MaintenanceView-requestCreators_control')}
+      element(:user_id_field)                         {b.text_field(:id => 'selectRequestOperator-operatorCreateIds_control')}
+      element(:user_name)                             {b.span(:id => 'selectRequestOperator-operatorCreateNames_control')}
       element(:request_type_selector)                 {b.select_list(:id => 'selectRequestBorrower-MaintenanceView-requestTypeIds_control')}
       element(:patron_barcode_field)                  {b.text_field(:id => 'selectRequestBorrower-MaintenanceView-borrowerBarcodes_control')}
       element(:patron_barcode_icon)                   {b.fieldset(:id => 'selectRequestBorrower-MaintenanceView-borrowerBarcodes_fieldset').input(:class => 'uif-actionImage')}
