@@ -1,3 +1,8 @@
+### v3.12.5 - 2014/03/18
+
+* Additional Request Page Fixes
+    * Fixed element IDs for item search field and item barcode icon.
+
 ### v3.12.4 - 2014/03/18
 
 * Request Page Fix
