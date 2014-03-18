@@ -31,13 +31,13 @@ module OLE_QA::Framework::OLELS
       element(:document_status)                       {b.div(:data_label => 'Document Status').span(:class => 'uif-readOnlyContent')}
       element(:creation_timestamp)                    {b.div(:data_label => 'Creation Timestamp').span(:class => 'uif-readOnlyContent')}
       element(:request_details_toggle)                {b.a(:id => 'OleRequestDocument-MaintenanceView-selectRequestBorrower_toggle')}
-      element(:user_type_selector)                    {b.select_list(:id => 'selectRequestBorrower-MaintenanceView-requestCreators_control')}
-      element(:user_id_field)                         {b.text_field(:id => 'selectRequestOperator-operatorCreateIds_control')}
-      element(:user_name)                             {b.span(:id => 'selectRequestOperator-operatorCreateNames_control')}
-      element(:request_type_selector)                 {b.select_list(:id => 'selectRequestBorrower-MaintenanceView-requestTypeIds_control')}
-      element(:patron_barcode_field)                  {b.text_field(:id => 'selectRequestBorrower-MaintenanceView-borrowerBarcodes_control')}
-      element(:patron_barcode_icon)                   {b.fieldset(:id => 'selectRequestBorrower-MaintenanceView-borrowerBarcodes_fieldset').input(:class => 'uif-actionImage')}
-      element(:patron_name_field)                     {b.text_field(:id => 'selectRequestBorrower-MaintenanceView-borrowerNames_control')}
+      element(:user_type_selector)                    {b.select_list(:id => /selectRequest\w+-MaintenanceView-requestCreators_control/)}
+      element(:user_id_field)                         {b.text_field(:id => /selectRequest\w+-operatorCreateIds_control/)}
+      element(:user_name)                             {b.span(:id => /selectRequest\w+-operatorCreateNames_control/)}
+      element(:request_type_selector)                 {b.select_list(:id => /selectRequest\w+-MaintenanceView-requestTypeIds_control/)}
+      element(:patron_barcode_field)                  {b.text_field(:id => /selectRequest\w+-MaintenanceView-borrowerBarcodes_control/)}
+      element(:patron_barcode_icon)                   {b.fieldset(:id => /selectRequest\w+-MaintenanceView-borrowerBarcodes_fieldset/).input(:class => 'uif-actionImage')}
+      element(:patron_name_field)                     {b.text_field(:id => /selectRequest(\w+)?-MaintenanceView-borrowerNames_control/)}
       element(:submit_button)                         {b.button(:text => /[Ss]ubmit/)}
       element(:save_button)                           {b.button(:text => /[Ss]ave/)}
       element(:back_button)                           {b.button(:text => /[Bb]ack/)}
@@ -69,7 +69,7 @@ module OLE_QA::Framework::OLELS
       element(:copy_format_field)                     {b.text_field(:id => 'copyRequest-copyFormat_control')}
       element(:copy_pages_field)                      {b.text_field(:id => 'copyRequest-contentDescription_control')}
       #   In-Transit
-      element(:circulation_location_selector)         {b.select_list(:id => 'inTransitReques-circulationLocationId_control')}
+      element(:circulation_location_selector)         {b.select_list(:id => 'inTransitRequest-circulationLocationId_control')}
       element(:checkin_note_field)                    {b.text_field(:id => 'inTransitRequest-checkInNote_control')}
     end
 

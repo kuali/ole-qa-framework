@@ -1,3 +1,8 @@
+### v3.12.4 - 2014/03/18
+
+* Request Page Fix
+    * Replaced IDs with regex patterns to match dynamically-updated element IDs in page.
+
 ### v3.12.3 - 2014/03/14
 
 * Request Page Fix
