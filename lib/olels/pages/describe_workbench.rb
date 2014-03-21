@@ -18,6 +18,7 @@ module OLE_QA::Framework::OLELS
     def initialize(ole_session)
       url = ole_session.url + 'portal.do?channelTitle=Describe%20Workbench&channelUrl='
       url += ole_session.url + 'ole-kr-krad/olesearchcontroller?viewId=OLESearchView&methodToCall=start'
+      super(ole_session,url)
     end
 
     def set_elements
