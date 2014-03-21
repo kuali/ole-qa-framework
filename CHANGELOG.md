@@ -1,3 +1,10 @@
+### v3.13.0 - 2014/03/21
+
+* Add new Describe Workbench Page
+    * Old page moved to Old_Describe_Workbench
+* Update compatibility version
+    *  1.5.0-M2-r18095, released 2014/03/20
+
 ### v3.12.5 - 2014/03/18
 
 * Additional Request Page Fixes
