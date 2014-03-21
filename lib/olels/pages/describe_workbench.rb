@@ -37,6 +37,9 @@ module OLE_QA::Framework::OLELS
 
     def set_functions
       super
+      # Check if text is present in results.  (Will not search titles.)
+      function(:text_in_results)                            {|which| b.span(:class => 'uif-readOnlyContent', :text => /#{which}/)}
+      function(:text_in_results?)                           {|which| text_in_results(which).present?}
     end
 
     def set_lines
