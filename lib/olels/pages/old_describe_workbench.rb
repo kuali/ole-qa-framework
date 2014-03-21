@@ -13,8 +13,8 @@
 #  limitations under the License.
 
 module OLE_QA::Framework::OLELS
-  # The OLE Library System Describe Workbench Screen
-  class Describe_Workbench < Lookup
+  # The OLE Library System Describe Workbench Screen (Deprecated as of 1.5.0-M2-r18095, 2014-03-20)
+  class Old_Describe_Workbench < Lookup
     # Set URL
     def initialize(ole_session)
       url = ole_session.url + 'portal.do?channelTitle=Describe Workbench&channelUrl='
