@@ -28,6 +28,8 @@ module OLE_QA::Framework::OLELS
       element(:search_button)                               {b.button(:id => 'SearchButton')}
       element(:clear_button)                                {b.button(:id => 'ClearButton')}
       element(:new_search_button)                           {b.button(:id => 'StartSearchButton')}
+      element(:next)                                        {b.a(:text => /[Nn]ext/)}
+      element(:previous)                                    {b.a(:text => /[Pp]revious/)}
     end
 
     def wait_for_elements
@@ -43,6 +45,10 @@ module OLE_QA::Framework::OLELS
       # Check if title is present in results.
       function(:title_in_results)                           {|which| b.a(:class => 'uif-link',:text => /#{which}/)}
       function(:title_in_results?)                          {|which| title_in_results(which).present?}
+      # Return the select checkbox for a line in the search results containing the given text.  (Will not work with titles.)
+      function(:select_by_text)                             {|which| text_in_results(which).parent.parent.parent.td(:index => 0).div(:class => 'uif-inputField').checkbox(:class => 'uif-checkboxControl')}
+      # Return the select checkbox for a line in the search results containing the given text.
+      function(:select_by_title)                            {|which| title_in_results(which).parent.parent.parent.td(:index => 0).div(:class => 'uif-inputField').checkbox(:class => 'uif-checkboxControl')}
     end
 
     def set_lines
