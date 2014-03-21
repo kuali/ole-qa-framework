@@ -22,10 +22,16 @@ module OLE_QA::Framework::OLELS
 
     def set_elements
       super
+      element(:document_type_selector)                      {b.select_list(:id => 'DocumentAndSearchSelectionType_DocType_control')}
+      element(:search_type_selector)                        {b.select_list(:id => 'DocumentAndSearchSelectionType_SearchType_control')}
+      element(:search_button)                               {b.button(:id => 'SearchButton')}
+      element(:clear_button)                                {b.button(:id => 'ClearButton')}
+      element(:new_search_button)                           {b.button(:id => 'StartSearchButton')}
     end
 
     def wait_for_elements
       super
+      @wait_on << :document_type_selector << :search_button
     end
 
     def set_functions
