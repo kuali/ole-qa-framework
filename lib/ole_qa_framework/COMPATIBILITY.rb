@@ -15,6 +15,6 @@
 module OLE_QA
   module Framework
     # The most recent version of OLE with which this framework was tested for compatibility.
-    OLE_VERSION = '1.5.0 - M2 (Rice Upgrade 2.3.2)'
+    OLE_VERSION = '1.5.0 - M2 - r18095, 2014/03/21'
   end
 end
