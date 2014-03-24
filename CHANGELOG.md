@@ -1,3 +1,7 @@
+### v3.13.1 -
+
+* Add documentation to Workbench Line #search_scope_selector.
+
 ### v3.13.0 - 2014/03/21
 
 * Add new Describe Workbench Page

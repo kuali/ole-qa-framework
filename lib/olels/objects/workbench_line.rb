@@ -21,6 +21,7 @@ module OLE_QA::Framework::OLELS
                                               id_str = 'SearchConditions_SearchText_id_add_control' :
                                               id_str = "SearchConditions_SearchText_id_line#{line_id - 1}_control"
                                               b.text_field(:id => id_str)}
+      # @note Options for this selector are 'AND', 'OR', and 'phrase'.
       element(:search_scope_selector)       {(line_id == 0) ?
                                               id_str = 'SearchConditions_Operator_id_add_control' :
                                               id_str = "SearchConditions_Operator_id_line#{line_id - 1}_control"
