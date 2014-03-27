@@ -28,6 +28,8 @@ module OLE_QA::Framework::OLELS
       element(:search_button)                               {b.button(:id => 'SearchButton')}
       element(:clear_button)                                {b.button(:id => 'ClearButton')}
       element(:new_search_button)                           {b.button(:id => 'StartSearchButton')}
+      element(:error_message)                               {b.li(:class => 'uif-errorMessageItem')}
+      element(:export_xml_button)                           {b.button(:id => 'exportToXml')}
       element(:next)                                        {b.a(:text => /[Nn]ext/)}
       element(:previous)                                    {b.a(:text => /[Pp]revious/)}
     end

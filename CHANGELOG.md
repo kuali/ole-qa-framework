@@ -1,3 +1,11 @@
+### v3.13.2 - 2014/03/27
+
+* Update Workbench Line Elements
+    * All elements
+* Add Workbench Elements
+    * Add .error_message
+    * Add .export_xml_button
+
 ### v3.13.1 - 2014/03/27
 
 * Add documentation to Workbench Line #search_scope_selector.
