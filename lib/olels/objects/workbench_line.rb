@@ -42,8 +42,8 @@ module OLE_QA::Framework::OLELS
                                               id_str = 'SearchConditions_SearchScope_id_add_control_2' :
                                               id_str = "SearchConditions_SearchScope_id_line#{line_id - 1}_control_2"
                                               b.radio(:id => id_str)}
-      element(:add_button)                  {b.button(:id => 'SearchConditionsSection_add')}
-      element(:delete_button)               {b.button(:id => "SearchConditionsSection_del_line#{line_id - 1}")}
+      element(:add_button)                  {b.button(:id => "addLineField-Add_line#{line_id}")}
+      element(:delete_button)               {b.button(:id => "deleteLineField-Delete_line#{line_id}")}
     end
   end
 end

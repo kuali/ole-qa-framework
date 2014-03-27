@@ -1,6 +1,9 @@
-### v3.13.1 -
+### v3.13.1 - 2014/03/27
 
 * Add documentation to Workbench Line #search_scope_selector.
+* Update Workbench Line Elements
+    * Update .add_button
+    * Update .delete_button
 
 ### v3.13.0 - 2014/03/21
 
