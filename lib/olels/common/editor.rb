@@ -43,7 +43,6 @@ module OLE_QA::Framework::OLELS
     #   despite their commonality.
     def set_elements
       super
-      element(:title)                               {b.h2(:class => "uif-headerText").span}
       element(:message)                             {b.li(:class => 'uif-infoMessageItem')}
       element(:messages)                            {b.lis(:class => 'uif-infoMessageItem')}
       element(:message_header)                      {b.h3(:class => 'uif-pageValidationHeader')}
@@ -58,11 +57,6 @@ module OLE_QA::Framework::OLELS
       element(:delete_instance_button)              {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => "Delete")}
       element(:add_item_button)                     {b.div(:id => 'vakata-contextmenu').ul.li(:index => 2).a(:rel => 'Create')}
       element(:delete_item_button)                  {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => 'Delete')}
-    end
-
-    # Designate elements always expected to be present once the editor has finished loading.
-    def wait_for_elements
-      @wait_on << :title
     end
 
     # Define commonly-used functions on Editor page objects.
