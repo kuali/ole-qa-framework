@@ -1,3 +1,10 @@
+### v3.13.3 - 2014/04/14
+
+* Update Marc Editor base class
+    * Remove :title element as it no longer exists
+* Update Page base class
+    * Add :wait_on attribute to show wait_for_elements list
+
 ### v3.13.2 - 2014/03/27
 
 * Update Workbench Line Elements

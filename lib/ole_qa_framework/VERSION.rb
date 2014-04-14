@@ -15,6 +15,6 @@
 module OLE_QA
   module Framework
     # The version number for this project.
-    VERSION = '3.13.2'
+    VERSION = '3.13.3'
   end
 end
