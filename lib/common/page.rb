@@ -26,6 +26,9 @@ module OLE_QA::Framework
     # An array containing the name (Symbol) of each line object on the page object.
     attr_reader :lines
 
+    # An array containing the elements (Symbol) to wait on before the page is considered loaded.
+    attr_reader :wait_on
+
     include OLE_QA::Framework::Page_Helpers
 
     # @param ole_session [Object] The OLE_QA::Framework::Session instance in which the page should load.
