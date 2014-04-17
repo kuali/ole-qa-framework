@@ -1,3 +1,9 @@
+### v3.13.4 - 2014/04/17
+
+* Update Loan Screen
+    * Add renewal_box element
+* Add renewal screen
+
 ### v3.13.3 - 2014/04/14
 
 * Update Marc Editor base class

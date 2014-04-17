@@ -12,9 +12,22 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-module OLE_QA
-  module Framework
-    # The version number for this project.
-    VERSION = '3.13.4'
+module OLE_QA::Framework::OLELS
+  # The renewal popup page on the loan screen in the OLE Library System.
+  class Renewal < OLE_QA::Framework::Page
+    def initialize(ole_session)
+      # Initialize to the loan screen URL as this page is not accessed independently.
+      url = ole_session.url + 'portal.do?channelTitle=Loan&channelUrl='
+      url += ole_session.url + 'ole-kr-krad/loancontroller?viewId=PatronItemView&methodToCall=start'
+      super(ole_session, url)
+    end
+
+    def set_elements
+      super
+    end
+
+    def set_functions
+      super
+    end
   end
 end

@@ -62,6 +62,8 @@ module OLE_QA::Framework::OLELS
       element(:patron_preferred_address)                  {b.span(:id => 'patronPreferredAddress_control')}
       element(:patron_phone_number)                       {b.span(:id => 'patronPhone_control')}
       element(:patron_email)                              {b.span(:id => 'patronEmail_control')}
+      # Special
+      element(:renewal_box)                               {b.div(:id => 'RenewalDueDateSection-HorizontalBoxSection')}
     end
 
     # Wait for the return button to be present.
