@@ -2,7 +2,10 @@
 
 * Update Loan Screen
     * Add renewal_box element
-* Add renewal screen
+* Add renewal screen base class
+* Update Marc Editor Elements
+    * Add Instance
+    * Add Item
 
 ### v3.13.3 - 2014/04/14
 

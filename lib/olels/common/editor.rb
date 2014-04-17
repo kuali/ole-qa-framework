@@ -51,11 +51,11 @@ module OLE_QA::Framework::OLELS
       element(:close_button)                        {b.button(:id => "closeEditor")}
       element(:return_to_search_button)             {b.button(:id => "returnToSearch_button")}
       # Navigation Area Elements
-      element(:delete_bib_button)                   {b.div(:id => 'bibLevelActionSection').div(:index => 2).input(:title => "Delete Bib")}
-      element(:add_instance_button)                 {b.div(:id => 'bibLevelActionSection').div(:index => 2).input(:title => "Add Instance")}
+      element(:delete_bib_button)                   {b.input(:title => 'Delete Bib')}
+      element(:add_instance_button)                 {b.input(:title => 'Add Instance')}
       # @note Vakata Context Menu items are only present on the screen after the containing menu header has been right-clicked.
       element(:delete_instance_button)              {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => "Delete")}
-      element(:add_item_button)                     {b.div(:id => 'vakata-contextmenu').ul.li(:index => 2).a(:rel => 'Create')}
+      element(:add_item_button)                     {b.input(:title => 'Add Item')}
       element(:delete_item_button)                  {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => 'Delete')}
     end
 
