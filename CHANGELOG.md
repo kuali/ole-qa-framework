@@ -1,4 +1,4 @@
-### v3.13.4 - 2014/04/17
+### v3.13.4 - 2014/04/18
 
 * Update Loan Screen
     * Add renewal_box element
