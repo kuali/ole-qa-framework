@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework::OLELS
 
-  # This represents the base object for the Describe Editor.
+  # This represents the base object for the Describe Editor
   # It generates elements common to all three editor screens:
   # - Bibliographic Editor
   # - Instance Editor (for Holdings)
@@ -51,11 +51,12 @@ module OLE_QA::Framework::OLELS
       element(:close_button)                        {b.button(:id => "closeEditor")}
       element(:return_to_search_button)             {b.button(:id => "returnToSearch_button")}
       # Navigation Area Elements
-      element(:delete_bib_button)                   {b.input(:title => 'Delete Bib')}
-      element(:add_instance_button)                 {b.input(:title => 'Add Instance')}
+      element(:delete_bib_button)                   {b.button(:title => 'Delete Bib')}
+      element(:add_instance_button)                 {b.button(:title => 'Add Instance')}
+      element(:add_einstance_button)                {b.button(:title => 'Add EInstance')}
       # @note Vakata Context Menu items are only present on the screen after the containing menu header has been right-clicked.
       element(:delete_instance_button)              {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => "Delete")}
-      element(:add_item_button)                     {b.input(:title => 'Add Item')}
+      element(:add_item_button)                     {b.button(:title => 'Add Item')}
       element(:delete_item_button)                  {b.div(:id => 'vakata-contextmenu').ul.li(:index => 0).a(:rel => 'Delete')}
     end
 
