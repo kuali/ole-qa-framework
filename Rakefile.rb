@@ -19,10 +19,16 @@ require 'rubygems'
 require 'rspec/core/rake_task'
 require 'bundler/gem_tasks'
 require 'fileutils'
+require 'lib/ole_qa_framework/COMPATIBILITY.rb'
 
 desc "Print the current version number."
 task :version do
   puts OLE_QA::Framework::VERSION
+end
+
+desc "Print version info for the latest compatible OLE release."
+task :works_with do
+  puts OLE_QA::Framework::OLE_VERSION
 end
 
 desc "Select a config file from lib/config/alt."

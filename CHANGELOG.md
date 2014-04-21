@@ -1,3 +1,7 @@
+### v3.14.0 - 2014/04/21
+
+* Add Rake works_with task
+
 ### v3.13.4 - 2014/04/18
 
 * Update Loan Screen
