@@ -1,3 +1,11 @@
+### v3.14.1 - 2014/05/19
+
+* Add Conributions document
+* Update default options
+    * Framework uses Test Environment by default
+* Update Page Spec for Watir 0.6.9 Compatibility
+    * Page spec now expects IFrame instead of Frame
+
 ### v3.14.0 - 2014/04/21
 
 * Add Rake works_with task

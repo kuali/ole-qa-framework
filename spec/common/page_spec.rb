@@ -91,6 +91,6 @@ describe "A Page" do
 
   it 'should set a frame element on the browser if one is present' do
     OLE_QA::Framework::OLEFS::Requisition.new(@ole).open
-    @page.browser.class.should == Watir::Frame
+    @page.browser.class.should == Watir::IFrame
   end
 end
