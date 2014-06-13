@@ -78,7 +78,7 @@ module OLE_QA
     @explicit_wait = 0
     @doc_wait = 0
 
-    # Set accessor methods for explicit_wait & doc_wait, to be used mainly by OLE_QA::Tools (ole-qa-tools).
+    # Set accessor methods for explicit_wait & doc_wait.
     class << self
       attr_reader :explicit_wait, :doc_wait
     end

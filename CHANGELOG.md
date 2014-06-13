@@ -1,3 +1,8 @@
+### v3.15.0 - 2014/06/13
+
+* Update Framework module & Session class
+    * Add session spec
+
 ### v3.14.1 - 2014/05/19
 
 * Add Conributions document
