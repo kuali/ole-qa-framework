@@ -1,0 +1,11 @@
+# Default options for an OLE QA Framework session.
+# (Parsed at session instantiation.  See
+#   OLE_QA::Framework::Session#new for
+#   more information.)
+---
+:url: http://tst.ole.kuali.org/
+:docstore_url: http://tst.docstore.ole.kuali.org/
+:headless?: true
+:implicit_wait: 0
+:explicit_wait: 30
+:doc_wait: 45

@@ -20,6 +20,7 @@ require 'rspec/core/rake_task'
 require 'bundler/gem_tasks'
 require 'fileutils'
 require 'lib/ole_qa_framework/COMPATIBILITY.rb'
+require 'yaml'
 
 desc "Print the current version number."
 task :version do
@@ -31,16 +32,41 @@ task :works_with do
   puts OLE_QA::Framework::OLE_VERSION
 end
 
-desc "Select a config file from lib/config/alt."
-task :select_config do
-  puts 'Enter filename:  '
-  target_file = STDIN.gets.chomp
-  target_file += '.yml' unless target_file =~ /\.yml$/
-  file_path = "#{loaddir}/lib/config/"
-  if File.exists?(file_path + 'alt/' + target_file)
-    FileUtils.cp "#{file_path}alt/#{target_file}", "#{file_path}default_options.yml"
-    puts "Successfully copied #{file_path}alt/#{target_file}."
-  else
-    puts "File not found: #{file_path}alt/#{target_file}"
+desc 'Interactively configure config/options.yml'
+task :configurator do
+  config_file = File.open('config/options.yml','r')
+  options     = YAML.load(config_file)
+  config_file.close
+
+  options.each do |k,v|
+    puts "#{k.to_s.ljust(20)}:  #{v}"
+    puts "... (k)eep or (c)hange? [k|c]"
+    ans = STDIN.gets.chomp
+    if ans =~ /[Cc]/
+      puts "Enter new value:"
+      new_val    = STDIN.gets.chomp
+      if v.is_a?(TrueClass) || v.is_a?(FalseClass)
+        new_val.match(/^[Tt]/) ? new_val = true : new_val = false
+      else
+        new_val = new_val.to_i unless new_val.to_i == 0
+      end
+      options[k] = new_val
+      puts "#{k.to_s.ljust(20)} updated to:  #{new_val}"
+    end
+  end
+
+  config_file = File.open('config/options.yml','w')
+  YAML.dump(options,config_file)
+  config_file.close
+
+end
+
+desc 'Show current options in config/options.yml'
+task :show_config do
+  config_file = File.open('config/options.yml','r')
+  options     = YAML.load(config_file)
+  config_file.close
+  options.each do |k,v|
+    puts "#{k.to_s.ljust(20)}:  #{v}"
   end
 end

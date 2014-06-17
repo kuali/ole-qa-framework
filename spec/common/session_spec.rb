@@ -23,8 +23,8 @@ describe 'An OLE QA Framework Session' do
   end
 
   after :all do
-    @ole.quit
-    @headless_ole.quit
+    @ole.quit unless @ole.nil?
+    @headless_ole.quit unless @ole.nil?
   end
 
   context 'should start' do

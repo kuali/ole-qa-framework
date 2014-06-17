@@ -2,12 +2,21 @@
 
 * Update Framework module & Session class
     * Add session spec
+    * Move lib/config/default_options.yml to config/options.yml
+* Update Rakefile
+    * Remove select_config task
+    * Add show_config task
+    * Add configurator task
+* Update Readme
+    * Add instructions for show_config & configurator tasks
 * Clean up modules
     * Move page helpers to lib/common/page.rb
     * Remove lib/module/qa_page_helpers.rb
     * Remove redundant page helpers spec
     * Remove lib/module/qa_data_helpers.rb
 * Update Copyright info
+* Clean up specs
+    * Add @ole.nil? check to specs using live sessions
 
 
 ### v3.14.1 - 2014/05/19

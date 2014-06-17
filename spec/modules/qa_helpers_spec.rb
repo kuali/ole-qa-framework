@@ -39,7 +39,7 @@ describe 'The Helpers module' do
   end
 
 	after :all do
-	  @ole.quit
+	  @ole.quit unless @ole.nil?
 	end
 
   it 'should do create an accessor attribute' do

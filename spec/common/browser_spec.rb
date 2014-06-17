@@ -23,7 +23,7 @@ describe "The Watir Webdriver" do
   end
 
   after :all do
-    @ole.quit
+    @ole.quit unless @ole.nil?
   end
 
   it 'should create an instance of Watir Webdriver' do

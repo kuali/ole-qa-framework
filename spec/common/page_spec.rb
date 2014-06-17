@@ -45,7 +45,7 @@ describe "A Page" do
   end
 
   after :all do
-    @ole.quit
+    @ole.quit unless @ole.nil?
   end
 
   it "should open via url" do

@@ -30,14 +30,17 @@ module OLE_QA
     @datadir = File.expand_path(File.dirname(__FILE__) + "/../data/")
     $LOAD_PATH.unshift(@datadir) unless $LOAD_PATH.include?(@datadir)
 
-    # Return absolute path from which the file was run
-    def self.load_dir
-      @libdir
-    end
 
-    # Return absolute path for data directory
-    def self.data_dir
-      @datadir
+    class << self
+      # Return absolute path from which the file was run
+      def load_dir
+        @libdir
+      end
+
+      # Return absolute path for data directory
+      def data_dir
+        @datadir
+      end
     end
 
     # Load libraries from absolute path
@@ -88,7 +91,7 @@ module OLE_QA
     #   Exit with @ole.quit
     #
     # Default options loaded from
-    #   lib/config/default_options.yml
+    #   config/options.yml
     #
     class Session
 
@@ -116,24 +119,22 @@ module OLE_QA
       #     (URL for OLE Installation)
       #   :docstore_url => 'http://tst.docstore.ole.kuali.org/'
       #     (URL for OLE DocStore Installation)
-      #   :headless => true/false
+      #   :headless? => true/false
       #     (Use Headless gem to handle XVFB session)
       #   :implicit_wait => NN
       #     (Set Selenium Webdriver's default wait period)
       #   :explicit_wait => NN
-      #     (Set the wait period used by custom wait functions)
+      #     (Set the wait period used by Watir Webdriver and custom functions)
       #   :doc_wait => NN
       #     (Set the wait period for eDoc routing to complete)
       #   :browser => watir_webdriver
       #     (Where browser is a Watir WebDriver session)
       #
       # To configure the default options, edit
-      #   lib/config/default_options.yml
+      #   config/options.yml
       #
       def initialize( options={} )
-        yaml_configuration = File.open(OLE_QA::Framework::load_dir + '/config/default_options.yml', 'r')
-        options_defaults = YAML.load(yaml_configuration)
-        yaml_configuration.close
+        options_defaults = YAML.load_file(OLE_QA::Framework::load_dir + '/../config/options.yml')
         @options = options_defaults.merge(options)
 
         # Start headless session if requested

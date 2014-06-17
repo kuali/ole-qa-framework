@@ -29,7 +29,7 @@ describe 'A Line Object' do
   end
 
   after :all do
-    @ole.quit
+    @ole.quit unless @ole.nil?
   end
 
   it 'should create a new instance of line object' do
