@@ -29,8 +29,6 @@ module OLE_QA::Framework
     # An array containing the elements (Symbol) to wait on before the page is considered loaded.
     attr_reader :wait_on
 
-    include OLE_QA::Framework::Page_Helpers
-
     # @param ole_session [Object] The OLE_QA::Framework::Session instance in which the page should load.
     # @param url [String] The URL (if any) used to open the page.  (Set to "" if unused.)
     # @param lookup_url [String] The URL (if any) by which a document represented by the page can be opened.
@@ -99,6 +97,31 @@ module OLE_QA::Framework
       false
     end
 
+    # Set a line object definition on a page object.
+    # - A line object created with this method becomes an accessor attribute
+    #   associated with an instance variable on the page or data object on
+    #   which it is created.
+    #
+    # @param name [Symbol] The name the new line object will have on the object.
+    #   (This will be an instance variable, so it cannot contain spaces.)
+    # @param klas [Class] The class to instantiate for the new line object.
+    #   (An error will be returned if the class given is not defined.)
+    # @param force [Boolean] If set to true, this method can be used to override an existing line object definition.
+    #
+    # @raise StandardError if a parameter is of an incorrect type.
+    # @raise StandardError if an instance method already exists for a line object with the same name.
+    #   (Suppress with force = true.)
+    #
+    def set_line(name, klas, force = false)
+      raise StandardError, "Name must be a symbol.  Given:  #{name}  (#{name.class})" unless name.instance_of?(Symbol)
+      raise StandardError, "Klas must be a class.  Given:  #{klas}  (#{klas.class})"  unless klas.instance_of?(Class)
+      raise StandardError, "Line object is already defined.  (Use the 'force = true' option to suppress this error.)" if @lines.include?(name) && ! force
+      instance_variable_set("@#{name}", klas.new(@ole, 1))
+      make_reader(name) unless force
+      @lines << name unless force
+    end
+    alias_method(:line, :set_line)
+
     # Set screen elements common to most or all pages across the OLE interface.
     def set_elements
       # These elements exist outside of any frame, so @browser is used to force
@@ -121,5 +144,6 @@ module OLE_QA::Framework
       # @return [Boolean] Whether the logout process succeeded.
       function(:logout)               { logout_button.click ; login_confirmation.present? ? false : true}
     end
+
   end
 end

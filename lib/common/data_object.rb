@@ -16,6 +16,5 @@ module OLE_QA::Framework
 
   # An object in OLE which contains screen elements but is not itself a screen element.
   class Data_Object < Common_Object
-    include OLE_QA::Framework::Data_Helpers
   end
 end

@@ -2,6 +2,11 @@
 
 * Update Framework module & Session class
     * Add session spec
+* Clean up modules
+    * Move page helpers to lib/common/page.rb
+    * Remove lib/module/qa_page_helpers.rb
+    * Remove redundant page helpers spec
+    * Remove lib/module/qa_data_helpers.rb
 * Update Copyright info
 
 
