@@ -1,7 +1,9 @@
-### v3.15.0 - 2014/06/13
+### v3.15.0 - 2014/06/17
 
 * Update Framework module & Session class
     * Add session spec
+* Update Copyright info
+
 
 ### v3.14.1 - 2014/05/19
 
