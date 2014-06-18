@@ -45,4 +45,20 @@ describe 'The Bib Record Factory' do
     specific_author = OLE_QA::Framework::Bib_Factory.author(4,8)
     specific_author.should        =~ /[A-Z][a-z]{3} [A-Z][a-z]{7}/
   end
+
+  it 'should return a circulation info hash' do
+    circ_info = OLE_QA::Framework::Bib_Factory.circulation_info
+    circ_info[:code].should         be_a(String)
+    circ_info[:locations].should    be_an(Array)
+  end
+
+  it 'should select a circulation info hash by desk code' do
+    circ_info = OLE_QA::Framework::Bib_Factory.circulation_info('BL_EDUC')
+    circ_info[:code].should         be_a(String)
+    circ_info[:locations].should    be_an(Array)
+  end
+
+  it 'should raise an error if asked for a desk code that does not exist' do
+    lambda {OLE_QA::Framework::Bib_Factory.circulation_info('Plugh')}.should raise_error(OLE_QA::Framework::Error,'No circulation desk found. Given: Plugh')
+  end
 end

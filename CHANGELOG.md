@@ -1,4 +1,4 @@
-### v3.15.0 - 2014/06/17
+### v3.15.0 - 2014/06/18
 
 * Update Framework module & Session class
     * Add session spec
@@ -17,7 +17,11 @@
 * Update Copyright info
 * Clean up specs
     * Add @ole.nil? check to specs using live sessions
-
+* Add circulation info selector to Bib Factory
+    * OLE_QA::Framework::Bib_Factory.circulation_info will return a hash containing
+      a circulation desk code, circulation desk name, and an array of locations which
+      are mapped to that circulation desk.
+    * Added examples to spec/data_factory/bib_factory_spec.rb
 
 ### v3.14.1 - 2014/05/19
 

@@ -13,7 +13,7 @@
 #  limitations under the License.
 
 module OLE_QA::Framework
-  # Manufacture strings for bibliographic record testing
+  # Manufacture strings for bibliographic, instance, and item record testing
   class Bib_Factory
     class << self
 
@@ -59,6 +59,16 @@ module OLE_QA::Framework
         else
           str << name_builder(last_len.to_i)
         end
+      end
+
+      # Return a hash containing circulation desk and location information.
+      # @note Pass a circulation desk code defined in data/circulation.yml to return
+      #   info on a specific circulation desk.
+      def circulation_info(desk_code = '')
+        circ_ary = YAML.load_file(OLE_QA::Framework.data_dir + '/circulation.yml')
+        hsh_out = desk_code.empty? ? circ_ary.sample : circ_ary.find {|circ| circ[:code] == desk_code}
+        raise OLE_QA::Framework::Error,"No circulation desk found.#{  ' Given: ' + desk_code unless desk_code.empty?}" if hsh_out.nil?
+        return hsh_out
       end
     end
   end
