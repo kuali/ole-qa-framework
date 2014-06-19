@@ -14,6 +14,10 @@
     * Remove lib/module/qa_page_helpers.rb
     * Remove redundant page helpers spec
     * Remove lib/module/qa_data_helpers.rb
+* Clean up Data Factories
+    * Change classes to modules
+    * Add country attribute to patron factory
+* Add country data file to data/
 * Update Copyright info
 * Clean up specs
     * Add @ole.nil? check to specs using live sessions
@@ -22,6 +26,7 @@
       a circulation desk code, circulation desk name, and an array of locations which
       are mapped to that circulation desk.
     * Added examples to spec/data_factory/bib_factory_spec.rb
+* Add institutional data configuration section to README.md
 
 ### v3.14.1 - 2014/05/19
 
