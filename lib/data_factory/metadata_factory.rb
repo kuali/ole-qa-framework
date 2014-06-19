@@ -15,7 +15,7 @@
 module OLE_QA::Framework
   # This class contains methods to generate assorted metadata for the OLE application.
   #   {OLE_QA::Framework::Bib_Factory} should be used for creating bibliographic metadata.
-  class Metadata_Factory
+  module Metadata_Factory
     class << self
       include OLE_QA::Framework::Factory_Helpers
       

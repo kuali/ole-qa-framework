@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework
   # Return usable patron records from source files in ole-qa-framework/data/patron.yml
-  class Patron_Factory
+  module Patron_Factory
 
 
     @patron_matrix    = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/patron.yml"))

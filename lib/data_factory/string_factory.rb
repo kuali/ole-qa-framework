@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework
   # Generate random alphabetic, numeric, or alphanumeric strings of a given length
-  class String_Factory
+  module String_Factory
     class << self
 
       include OLE_QA::Framework::Factory_Helpers

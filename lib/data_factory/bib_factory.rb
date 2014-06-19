@@ -14,7 +14,7 @@
 
 module OLE_QA::Framework
   # Manufacture strings for bibliographic, instance, and item record testing
-  class Bib_Factory
+  module Bib_Factory
     class << self
 
       include OLE_QA::Framework::Factory_Helpers

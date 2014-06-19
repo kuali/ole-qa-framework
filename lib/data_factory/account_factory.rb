@@ -15,7 +15,7 @@
 module OLE_QA::Framework
 
   # Generate usable accounting strings from source files in ole-qa-framework/data/
-  class Account_Factory
+  module Account_Factory
 
     account_file = File.open("#{OLE_QA::Framework.data_dir}/accounts.yml",'r')
     @account_matrix = YAML.load(account_file)
