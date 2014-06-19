@@ -17,10 +17,10 @@ module OLE_QA::Framework
   module Patron_Factory
 
 
-    @patron_matrix    = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/patron.yml"))
-    @states           = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
-    @borrower_types   = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/borrower_types.yml"))
-    @country          = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/country.yml"))
+    @patron_matrix    = YAML.load_file("#{OLE_QA::Framework.data_dir}/patron.yml")
+    @states           = YAML.load_file("#{OLE_QA::Framework.data_dir}/states.yml")
+    @borrower_types   = YAML.load_file("#{OLE_QA::Framework.data_dir}/borrower_types.yml")
+    @country          = YAML.load_file("#{OLE_QA::Framework.data_dir}/country.yml")
 
     class << self
 
