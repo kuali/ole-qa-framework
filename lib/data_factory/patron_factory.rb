@@ -20,6 +20,7 @@ module OLE_QA::Framework
     @patron_matrix    = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/patron.yml"))
     @states           = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/states.yml"))
     @borrower_types   = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/borrower_types.yml"))
+    @country          = YAML.load(File.read("#{OLE_QA::Framework.data_dir}/country.yml"))
 
     class << self
 
@@ -34,6 +35,9 @@ module OLE_QA::Framework
 
       # An array containing a collection of valid borrower types to use for patron records.
       attr_reader :borrower_types
+
+      # A string containing the country name as it appears in the OLE application.
+      attr_reader :country
 
       # Return a random patron record.
       def select_patron
@@ -50,6 +54,7 @@ module OLE_QA::Framework
         patron[:city]           = name_builder(sampler(4..12))
         patron[:state]          = @states.sample.upcase
         patron[:postal_code]    = num_str(5)
+        patron[:country]        = @country
         patron[:phone]          = num_str(3) + '-' + num_str(3) + '-' + num_str(4)
         patron[:email]          = patron[:first] + patron[:last] + '@' + str(sampler(4..8)) + '.' + str(3)
         patron

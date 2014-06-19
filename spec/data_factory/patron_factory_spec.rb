@@ -35,6 +35,10 @@ describe 'The Patron Factory' do
     OLE_QA::Framework::Patron_Factory.states.should be_an(Array)
   end
 
+  it 'should have a country string' do
+    OLE_QA::Framework::Patron_Factory.country.should be_a(String)
+  end
+
   it 'should return a new patron' do
     patron = OLE_QA::Framework::Patron_Factory.new_patron
     patron.should be_a(Hash)
@@ -48,5 +52,6 @@ describe 'The Patron Factory' do
     patron[:postal_code].should   =~ /[0-9]{5}/
     patron[:phone].should         =~ /[0-9]{3}\-[0-9]{3}\-[0-9]{4}/
     patron[:email].should         =~ /[A-Z,a-z]+\@[a-z]+\.[a-z]{3}/
+    patron[:country].should       =~ /[w\s]+/
   end
 end
