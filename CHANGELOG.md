@@ -1,3 +1,13 @@
+### v3.15.1
+
+* Update Batch Process Elements
+    * Add new scheduling elements
+    * Add new cron expression elements
+    * Add submit, close, clear, and cancel buttons
+    * Remove run and schedule buttons
+    * Reference run_now_option instead of run_button in wait_for_elements
+* Create Batch File List page in OLELS
+
 ### v3.15.0 - 2014/06/18
 
 * Update Framework module & Session class
