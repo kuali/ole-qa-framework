@@ -1,4 +1,8 @@
-### v3.15.1
+### v3.15.2 - 2014/06/25
+
+* Rescue all exceptions in page wait_for_elements
+
+### v3.15.1 - 2014/06/25
 
 * Update Batch Process Elements
     * Add new scheduling elements

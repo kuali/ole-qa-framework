@@ -93,7 +93,7 @@ module OLE_QA::Framework
       @wait_on.each { |element| wait_for_element(element) }
       loading_message.wait_while_present if loading_message.present?
       true
-    rescue Watir::Wait::TimeoutError
+    rescue
       false
     end
 
