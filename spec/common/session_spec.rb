@@ -19,23 +19,19 @@ describe 'An OLE QA Framework Session' do
 
   before :all do
     @ole          = OLE_QA::Framework::Session.new(:headless? => false)
-    @headless_ole = OLE_QA::Framework::Session.new(:headless? => true)
+    @browser      = Watir::Browser.new :firefox
+    @ole_alt      = OLE_QA::Framework::Session.new(:browser => @browser)
   end
 
   after :all do
     @ole.quit unless @ole.nil?
-    @headless_ole.quit unless @ole.nil?
+    @browser.quit unless @browser.nil?
+    @ole_alt.quit unless @ole_alt.nil?
   end
 
   context 'should start' do
     it 'normally' do
       expect(@ole).to be_an(OLE_QA::Framework::Session)
-      expect(@ole.options[:headless?]).to be_false
-    end
-
-    it 'headlessly' do
-      expect(@headless_ole).to be_an(OLE_QA::Framework::Session)
-      expect(@headless_ole.options[:headless?]).to be_true
     end
 
     it 'with a URL reader attribute' do
@@ -46,11 +42,8 @@ describe 'An OLE QA Framework Session' do
       expect(@ole.docstore_url).to be_a(String)
     end
 
-    it 'should accept a predefined Watir-Webdriver session' do
-      browser = Watir::Browser.new :firefox
-      ole = OLE_QA::Framework::Session.new(:browser => browser)
-      expect(ole.browser).to eq(browser)
-      browser.quit
+    it 'with a predefined Watir-Webdriver session' do
+      expect(@ole_alt.browser).to eq(@browser)
     end
   end
 

@@ -23,6 +23,44 @@ module OLE_QA::Framework
   #
   class Session
 
+    # Eigenclass setup to lock different instances to the same Headless session.
+    class << self
+      # Return the current Headless session.
+      attr_accessor :headless_session
+
+      # Is Headless started?
+      def is_headless?
+        @is_headless
+      end
+
+      # Start a new Headless session.
+      def start_headless
+        @headless_session ||= Headless.new
+        unless self.is_headless? then
+          @is_headless      = true
+          @headless_session.start
+        end
+      end
+
+      # Stop the headless session.
+      def stop_headless
+        if self.is_headless? then
+          @headless_session.stop
+          @is_headless = false
+        else
+          raise OLE_QA::Framework::Error,"Headless is not running."
+        end
+      end
+
+      # Quit the headless session entirely.
+      def quit_headless
+        @headless_session.destroy if self.is_headless?
+      end
+    end
+
+    @headless_session = nil
+    @is_headless      = false
+
     # OLE Installation Base URL
     #   (e.g. http://ole.your-site.edu/)
     attr_reader :url
@@ -65,10 +103,14 @@ module OLE_QA::Framework
       options_defaults = YAML.load_file(OLE_QA::Framework::load_dir + '/../config/options.yml')
       @options = options_defaults.merge(options)
 
-      # Start headless session if requested
-      if @options[:headless?]
-        @headless = Headless.new
-        @headless.start
+      # Set local variable if @options[:browser] is given a Watir::Browser session.
+      browser_given = @options.has_key?(:browser) && @options[:browser].is_a?(Watir::Browser)
+
+      # Use Headless if requested.
+      if @options[:headless?] && ! browser_given
+        self.class.start_headless
+      else
+        self.class.stop_headless if self.is_headless?
       end
 
       # Set trailing slash on URLs for consistency if not set.
@@ -87,7 +129,7 @@ module OLE_QA::Framework
       OLE_QA::Framework.instance_variable_set(:@doc_wait,@options[:doc_wait])
 
       # Browser Start
-      if @options.has_key?(:browser) && @options[:browser].class == Watir::Browser
+      if browser_given
         @browser = @options[:browser]
       else
         @browser = Watir::Browser.new :firefox
@@ -96,6 +138,16 @@ module OLE_QA::Framework
 
       # Set cutomizable default timeout on Watir-Webdriver (v0.6.5+).
       Watir.default_timeout = @explicit_wait
+    end
+
+    # Access the Headless session class-level instance variable.
+    def headless_session
+      self.class.headless_session
+    end
+
+    # Return whether Headless is running.
+    def is_headless?
+      self.class.is_headless?
     end
 
     # Access Watir-Webdriver's browser session.
@@ -113,13 +165,18 @@ module OLE_QA::Framework
       @browser.goto(url)
     end
 
+    # Exit the browser only, stop the Headless (XVFB) session, but don't destroy it entirely.
+    def close
+      @browser.quit
+    end
+
     # Teardown the OLE QA Framework.
     # - Exit the Selenium WebDriver browser session.
     # - Exit the Headless (XVFB) session if necessary.
     def quit
       @browser.quit
-      if @options[:headless?] then
-        @headless.destroy
+      if self.is_headless? then
+        self.class.quit_headless
       end
     end
   end

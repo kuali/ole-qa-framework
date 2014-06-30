@@ -1,3 +1,16 @@
+### v3.16.0 - 2014/06/30
+
+* Headless gem sessions now persist across OLE_QA::Framework::Session instances
+    * Starting a new session with (:headless? => false) will stop Headless,
+      but not destroy the Headless session.
+    * Calling #quit on an OLE_QA::Framework::Session instance
+      will destroy the Headless session.
+    * Starting a new session with a pre-existing Watir Browser instance
+      will not start a new session, and will stop Headless if it is running.
+* Session is now in its own classfile
+* Created Headless spec to handle headless testing
+    * Removed headless tests from Session spec
+
 ### v3.15.2 - 2014/06/25
 
 * Rescue all exceptions in page wait_for_elements
