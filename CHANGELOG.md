@@ -1,3 +1,11 @@
+### v3.17.0 - 2014/07/07
+
+* Selenium WebDriver Profiles
+    * The OLE QA Framework Session now accepts instantiated Selenium Firefox profiles
+      as an optional argument.
+* Fix to Batch_File_List
+    * link_by_filename now points to the URL, previously pointed to DIV
+
 ### v3.16.0 - 2014/06/30
 
 * Headless gem sessions now persist across OLE_QA::Framework::Session instances

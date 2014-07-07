@@ -52,4 +52,11 @@ describe 'An OLE QA Framework Session' do
       expect(@ole.options).to be_a(Hash)
     end
   end
+
+  it 'with a Selenium Firefox profile' do
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    ole     = OLE_QA::Framework::Session.new(:profile => profile)
+    ole.quit unless ole.nil?
+    expect(ole).to be_a(OLE_QA::Framework::Session)
+  end
 end

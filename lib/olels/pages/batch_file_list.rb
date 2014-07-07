@@ -36,7 +36,7 @@ module OLE_QA::Framework::OLELS
     def set_functions
       super
       # Return the link to a file by searching for the given string or regular expression in the filename.
-      function(:link_by_filename)                   {|which| b.div(:class => 'uif-linkField',:id => /fileList_line\d+/,:text => which)}
+      function(:link_by_filename)                   {|which| b.div(:class => 'uif-linkField',:id => /fileList_line\d+/,:text => which).a}
       # Return whether the link to a file with the given text or regular expression is present.
       function(:link_by_filename?)                  {|which| link_by_filename(which).present?}
       # Return how many total entries exist for this staging area directory.

@@ -95,6 +95,8 @@ module OLE_QA::Framework
     #     (Set the wait period for eDoc routing to complete)
     #   :browser => watir_webdriver
     #     (Where browser is a Watir WebDriver session)
+    #   :profile => profile
+    #     (Where profile is a Selenium::WebDriver::Firefox::Profile instance)
     #
     # To configure the default options, edit
     #   config/options.yml
@@ -132,7 +134,10 @@ module OLE_QA::Framework
       if browser_given
         @browser = @options[:browser]
       else
-        @browser = Watir::Browser.new :firefox
+        # Use a Firefox profile, if given.
+        @options.has_key?(:profile) ?
+            @browser = Watir::Browser.new(:firefox, :profile => @options[:profile]) :
+            @browser = Watir::Browser.new(:firefox)
         @browser.driver.manage.timeouts.implicit_wait = @options[:implicit_wait]
       end
 
