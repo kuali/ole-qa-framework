@@ -1,3 +1,7 @@
+### v3.17.1 - 2014/08/08
+
+* Updated patron address line elements.
+
 ### v3.17.0 - 2014/07/07
 
 * Selenium WebDriver Profiles

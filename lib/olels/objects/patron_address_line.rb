@@ -81,8 +81,8 @@ module OLE_QA::Framework::OLELS
                                                     id_str = "country_line#{line_id - 1}_control"
                                                     b.select_list(:id => id_str)}
       # Add/Delete
-      element(:add_button)                        {b.button(:id => 'OlePatronDocument-Address-Add_add')}
-      element(:delete_button)                     {b.button(:id => "OlePatronDocument-Address_del_line#{line_id - 1}")}
+      element(:add_button)                        {b.button(:id => 'OlePatronDocument-Address_add')}
+      element(:delete_button)                     {b.button(:id => "OlePatronDocument-Address_delete_line#{line_id - 1}")}
     end
   end
 end
