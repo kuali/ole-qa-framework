@@ -1,4 +1,4 @@
-###
+### v3.17.2 - 2014/09/23
 
 * Fixed batch import functionality.
 
