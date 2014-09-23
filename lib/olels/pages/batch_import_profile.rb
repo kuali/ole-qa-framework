@@ -113,6 +113,27 @@ module OLE_QA::Framework::OLELS
       element(:rename_new_subfield_field)               {b.text_field(:id => 'renameField_renamedSubField_add_control')}
       element(:rename_new_contains_field)               {b.text_field(:id => 'renameField_renamedSubFieldContains_add_control')}
       element(:add_rename_field_button)                 {b.button(:id => 'OLEBatchProcessProfileBo-MaintenanceView-renameFieldSection_add')}
+
+      # Matching, Add, and Overlay Section
+      element(:match_section_toggle)                    {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-matchingAddOverlaySection_toggle')}
+      element(:match_section_toggled?)                  {b.div(:id => 'OLEBatchProcessProfileBo-MaintenanceView-matchingAddOverlaySection_disclosureContent').present?}
+      # - Do not perform matching
+      element(:bib_no_match)                            {b.radio(:id => 'matchingAddOverlaySection-bibNotMatch_control_0')}
+      element(:bib_no_match_add)                        {b.radio(:id => 'matchingAddOverlaySection-bibNotMatch-addBibs_control_0')}
+      # - Perform matching
+      element(:bib_do_match)                            {b.radio(:id => 'matchingAddOverlaySection-bibMatch_control_0')}
+      # - - If bib does not match
+      element(:bib_discard_unmatchd)                    {b.radio(:id => 'matchingAddOverlaySection-bibNotMatched-discardBib_control_0')}
+      element(:bib_add_unmatched)                       {b.radio(:id => 'matchingAddOverlaySection-bibNotMatched-discardBib_control_1')}
+      # - - If bib does match
+      element(:bib_add_matched)                         {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardBib_control_0')}
+      element(:bib_process_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardBib_control_1')}
+      # - - - Process bib
+      element(:bib_discard_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_0')}
+      element(:bib_overlay_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_1')}
+
+      # - - - - Overlay Bib Status
+      # Process Holdings and Items
     end
 
     def wait_for_elements
