@@ -1,4 +1,4 @@
-### 2014/09/23
+### v.3.18.0 - 2014/09/23
 
 * Added Batch Order Profile page.
 
