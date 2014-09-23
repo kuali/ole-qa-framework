@@ -1,3 +1,7 @@
+### 2014/09/23
+
+* Added Batch Order Profile page.
+
 ### v3.17.2 - 2014/09/23
 
 * Fixed batch import functionality.
