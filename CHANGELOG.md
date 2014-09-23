@@ -1,3 +1,7 @@
+###
+
+* Fixed batch import functionality.
+
 ### v3.17.1 - 2014/08/08
 
 * Updated patron address line elements.
