@@ -132,8 +132,8 @@ module OLE_QA::Framework::OLELS
       element(:bib_discard_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_0')}
       element(:bib_overlay_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_1')}
       # - - - - Overlay Bib Status
-      element(:bib_status_selector)                     {b.select_list(:id => 'bibAddOverlaySectionBibStatus-batchProcessBibStatus_add_control')}
-      element(:bib_status_add_button)                   {b.button(:id => 'bibAddOverlaySection-bibStatus_add')}
+      element(:bib_overlay_status_selector)             {b.select_list(:id => 'bibAddOverlaySectionBibStatus-batchProcessBibStatus_add_control')}
+      element(:bib_overlay_status_add_button)           {b.button(:id => 'bibAddOverlaySection-bibStatus_add')}
       # Process Holdings
       element(:match_holdings_toggle)                   {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-holdingsAndItemProcessOverlaySection_toggle')}
       element(:match_holdings_toggled?)                 {b.div(:id => 'OLEBatchProcessProfileBo-MaintenanceView-holdingsAndItemProcessOverlaySection_disclosureContent').present?}
