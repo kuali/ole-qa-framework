@@ -131,9 +131,46 @@ module OLE_QA::Framework::OLELS
       # - - - Process bib
       element(:bib_discard_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_0')}
       element(:bib_overlay_matched)                     {b.radio(:id => 'matchingAddOverlaySection-bibMatched-discardOrUpdate_control_1')}
-
       # - - - - Overlay Bib Status
-      # Process Holdings and Items
+      element(:bib_status_selector)                     {b.select_list(:id => 'bibAddOverlaySectionBibStatus-batchProcessBibStatus_add_control')}
+      element(:bib_status_add_button)                   {b.button(:id => 'bibAddOverlaySection-bibStatus_add')}
+      # Process Holdings
+      element(:match_holdings_toggle)                   {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-holdingsAndItemProcessOverlaySection_toggle')}
+      element(:match_holdings_toggled?)                 {b.div(:id => 'OLEBatchProcessProfileBo-MaintenanceView-holdingsAndItemProcessOverlaySection_disclosureContent').present?}
+      # - Do not perform matching
+      element(:holdings_no_match)                       {b.radio(:id => 'matchingAddOverlaySection-notPerformHoldingMatched_control_0')}
+      element(:holdings_discard_all)                    {b.radio(:id => 'matchingAddOverlaySection-notPerformHoldingMatched-processHoldingAndItem_control_0')}
+      element(:holdings_drop_and_add)                   {b.radio(:id => 'matchingAddOverlaySection-notPerformHoldingMatched-processHoldingAndItem_control_1')}
+      element(:holdings_keep_all)                       {b.radio(:id => 'matchingAddOverlaySection-notPerformHoldingMatched-processHoldingAndItem_control_2')}
+      # - Perform matching
+      element(:holdings_do_match)                       {b.radio(:id => 'matchingAddOverlaySection-performHoldingMatched_control_0')}
+      # - - If incoming holdings do not match
+      element(:holdings_discard_unmatched)              {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched_control_0')}
+      element(:holdings_add_unmatched)                  {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-addHolding_control_0')}
+      element(:holdings_add_unmatched_items)            {b.checkbox(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-addItem_control')}
+      # - - If incoming holdings do match
+      element(:holdings_add_matched)                    {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-addItem_control')}
+      element(:holdings_add_matched_items)              {b.checkbox(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-addItsItem_control')}
+      element(:holdings_process_matched)                {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingMatched_control_0')}
+      # - - - Process holdings matches
+      element(:holdings_discard_matched)                {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingMatched-processHolding_control_0')}
+      element(:holdings_overlay_matched)                {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingMatched-processHolding_control_1')}
+      # Process Items
+      element(:match_item_toggle)                       {b.a(:id => 'OLEBatchProcessProfileBo-MaintenanceView-itemProcessOverlaySection_toggle')}
+      element(:match_item_toggled?)                     {b.div(:id => 'OLEBatchProcessProfileBo-MaintenanceView-itemProcessOverlaySection_disclosureContent').present?}
+      # - Do not perform matching
+      element(:item_no_match)                           {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-notMatchProcessItem_control_0')}
+      element(:item_discard_all)                        {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-discardDeleteKeepItem_control_0')}
+      element(:item_drop_extant)                        {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-discardDeleteKeepItem_control_1')}
+      element(:item_keep_all)                           {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingNotMatched-discardDeleteKeepItem_control_2')}
+      # - Perform matching
+      element(:item_do_match)                           {b.radio(:id => 'matchingAddOverlaySection-incomingHoldingMatched-matchProcessItem_control_0')}
+      # - - If incoming items do not match
+      element(:item_drop_unmatched)                     {b.radio(:id => 'matchingAddOverlaySection-incomingItemNotMatched-ProcessItem_control_0')}
+      element(:item_add_unmatched)                      {b.radio(:id => 'matchingAddOverlaySection-incomingItemNotMatched-ProcessItem_control_1')}
+      # - - If incoming items do match
+      element(:item_add_matched)                        {b.radio(:id => 'matchingAddOverlaySection-incomingItemMatched-ProcessItem_control_0')}
+      element(:item_overlay_matched)                    {b.radio(:id => 'matchingAddOverlaySection-incomingItemMatched-ProcessItem_control_1')}
     end
 
     def wait_for_elements
